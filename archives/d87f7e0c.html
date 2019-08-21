@@ -93,20 +93,20 @@
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
 <meta property="og:description" content="一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传,但是%0a、%0d,没想到竟然能上传了!!但是很遗憾">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://maikefee.com/archives/images/00.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/20190817-193037.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/000.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/0a.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/0d.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/20190817-195444.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/da.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/IMG7723.png">
-<meta property="og:image" content="http://maikefee.com/archives/images/20190815-200901.png">
-<meta property="og:updated_time" content="2019-08-21T03:15:35.362Z">
+<meta property="og:image" content="http://maikefee.com/images/00.png">
+<meta property="og:image" content="http://maikefee.com/images/20190817-193037.png">
+<meta property="og:image" content="http://maikefee.com/images/000.png">
+<meta property="og:image" content="http://maikefee.com/images/0a.png">
+<meta property="og:image" content="http://maikefee.com/images/0d.png">
+<meta property="og:image" content="http://maikefee.com/images/20190817-195444.png">
+<meta property="og:image" content="http://maikefee.com/images/da.png">
+<meta property="og:image" content="http://maikefee.com/images/IMG7723.png">
+<meta property="og:image" content="http://maikefee.com/images/20190815-200901.png">
+<meta property="og:updated_time" content="2019-08-21T03:23:05.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Part1:黑名单上传之00截断绕不过的情况下绕过(Win+Php5.4.45)">
 <meta name="twitter:description" content="一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传,但是%0a、%0d,没想到竟然能上传了!!但是很遗憾">
-<meta name="twitter:image" content="http://maikefee.com/archives/images/00.png">
+<meta name="twitter:image" content="http://maikefee.com/images/00.png">
 
 
 
@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T11:15:35+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T11:23:05+08:00">
                 2019-08-21
               </time>
             
@@ -392,30 +392,30 @@
       
         <p>一、前言</p>
 <pre><code>大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.</code></pre><p>前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文.</p>
-<p>随后随手测试了: %00截断不能上传,但是%0a、%0d,没想到竟然能上传了!!<br><img src="images/00.png" alt><br>但是很遗憾,它不解析;为了寻找原因开始搭建环境复现..</p>
+<p>随后随手测试了: %00截断不能上传,但是%0a、%0d,没想到竟然能上传了!!<br><img src="../images/00.png" alt><br>但是很遗憾,它不解析;为了寻找原因开始搭建环境复现..</p>
 <p>二、环境搭建</p>
 <p>   哒哒哒,环境搭好了,接下来开始测试啦</p>
-<p><img src="images/20190817-193037.png" alt><br>测试环境:<br>Win+phpstudy(PHP Version 5.4.45)+上传黑名单</p>
-<p><strong>1.测试%00截断(上传成功并解析)</strong><br><img src="images/000.png" alt></p>
+<p><img src="../images/20190817-193037.png" alt><br>测试环境:<br>Win+phpstudy(PHP Version 5.4.45)+上传黑名单</p>
+<p><strong>1.测试%00截断(上传成功并解析)</strong><br><img src="../images/000.png" alt></p>
 <p><strong>2.接下来是测试%0a截断(上传成功并解析)</strong></p>
-<p><img src="images/0a.png" alt></p>
+<p><img src="../images/0a.png" alt></p>
 <p><strong>3.接下来是测试%0d截断(上传失败并报错)</strong></p>
-<p><img src="images/0d.png" alt></p>
+<p><img src="../images/0d.png" alt></p>
 <p>三、Fuzzing</p>
 <p>根据这样的特性,写个脚本生成Payload(%00-%99)(a-z)进行fuzzing</p>
 <p>拿起来fuzzing就是一把梭</p>
 <p>经过梭哈后,发现这些空payload,基本都可以绕过黑名单(%00|%0a|%8b|%8c|%8d..)</p>
-<p><img src="images/20190817-195444.png" alt></p>
+<p><img src="../images/20190817-195444.png" alt></p>
 <p>当然,要是提到黑名单绕过的姿势还是挺多的:</p>
 <p><strong>1.根据win的特性,空格也是可以绕过的</strong></p>
-<p><strong>2.::$DATA数据流绕过,NTFS文件系统特性绕过</strong><br><img src="images/da.png" alt></p>
+<p><strong>2.::$DATA数据流绕过,NTFS文件系统特性绕过</strong><br><img src="../images/da.png" alt></p>
 <p><strong>3.php3、php5..</strong></p>
 <p><strong>4.点号(.)绕过,Win特性</strong></p>
 <p>…<br><strong>就不一一举例,本人项目环境是(Linux+nginx),绕过黑名单,但是不解析,在Win下测试,绕过后可解析(暂没深入)..</strong></p>
 <p>总结:遇到00截断不成功的情况下,测试了0a可以成功绕过(估计跟php版本有关,待考察)</p>
 <p>但是值得一提的是此文和网上提到<a href="https://www.freebuf.com/articles/web/179401.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/179401.html</a></p>
-<p><img src="images/IMG7723.png" alt></p>
-<p><img src="images/20190815-200901.png" alt></p>
+<p><img src="../images/IMG7723.png" alt></p>
+<p><img src="../images/20190815-200901.png" alt></p>
 <p>这里均提到版本问题,但本人测试环境Php5.4.45,可00截断并解析,这里暂时无从考证了,知道的大佬指点一下迷津!</p>
 
       
