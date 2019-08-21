@@ -3,6 +3,6 @@
   <entry>
     <title><![CDATA[test]]></title>
     <url>%2Farchives%2Fd87f7e0c.html</url>
-    <content type="text"><![CDATA[#test]]></content>
+    <content type="text"><![CDATA[Part1:黑名单上传绕过之深圳某项目引发思考(Win+Php5.4.45)一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传,但是%0a、%0d,没想到竟然能上传了!!]]></content>
   </entry>
 </search>
