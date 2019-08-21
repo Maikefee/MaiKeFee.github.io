@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://maikefee.com/archives/images/da.png">
 <meta property="og:image" content="http://maikefee.com/archives/images/IMG7723.png">
 <meta property="og:image" content="http://maikefee.com/archives/images/20190815-200901.png">
-<meta property="og:updated_time" content="2019-08-21T03:09:16.706Z">
+<meta property="og:updated_time" content="2019-08-21T03:10:01.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test">
 <meta name="twitter:description" content="Part1:黑名单上传绕过之00截断绕不过的情况下绕过(Win+Php5.4.45)一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随">
@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T11:09:16+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T11:10:01+08:00">
                 2019-08-21
               </time>
             
@@ -396,10 +396,10 @@
 <p>二、环境搭建</p>
 <p>   哒哒哒,环境搭好了,接下来开始测试啦</p>
 <p><img src="images/20190817-193037.png" alt><br>测试环境:<br>Win+phpstudy(PHP Version 5.4.45)+上传黑名单</p>
-<p>1.测试%00截断(上传成功并解析)<br><img src="images/000.png" alt></p>
-<p>2.接下来是测试%0a截断(上传成功并解析)</p>
+<p><strong>1.测试%00截断(上传成功并解析)</strong><br><img src="images/000.png" alt></p>
+<p><strong>2.接下来是测试%0a截断(上传成功并解析)</strong></p>
 <p><img src="images/0a.png" alt></p>
-<p>3.接下来是测试%0d截断(上传失败并报错)</p>
+<p><strong>3.接下来是测试%0d截断(上传失败并报错)</strong></p>
 <p><img src="images/0d.png" alt></p>
 <p>三、Fuzzing</p>
 <p>根据这样的特性,写个脚本生成Payload(%00-%99)(a-z)进行fuzzing</p>
