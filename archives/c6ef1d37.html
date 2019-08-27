@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/index.html">
+<meta name="description" content="https://blog.csdn.net/silence1_/article/details/96135760 http://pupiles.com/shellcode.html命令执行的一些绕过技巧① 空格过滤空格可以用以下字符串代替： &amp;lt; 、%09、$IFS$9、 ${IFS}等 $IFS在linux下表示分隔符，但是如果单纯的cat$IFS2,bash解释器会把整个IFS2当做变量名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧">
+<meta property="og:url" content="http://MaiKeFee.com/archives/c6ef1d37.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="https://blog.csdn.net/silence1_/article/details/96135760 http://pupiles.com/shellcode.html命令执行的一些绕过技巧① 空格过滤空格可以用以下字符串代替： &amp;lt; 、%09、$IFS$9、 ${IFS}等 $IFS在linux下表示分隔符，但是如果单纯的cat$IFS2,bash解释器会把整个IFS2当做变量名">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-27T14:37:27.018Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧">
+<meta name="twitter:description" content="https://blog.csdn.net/silence1_/article/details/96135760 http://pupiles.com/shellcode.html命令执行的一些绕过技巧① 空格过滤空格可以用以下字符串代替： &amp;lt; 、%09、$IFS$9、 ${IFS}等 $IFS在linux下表示分隔符，但是如果单纯的cat$IFS2,bash解释器会把整个IFS2当做变量名">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/c6ef1d37.html">
 
 
 
 
 
-  <title>MaiKeFee|一个兴趣使然的信息安全爱好者不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。 </title>
+  <title>关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,9 +296,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -328,9 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/c6ef1d37.html" itemprop="url">关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧</a></h1>
+          <h1 class="post-title" itemprop="name headline">关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧</h1>
         
 
         <div class="post-meta">
@@ -386,6 +384,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -435,21 +438,23 @@
       
 
       
-        
-          
-          https://blog.csdn.net/silence1_/article/details/96135760
-http://pupiles.com/shellcode.html命令执行的一些绕过技巧① 空格过滤空格可以用以下字符串代替：
-&lt; 、%09、$IFS$9、 ${IFS}等
-$IF
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/c6ef1d37.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <pre><code>https://blog.csdn.net/silence1_/article/details/96135760
+http://pupiles.com/shellcode.html</code></pre><p>命令执行的一些绕过技巧<br>① 空格过滤<br>空格可以用以下字符串代替：</p>
+<p><code>&lt; 、%09、$IFS$9、 ${IFS}</code>等</p>
+<p>$IFS在linux下表示分隔符，但是如果单纯的cat$IFS2,bash解释器会把整个IFS2当做变量名，所以导致输不出来结果，然而如果加一个{}就固定了变量名，同理在后面加个$可以起到截断的作用<br>，但是为什么要用$9呢，因为$9只是当前系统shell进程的第九个参数的持有者，它始终为空字符串。</p>
+<p>② 一些命令分隔符</p>
+<pre><code>%0a 符号、%0d 符号、; 符号、&amp; 符号、| 符号</code></pre><p>1、在 shell 中，担任”连续指令”功能的符号就是”;”<br>2、”&amp;” 放在启动参数后面表示设置此进程为后台进程，默认情况下，进程是前台进程，这时就把Shell给占据了，我们无法进行其他操作，对于那些没有交互的进程，很多时候，我们希望将其在后台启动，可以在启动参数的时候加一个’&amp;’实现这个目的。<br>3、管道符”|”左边命令的输出就会作为管道符右边命令的输入，所以左边的输出并不显示</p>
+<p>③ 黑名单绕过<br>1、拼接绕过</p>
+<pre><code>比如：a=l;b=s;$a$b
+
+上面的第二道题目也是利用偶读拼接方法绕过黑名单：a=fl;b=ag;cat $a$b</code></pre><p>2、base64解码绕过</p>
+<pre><code>比如：echo MTIzCg==|base64 -d 其将会打印123</code></pre><p>3、单引号和双引号绕过</p>
+<pre><code>比如：ca&apos;&apos;t flag 或ca&quot;&quot;t flag</code></pre><p>4、反斜杠绕过</p>
+<pre><code>比如：ca\t fl\ag</code></pre><p>④长度限制</p>
+<pre><code>长度限制可以用文件构造的方式来绕过。</code></pre><p>linux下可以用 1&gt;a创建文件名为a的空文件<br>ls -t&gt;test则会将目录按时间排序后写进test文件中<br>sh命令可以从一个文件中读取命令来执行</p>
+<p>利用这些特性，即可以成功绕过长度限制来执行命令。\</p>
+<pre><code>M 亲测有效</code></pre><p><a href="http://pupiles.com/shellcode.html" target="_blank" rel="noopener">浅谈CTF中命令执行与绕过的小技巧</a></p>
+
       
     </div>
     
@@ -466,194 +471,28 @@ $IF
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/d87f7e0c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/d87f7e0c.html" itemprop="url">Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T10:12:01+08:00">
-                2019-08-21
-              </time>
+              <a href="/archives/d87f7e0c.html" rel="next" title="Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)">
+                <i class="fa fa-chevron-left"></i> Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-21T12:37:42+08:00">
-                2019-08-21
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/archives/d87f7e0c.html" class="leancloud_visitors" data-flag-title="Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  517
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          一、前言
-大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/d87f7e0c.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -663,10 +502,11 @@ $IF
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -674,6 +514,13 @@ $IF
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -911,6 +758,10 @@ $IF
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
