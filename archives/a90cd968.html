@@ -86,16 +86,23 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2019/index.html">
+<meta name="description" content="0x00 简介在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不知道列名的情况下注入">
+<meta property="og:url" content="http://MaiKeFee.com/archives/a90cd968.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="0x00 简介在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/2132389807.jpg">
+<meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/2855002741.jpg">
+<meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/570395687.jpg">
+<meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/1301028054.jpg">
+<meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/1471871137.jpg">
+<meta property="og:updated_time" content="2019-08-27T15:13:50.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="不知道列名的情况下注入">
+<meta name="twitter:description" content="0x00 简介在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS">
+<meta name="twitter:image" content="https://www.cloudtor.com/usr/uploads/2019/07/2132389807.jpg">
 
 
 
@@ -125,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2019/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/a90cd968.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>不知道列名的情况下注入 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,391 +303,214 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/a90cd968.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">不知道列名的情况下注入</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:13:43+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:13:50+08:00">
+                2019-08-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/archives/a90cd968.html" class="leancloud_visitors" data-flag-title="不知道列名的情况下注入">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2ea7b633.html" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">「disablefunc绕过」一种绕过php disablefunc的方法复现</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  276
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:27+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/c0cf419.html" itemprop="url">
-              
-                <span itemprop="name">SSRF中的绕过姿势</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:09+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/21b719d6.html" itemprop="url">
-              
-                <span itemprop="name">渗透过程中的SSH(后门建立)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:07+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <p>0x00 简介<br>在 mysql =&gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？</p>
+<pre><code>在information_schema中，除了SCHEMATA，TABLES，COLUMNS有表信息外，高版本的mysql中，还有INNODB_TABLES及INNODB_COLUMNS中记录着表结构。</code></pre><p>0x01 不使用表名查询<br>正常的查询如下：<br><img src="https://www.cloudtor.com/usr/uploads/2019/07/2132389807.jpg" alt="1.jpg"></p>
+<p>其中，列名为id,name,pass,mail,phone，使用union查询</p>
+<pre><code>select 1,2,3,4,5 union select * from users;</code></pre><p><img src="https://www.cloudtor.com/usr/uploads/2019/07/2855002741.jpg" alt="2.jpg"></p>
+<p>接着，就可以继续使用数字来对应列,如3对应了表里面的pass:</p>
+<pre><code>select `3` from (select 1,2,3,4,5 union select * from users)a;</code></pre><p><img src="https://www.cloudtor.com/usr/uploads/2019/07/570395687.jpg" alt="3.jpg"></p>
+<p>当 ` 不能使用的时候，使用别名来代替：</p>
+<pre><code>select b from (select 1,2,3 as b,4,5 union select * from users)a;</code></pre><p><img src="https://www.cloudtor.com/usr/uploads/2019/07/1301028054.jpg" alt="4.jpg"></p>
+<p>在注入中查询多个列：</p>
+<pre><code>select concat(`2`,0x3a,`3`) from (select 1,2,3,4,5 union select * from users)a limit 1,1;</code></pre><p><img src="https://www.cloudtor.com/usr/uploads/2019/07/1471871137.jpg" alt="5.jpg"></p>
+<pre><code>FROM:https://blog.redforce.io/sqli-extracting-data-without-knowing-columns-names/</code></pre>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/bd98337b.html" itemprop="url">
-              
-                <span itemprop="name">域渗透中找DC</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:12:25+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/ed9d09ca.html" itemprop="url">
-              
-                <span itemprop="name">使用Invoke-Mimikatz.ps1批量获取windows密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:58+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/54ea983c.html" itemprop="url">
-              
-                <span itemprop="name">「木马变形」一句话木马的各种变形</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/7eaedcae.html" itemprop="url">
-              
-                <span itemprop="name">Commands 搜集(持续更新)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:48+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/df6dc829.html" itemprop="url">
-              
-                <span itemprop="name">「应急响应」应急响应实战笔记,一个安全工程师的自我修养</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:02+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2db90a41.html" itemprop="url">
-              
-                <span itemprop="name">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:09:37+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/21b719d6.html" rel="next" title="渗透过程中的SSH(后门建立)">
+                <i class="fa fa-chevron-left"></i> 渗透过程中的SSH(后门建立)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/c0cf419.html" rel="prev" title="SSRF中的绕过姿势">
+                SSRF中的绕过姿势 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -688,6 +518,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -934,6 +771,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

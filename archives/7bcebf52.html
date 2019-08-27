@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2019/index.html">
+<meta name="description" content="常见的关系型数据库有mysql、SQL Server、Oracle、Sybase、DB2等。sql语句标准语句写法相同，但由于不同数据库都有自己专用函数，因此过滤的规则可能也有所不同。因常见数据库都为mysql，因此以下以mysql数据库标准语句举例： 关键字：    and,or,select,update,delete,create,union,insert,net,truncate,exec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知己知彼，WAF是如何被绕过的？SQL注入常见手法解密。">
+<meta property="og:url" content="http://MaiKeFee.com/archives/7bcebf52.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta property="og:description" content="常见的关系型数据库有mysql、SQL Server、Oracle、Sybase、DB2等。sql语句标准语句写法相同，但由于不同数据库都有自己专用函数，因此过滤的规则可能也有所不同。因常见数据库都为mysql，因此以下以mysql数据库标准语句举例： 关键字：    and,or,select,update,delete,create,union,insert,net,truncate,exec">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-27T15:01:55.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta name="twitter:description" content="不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。">
+<meta name="twitter:title" content="知己知彼，WAF是如何被绕过的？SQL注入常见手法解密。">
+<meta name="twitter:description" content="常见的关系型数据库有mysql、SQL Server、Oracle、Sybase、DB2等。sql语句标准语句写法相同，但由于不同数据库都有自己专用函数，因此过滤的规则可能也有所不同。因常见数据库都为mysql，因此以下以mysql数据库标准语句举例： 关键字：    and,or,select,update,delete,create,union,insert,net,truncate,exec">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2019/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/7bcebf52.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>知己知彼，WAF是如何被绕过的？SQL注入常见手法解密。 | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,391 +297,226 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/7bcebf52.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">知己知彼，WAF是如何被绕过的？SQL注入常见手法解密。</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:01:48+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:01:55+08:00">
+                2019-08-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/archives/7bcebf52.html" class="leancloud_visitors" data-flag-title="知己知彼，WAF是如何被绕过的？SQL注入常见手法解密。">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2ea7b633.html" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">「disablefunc绕过」一种绕过php disablefunc的方法复现</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  732
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:27+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/c0cf419.html" itemprop="url">
-              
-                <span itemprop="name">SSRF中的绕过姿势</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:14:09+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>常见的关系型数据库有mysql、SQL Server、Oracle、Sybase、DB2等。<br>sql语句标准语句写法相同，但由于不同数据库都有自己专用函数，因此过滤的规则可能也有所不同。因常见数据库都为mysql，因此以下以mysql数据库标准语句举例：</p>
+<p>关键字：<br>    and,or,select,update,delete,create,union,insert,net,truncate,exec,drop,declare,count,chr,mid,master,char,Sp_sqlexec,order by,where,limit等</p>
+<p>关键字符：</p>
+<pre><code>&quot; &apos; &quot;(单引号)、&quot; &lt; &quot;（小于号）、&quot; &gt; &quot;(大于号)、&quot; ; &quot;(冒号)、&quot; ( &quot;(括号)、&quot; ) &quot;（括号）、&quot; * &quot;(星号)、&quot; % &quot;(百分号)、&quot; &quot;（空格）、&quot; -- &quot;(sql中的注释符)、&quot;#&quot;等</code></pre><p>sql绕过方法大全：<br>1、大小写绕过</p>
+<pre><code>例如And、anD</code></pre><p>2、编码绕过</p>
+<pre><code>例如%55nIon(union)、%53elect(select)【url编码绕过、十六进制编码绕过、unicode编码绕过】</code></pre><p>3、特殊字符转换</p>
+<pre><code>例如and可替换为&amp;&amp;、or可替换为||、空格过滤转换为%0a,+,或者/**/,%20,%09,%0b,%0c,%0d,%a0、“=”转换为like,greatest,between</code></pre><p>4、注释绕过</p>
+<pre><code>例如un/**/ion、se/**/lect （常用注释符：//,-- ,/**/, #,--+,-- -,;--a ），内联注释绕过、/*!UNION*/</code></pre><p>5、等价函数与命令<br>有些函数或命令因其关键字被检测出来而无法使用但是在很多情况下可以使用与之等价或类似的代码替代其使用</p>
+<pre><code>例如：hex()、bin() ==&gt; ascii()
+sleep() ==&gt;benchmark()
+concat_ws()==&gt;group_concat()
+mid()、substr() ==&gt; substring()
+@@user ==&gt; user()
+@@datadir ==&gt; datadir()</code></pre><p>6、使用一些特殊字符</p>
+<pre><code>也可对其进行绕过，例如：`、~、!、@、()、[]、.、-、+ 、|、%00，举例关键字拆分：&apos;se&apos;+&apos;lec&apos;+&apos;t&apos;、(SeL)(EcT)等</code></pre><p>7、http参数控制<br>HPP(HTTP Parameter Polution)又称做重复参数污染最简单的就是?uid=1&amp;uid=2&amp;uid=3对于这种情况不同的Web服务器处理方式不一样</p>
+<pre><code>举例：/?id=1/**/union/*&amp;id=*/select/*&amp;id=*/pwd/*&amp;id=*/from/*&amp;id=*/users</code></pre><p>8、缓冲区溢出</p>
+<pre><code>举例?id=1 and (select 1)=(Select 0xA*1000)+UnIoN+SeLeCT+1,2,version(),4,5,database(),user(),8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
+示例0xA*1000指0xA后面”A&quot;重复1000次一般来说对应用软件构成缓冲区溢出都需要较大的测试长度这里1000只做参考也许在有些情况下可能不需要这么长也能溢出</code></pre><p>9、整合绕过<br>整合的意思是结合使用前面谈到的各种绕过技术单一的技术可能无法绕过过滤机制但是多种技术的配合使用成功的可能性就会增加不少了</p>
+<pre><code>举例：
+id=1/*!UnIoN*/+SeLeCT+1,2,concat(/*!table_name*/)+FrOM /*information_schema*/.tables /*!WHERE */+/*!TaBlE_ScHeMa*/+like+database()– -
+即：
+注释+大小写+特殊字符绕过</code></pre><p>复杂的SQL注入常见手大体如此，WAF是如何被绕过的？这样就清楚了。那么我们在开发中，如何防止SQL注入，如何防止waf防绕过，心中也就有些眉目，就知道该如何应对了。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/21b719d6.html" itemprop="url">
-              
-                <span itemprop="name">渗透过程中的SSH(后门建立)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:07+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/bd98337b.html" itemprop="url">
-              
-                <span itemprop="name">域渗透中找DC</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:12:25+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/ed9d09ca.html" itemprop="url">
-              
-                <span itemprop="name">使用Invoke-Mimikatz.ps1批量获取windows密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:58+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/54ea983c.html" itemprop="url">
-              
-                <span itemprop="name">「木马变形」一句话木马的各种变形</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/7eaedcae.html" itemprop="url">
-              
-                <span itemprop="name">Commands 搜集(持续更新)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:48+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/df6dc829.html" itemprop="url">
-              
-                <span itemprop="name">「应急响应」应急响应实战笔记,一个安全工程师的自我修养</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:10:02+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2db90a41.html" itemprop="url">
-              
-                <span itemprop="name">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:09:37+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/368c71e.html" rel="next" title="钓鱼邮件初探：黑客是如何进行邮件伪造的？">
+                <i class="fa fa-chevron-left"></i> 钓鱼邮件初探：黑客是如何进行邮件伪造的？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/8946a683.html" rel="prev" title="LFI SSH日志">
+                LFI SSH日志 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -688,6 +524,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -934,6 +777,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
