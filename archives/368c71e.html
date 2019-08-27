@@ -86,27 +86,20 @@
 
 
 
-<meta name="description" content="一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传(实战环境+Linux+nginx+php(未知版本)">
+<meta name="description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)">
-<meta property="og:url" content="http://MaiKeFee.com/archives/d87f7e0c.html">
+<meta property="og:title" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？">
+<meta property="og:url" content="http://MaiKeFee.com/archives/368c71e.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传(实战环境+Linux+nginx+php(未知版本)">
+<meta property="og:description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://maikefee.com/images/00.png">
-<meta property="og:image" content="http://maikefee.com/images/20190817-193037.png">
-<meta property="og:image" content="http://maikefee.com/images/000.png">
-<meta property="og:image" content="http://maikefee.com/images/0a.png">
-<meta property="og:image" content="http://maikefee.com/images/0d.png">
-<meta property="og:image" content="http://maikefee.com/images/20190817-195444.png">
-<meta property="og:image" content="http://maikefee.com/images/da.png">
-<meta property="og:image" content="http://maikefee.com/images/IMG7723.png">
-<meta property="og:image" content="http://maikefee.com/images/20190815-200901.png">
-<meta property="og:updated_time" content="2019-08-27T14:53:46.932Z">
+<meta property="og:image" content="https://image.3001.net/images/20160106/14520619619752.png!small">
+<meta property="og:image" content="https://image.3001.net/images/20160106/14520626135791.png!small">
+<meta property="og:updated_time" content="2019-08-27T14:58:55.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)">
-<meta name="twitter:description" content="一、前言 大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传(实战环境+Linux+nginx+php(未知版本)">
-<meta name="twitter:image" content="http://maikefee.com/images/00.png">
+<meta name="twitter:title" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？">
+<meta name="twitter:description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
+<meta name="twitter:image" content="https://image.3001.net/images/20160106/14520619619752.png!small">
 
 
 
@@ -136,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/d87f7e0c.html">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/368c71e.html">
 
 
 
 
 
-  <title>Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45) | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
+  <title>钓鱼邮件初探：黑客是如何进行邮件伪造的？ | MaiKeFee|一个兴趣使然的信息安全爱好者</title>
   
 
 
@@ -321,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/d87f7e0c.html">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/368c71e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaiKeFee">
@@ -338,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)</h1>
+          <h1 class="post-title" itemprop="name headline">钓鱼邮件初探：黑客是如何进行邮件伪造的？</h1>
         
 
         <div class="post-meta">
@@ -350,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-21T10:12:01+08:00">
-                2019-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T22:58:44+08:00">
+                2019-08-27
               </time>
             
 
@@ -366,35 +359,13 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T22:53:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T22:58:55+08:00">
                 2019-08-27
               </time>
             
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -402,7 +373,7 @@
 
           
           
-             <span id="/archives/d87f7e0c.html" class="leancloud_visitors" data-flag-title="Part1:黑名单上传之00截断失败的情况下绕过(Win+Php5.4.45)">
+             <span id="/archives/368c71e.html" class="leancloud_visitors" data-flag-title="钓鱼邮件初探：黑客是如何进行邮件伪造的？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  517
+                  696
                 </span>
               
 
@@ -449,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -470,33 +441,57 @@
       
 
       
-        <p>一、前言</p>
-<pre><code>大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.</code></pre><p>前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文.</p>
-<p>随后随手测试了: %00截断不能上传(实战环境+Linux+nginx+php(未知版本)),但是%0a、%0d,没想到竟然能上传了!!<br><img src="../images/00.png" alt><br>但是很遗憾,它不解析;为了寻找原因开始搭建环境复现..</p>
-<p>二、环境搭建</p>
-<p>   哒哒哒,环境搭好了,接下来开始测试啦</p>
-<p><img src="../images/20190817-193037.png" alt><br>测试环境:<br>Win+phpstudy(PHP Version 5.4.45)+上传黑名单</p>
-<p><strong>1.测试%00截断(上传成功并解析)</strong><br><img src="../images/000.png" alt></p>
-<p><strong>2.接下来是测试%0a截断(上传成功并解析)</strong></p>
-<p><img src="../images/0a.png" alt></p>
-<p><strong>3.接下来是测试%0d截断(上传失败并报错)</strong></p>
-<p><img src="../images/0d.png" alt></p>
-<p>三、Fuzzing</p>
-<p>根据这样的特性,写个脚本生成Payload(%00-%99)(a-z)进行fuzzing</p>
-<p>拿起来fuzzing就是一把梭</p>
-<p>经过梭哈后,发现这些空payload,基本都可以绕过黑名单(%00|%0a|%8b|%8c|%8d..)</p>
-<p><img src="../images/20190817-195444.png" alt></p>
-<p>当然,要是提到黑名单绕过的姿势还是挺多的:</p>
-<p><strong>1.根据win的特性,空格也是可以绕过的</strong></p>
-<p><strong>2.::$DATA数据流绕过,NTFS文件系统特性绕过</strong><br><img src="../images/da.png" alt></p>
-<p><strong>3.php3、php5..</strong></p>
-<p><strong>4.点号(.)绕过,Win特性</strong></p>
-<p>…<br><strong>就不一一举例,本人项目环境是(Linux+nginx),绕过黑名单,但是不解析,在Win下测试,绕过后可解析(暂没深入)..</strong></p>
-<p>总结:遇到00截断不成功的情况下,测试了0a可以成功绕过(估计跟php版本有关,待考察)</p>
-<p>但是值得一提的是此文和网上提到<a href="https://www.freebuf.com/articles/web/179401.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/179401.html</a></p>
-<p><img src="../images/IMG7723.png" alt></p>
-<p><img src="../images/20190815-200901.png" alt></p>
-<p>这里均提到版本问题,但本人测试环境Php5.4.45,可00截断并解析,这里暂时无从考证了,知道的大佬指点一下迷津!</p>
+        <p><a href="https://www.freebuf.com/sectool/92397.html" target="_blank" rel="noopener">钓鱼邮件初探：黑客是如何进行邮件伪造的？</a></p>
+<p>现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。</p>
+<p>下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都不相同。gmail在这方面就做的不错。</p>
+<p>Swaks - SMTP界的瑞士军刀<br>基本用法：</p>
+<p>swaks –to &lt;要测试的邮箱&gt;         用来测试邮箱的连通性</p>
+<pre><code>root@kali:~# swaks --to xxxx@qq.com
+=== Trying mx3.qq.com:25...
+=== Connected to mx3.qq.com.
+&lt;-  220 newmx59.qq.com MX QQ Mail Server
+ -&gt; EHLO kali
+&lt;-  250-newmx59.qq.com
+&lt;-  250-SIZE 73400320
+&lt;-  250-STARTTLS
+&lt;-  250 OK
+ -&gt; MAIL FROM:&lt;root@kali&gt;
+&lt;-  250 Ok
+ -&gt; RCPT TO:&lt;xxxx@qq.com&gt;
+&lt;-  250 Ok
+ -&gt; DATA
+&lt;-  354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+ -&gt; Date: Tue, 05 Jan 2016 23:15:11 -0500
+ -&gt; To: xxxx@qq.com
+ -&gt; From: root@kali
+ -&gt; Subject: test Tue, 05 Jan 2016 23:15:11 -0500
+ -&gt; X-Mailer: swaks v20130209.0 jetmore.org/john/code/swaks/
+ -&gt; 
+ -&gt; This is a test mailing
+ -&gt; 
+ -&gt; .
+&lt;** 550 Mail content denied. http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=20022&amp;&amp;no=1000726
+ -&gt; QUIT
+&lt;-  221 Bye
+=== Connection closed with remote host.</code></pre><p>前面都返回250ok，说明该邮箱存在，并且可以正常收信。最后可以看到qq邮箱返回550错误，qq官方给出的出错原因：该邮件内容涉嫌大量群发，并且被多数用户投诉为垃圾邮件。</p>
+<p>我们可以继续对邮件进行伪造，来绕过qq邮箱的判断</p>
+<p>比如：</p>
+<pre><code>swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;</code></pre><p>其中：</p>
+<pre><code>–from &lt;要显示的发件人邮箱&gt;
+
+–ehlo &lt;伪造的邮件ehlo头&gt;
+
+–body &lt;邮件正文&gt;
+
+–header &lt;邮件头信息，subject为邮件标题&gt;</code></pre><p>在你ip没有被qq邮箱band的情况下，邮件可以正常发送，返回250 ok。<br><img src="https://image.3001.net/images/20160106/14520619619752.png!small" alt="请输入图片描述"></p>
+<p>高级用法：</p>
+<p>使用swaks其实还可以进行更高级的邮件伪造，几乎可以伪造邮件中的每一个参数。</p>
+<p>–data &lt;源邮件&gt;</p>
+<p>首先，我们需要一份正常的邮件<br><img src="https://image.3001.net/images/20160106/14520626135791.png!small" alt="请输入图片描述"></p>
+<p>M亲测可用的伪造邮箱方法</p>
+<p>swaks –to <a href="mailto:xxxx@qq.com" target="_blank" rel="noopener">xxxx@qq.com</a> –from <a href="mailto:info@freebuf.com" target="_blank" rel="noopener">info@freebuf.com</a> –ehlo freebuf.com –body hello –header “Subject: hello”</p>
+<p>swaks –to <a href="mailto:xxxx@qq.com" target="_blank" rel="noopener">xxxx@qq.com</a> –from <a href="mailto:info@freebuf.com" target="_blank" rel="noopener">info@freebuf.com</a> –ehlo freebuf.com –body hello –header “Subject: hello”</p>
+<p>swaks –to <a href="mailto:xxxx@qq.com" target="_blank" rel="noopener">xxxx@qq.com</a> –from <a href="mailto:info@freebuf.com" target="_blank" rel="noopener">info@freebuf.com</a> –ehlo freebuf.com –body hello –header “Subject: hello”</p>
 
       
     </div>
@@ -521,15 +516,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/archives/f1b53e95.html" rel="next" title="Thinkphp-漏洞列表">
+                <i class="fa fa-chevron-left"></i> Thinkphp-漏洞列表
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/c6ef1d37.html" rel="prev" title="关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧">
-                关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

