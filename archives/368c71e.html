@@ -95,7 +95,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://image.3001.net/images/20160106/14520619619752.png!small">
 <meta property="og:image" content="https://image.3001.net/images/20160106/14520626135791.png!small">
-<meta property="og:updated_time" content="2019-08-27T14:59:02.119Z">
+<meta property="og:updated_time" content="2019-08-28T08:52:01.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？">
 <meta name="twitter:description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T22:59:02+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:52:01+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  696
+                  702
                 </span>
               
 
@@ -445,7 +445,7 @@
         <p><a href="https://www.freebuf.com/sectool/92397.html" target="_blank" rel="noopener">钓鱼邮件初探：黑客是如何进行邮件伪造的？</a></p>
 <p>现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。</p>
 <p>下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都不相同。gmail在这方面就做的不错。</p>
-<p>Swaks - SMTP界的瑞士军刀<br>基本用法：</p>
+<h1 id="Swaks-SMTP界的瑞士军刀"><a href="#Swaks-SMTP界的瑞士军刀" class="headerlink" title="Swaks - SMTP界的瑞士军刀"></a>Swaks - SMTP界的瑞士军刀</h1><p>基本用法：</p>
 <p>swaks –to &lt;要测试的邮箱&gt;         用来测试邮箱的连通性</p>
 <pre><code>root@kali:~# swaks --to xxxx@qq.com
 === Trying mx3.qq.com:25...
@@ -485,15 +485,15 @@
 –body &lt;邮件正文&gt;
 
 –header &lt;邮件头信息，subject为邮件标题&gt;</code></pre><p>在你ip没有被qq邮箱band的情况下，邮件可以正常发送，返回250 ok。<br><img src="https://image.3001.net/images/20160106/14520619619752.png!small" alt="请输入图片描述"></p>
-<p>高级用法：</p>
-<p>使用swaks其实还可以进行更高级的邮件伪造，几乎可以伪造邮件中的每一个参数。</p>
+<h3 id="高级用法："><a href="#高级用法：" class="headerlink" title="高级用法："></a>高级用法：</h3><p>使用swaks其实还可以进行更高级的邮件伪造，几乎可以伪造邮件中的每一个参数。</p>
 <p>–data &lt;源邮件&gt;</p>
 <p>首先，我们需要一份正常的邮件<br><img src="https://image.3001.net/images/20160106/14520626135791.png!small" alt="请输入图片描述"></p>
 <p>M亲测可用的伪造邮箱方法</p>
-<p>swaks –to <a href="mailto:xxxx@qq.com" target="_blank" rel="noopener">xxxx@qq.com</a> –from <a href="mailto:info@freebuf.com" target="_blank" rel="noopener">info@freebuf.com</a> –ehlo freebuf.com –body hello –header “Subject: hello”</p>
-<p>swaks –to <a href="mailto:xxxx@qq.com" target="_blank" rel="noopener">xxxx@qq.com</a> –from <a href="mailto:info@freebuf.com" target="_blank" rel="noopener">info@freebuf.com</a> –ehlo freebuf.com –body hello –header “Subject: hello”</p>
-<p>swaks –to <a href="mailto:xxxx@qq.com" target="_blank" rel="noopener">xxxx@qq.com</a> –from <a href="mailto:info@freebuf.com" target="_blank" rel="noopener">info@freebuf.com</a> –ehlo freebuf.com –body hello –header “Subject: hello”</p>
+<pre><code>swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;
 
+swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;
+
+swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;</code></pre>
       
     </div>
     
@@ -584,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -654,6 +663,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Swaks-SMTP界的瑞士军刀"><span class="nav-number">1.</span> <span class="nav-text">Swaks - SMTP界的瑞士军刀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级用法："><span class="nav-number">1.0.1.</span> <span class="nav-text">高级用法：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

