@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
 <meta property="og:description" content="#前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-28T08:22:22.832Z">
+<meta property="og:updated_time" content="2019-08-28T08:36:48.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「disablefunc绕过」一种绕过php disablefunc的方法复现">
 <meta name="twitter:description" content="#前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:22:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:36:48+08:00">
                 2019-08-28
               </time>
             
@@ -484,7 +484,7 @@ __attribute__ ((__constructor__)) void preloadme (void)
     mail(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);
     echo &quot;&lt;p&gt; &lt;b&gt;output&lt;/b&gt;: &lt;br /&gt;&quot; . nl2br(file_get_contents($out_path)) . &quot;&lt;/p&gt;&quot;; 
     unlink($out_path);
-?&gt;</code></pre><p>#####<strong>然后访问</strong></p>
+?&gt;</code></pre><p>#####然后访问</p>
 <p><a href="http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so" target="_blank" rel="noopener">http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so</a><br>参考链接<br><a href="https://www.freebuf.com/articles/web/192052.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/192052.html</a></p>
 <p><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a><br>来源:<a href="https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ</a></p>
 
