@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="0x00 简介在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS">
+<meta name="description" content="0x00 简介mysql版本,低于5.4的除了堆叠,别的就写不了了在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="不知道列名的情况下注入">
 <meta property="og:url" content="http://MaiKeFee.com/archives/a90cd968.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="0x00 简介在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS">
+<meta property="og:description" content="0x00 简介mysql版本,低于5.4的除了堆叠,别的就写不了了在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/2132389807.jpg">
 <meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/2855002741.jpg">
 <meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/570395687.jpg">
 <meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/1301028054.jpg">
 <meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/1471871137.jpg">
-<meta property="og:updated_time" content="2019-08-27T15:14:42.264Z">
+<meta property="og:updated_time" content="2019-08-28T06:22:31.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不知道列名的情况下注入">
-<meta name="twitter:description" content="0x00 简介在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS">
+<meta name="twitter:description" content="0x00 简介mysql版本,低于5.4的除了堆叠,别的就写不了了在 mysql =&amp;gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中">
 <meta name="twitter:image" content="https://www.cloudtor.com/usr/uploads/2019/07/2132389807.jpg">
 
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:14:42+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T14:22:31+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  276
+                  295
                 </span>
               
 
@@ -444,7 +444,7 @@
       
 
       
-        <p>0x00 简介<br>在 mysql =&gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？</p>
+        <p>0x00 简介<br>mysql版本,低于5.4的除了堆叠,别的就写不了了<br>在 mysql =&gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？</p>
 <pre><code>在information_schema中，除了SCHEMATA，TABLES，COLUMNS有表信息外，高版本的mysql中，还有INNODB_TABLES及INNODB_COLUMNS中记录着表结构。</code></pre><p>0x01 不使用表名查询<br>正常的查询如下：<br><img src="https://www.cloudtor.com/usr/uploads/2019/07/2132389807.jpg" alt="1.jpg"></p>
 <p>其中，列名为id,name,pass,mail,phone，使用union查询</p>
 <pre><code>select 1,2,3,4,5 union select * from users;</code></pre><p><img src="https://www.cloudtor.com/usr/uploads/2019/07/2855002741.jpg" alt="2.jpg"></p>

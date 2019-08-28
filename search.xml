@@ -13,7 +13,7 @@
   <entry>
     <title><![CDATA[不知道列名的情况下注入]]></title>
     <url>%2Farchives%2Fa90cd968.html</url>
-    <content type="text"><![CDATA[0x00 简介在 mysql =&gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS有表信息外，高版本的mysql中，还有INNODB_TABLES及INNODB_COLUMNS中记录着表结构。0x01 不使用表名查询正常的查询如下： 其中，列名为id,name,pass,mail,phone，使用union查询 select 1,2,3,4,5 union select * from users; 接着，就可以继续使用数字来对应列,如3对应了表里面的pass: select `3` from (select 1,2,3,4,5 union select * from users)a; 当 ` 不能使用的时候，使用别名来代替： select b from (select 1,2,3 as b,4,5 union select * from users)a; 在注入中查询多个列： select concat(`2`,0x3a,`3`) from (select 1,2,3,4,5 union select * from users)a limit 1,1; FROM:https://blog.redforce.io/sqli-extracting-data-without-knowing-columns-names/]]></content>
+    <content type="text"><![CDATA[0x00 简介mysql版本,低于5.4的除了堆叠,别的就写不了了在 mysql =&gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS有表信息外，高版本的mysql中，还有INNODB_TABLES及INNODB_COLUMNS中记录着表结构。0x01 不使用表名查询正常的查询如下： 其中，列名为id,name,pass,mail,phone，使用union查询 select 1,2,3,4,5 union select * from users; 接着，就可以继续使用数字来对应列,如3对应了表里面的pass: select `3` from (select 1,2,3,4,5 union select * from users)a; 当 ` 不能使用的时候，使用别名来代替： select b from (select 1,2,3 as b,4,5 union select * from users)a; 在注入中查询多个列： select concat(`2`,0x3a,`3`) from (select 1,2,3,4,5 union select * from users)a limit 1,1; FROM:https://blog.redforce.io/sqli-extracting-data-without-knowing-columns-names/]]></content>
   </entry>
   <entry>
     <title><![CDATA[渗透过程中的SSH(后门建立)]]></title>
