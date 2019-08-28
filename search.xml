@@ -156,6 +156,7 @@
     <content type="text"><![CDATA[https://blog.csdn.net/silence1_/article/details/96135760 http://pupiles.com/shellcode.html命令执行的一些绕过技巧 ① 空格过滤空格可以用以下字符串代替：&lt; 、%09、$IFS$9、 ${IFS}等 $IFS在linux下表示分隔符，但是如果单纯的cat$IFS2,bash解释器会把整个IFS2当做变量名，所以导致输不出来结果，然而如果加一个{}就固定了变量名，同理在后面加个$可以起到截断的作用，但是为什么要用$9呢，因为$9只是当前系统shell进程的第九个参数的持有者，它始终为空字符串。 ② 一些命令分隔符%0a 符号、%0d 符号、; 符号、&amp; 符号、| 符号1、在 shell 中，担任”连续指令”功能的符号就是”;”2、”&amp;” 放在启动参数后面表示设置此进程为后台进程，默认情况下，进程是前台进程，这时就把Shell给占据了，我们无法进行其他操作，对于那些没有交互的进程，很多时候，我们希望将其在后台启动，可以在启动参数的时候加一个’&amp;’实现这个目的。3、管道符”|”左边命令的输出就会作为管道符右边命令的输入，所以左边的输出并不显示 ③ 黑名单绕过1、拼接绕过比如：a=l;b=s;$a$b 上面的第二道题目也是利用偶读拼接方法绕过黑名单：a=fl;b=ag;cat $a$b2、base64解码绕过比如：echo MTIzCg==|base64 -d 其将会打印1233、单引号和双引号绕过比如：ca&apos;&apos;t flag 或ca&quot;&quot;t flag4、反斜杠绕过比如：ca\t fl\ag④长度限制长度限制可以用文件构造的方式来绕过。linux下可以用 1&gt;a创建文件名为a的空文件ls -t&gt;test则会将目录按时间排序后写进test文件中sh命令可以从一个文件中读取命令来执行 利用这些特性，即可以成功绕过长度限制来执行命令。\ M 亲测有效浅谈CTF中命令执行与绕过的小技巧]]></content>
       <categories>
         <category>渗透技巧</category>
+        <category>渗透测试</category>
       </categories>
   </entry>
   <entry>
