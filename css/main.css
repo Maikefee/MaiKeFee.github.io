@@ -1890,7 +1890,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #5358fe;
+  background: #ffff75;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3231,10 +3231,6 @@ pre .javascript .function {
   margin-top: 10px;
   font-size: 13px;
   color: #fff;
-}
-body {
-  background: url("/images/ChMkJ1bKy-6IQcBdADkPevi70OEAALIwwJEUyMAOQ-S401.jpg");
-  background-attachment: cover;
 }
 .posts-expand .post-title-link::before {
   content: "";
