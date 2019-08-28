@@ -1890,7 +1890,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #172d86;
+  background: #a3dfbe;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3232,15 +3232,9 @@ pre .javascript .function {
   font-size: 13px;
   color: #fff;
 }
-.btn {
-  color: #49b1f5;
-  background: #fff;
-  border: 2px solid #49b1f5;
-}
-.btn:hover {
-  border-color: #49b1f5;
-  color: #fff;
-  background: #49b1f5;
+body {
+  background: url("/images/about.jpeg");
+  background-attachment: fixed;
 }
 .posts-expand .post-title-link::before {
   content: "";
