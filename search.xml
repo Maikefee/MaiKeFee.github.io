@@ -98,7 +98,7 @@
   <entry>
     <title><![CDATA[Thinkphp-漏洞列表]]></title>
     <url>%2Farchives%2Ff1b53e95.html</url>
-    <content type="text"><![CDATA[https://github.com/Maikefee/pochubs]]></content>
+    <content type="text"><![CDATA[####Thinkphp-漏洞列表: https://github.com/Maikefee/pochubs ####Thinkphp3.2.3最新版update注入漏洞 https://www.anquanke.com/post/id/104847 ####ThinkPHP5.0.10-3.2.3缓存函数设计缺陷可导致Getshell: https://xz.aliyun.com/t/99]]></content>
   </entry>
   <entry>
     <title><![CDATA[Linux通配符绕过文件名黑名单]]></title>
