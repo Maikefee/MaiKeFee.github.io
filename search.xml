@@ -146,6 +146,9 @@
       <categories>
         <category>常见CMS漏洞</category>
       </categories>
+      <tags>
+        <tag>常见CMS漏洞</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux通配符绕过文件名黑名单]]></title>
