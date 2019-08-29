@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://MaiKeFee.com/tags/index.html</loc>
+    
+    <lastmod>2019-08-29T03:59:14.703Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://MaiKeFee.com/categories/index.html</loc>
     
     <lastmod>2019-08-29T03:58:16.743Z</lastmod>
@@ -215,13 +222,6 @@
     <loc>http://MaiKeFee.com/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/index.html</loc>
     
     <lastmod>2019-08-27T14:34:08.153Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://MaiKeFee.com/tags/index.html</loc>
-    
-    <lastmod>2019-08-27T14:31:13.989Z</lastmod>
     
   </url>
   
