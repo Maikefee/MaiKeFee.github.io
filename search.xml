@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Structs全版本漏洞利用总结]]></title>
     <url>%2Farchives%2F91cb19b5.html</url>
-    <content type="text"><![CDATA[前言Structs2框架目前已知的漏洞编号如下：https://mmbiz.qpic.cn/mmbiz/fQ4PtepQmkpXZZETwkibRibOoTic6YACrODrGqXMKFrIh8e9TPdX4FQk1JdqvdVKXKgoyNvHSApfaCcPoAqn1GPgA/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1 S2-005 S2-009 S2-016 (含S2-013) S2-019 S2-020 S2-021 S2-032 S2-037（含S2-033) DevMode S2-045 S2-046 S2-048 S2-052 S2-055 S2-057 目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现.]]></content>
+    <content type="text"><![CDATA[前言Structs2框架目前已知的漏洞编号如下：https://mmbiz.qpic.cn/mmbiz/fQ4PtepQmkpXZZETwkibRibOoTic6YACrODrGqXMKFrIh8e9TPdX4FQk1JdqvdVKXKgoyNvHSApfaCcPoAqn1GPgA/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1 S2-005 S2-009 S2-016 (含S2-013) S2-019 S2-020 S2-021 S2-032 S2-037（含S2-033) DevMode S2-045 S2-046 S2-048 S2-052 S2-055 S2-057目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现.]]></content>
   </entry>
   <entry>
     <title><![CDATA[彻底理解Windows认证 - 议题解读]]></title>
