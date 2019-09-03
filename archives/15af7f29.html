@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="从以下URL关键字中寻找SSRF漏洞： share wap url link src source target u 3g display sourceURl imageURL domain ...http://127.0.0.1/ 被过滤的时候，可以尝试一下几种方式： 1、@ http://abc@127.0.0.12、添加端口号 http://127.0.0.1:80803、短地址 http:">
+<meta name="description" content="常见的未授权访问漏洞：Redis 未授权访问漏洞MongoDB 未授权访问漏洞Jenkins 未授权访问漏洞Memcached 未授权访问漏洞JBOSS 未授权访问漏洞VNC 未授权访问漏洞Docker 未授权访问漏洞ZooKeeper 未授权访问漏洞Rsync 未授权访问漏洞Atlassian Crowd 未授权访问漏洞CouchDB 未授权访问漏洞Elasticsearch 未授权访问漏洞Ha">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSRF中的绕过姿势">
-<meta property="og:url" content="http://MaiKeFee.com/archives/c0cf419.html">
+<meta property="og:title" content="常见未授权访问漏洞总结">
+<meta property="og:url" content="http://MaiKeFee.com/archives/15af7f29.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="从以下URL关键字中寻找SSRF漏洞： share wap url link src source target u 3g display sourceURl imageURL domain ...http://127.0.0.1/ 被过滤的时候，可以尝试一下几种方式： 1、@ http://abc@127.0.0.12、添加端口号 http://127.0.0.1:80803、短地址 http:">
+<meta property="og:description" content="常见的未授权访问漏洞：Redis 未授权访问漏洞MongoDB 未授权访问漏洞Jenkins 未授权访问漏洞Memcached 未授权访问漏洞JBOSS 未授权访问漏洞VNC 未授权访问漏洞Docker 未授权访问漏洞ZooKeeper 未授权访问漏洞Rsync 未授权访问漏洞Atlassian Crowd 未授权访问漏洞CouchDB 未授权访问漏洞Elasticsearch 未授权访问漏洞Ha">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-28T13:34:05.606Z">
+<meta property="og:updated_time" content="2019-09-03T09:05:49.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSRF中的绕过姿势">
-<meta name="twitter:description" content="从以下URL关键字中寻找SSRF漏洞： share wap url link src source target u 3g display sourceURl imageURL domain ...http://127.0.0.1/ 被过滤的时候，可以尝试一下几种方式： 1、@ http://abc@127.0.0.12、添加端口号 http://127.0.0.1:80803、短地址 http:">
+<meta name="twitter:title" content="常见未授权访问漏洞总结">
+<meta name="twitter:description" content="常见的未授权访问漏洞：Redis 未授权访问漏洞MongoDB 未授权访问漏洞Jenkins 未授权访问漏洞Memcached 未授权访问漏洞JBOSS 未授权访问漏洞VNC 未授权访问漏洞Docker 未授权访问漏洞ZooKeeper 未授权访问漏洞Rsync 未授权访问漏洞Atlassian Crowd 未授权访问漏洞CouchDB 未授权访问漏洞Elasticsearch 未授权访问漏洞Ha">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/c0cf419.html">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/15af7f29.html">
 
 
 
 
 
-  <title>SSRF中的绕过姿势 | MaiKeFee|</title>
+  <title>常见未授权访问漏洞总结 | MaiKeFee|</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/c0cf419.html">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/15af7f29.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaiKeFee">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SSRF中的绕过姿势</h1>
+          <h1 class="post-title" itemprop="name headline">常见未授权访问漏洞总结</h1>
         
 
         <div class="post-meta">
@@ -341,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:14:09+08:00">
-                2019-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T17:03:21+08:00">
+                2019-09-03
               </time>
             
 
@@ -357,34 +357,12 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T21:34:05+08:00">
-                2019-08-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T17:05:49+08:00">
+                2019-09-03
               </time>
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透技巧</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -394,8 +372,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/archives/c0cf419.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/c0cf419.html" itemprop="commentCount"></span>
+                <a href="/archives/15af7f29.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/15af7f29.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,7 +381,7 @@
 
           
           
-             <span id="/archives/c0cf419.html" class="leancloud_visitors" data-flag-title="SSRF中的绕过姿势">
+             <span id="/archives/15af7f29.html" class="leancloud_visitors" data-flag-title="常见未授权访问漏洞总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -429,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  212
+                  136
                 </span>
               
 
@@ -466,35 +444,8 @@
       
 
       
-        <p>从以下URL关键字中寻找SSRF漏洞：</p>
-<pre><code>share
-wap
-url
-link
-src
-source
-target
-u
-3g
-display
-sourceURl
-imageURL
-domain
-...</code></pre><p><a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a> 被过滤的时候，可以尝试一下几种方式：</p>
-<p>1、@</p>
-<pre><code>http://abc@127.0.0.1</code></pre><p>2、添加端口号</p>
-<pre><code>http://127.0.0.1:8080</code></pre><p>3、短地址</p>
-<pre><code>http://dwz.cn/11SMa</code></pre><p>4、可以指向任意ip的域名：xip.io</p>
-<pre><code>10.0.0.1.xip.io 10.0.0.1
+        <h1 id="常见的未授权访问漏洞："><a href="#常见的未授权访问漏洞：" class="headerlink" title="常见的未授权访问漏洞："></a>常见的未授权访问漏洞：</h1><h2 id="Redis-未授权访问漏洞"><a href="#Redis-未授权访问漏洞" class="headerlink" title="Redis 未授权访问漏洞"></a>Redis 未授权访问漏洞</h2><h2 id="MongoDB-未授权访问漏洞"><a href="#MongoDB-未授权访问漏洞" class="headerlink" title="MongoDB 未授权访问漏洞"></a>MongoDB 未授权访问漏洞</h2><h2 id="Jenkins-未授权访问漏洞"><a href="#Jenkins-未授权访问漏洞" class="headerlink" title="Jenkins 未授权访问漏洞"></a>Jenkins 未授权访问漏洞</h2><h2 id="Memcached-未授权访问漏洞"><a href="#Memcached-未授权访问漏洞" class="headerlink" title="Memcached 未授权访问漏洞"></a>Memcached 未授权访问漏洞</h2><h2 id="JBOSS-未授权访问漏洞"><a href="#JBOSS-未授权访问漏洞" class="headerlink" title="JBOSS 未授权访问漏洞"></a>JBOSS 未授权访问漏洞</h2><h2 id="VNC-未授权访问漏洞"><a href="#VNC-未授权访问漏洞" class="headerlink" title="VNC 未授权访问漏洞"></a>VNC 未授权访问漏洞</h2><h2 id="Docker-未授权访问漏洞"><a href="#Docker-未授权访问漏洞" class="headerlink" title="Docker 未授权访问漏洞"></a>Docker 未授权访问漏洞</h2><h2 id="ZooKeeper-未授权访问漏洞"><a href="#ZooKeeper-未授权访问漏洞" class="headerlink" title="ZooKeeper 未授权访问漏洞"></a>ZooKeeper 未授权访问漏洞</h2><h2 id="Rsync-未授权访问漏洞"><a href="#Rsync-未授权访问漏洞" class="headerlink" title="Rsync 未授权访问漏洞"></a>Rsync 未授权访问漏洞</h2><h2 id="Atlassian-Crowd-未授权访问漏洞"><a href="#Atlassian-Crowd-未授权访问漏洞" class="headerlink" title="Atlassian Crowd 未授权访问漏洞"></a>Atlassian Crowd 未授权访问漏洞</h2><h2 id="CouchDB-未授权访问漏洞"><a href="#CouchDB-未授权访问漏洞" class="headerlink" title="CouchDB 未授权访问漏洞"></a>CouchDB 未授权访问漏洞</h2><h2 id="Elasticsearch-未授权访问漏洞"><a href="#Elasticsearch-未授权访问漏洞" class="headerlink" title="Elasticsearch 未授权访问漏洞"></a>Elasticsearch 未授权访问漏洞</h2><h2 id="Hadoop-未授权访问漏洞"><a href="#Hadoop-未授权访问漏洞" class="headerlink" title="Hadoop 未授权访问漏洞"></a>Hadoop 未授权访问漏洞</h2><h2 id="Jupyter-Notebook-未授权访问漏洞"><a href="#Jupyter-Notebook-未授权访问漏洞" class="headerlink" title="Jupyter Notebook 未授权访问漏洞"></a>Jupyter Notebook 未授权访问漏洞</h2><p>原文:<a href="https://xz.aliyun.com/t/6103#toc-3" target="_blank" rel="noopener">常见的未授权访问漏洞</a></p>
 
-www.10.0.0.1.xip.io 10.0.0.1
-
-mysite.10.0.0.1.xip.io 10.0.0.1
-
-foo.bar.10.0.0.1.xip.io 10.0.0.1</code></pre><p>5、ip地址转换成进制来访问</p>
-<pre><code>115.239.210.26 ＝ 16373751032</code></pre><p>首先把这四段数字给 转成 16 进制！结果：73 ef d2 1a 然后把 73efd21a 这十六进制一起转换成8进制！访问使用<a href="http://00+转换后" target="_blank" rel="noopener">http://00+转换后</a><br>十六进制</p>
-<pre><code>115.239.210.26 = 0x73.0xef.0xd2.0x1a</code></pre><p>八进制</p>
-<pre><code>115.239.210.26 = 0163.0357.0322.0032</code></pre>
       
     </div>
     
@@ -522,7 +473,7 @@ foo.bar.10.0.0.1.xip.io 10.0.0.1</code></pre><p>5、ip地址转换成进制来�
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://MaiKeFee.com/archives/c0cf419.html" title="SSRF中的绕过姿势">http://MaiKeFee.com/archives/c0cf419.html</a>
+    <a href="http://MaiKeFee.com/archives/15af7f29.html" title="常见未授权访问漏洞总结">http://MaiKeFee.com/archives/15af7f29.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -544,8 +495,8 @@ foo.bar.10.0.0.1.xip.io 10.0.0.1</code></pre><p>5、ip地址转换成进制来�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/a90cd968.html" rel="next" title="不知道列名的情况下注入">
-                <i class="fa fa-chevron-left"></i> 不知道列名的情况下注入
+              <a href="/archives/452f04ea.html" rel="next" title="Win 提权技巧">
+                <i class="fa fa-chevron-left"></i> Win 提权技巧
               </a>
             
           </div>
@@ -553,10 +504,6 @@ foo.bar.10.0.0.1.xip.io 10.0.0.1</code></pre><p>5、ip地址转换成进制来�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/2ea7b633.html" rel="prev" title="「disablefunc绕过」一种绕过php disablefunc的方法复现">
-                「disablefunc绕过」一种绕过php disablefunc的方法复现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
           
@@ -613,8 +560,17 @@ foo.bar.10.0.0.1.xip.io 10.0.0.1</code></pre><p>5、ip地址转换成进制来�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -716,6 +672,22 @@ foo.bar.10.0.0.1.xip.io 10.0.0.1</code></pre><p>5、ip地址转换成进制来�
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的未授权访问漏洞："><span class="nav-number">1.</span> <span class="nav-text">常见的未授权访问漏洞：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-未授权访问漏洞"><span class="nav-number">1.1.</span> <span class="nav-text">Redis 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB-未授权访问漏洞"><span class="nav-number">1.2.</span> <span class="nav-text">MongoDB 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-未授权访问漏洞"><span class="nav-number">1.3.</span> <span class="nav-text">Jenkins 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcached-未授权访问漏洞"><span class="nav-number">1.4.</span> <span class="nav-text">Memcached 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JBOSS-未授权访问漏洞"><span class="nav-number">1.5.</span> <span class="nav-text">JBOSS 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VNC-未授权访问漏洞"><span class="nav-number">1.6.</span> <span class="nav-text">VNC 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-未授权访问漏洞"><span class="nav-number">1.7.</span> <span class="nav-text">Docker 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZooKeeper-未授权访问漏洞"><span class="nav-number">1.8.</span> <span class="nav-text">ZooKeeper 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rsync-未授权访问漏洞"><span class="nav-number">1.9.</span> <span class="nav-text">Rsync 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Atlassian-Crowd-未授权访问漏洞"><span class="nav-number">1.10.</span> <span class="nav-text">Atlassian Crowd 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CouchDB-未授权访问漏洞"><span class="nav-number">1.11.</span> <span class="nav-text">CouchDB 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elasticsearch-未授权访问漏洞"><span class="nav-number">1.12.</span> <span class="nav-text">Elasticsearch 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-未授权访问漏洞"><span class="nav-number">1.13.</span> <span class="nav-text">Hadoop 未授权访问漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Notebook-未授权访问漏洞"><span class="nav-number">1.14.</span> <span class="nav-text">Jupyter Notebook 未授权访问漏洞</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
