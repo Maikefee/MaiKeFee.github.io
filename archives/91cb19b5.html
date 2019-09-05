@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="前言Structs2框架目前已知的漏洞编号如下：S2-005  S2-009  S2-016 (含S2-013)  S2-019  S2-020  S2-021  S2-032  S2-037（含S2-033)  DevMode  S2-045  S2-046  S2-048  S2-052  S2-055  S2-057目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说">
+<meta name="description" content="前言Structs2框架目前已知的漏洞编号如下：S2-005  S2-009  S2-016 (含S2-013)  S2-019  S2-020  S2-021  S2-032  S2-037（含S2-033)  DevMode  S2-045  S2-046  S2-048  S2-052  S2-055  S2-057 目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Structs全版本漏洞利用总结">
 <meta property="og:url" content="http://MaiKeFee.com/archives/91cb19b5.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="前言Structs2框架目前已知的漏洞编号如下：S2-005  S2-009  S2-016 (含S2-013)  S2-019  S2-020  S2-021  S2-032  S2-037（含S2-033)  DevMode  S2-045  S2-046  S2-048  S2-052  S2-055  S2-057目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说">
+<meta property="og:description" content="前言Structs2框架目前已知的漏洞编号如下：S2-005  S2-009  S2-016 (含S2-013)  S2-019  S2-020  S2-021  S2-032  S2-037（含S2-033)  DevMode  S2-045  S2-046  S2-048  S2-052  S2-055  S2-057 目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T11:59:52.345Z">
+<meta property="og:updated_time" content="2019-09-05T02:24:29.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Structs全版本漏洞利用总结">
-<meta name="twitter:description" content="前言Structs2框架目前已知的漏洞编号如下：S2-005  S2-009  S2-016 (含S2-013)  S2-019  S2-020  S2-021  S2-032  S2-037（含S2-033)  DevMode  S2-045  S2-046  S2-048  S2-052  S2-055  S2-057目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说">
+<meta name="twitter:description" content="前言Structs2框架目前已知的漏洞编号如下：S2-005  S2-009  S2-016 (含S2-013)  S2-019  S2-020  S2-021  S2-032  S2-037（含S2-033)  DevMode  S2-045  S2-046  S2-048  S2-052  S2-055  S2-057 目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-03T19:59:52+08:00">
-                2019-09-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T10:24:29+08:00">
+                2019-09-05
               </time>
             
           </span>
@@ -494,7 +494,10 @@ S2-052
 
 S2-055
 
-S2-057</code></pre><h4 id="目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现"><a href="#目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现" class="headerlink" title="目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现."></a>目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现.</h4><p>原文:<a href="https://mp.weixin.qq.com/s?fontRatio=1&__biz=MzUyNTk1NDQ3Ng==&mid=2247484344&idx=1&sn=4408a0341b110f6eb707e05203d64f20&scene=94&subscene=315&passparam=searchid=17318145266004472006&ascene=0&devicetype=android-28&version=2700043b&nettype=WIFI&abtest_cookie=" target="_blank" rel="noopener">struct 2 全版本漏洞总结</a></p>
+S2-057</code></pre><ul>
+<li>目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现.</li>
+</ul>
+<p>原文:<a href="https://mp.weixin.qq.com/s?fontRatio=1&__biz=MzUyNTk1NDQ3Ng==&mid=2247484344&idx=1&sn=4408a0341b110f6eb707e05203d64f20&scene=94&subscene=315&passparam=searchid=17318145266004472006&ascene=0&devicetype=android-28&version=2700043b&nettype=WIFI&abtest_cookie=" target="_blank" rel="noopener">struct 2 全版本漏洞总结</a></p>
 
       
     </div>
@@ -739,7 +742,7 @@ S2-057</code></pre><h4 id="目前公开的工具，唯独缺失052和055的利�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Structs2框架目前已知的漏洞编号如下："><span class="nav-number">1.1.</span> <span class="nav-text">Structs2框架目前已知的漏洞编号如下：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现"><span class="nav-number">1.1.1.</span> <span class="nav-text">目前公开的工具，唯独缺失052和055的利用。S2-055比较特殊，严格来说055本身无问题，问题出在其使用的Jackson版本过低在进行JSON反序列化的时候没有任何类型过滤导致远程代码执行。也就是说S2-055本质上是Jackson反序列化，其CVE编号为CVE-2017-7525。本文将对缺失的S2-055以及S2-052做漏洞复现.</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Structs2框架目前已知的漏洞编号如下："><span class="nav-number">1.1.</span> <span class="nav-text">Structs2框架目前已知的漏洞编号如下：</span></a></li></ol></li></ol></div>
             
 
           </div>
