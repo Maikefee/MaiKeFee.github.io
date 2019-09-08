@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffed;
+  background: #fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3261,7 +3261,7 @@ pre .javascript .function {
   border-bottom: 1px solid #fc6423;
 }
 .post-toc .nav .nav-child {
-  display: block;
+  display: none;
 }
 .post-toc ol {
   font-size: 13px;
