@@ -95,7 +95,7 @@
 <meta property="og:description" content="在某公众号看到的,做个记录   替换空格的字符:    09 0A 0B 0C 0D A0 20 替换空格  数据库特性:   /!50000select/注释等方法绕过 黑名单过滤:  waf大致分为，软waf，硬件waf，云waf。他们的拦截方式可能都不一样，但是大体规则大致相同，也就是黑名单，白名单方式。 比如下面这种软waf是基于黑名单的，发现大部分常用函数都被过滤了:  基本bypas">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://maikefee.com/images/WXdhK.png">
-<meta property="og:updated_time" content="2019-09-05T03:46:02.128Z">
+<meta property="og:updated_time" content="2019-09-06T07:14:53.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无关键字进行SQL注入">
 <meta name="twitter:description" content="在某公众号看到的,做个记录   替换空格的字符:    09 0A 0B 0C 0D A0 20 替换空格  数据库特性:   /!50000select/注释等方法绕过 黑名单过滤:  waf大致分为，软waf，硬件waf，云waf。他们的拦截方式可能都不一样，但是大体规则大致相同，也就是黑名单，白名单方式。 比如下面这种软waf是基于黑名单的，发现大部分常用函数都被过滤了:  基本bypas">
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:46:02+08:00">
-                2019-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T15:14:53+08:00">
+                2019-09-06
               </time>
             
           </span>
@@ -509,7 +509,7 @@
 <ul>
 <li>常规获取表名姿势是:<br>通过information_schema，SCHEMATA，TABLES 等敏感词获取表名,但是一般情况下都被过滤了</li>
 </ul>
-<h2 id="mysql-自定义函数绕过"><a href="#mysql-自定义函数绕过" class="headerlink" title="mysql 自定义函数绕过:"></a>mysql 自定义函数绕过:</h2><pre><code>`select * from user where id=aaa()`</code></pre><h2 id="mysql-特定的内置函数绕过"><a href="#mysql-特定的内置函数绕过" class="headerlink" title="mysql 特定的内置函数绕过:"></a>mysql 特定的内置函数绕过:</h2><pre><code>payload： ?id=1%20and%20polygon(id)</code></pre><p>类似的函数还有:<br>    <code>linestring,multipoint,multilinestring,multipolygon</code></p>
+<h2 id="mysql-自定义函数绕过"><a href="#mysql-自定义函数绕过" class="headerlink" title="mysql 自定义函数绕过:"></a>mysql 自定义函数绕过:</h2><pre><code>select * from user where id=aaa()</code></pre><h2 id="mysql-特定的内置函数绕过"><a href="#mysql-特定的内置函数绕过" class="headerlink" title="mysql 特定的内置函数绕过:"></a>mysql 特定的内置函数绕过:</h2><pre><code>payload： ?id=1%20and%20polygon(id)</code></pre><p>类似的函数还有:<br>    <code>linestring,multipoint,multilinestring,multipolygon</code></p>
 <p>根据此文章做了一下记录和调整的笔记:<a href="https://mp.weixin.qq.com/s?__biz=MzA3ODgxNjQ2MA==&mid=2649356003&idx=1&sn=8088bf4c22474c6e6ee0b6ffc9115a9f&chksm=87a1a340b0d62a563dd698dd595ee7c4768a09533d235d4069ab776156bb269877568184c4f7&mpshare=1&scene=23&srcid=0227sLGuq5Zqx5HxKEDMvv9b#rd" target="_blank" rel="noopener">无关键字进行SQL注入</a></p>
 
       
@@ -540,7 +540,7 @@
   <p><span>本文标题:</span>无关键字进行SQL注入</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月05日</p>
-  <p><span>最后更新:</span>2019年09月05日</p>
+  <p><span>最后更新:</span>2019年09月06日</p>
   <p><span>原始链接:</span><a href="/archives/67b2bdd.html" title="无关键字进行SQL注入">http://MaiKeFee.com/archives/67b2bdd.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/67b2bdd.html" aria-label="复制成功！"></i></span>
   </p>
@@ -734,7 +734,7 @@
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="https://MaiKeFee.com/wooyun.html" target="_blank" title="乌云知识库">
+                    <a href="https://MaiKeFee.com/wooyun" target="_blank" title="乌云知识库">
                       
                         <i class="fa fa-fw fa-skype"></i>乌云知识库</a>
                   </span>
