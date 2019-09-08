@@ -316,6 +316,32 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/archives/b9ce30ce.html" itemprop="url">
+              
+                <span itemprop="name">后渗透之维护权限</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-09-09T00:40:29+08:00" content="2019-09-09">
+          09-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/archives/7356a0d2.html" itemprop="url">
               
                 <span itemprop="name">sqlmap注入之tamper绕过WAF脚本列表</span>
@@ -526,7 +552,7 @@
         
             <a class="post-title-link" href="/archives/f71d256c.html" itemprop="url">
               
-                <span itemprop="name">渗透工具库总纲</span>
+                <span itemprop="name">Pythton渗透测试工具库总纲</span>
               
             </a>
         
@@ -535,32 +561,6 @@
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-09-03T15:44:18+08:00" content="2019-09-03">
           09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/91cb19b5.html" itemprop="url">
-              
-                <span itemprop="name">Structs全版本漏洞利用总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-29T17:34:07+08:00" content="2019-08-29">
-          08-29
         </time>
       </div>
 
@@ -627,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +638,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -649,7 +649,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -705,6 +705,10 @@
         
         
           <li>
+            <a href="/archives/b9ce30ce.html" title="后渗透之维护权限" target="_blank">后渗透之维护权限</a>
+          </li>
+        
+          <li>
             <a href="/archives/2c24cfb2.html" title="Metasploit免杀payload笔记(持续更新)" target="_blank">Metasploit免杀payload笔记(持续更新)</a>
           </li>
         
@@ -718,10 +722,6 @@
         
           <li>
             <a href="/archives/5e06e84c.html" title="Access+Mssql+Mysql 手工注入基本流程" target="_blank">Access+Mssql+Mysql 手工注入基本流程</a>
-          </li>
-        
-          <li>
-            <a href="/archives/7356a0d2.html" title="sqlmap注入之tamper绕过WAF脚本列表" target="_blank">sqlmap注入之tamper绕过WAF脚本列表</a>
           </li>
         
       </ul>
@@ -1463,7 +1463,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("sqlmap注入之tamper绕过WAF脚本列表");titles.push("过安全狗waf注入方法技巧");titles.push("安全狗绕过");titles.push("常见古典密码及在线工具");titles.push("PHP常见绕过WAF方法汇总");titles.push("无关键字进行SQL注入");titles.push("网络设备的默认密码(交换机、路由器、安全设备)");titles.push("常见未授权访问漏洞总结");titles.push("渗透工具库总纲");titles.push("Structs全版本漏洞利用总结");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("后渗透之维护权限");titles.push("sqlmap注入之tamper绕过WAF脚本列表");titles.push("过安全狗waf注入方法技巧");titles.push("安全狗绕过");titles.push("常见古典密码及在线工具");titles.push("PHP常见绕过WAF方法汇总");titles.push("无关键字进行SQL注入");titles.push("网络设备的默认密码(交换机、路由器、安全设备)");titles.push("常见未授权访问漏洞总结");titles.push("Pythton渗透测试工具库总纲");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

