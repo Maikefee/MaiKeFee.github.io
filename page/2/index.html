@@ -312,6 +312,263 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/8833018e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/archives/8833018e.html" itemprop="url">内网渗透后门(一)：backdoor-factory</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T22:16:47+08:00">
+                2019-09-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T22:29:22+08:00">
+                2019-09-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/后渗透/" itemprop="url" rel="index">
+                    <span itemprop="name">后渗透</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/后渗透/内网渗透/" itemprop="url" rel="index">
+                    <span itemprop="name">内网渗透</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/后渗透/内网渗透/权限维持/" itemprop="url" rel="index">
+                    <span itemprop="name">权限维持</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/8833018e.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/8833018e.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/8833018e.html" class="leancloud_visitors" data-flag-title="内网渗透后门(一)：backdoor-factory">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  97
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+前提：拿下一台机器之后，需要持续控制，可以种一个后门
+
+kali里边有一款强大的工具——backdoor-factory，github地址：
+
+该软件的原理：可执行二进制文件中有大量的00，这些00是不包含数据的，将这些数据替换成payload，并且在程序执行的时候，jmp到代码段，来触发payl
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/archives/8833018e.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   <div>
+    
+ </div>
+     <div>
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+
+      
+ 
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/a9f133be.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2065,7 +2322,7 @@ n
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  988
+                  1k
                 </span>
               
 
@@ -2388,257 +2645,6 @@ if not defined C
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/5302ec6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/5302ec6.html" itemprop="url">MSF后渗透利用整理|MSF命令大全</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T23:20:24+08:00">
-                2019-09-08
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-09T14:38:35+08:00">
-                2019-09-09
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/工具篇/" itemprop="url" rel="index">
-                    <span itemprop="name">工具篇</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/工具篇/Metasploit/" itemprop="url" rel="index">
-                    <span itemprop="name">Metasploit</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/5302ec6.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/5302ec6.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/5302ec6.html" class="leancloud_visitors" data-flag-title="MSF后渗透利用整理|MSF命令大全">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  9
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          后渗透脚本知识
-权限维持、权限提升、内网渗透等
-
-
-内网渗透：信息搜集、读取用户hash、浏览器密码
-
-
-域渗透：获取域控的控制权
-
-Meterpreter基本概念
-Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后给我们返回一个控制通道，是metsploit后渗透必
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/5302ec6.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   <div>
-    
- </div>
-     <div>
-    
-</div>
-    
-
-    
-
-   
-
-  <footer class="post-footer">
-
-
-      
-
-      
- 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2691,7 +2697,7 @@ Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2769,6 +2775,10 @@ Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后�
         
         
           <li>
+            <a href="/archives/4289907f.html" title="文件隐藏 之 NTFS 交换数据流" target="_blank">文件隐藏 之 NTFS 交换数据流</a>
+          </li>
+        
+          <li>
             <a href="/archives/164b01be.html" title="利用 Navicat 自带的http隧道进行脱裤" target="_blank">利用 Navicat 自带的http隧道进行脱裤</a>
           </li>
         
@@ -2782,10 +2792,6 @@ Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后�
         
           <li>
             <a href="/archives/9ccf323f.html" title="Win_MySQL数据库提权之UDF和MOF提权原理及实现" target="_blank">Win_MySQL数据库提权之UDF和MOF提权原理及实现</a>
-          </li>
-        
-          <li>
-            <a href="/archives/46eda2dd.html" title="一键抓取目标机器上的所有明文密码" target="_blank">一键抓取目标机器上的所有明文密码</a>
           </li>
         
       </ul>
@@ -3527,7 +3533,7 @@ Meterpreter是Metasploit框架中的一个扩展模块，在攻击成 功以后�
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("windows下hash抓取的几种方式");titles.push("msf+cobaltstrike联动(二)：把cs中的机器spwan给msf");titles.push("msf+cobaltstrike联动(一)：把msf的session发给cobaltstrike");titles.push("Web渗透测试Fuzz字典分享");titles.push("Nmap_进阶使用[脚本篇]");titles.push("GreatSct_Win应用程序白名单bypass工具");titles.push("后渗透之维护权限");titles.push("Metasploit免杀payload笔记(持续更新)");titles.push("Win_telnet打造端口扫描工具");titles.push("MSF后渗透利用整理|MSF命令大全");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("内网渗透后门(一)：backdoor-factory");titles.push("windows下hash抓取的几种方式");titles.push("msf+cobaltstrike联动(二)：把cs中的机器spwan给msf");titles.push("msf+cobaltstrike联动(一)：把msf的session发给cobaltstrike");titles.push("Web渗透测试Fuzz字典分享");titles.push("Nmap_进阶使用[脚本篇]");titles.push("GreatSct_Win应用程序白名单bypass工具");titles.push("后渗透之维护权限");titles.push("Metasploit免杀payload笔记(持续更新)");titles.push("Win_telnet打造端口扫描工具");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
