@@ -316,6 +316,32 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/archives/5c55d41e.html" itemprop="url">
+              
+                <span itemprop="name">bypasswaf for mysql [数据库层面之特殊字符篇]</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-09-14T13:17:02+08:00" content="2019-09-14">
+          09-14
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/archives/4289907f.html" itemprop="url">
               
                 <span itemprop="name">文件隐藏 之 NTFS 交换数据流</span>
@@ -543,32 +569,6 @@
 
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
     </div>
 
   </div>
@@ -578,7 +578,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/渗透测试/知识科普/奇淫技巧/page/2/">2</a><a class="extend next" rel="next" href="/categories/渗透测试/知识科普/奇淫技巧/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/categories/渗透测试/知识科普/奇淫技巧/page/2/">2</a><a class="page-number" href="/categories/渗透测试/知识科普/奇淫技巧/page/3/">3</a><a class="extend next" rel="next" href="/categories/渗透测试/知识科普/奇淫技巧/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -627,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -705,6 +705,10 @@
         
         
           <li>
+            <a href="/archives/5c55d41e.html" title="bypasswaf for mysql [数据库层面之特殊字符篇]" target="_blank">bypasswaf for mysql [数据库层面之特殊字符篇]</a>
+          </li>
+        
+          <li>
             <a href="/archives/4289907f.html" title="文件隐藏 之 NTFS 交换数据流" target="_blank">文件隐藏 之 NTFS 交换数据流</a>
           </li>
         
@@ -718,10 +722,6 @@
         
           <li>
             <a href="/archives/59ee7291.html" title="如何利用Socat更方便地穿透目标内网" target="_blank">如何利用Socat更方便地穿透目标内网</a>
-          </li>
-        
-          <li>
-            <a href="/archives/9ccf323f.html" title="Win_MySQL数据库提权之UDF和MOF提权原理及实现" target="_blank">Win_MySQL数据库提权之UDF和MOF提权原理及实现</a>
           </li>
         
       </ul>
@@ -1463,7 +1463,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("文件隐藏 之 NTFS 交换数据流");titles.push("利用 Navicat 自带的http隧道进行脱裤");titles.push("利用win自带的 PSR 实现免杀截屏");titles.push("Sqlmap注入之tamper绕过WAF脚本列表");titles.push("过安全狗waf注入方法技巧");titles.push("WAF之安全狗绕过方法");titles.push("常见古典密码及在线工具");titles.push("PHP常见绕过WAF方法汇总");titles.push("「disablefunc绕过」一种绕过php disablefunc的方法复现");titles.push("不知道列名的情况下注入");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("bypasswaf for mysql [数据库层面之特殊字符篇]");titles.push("文件隐藏 之 NTFS 交换数据流");titles.push("利用 Navicat 自带的http隧道进行脱裤");titles.push("利用win自带的 PSR 实现免杀截屏");titles.push("Sqlmap注入之tamper绕过WAF脚本列表");titles.push("过安全狗waf注入方法技巧");titles.push("WAF之安全狗绕过方法");titles.push("常见古典密码及在线工具");titles.push("PHP常见绕过WAF方法汇总");titles.push("「disablefunc绕过」一种绕过php disablefunc的方法复现");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

