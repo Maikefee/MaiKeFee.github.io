@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="在很多时候拿到了内网的一台主机，我们需要用它做跳板来对内网进一步扩大战果。   也许方法很多，meterpreter，nc等等。但是最方便也最有可能穿透防火墙的方法，就是用ssh。  分为四种类型：本地转发，远程转发，跳板转发，动态转发。本地转发 假设攻击机A主机为本机，ip是y.y.y.y,用户是hacker，被攻击且用作跳板的主机是B，ip是x.x.x.x，对应的内网ip是10.0.0.2，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-11T14:29:22.738Z">
+<meta property="og:updated_time" content="2019-09-17T14:56:08.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ssh转发流量的四种姿势">
 <meta name="twitter:description" content="在很多时候拿到了内网的一台主机，我们需要用它做跳板来对内网进一步扩大战果。   也许方法很多，meterpreter，nc等等。但是最方便也最有可能穿透防火墙的方法，就是用ssh。  分为四种类型：本地转发，远程转发，跳板转发，动态转发。本地转发 假设攻击机A主机为本机，ip是y.y.y.y,用户是hacker，被攻击且用作跳板的主机是B，ip是x.x.x.x，对应的内网ip是10.0.0.2，">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T22:29:22+08:00">
-                2019-09-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T22:56:08+08:00">
+                2019-09-17
               </time>
             
           </span>
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  883
+                  896
                 </span>
               
 
@@ -520,11 +520,12 @@
 <p>以上两种转发，都是只对跳板服务器自身的服务，很多时候，渗透需要的是内网中一台稳定的跳板，<br>这时候就可以使用<br>跳板转发来实现多主机之间转发。<br>假设现在需要通过B主机作为跳板，来访问与B处于同一内网中的机器C的80端口，假设C的ip是<br>10.0.0.3,这时候可以在攻击机上执行如下命令：</p>
 </blockquote>
 <pre><code>ssh -g -L 8080:10.0.0.3:80 root@x.x.x.x </code></pre><p>此时在A主机上8080端口的流量就被转发到C主机的80端口上了。</p>
-<h2 id="动态转发"><a href="#动态转发" class="headerlink" title="动态转发"></a>动态转发</h2><p>最有用的就是最后要介绍的</p>
+<h2 id="动态转发-代理服务器"><a href="#动态转发-代理服务器" class="headerlink" title="动态转发(代理服务器)"></a>动态转发(代理服务器)</h2><p>配合proxychains,在博客搜索</p>
+<p>最有用的就是最后要介绍的</p>
 <blockquote>
 <p>动态转发，这种转发可以将流量随心所欲的转发，此时实现的效果就相当于代理服务器，在A机器<br>上用下面的命令实现：</p>
 </blockquote>
-<pre><code>ssh -D 8080 root@x.x.x.x </code></pre><p>此时在A机器上配置SOCKS代理端口localhost:8080,就可以以B为代理服务器随心所欲的畅游。<br>最后补充使用ssh进行X转发的命令，其实很简单：</p>
+<pre><code>ssh -D 1080 root@x.x.x.x </code></pre><p>此时在A机器上配置SOCKS代理端口localhost:1080,就可以以B为代理服务器随心所欲的畅游。<br>最后补充使用ssh进行X转发的命令，其实很简单：</p>
 <pre><code>ssh -X root@x.x.x.x </code></pre><p>这样连接上以后，目标机器的X服务器所做的操作都会通过x协议发送到本地，很方便的实现了可<br>视化操作。<br>例如在终端输入firefox，就可以在本地弹出一个实际上运行在远程的firefox进程。</p>
 
       
@@ -555,7 +556,7 @@
   <p><span>本文标题:</span>Ssh转发流量的四种姿势</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月11日</p>
-  <p><span>最后更新:</span>2019年09月11日</p>
+  <p><span>最后更新:</span>2019年09月17日</p>
   <p><span>原始链接:</span><a href="/archives/f69de167.html" title="Ssh转发流量的四种姿势">http://MaiKeFee.com/archives/f69de167.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/f69de167.html" aria-label="复制成功！"></i></span>
   </p>
@@ -691,7 +692,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -769,6 +770,10 @@
         
         
           <li>
+            <a href="/archives/d4bf78e9.html" title="V2ray实现科学上网" target="_blank">V2ray实现科学上网</a>
+          </li>
+        
+          <li>
             <a href="/archives/59bc6023.html" title="一键实现_强制通过VPN上网_VPN断线就断网" target="_blank">一键实现_强制通过VPN上网_VPN断线就断网</a>
           </li>
         
@@ -782,10 +787,6 @@
         
           <li>
             <a href="/archives/9ddcdbfc.html" title="利用Mysql特性_getshell" target="_blank">利用Mysql特性_getshell</a>
-          </li>
-        
-          <li>
-            <a href="/archives/4cc0d230.html" title="msfvenom 进阶" target="_blank">msfvenom 进阶</a>
           </li>
         
       </ul>
@@ -807,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分为四种类型："><span class="nav-number">1.</span> <span class="nav-text">分为四种类型：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地转发"><span class="nav-number">1.1.</span> <span class="nav-text">本地转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程转发"><span class="nav-number">1.2.</span> <span class="nav-text">远程转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳板转发"><span class="nav-number">1.3.</span> <span class="nav-text">跳板转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态转发"><span class="nav-number">1.4.</span> <span class="nav-text">动态转发</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分为四种类型："><span class="nav-number">1.</span> <span class="nav-text">分为四种类型：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地转发"><span class="nav-number">1.1.</span> <span class="nav-text">本地转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程转发"><span class="nav-number">1.2.</span> <span class="nav-text">远程转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳板转发"><span class="nav-number">1.3.</span> <span class="nav-text">跳板转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态转发-代理服务器"><span class="nav-number">1.4.</span> <span class="nav-text">动态转发(代理服务器)</span></a></li></ol></li></ol></div>
             
 
           </div>
