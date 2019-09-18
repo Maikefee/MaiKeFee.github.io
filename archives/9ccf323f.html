@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="前言: 不要为了读文章而读文章，一定要带着问题来读文章，勤思考。   很多年前的文章了,整理和分享做个记录写在博客.  UDF提权 关于UDF提权，也是现在比较常见的MySQL类提权方式之一。它的提权原理也非常简单！即是利用了root 高权限，创建带有调用cmd的函数的udf.dll动态链接库！这样一来我们就可以利用 system权限进行提权操作了！  在开始进行UDF提权前，我们有必要先了解下提">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T17:34:29.616Z">
+<meta property="og:updated_time" content="2019-09-18T17:43:57.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win_MySQL数据库提权之UDF和MOF提权原理及实现">
 <meta name="twitter:description" content="前言: 不要为了读文章而读文章，一定要带着问题来读文章，勤思考。   很多年前的文章了,整理和分享做个记录写在博客.  UDF提权 关于UDF提权，也是现在比较常见的MySQL类提权方式之一。它的提权原理也非常简单！即是利用了root 高权限，创建带有调用cmd的函数的udf.dll动态链接库！这样一来我们就可以利用 system权限进行提权操作了！  在开始进行UDF提权前，我们有必要先了解下提">
@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T01:34:29+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T01:43:57+08:00">
                 2019-09-19
               </time>
             
@@ -474,7 +474,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.9k
                 </span>
               
 
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -614,6 +614,22 @@ instance of __FilterToConsumerBinding
     Consumer   = $Consumer;
     Filter = $EventFilter;
 };</code></pre><h2 id="执行load-file及into-dumpfile把文件导出到正确的位置"><a href="#执行load-file及into-dumpfile把文件导出到正确的位置" class="headerlink" title="执行load_file及into dumpfile把文件导出到正确的位置"></a>执行load_file及into dumpfile把文件导出到正确的位置</h2><pre><code>select load_file(&apos;C:/wmpub/nullevt.mof&apos;) into dumpfile &apos;c:/windows/system32/wbem/mof/nullevt.mof&apos;</code></pre><h2 id="执行成功，查看用户-net-user"><a href="#执行成功，查看用户-net-user" class="headerlink" title="执行成功，查看用户(net user)"></a>执行成功，查看用户(net user)</h2><p>一个MySQL自动化提权工具：<a href="https://github.com/Maikefee/Python_FuckMySQL" target="_blank" rel="noopener">Github链接</a></p>
+<h1 id="CVE提权"><a href="#CVE提权" class="headerlink" title="CVE提权:"></a>CVE提权:</h1><h2 id="CVE-2016-6663和CVE-2016-6664"><a href="#CVE-2016-6663和CVE-2016-6664" class="headerlink" title="CVE-2016-6663和CVE-2016-6664"></a>CVE-2016-6663和CVE-2016-6664</h2><blockquote>
+<p>上面两种方式条件都太过严苛，应对一些新的系统就没有用武之地了，所以再介绍一下利用下面两个CVE配合起来提权的方式，相对需求条件要宽松的多，很多情况都可以成功提权。</p>
+</blockquote>
+<p>CVE-2016-6663<br>CVE-2016-6663是竞争条件（race condition）漏洞，它能够让一个低权限账号（拥有CREATE/INSERT/SELECT权限）提升权限并且以系统用户身份执行任意代码。也就是说，我们可以通过他得到一整个mysql的权限。</p>
+<p>CVE-2016-6664<br>CVE-2016-6664是root权限提升漏洞，这个漏洞可以让拥有MySQL系统用户权限的攻击者提升权限至root，以便进一步攻击整个系统。</p>
+<p>导致这个问题的原因其实是因为MySQL对错误日志以及其他文件的处理不够安全，这些文件可以被替换成任意的系统文件，从而被利用来获取root权限。</p>
+<p>可以看到，两个cve分别是用来将低权限的www-data权限提升为mysql权限，然后再将mysql提升为root权限</p>
+<p>CVE-2016-6663利用条件</p>
+<pre><code>1.已经getshell，获得www-data权限
+2.获取到一个拥有create,drop,insert,select权限的数据库账号，密码
+3.提权过程需要在交互式的shell环境中运行，所以需要反弹shell再提权
+4.Mysql&lt;5.5.51或&lt;5.6.32或&lt;5.7.14
+CVE-2016-6664利用条件
+1.目标主机配置必须是是基于文件的日志(默认配置)，也就是不能是syslog方式（通过cat /etc/mysql/conf.d/mysqld_safe_syslog.cnf查看没有包含“syslog”字样即可）
+2.需要在mysql权限下运行才能利用
+3.Mysql&lt;5.5.51或&lt;5.6.32或&lt;5.7.14</code></pre><p>地址:<br>    <a href="https://uuzdaisuki.com/2018/07/02/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">https://uuzdaisuki.com/2018/07/02/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83%E6%80%BB%E7%BB%93/</a></p>
 
       
     </div>
@@ -787,7 +803,7 @@ instance of __FilterToConsumerBinding
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -798,7 +814,7 @@ instance of __FilterToConsumerBinding
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -809,7 +825,7 @@ instance of __FilterToConsumerBinding
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -865,6 +881,14 @@ instance of __FilterToConsumerBinding
         
         
           <li>
+            <a href="/archives/64be7bf2.html" title="Python-多线程编程" target="_blank">Python-多线程编程</a>
+          </li>
+        
+          <li>
+            <a href="/archives/20b637dd.html" title="DES、AES和RSA加密算法" target="_blank">DES、AES和RSA加密算法</a>
+          </li>
+        
+          <li>
             <a href="/archives/547a1354.html" title="Python黑客编程之极速入门" target="_blank">Python黑客编程之极速入门</a>
           </li>
         
@@ -874,14 +898,6 @@ instance of __FilterToConsumerBinding
         
           <li>
             <a href="/archives/bd7dc526.html" title="Pwn入坑指南" target="_blank">Pwn入坑指南</a>
-          </li>
-        
-          <li>
-            <a href="/archives/e5c97f58.html" title="Hacking Tools 工具介绍" target="_blank">Hacking Tools 工具介绍</a>
-          </li>
-        
-          <li>
-            <a href="/archives/d4bf78e9.html" title="V2ray实现科学上网" target="_blank">V2ray实现科学上网</a>
           </li>
         
       </ul>
@@ -903,7 +919,7 @@ instance of __FilterToConsumerBinding
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UDF提权"><span class="nav-number">2.</span> <span class="nav-text">UDF提权</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动提权udf-sqlmap"><span class="nav-number">2.1.</span> <span class="nav-text">自动提权udf(sqlmap):</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#报错"><span class="nav-number">2.1.1.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">解决方法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">2.1.3.</span> <span class="nav-text">最后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手工提权"><span class="nav-number">2.2.</span> <span class="nav-text">手工提权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的命令"><span class="nav-number">2.3.</span> <span class="nav-text">用到的命令:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows下udf提权的条件"><span class="nav-number">2.4.</span> <span class="nav-text">windows下udf提权的条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-数据库版本为-5-0："><span class="nav-number">2.4.1.</span> <span class="nav-text">&lt; 数据库版本为 5.0：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-数据库版本为-5-1："><span class="nav-number">2.4.2.</span> <span class="nav-text">&gt; 数据库版本为 5.1：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用NTFS-ADS流创建lib、plugin文件夹："><span class="nav-number">2.5.</span> <span class="nav-text">使用NTFS ADS流创建lib、plugin文件夹：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dll的写入"><span class="nav-number">2.5.1.</span> <span class="nav-text">dll的写入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#udf-dll-来源-此dll用在webshell上传用"><span class="nav-number">2.5.2.</span> <span class="nav-text">udf.dll 来源(此dll用在webshell上传用):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接执行"><span class="nav-number">2.6.</span> <span class="nav-text">直接执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#擦除痕迹："><span class="nav-number">2.7.</span> <span class="nav-text">擦除痕迹：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用函数名："><span class="nav-number">2.8.</span> <span class="nav-text">常用函数名：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错-1"><span class="nav-number">2.9.</span> <span class="nav-text">报错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#udf导出失败"><span class="nav-number">2.9.1.</span> <span class="nav-text">udf导出失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法-1"><span class="nav-number">2.9.2.</span> <span class="nav-text">解决方法:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mof提权"><span class="nav-number">3.</span> <span class="nav-text">mof提权</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mof提权的原理"><span class="nav-number">3.1.</span> <span class="nav-text">mof提权的原理:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mof自动提权"><span class="nav-number">3.2.</span> <span class="nav-text">mof自动提权:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Msf直接mof提权"><span class="nav-number">3.2.1.</span> <span class="nav-text">Msf直接mof提权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动mof提权的过程"><span class="nav-number">3.3.</span> <span class="nav-text">手动mof提权的过程:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传mof到可写目录"><span class="nav-number">3.4.</span> <span class="nav-text">上传mof到可写目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行load-file及into-dumpfile把文件导出到正确的位置"><span class="nav-number">3.5.</span> <span class="nav-text">执行load_file及into dumpfile把文件导出到正确的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行成功，查看用户-net-user"><span class="nav-number">3.6.</span> <span class="nav-text">执行成功，查看用户(net user)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UDF提权"><span class="nav-number">2.</span> <span class="nav-text">UDF提权</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动提权udf-sqlmap"><span class="nav-number">2.1.</span> <span class="nav-text">自动提权udf(sqlmap):</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#报错"><span class="nav-number">2.1.1.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">解决方法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">2.1.3.</span> <span class="nav-text">最后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手工提权"><span class="nav-number">2.2.</span> <span class="nav-text">手工提权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的命令"><span class="nav-number">2.3.</span> <span class="nav-text">用到的命令:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows下udf提权的条件"><span class="nav-number">2.4.</span> <span class="nav-text">windows下udf提权的条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-数据库版本为-5-0："><span class="nav-number">2.4.1.</span> <span class="nav-text">&lt; 数据库版本为 5.0：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-数据库版本为-5-1："><span class="nav-number">2.4.2.</span> <span class="nav-text">&gt; 数据库版本为 5.1：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用NTFS-ADS流创建lib、plugin文件夹："><span class="nav-number">2.5.</span> <span class="nav-text">使用NTFS ADS流创建lib、plugin文件夹：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dll的写入"><span class="nav-number">2.5.1.</span> <span class="nav-text">dll的写入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#udf-dll-来源-此dll用在webshell上传用"><span class="nav-number">2.5.2.</span> <span class="nav-text">udf.dll 来源(此dll用在webshell上传用):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接执行"><span class="nav-number">2.6.</span> <span class="nav-text">直接执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#擦除痕迹："><span class="nav-number">2.7.</span> <span class="nav-text">擦除痕迹：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用函数名："><span class="nav-number">2.8.</span> <span class="nav-text">常用函数名：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错-1"><span class="nav-number">2.9.</span> <span class="nav-text">报错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#udf导出失败"><span class="nav-number">2.9.1.</span> <span class="nav-text">udf导出失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法-1"><span class="nav-number">2.9.2.</span> <span class="nav-text">解决方法:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mof提权"><span class="nav-number">3.</span> <span class="nav-text">mof提权</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mof提权的原理"><span class="nav-number">3.1.</span> <span class="nav-text">mof提权的原理:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mof自动提权"><span class="nav-number">3.2.</span> <span class="nav-text">mof自动提权:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Msf直接mof提权"><span class="nav-number">3.2.1.</span> <span class="nav-text">Msf直接mof提权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动mof提权的过程"><span class="nav-number">3.3.</span> <span class="nav-text">手动mof提权的过程:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传mof到可写目录"><span class="nav-number">3.4.</span> <span class="nav-text">上传mof到可写目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行load-file及into-dumpfile把文件导出到正确的位置"><span class="nav-number">3.5.</span> <span class="nav-text">执行load_file及into dumpfile把文件导出到正确的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行成功，查看用户-net-user"><span class="nav-number">3.6.</span> <span class="nav-text">执行成功，查看用户(net user)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CVE提权"><span class="nav-number">4.</span> <span class="nav-text">CVE提权:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CVE-2016-6663和CVE-2016-6664"><span class="nav-number">4.1.</span> <span class="nav-text">CVE-2016-6663和CVE-2016-6664</span></a></li></ol></li></ol></div>
             
 
           </div>
