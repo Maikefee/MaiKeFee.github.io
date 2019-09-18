@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="渗透测试,知识科普,奇淫技巧,社工,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,21 +86,16 @@
 
 
 
-<meta name="description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
-<meta name="keywords" content="渗透测试,知识科普,奇淫技巧,社工">
-<meta property="og:type" content="article">
-<meta property="og:title" content="邮箱伪造">
-<meta property="og:url" content="http://MaiKeFee.com/archives/368c71e.html">
+<meta name="description" content="一个兴趣使然的信息安全爱好者">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MaiKeFee|">
+<meta property="og:url" content="http://MaiKeFee.com/categories/编程开发/C语言/index.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
+<meta property="og:description" content="一个兴趣使然的信息安全爱好者">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://image.3001.net/images/20160106/14520619619752.png!small">
-<meta property="og:image" content="https://image.3001.net/images/20160106/14520626135791.png!small">
-<meta property="og:updated_time" content="2019-09-05T08:34:58.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="邮箱伪造">
-<meta name="twitter:description" content="钓鱼邮件初探：黑客是如何进行邮件伪造的？ 现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。 下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都">
-<meta name="twitter:image" content="https://image.3001.net/images/20160106/14520619619752.png!small">
+<meta name="twitter:title" content="MaiKeFee|">
+<meta name="twitter:description" content="一个兴趣使然的信息安全爱好者">
 
 
 
@@ -130,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/368c71e.html">
+  <link rel="canonical" href="http://MaiKeFee.com/categories/编程开发/C语言/">
 
 
 
 
 
-  <title>邮箱伪造 | MaiKeFee|</title>
+  <title>分类: C语言 | MaiKeFee|</title>
   
 
 
@@ -155,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
     
 <a href="https://github.com/MaiKeFee" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -302,289 +297,53 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>C语言<small>分类</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/368c71e.html">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/archives/c16f1d53.html" itemprop="url">
+              
+                <span itemprop="name">Linux-C网络编程</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">邮箱伪造</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T22:58:44+08:00">
-                2019-08-27
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-09-19T02:30:47+08:00" content="2019-09-19">
+          09-19
+        </time>
+      </div>
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T16:34:58+08:00">
-                2019-09-05
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/368c71e.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/368c71e.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/368c71e.html" class="leancloud_visitors" data-flag-title="邮箱伪造">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  702
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><a href="https://www.freebuf.com/sectool/92397.html" target="_blank" rel="noopener">钓鱼邮件初探：黑客是如何进行邮件伪造的？</a></p>
-<p>现如今的钓鱼邮件都是通过注册相似的邮箱，或者设置邮箱的显示名称，盼着被害人有看走眼的那一刻，轻信邮件的内容。这种方法需要一定的社工技巧，以及诱导性的语言来诱使被害人上钩。但是对于有一定的经验以及眼力的人来说，还是可以识破骗子的伎俩。</p>
-<p>下面我要介绍的这款工具可以最大程度的欺骗你的邮箱，更不要提你的眼睛。当然，此方法不是适用于任何邮箱，毕竟每种邮箱的过滤机制都不相同。gmail在这方面就做的不错。</p>
-<h1 id="Swaks-SMTP界的瑞士军刀"><a href="#Swaks-SMTP界的瑞士军刀" class="headerlink" title="Swaks - SMTP界的瑞士军刀"></a>Swaks - SMTP界的瑞士军刀</h1><p>基本用法：</p>
-<p>swaks –to &lt;要测试的邮箱&gt;         用来测试邮箱的连通性</p>
-<pre><code>root@kali:~# swaks --to xxxx@qq.com
-=== Trying mx3.qq.com:25...
-=== Connected to mx3.qq.com.
-&lt;-  220 newmx59.qq.com MX QQ Mail Server
- -&gt; EHLO kali
-&lt;-  250-newmx59.qq.com
-&lt;-  250-SIZE 73400320
-&lt;-  250-STARTTLS
-&lt;-  250 OK
- -&gt; MAIL FROM:&lt;root@kali&gt;
-&lt;-  250 Ok
- -&gt; RCPT TO:&lt;xxxx@qq.com&gt;
-&lt;-  250 Ok
- -&gt; DATA
-&lt;-  354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
- -&gt; Date: Tue, 05 Jan 2016 23:15:11 -0500
- -&gt; To: xxxx@qq.com
- -&gt; From: root@kali
- -&gt; Subject: test Tue, 05 Jan 2016 23:15:11 -0500
- -&gt; X-Mailer: swaks v20130209.0 jetmore.org/john/code/swaks/
- -&gt; 
- -&gt; This is a test mailing
- -&gt; 
- -&gt; .
-&lt;** 550 Mail content denied. http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=20022&amp;&amp;no=1000726
- -&gt; QUIT
-&lt;-  221 Bye
-=== Connection closed with remote host.</code></pre><p>前面都返回250ok，说明该邮箱存在，并且可以正常收信。最后可以看到qq邮箱返回550错误，qq官方给出的出错原因：该邮件内容涉嫌大量群发，并且被多数用户投诉为垃圾邮件。</p>
-<p>我们可以继续对邮件进行伪造，来绕过qq邮箱的判断</p>
-<p>比如：</p>
-<pre><code>swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;</code></pre><p>其中：</p>
-<pre><code>–from &lt;要显示的发件人邮箱&gt;
-
-–ehlo &lt;伪造的邮件ehlo头&gt;
-
-–body &lt;邮件正文&gt;
-
-–header &lt;邮件头信息，subject为邮件标题&gt;</code></pre><p>在你ip没有被qq邮箱band的情况下，邮件可以正常发送，返回250 ok。<br><img src="https://image.3001.net/images/20160106/14520619619752.png!small" alt="请输入图片描述"></p>
-<h3 id="高级用法："><a href="#高级用法：" class="headerlink" title="高级用法："></a>高级用法：</h3><p>使用swaks其实还可以进行更高级的邮件伪造，几乎可以伪造邮件中的每一个参数。</p>
-<p>–data &lt;源邮件&gt;</p>
-<p>首先，我们需要一份正常的邮件<br><img src="https://image.3001.net/images/20160106/14520626135791.png!small" alt="请输入图片描述"></p>
-<p>M亲测可用的伪造邮箱方法</p>
-<pre><code>swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;
-
-swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;
-
-swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello --header &quot;Subject: hello&quot;</code></pre>
-      
-    </div>
-    
-    
-    
-   <div>
-    
-    <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢阅读-------------</div>
-    
-</div>
-    
- </div>
-     <div>
-    
-        
-    
-</div>
-    
-
-    
-
-   
-
-  <footer class="post-footer">
-
-    
-      
-        <div class="post-tags">
-          
-            <a href="/tags/渗透测试/" rel="tag"><i class="fa fa-tag"></i> 渗透测试</a>
-          
-            <a href="/tags/知识科普/" rel="tag"><i class="fa fa-tag"></i> 知识科普</a>
-          
-            <a href="/tags/奇淫技巧/" rel="tag"><i class="fa fa-tag"></i> 奇淫技巧</a>
-          
-            <a href="/tags/社工/" rel="tag"><i class="fa fa-tag"></i> 社工</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/archives/f1b53e95.html" rel="next" title="Thinkphp_漏洞列表">
-                <i class="fa fa-chevron-left"></i> Thinkphp_漏洞列表
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/7bcebf52.html" rel="prev" title="WAF是如何被绕过的？SQL注入常见手法解密。">
-                WAF是如何被绕过的？SQL注入常见手法解密。 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-          
-        </div>
-      
- 
-      
-      
-    </footer>
-
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -592,13 +351,6 @@ swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello -
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -619,17 +371,8 @@ swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello -
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -752,22 +495,6 @@ swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello -
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Swaks-SMTP界的瑞士军刀"><span class="nav-number">1.</span> <span class="nav-text">Swaks - SMTP界的瑞士军刀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级用法："><span class="nav-number">1.0.1.</span> <span class="nav-text">高级用法：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -924,10 +651,6 @@ swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello -
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -1488,13 +1211,13 @@ swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello -
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = '邮箱伪造'.length > 0
+      var isPost = ''.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = '邮箱伪造'
+        var title = ''
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -1502,7 +1225,7 @@ swaks --to xxxx@qq.com --from info@freebuf.com --ehlo freebuf.com --body hello -
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("Linux-C网络编程");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
