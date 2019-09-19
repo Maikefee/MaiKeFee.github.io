@@ -88,14 +88,14 @@
 
 <meta name="description" content="Linux 流量转发的方案很多，iptables算是其中一种，还有HaProxy和SoCat，不过都有比较大的局限，例如HaProxy无法转发UDP，SoCat无法批量转发多个端口，但是单端口转发SoCat是个不错的选择。 既然要进行流量转发，那么首先要开启服务器的转发功能，打开控制台输入 vi /etc/sysctl.conf 然后找到 net.ipv4.ip_forward = 0 修改为 n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux&#x2F;Win进行流量转发">
+<meta property="og:title" content="Linux&#x2F;Win端口转发工具">
 <meta property="og:url" content="http://MaiKeFee.com/archives/d45f203f.html">
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="Linux 流量转发的方案很多，iptables算是其中一种，还有HaProxy和SoCat，不过都有比较大的局限，例如HaProxy无法转发UDP，SoCat无法批量转发多个端口，但是单端口转发SoCat是个不错的选择。 既然要进行流量转发，那么首先要开启服务器的转发功能，打开控制台输入 vi /etc/sysctl.conf 然后找到 net.ipv4.ip_forward = 0 修改为 n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-19T12:46:50.766Z">
+<meta property="og:updated_time" content="2019-09-19T16:49:56.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux&#x2F;Win进行流量转发">
+<meta name="twitter:title" content="Linux&#x2F;Win端口转发工具">
 <meta name="twitter:description" content="Linux 流量转发的方案很多，iptables算是其中一种，还有HaProxy和SoCat，不过都有比较大的局限，例如HaProxy无法转发UDP，SoCat无法批量转发多个端口，但是单端口转发SoCat是个不错的选择。 既然要进行流量转发，那么首先要开启服务器的转发功能，打开控制台输入 vi /etc/sysctl.conf 然后找到 net.ipv4.ip_forward = 0 修改为 n">
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <title>Linux/Win进行流量转发 | MaiKeFee|</title>
+  <title>Linux/Win端口转发工具 | MaiKeFee|</title>
   
 
 
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux/Win进行流量转发</h1>
+          <h1 class="post-title" itemprop="name headline">Linux/Win端口转发工具</h1>
         
 
         <div class="post-meta">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T20:46:50+08:00">
-                2019-09-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-20T00:49:56+08:00">
+                2019-09-20
               </time>
             
           </span>
@@ -436,7 +436,7 @@
 
           
           
-             <span id="/archives/d45f203f.html" class="leancloud_visitors" data-flag-title="Linux/Win进行流量转发">
+             <span id="/archives/d45f203f.html" class="leancloud_visitors" data-flag-title="Linux/Win端口转发工具">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  883
+                  946
                 </span>
               
 
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -506,7 +506,7 @@
 <blockquote>
 <p>执行 sysctl -p 来使更改生效。</p>
 </blockquote>
-<h2 id="iptables-转发"><a href="#iptables-转发" class="headerlink" title="iptables 转发"></a>iptables 转发</h2><blockquote>
+<h2 id="iptables-转发-自带"><a href="#iptables-转发-自带" class="headerlink" title="iptables 转发(自带)"></a>iptables 转发(自带)</h2><blockquote>
 <p>然后执行以下命令来添加iptables转发规则</p>
 </blockquote>
 <h3 id="单端口转发"><a href="#单端口转发" class="headerlink" title="单端口转发"></a>单端口转发</h3><pre><code>iptables -t nat -A PREROUTING -p tcp --dport [要转发的端口号] -j DNAT --to-destination [要转发的服务器IP]
@@ -516,7 +516,7 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
 <pre><code>iptables -t nat -A PREROUTING -p tcp --dport [要转发的端口段] -j DNAT --to-destination [要转发的服务器IP]
 iptables -t nat -A PREROUTING -p udp --dport [要转发的端口段] -j DNAT --to-destination [要转发的服务器IP]
 iptables -t nat -A POSTROUTING -p tcp -d [要转发的服务器IP] --dport [要转发的端口段] -j SNAT --to-source [本机IP]
-iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要转发的端口段] -j SNAT --to-source [本机IP]</code></pre><h3 id="最后保存规则和重启iptables服务"><a href="#最后保存规则和重启iptables服务" class="headerlink" title="最后保存规则和重启iptables服务"></a>最后保存规则和重启iptables服务</h3><pre><code>/etc/init.d/iptables save &amp;&amp; /etc/init.d/iptables restart</code></pre><h2 id="socat-转发"><a href="#socat-转发" class="headerlink" title="socat 转发"></a>socat 转发</h2><blockquote>
+iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要转发的端口段] -j SNAT --to-source [本机IP]</code></pre><h3 id="最后保存规则和重启iptables服务"><a href="#最后保存规则和重启iptables服务" class="headerlink" title="最后保存规则和重启iptables服务"></a>最后保存规则和重启iptables服务</h3><pre><code>/etc/init.d/iptables save &amp;&amp; /etc/init.d/iptables restart</code></pre><h2 id="socat-转发-自带"><a href="#socat-转发-自带" class="headerlink" title="socat 转发(自带)"></a>socat 转发(自带)</h2><blockquote>
 <p>socat是一个多功能的网络工具，名字来由是” Socket CAT”，可以看作是netcat的N倍加强版。</p>
 </blockquote>
 <p>socat是一个两个独立数据通道之间的双向数据传输的继电器。这些数据通道包含文件、管道、设备（终端或调制解调器等）、插座（Unix，IP4，IP6 - raw，UDP，TCP）、SSL、SOCKS4客户端或代理CONNECT。 </p>
@@ -529,11 +529,20 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
 <pre><code>socat TCP4-LISTEN:5555,reuseaddr,fork TCP4:192.168.1.1:3389</code></pre><blockquote>
 <p>入侵者主机执行：</p>
 </blockquote>
-<pre><code>mstsc 192.168.1.4 5555</code></pre><h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><blockquote>
+<pre><code>mstsc 192.168.1.4 5555</code></pre><h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="netsh-自带"><a href="#netsh-自带" class="headerlink" title="netsh(自带)"></a>netsh(自带)</h2><blockquote>
 <p>通过目标边界的A服务器的5555端口来访问内网192.168.1.1主机，具体如下[正向tcp端口转发]：</p>
 <p>先到边界肉鸡A（192.168.1.2）上执行如下转发</p>
 </blockquote>
-<h2 id="转发"><a href="#转发" class="headerlink" title="转发"></a>转发</h2><pre><code>netsh interface portproxy add v4tov4 listenport=5555 connectport=3389 connectaddress=192.168.1.1 protocol=tcp</code></pre><h2 id="查看端口转发规则"><a href="#查看端口转发规则" class="headerlink" title="查看端口转发规则"></a>查看端口转发规则</h2><pre><code>netsh interface portproxy dump</code></pre><h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><pre><code>netsh interface portproxy delete v4tov4 listenport=5555</code></pre>
+<h2 id="转发"><a href="#转发" class="headerlink" title="转发"></a>转发</h2><pre><code>netsh interface portproxy add v4tov4 listenport=5555 connectport=3389 connectaddress=192.168.1.1 protocol=tcp</code></pre><h2 id="查看端口转发规则"><a href="#查看端口转发规则" class="headerlink" title="查看端口转发规则"></a>查看端口转发规则</h2><pre><code>netsh interface portproxy dump</code></pre><h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><pre><code>netsh interface portproxy delete v4tov4 listenport=5555</code></pre><h2 id="lcx转发"><a href="#lcx转发" class="headerlink" title="lcx转发"></a>lcx转发</h2><pre><code>内网IP：192.168.153.138
+公网ip：192.168.153.140</code></pre><ol>
+<li><p>受害者：lcx.exe –slave 公网IP +端口 内网IP +端口</p>
+<p> lcx.exe –slave 192.168.153.140 4444 192.168.153.138 3389</p>
+</li>
+<li><p>攻击者(192.168.153.138)执行：</p>
+<p> lcx -listen 4444 5555</p>
+</li>
+</ol>
+
       
     </div>
     
@@ -559,11 +568,11 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>Linux/Win进行流量转发</p>
+  <p><span>本文标题:</span>Linux/Win端口转发工具</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月19日</p>
-  <p><span>最后更新:</span>2019年09月19日</p>
-  <p><span>原始链接:</span><a href="/archives/d45f203f.html" title="Linux/Win进行流量转发">http://MaiKeFee.com/archives/d45f203f.html</a>
+  <p><span>最后更新:</span>2019年09月20日</p>
+  <p><span>原始链接:</span><a href="/archives/d45f203f.html" title="Linux/Win端口转发工具">http://MaiKeFee.com/archives/d45f203f.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/d45f203f.html" aria-label="复制成功！"></i></span>
   </p>
   
@@ -698,7 +707,7 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -776,11 +785,15 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
         
         
           <li>
+            <a href="/archives/8cef4b76.html" title="webshell免杀套路" target="_blank">webshell免杀套路</a>
+          </li>
+        
+          <li>
             <a href="/archives/634bc943.html" title="ProxyChains实现自动添加代理逃避检测" target="_blank">ProxyChains实现自动添加代理逃避检测</a>
           </li>
         
           <li>
-            <a href="/archives/d45f203f.html" title="Linux/Win进行流量转发" target="_blank">Linux/Win进行流量转发</a>
+            <a href="/archives/d45f203f.html" title="Linux/Win端口转发工具" target="_blank">Linux/Win端口转发工具</a>
           </li>
         
           <li>
@@ -789,10 +802,6 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
         
           <li>
             <a href="/archives/91dac445.html" title="Python-GUI编程" target="_blank">Python-GUI编程</a>
-          </li>
-        
-          <li>
-            <a href="/archives/c16f1d53.html" title="Linux-C网络编程" target="_blank">Linux-C网络编程</a>
           </li>
         
       </ul>
@@ -814,7 +823,7 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables-转发"><span class="nav-number">1.1.</span> <span class="nav-text">iptables 转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单端口转发"><span class="nav-number">1.1.1.</span> <span class="nav-text">单端口转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口段转发"><span class="nav-number">1.1.2.</span> <span class="nav-text">端口段转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后保存规则和重启iptables服务"><span class="nav-number">1.1.3.</span> <span class="nav-text">最后保存规则和重启iptables服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socat-转发"><span class="nav-number">1.2.</span> <span class="nav-text">socat 转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-socat"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装 socat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#肉机执行："><span class="nav-number">1.2.2.</span> <span class="nav-text">肉机执行：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows"><span class="nav-number">2.</span> <span class="nav-text">Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转发"><span class="nav-number">2.1.</span> <span class="nav-text">转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看端口转发规则"><span class="nav-number">2.2.</span> <span class="nav-text">查看端口转发规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除命令"><span class="nav-number">2.3.</span> <span class="nav-text">删除命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables-转发-自带"><span class="nav-number">1.1.</span> <span class="nav-text">iptables 转发(自带)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单端口转发"><span class="nav-number">1.1.1.</span> <span class="nav-text">单端口转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口段转发"><span class="nav-number">1.1.2.</span> <span class="nav-text">端口段转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后保存规则和重启iptables服务"><span class="nav-number">1.1.3.</span> <span class="nav-text">最后保存规则和重启iptables服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socat-转发-自带"><span class="nav-number">1.2.</span> <span class="nav-text">socat 转发(自带)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-socat"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装 socat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#肉机执行："><span class="nav-number">1.2.2.</span> <span class="nav-text">肉机执行：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows"><span class="nav-number">2.</span> <span class="nav-text">Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#netsh-自带"><span class="nav-number">2.1.</span> <span class="nav-text">netsh(自带)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转发"><span class="nav-number">2.2.</span> <span class="nav-text">转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看端口转发规则"><span class="nav-number">2.3.</span> <span class="nav-text">查看端口转发规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除命令"><span class="nav-number">2.4.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lcx转发"><span class="nav-number">2.5.</span> <span class="nav-text">lcx转发</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1540,13 +1549,13 @@ iptables -t nat -A POSTROUTING -p udp -d [要转发的服务器IP] --dport [要�
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = 'Linux/Win进行流量转发'.length > 0
+      var isPost = 'Linux/Win端口转发工具'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = 'Linux/Win进行流量转发'
+        var title = 'Linux/Win端口转发工具'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
