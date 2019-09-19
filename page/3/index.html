@@ -312,6 +312,518 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/5c55d41e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/archives/5c55d41e.html" itemprop="url">bypasswaf for mysql [数据库层面之特殊字符篇]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T13:17:02+08:00">
+                2019-09-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-14T13:22:09+08:00">
+                2019-09-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇淫技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/数据库特性/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库特性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/5c55d41e.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/5c55d41e.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/5c55d41e.html" class="leancloud_visitors" data-flag-title="bypasswaf for mysql [数据库层面之特殊字符篇]">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  946
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          先准备好用于测试库表及数据:create database injection;
+use injection;
+CREATE TABLE IF NOT EXISTS `user`(
+    `id` INT UNSIGNED AUTO_INCREMENT,
+    `username` VARCHA
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/archives/5c55d41e.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   <div>
+    
+ </div>
+     <div>
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+
+      
+ 
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/4289907f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/archives/4289907f.html" itemprop="url">文件隐藏 之 NTFS 交换数据流</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T13:01:20+08:00">
+                2019-09-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-14T13:13:54+08:00">
+                2019-09-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇淫技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/Win特性/" itemprop="url" rel="index">
+                    <span itemprop="name">Win特性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/4289907f.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/4289907f.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/4289907f.html" class="leancloud_visitors" data-flag-title="文件隐藏 之 NTFS 交换数据流">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+不要为了读文章而读文章，一定要带着问题来读文章，勤思考。
+
+关于 NTFS 交换数据流
+NTFS 交换数据流属于NTFS文件系统独有的特性,在NTFS文件系统下,每个文件都可以存在多个数据流也就是说,除了主文件流之外,还可以有很多非主文件流寄宿在主文件流中,内部使用资源派生来维持与文件相关的信息虽
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/archives/4289907f.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   <div>
+    
+ </div>
+     <div>
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+
+      
+ 
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/164b01be.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1735,7 +2247,7 @@ UDF提权
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.6k
+                  2.5k
                 </span>
               
 
@@ -1751,7 +2263,7 @@ UDF提权
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16
+                  15
                 </span>
               
             </div>
@@ -1985,7 +2497,7 @@ UDF提权
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  505
+                  512
                 </span>
               
 
@@ -2328,522 +2840,6 @@ ew 快速穿透目标多级内网:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/f69de167.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/f69de167.html" itemprop="url">Ssh转发流量的四种姿势</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T22:22:12+08:00">
-                2019-09-11
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T22:56:08+08:00">
-                2019-09-17
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/" itemprop="url" rel="index">
-                    <span itemprop="name">后渗透</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/内网渗透/" itemprop="url" rel="index">
-                    <span itemprop="name">内网渗透</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/内网渗透/内网通道/" itemprop="url" rel="index">
-                    <span itemprop="name">内网通道</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/f69de167.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/f69de167.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/f69de167.html" class="leancloud_visitors" data-flag-title="Ssh转发流量的四种姿势">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  896
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-在很多时候拿到了内网的一台主机，我们需要用它做跳板来对内网进一步扩大战果。
-
-
-也许方法很多，meterpreter，nc等等。但是最方便也最有可能穿透防火墙的方法，就是用ssh。
-
-分为四种类型：本地转发，远程转发，跳板转发，动态转发。本地转发
-假设攻击机A主机为本机，ip是y.y.y.y,用户
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/f69de167.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   <div>
-    
- </div>
-     <div>
-    
-</div>
-    
-
-    
-
-   
-
-  <footer class="post-footer">
-
-
-      
-
-      
- 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/8833018e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/8833018e.html" itemprop="url">内网渗透后门(一)：backdoor-factory</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T22:16:47+08:00">
-                2019-09-11
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T22:29:22+08:00">
-                2019-09-11
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/" itemprop="url" rel="index">
-                    <span itemprop="name">后渗透</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/内网渗透/" itemprop="url" rel="index">
-                    <span itemprop="name">内网渗透</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/后渗透/内网渗透/权限维持/" itemprop="url" rel="index">
-                    <span itemprop="name">权限维持</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/8833018e.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/8833018e.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/8833018e.html" class="leancloud_visitors" data-flag-title="内网渗透后门(一)：backdoor-factory">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  97
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-前提：拿下一台机器之后，需要持续控制，可以种一个后门
-
-kali里边有一款强大的工具——backdoor-factory，github地址：
-
-该软件的原理：可执行二进制文件中有大量的00，这些00是不包含数据的，将这些数据替换成payload，并且在程序执行的时候，jmp到代码段，来触发payl
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/8833018e.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   <div>
-    
- </div>
-     <div>
-    
-</div>
-    
-
-    
-
-   
-
-  <footer class="post-footer">
-
-
-      
-
-      
- 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2896,7 +2892,7 @@ kali里边有一款强大的工具——backdoor-factory，github地址：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2974,6 +2970,14 @@ kali里边有一款强大的工具——backdoor-factory，github地址：
         
         
           <li>
+            <a href="/archives/634bc943.html" title="ProxyChains实现自动添加代理逃避检测" target="_blank">ProxyChains实现自动添加代理逃避检测</a>
+          </li>
+        
+          <li>
+            <a href="/archives/d45f203f.html" title="Linux/Win进行流量转发" target="_blank">Linux/Win进行流量转发</a>
+          </li>
+        
+          <li>
             <a href="/archives/58819fc3.html" title="Linux_x86_Pwn溢出漏洞" target="_blank">Linux_x86_Pwn溢出漏洞</a>
           </li>
         
@@ -2983,14 +2987,6 @@ kali里边有一款强大的工具——backdoor-factory，github地址：
         
           <li>
             <a href="/archives/c16f1d53.html" title="Linux-C网络编程" target="_blank">Linux-C网络编程</a>
-          </li>
-        
-          <li>
-            <a href="/archives/7ff34064.html" title="Python-正则表达式" target="_blank">Python-正则表达式</a>
-          </li>
-        
-          <li>
-            <a href="/archives/c0f9c454.html" title="Python-网络编程" target="_blank">Python-网络编程</a>
           </li>
         
       </ul>
@@ -3732,7 +3728,7 @@ kali里边有一款强大的工具——backdoor-factory，github地址：
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("利用 Navicat 自带的http隧道进行脱裤");titles.push("利用win自带的 PSR 实现免杀截屏");titles.push("如何利用Socat更方便地穿透目标内网");titles.push("Win_MySQL数据库提权之UDF和MOF提权原理及实现");titles.push("一键抓取目标机器上的所有明文密码");titles.push("基础命令使用[win篇]");titles.push("对CobaltStrikeDNS隧道的理解与实战");titles.push("利用Ew轻松穿透目标多级内网(思维导图待整理)");titles.push("Ssh转发流量的四种姿势");titles.push("内网渗透后门(一)：backdoor-factory");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("bypasswaf for mysql [数据库层面之特殊字符篇]");titles.push("文件隐藏 之 NTFS 交换数据流");titles.push("利用 Navicat 自带的http隧道进行脱裤");titles.push("利用win自带的 PSR 实现免杀截屏");titles.push("如何利用Socat更方便地穿透目标内网");titles.push("Win_MySQL数据库提权之UDF和MOF提权原理及实现");titles.push("一键抓取目标机器上的所有明文密码");titles.push("基础命令使用[win篇]");titles.push("对CobaltStrikeDNS隧道的理解与实战");titles.push("利用Ew轻松穿透目标多级内网(思维导图待整理)");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

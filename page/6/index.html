@@ -312,6 +312,515 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/3f60c38c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/archives/3f60c38c.html" itemprop="url">PHP常见绕过WAF方法汇总</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T20:06:26+08:00">
+                2019-09-08
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-08T22:31:22+08:00">
+                2019-09-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇淫技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/奇淫技巧/Php特性/" itemprop="url" rel="index">
+                    <span itemprop="name">Php特性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/3f60c38c.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/3f60c38c.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/3f60c38c.html" class="leancloud_visitors" data-flag-title="PHP常见绕过WAF方法汇总">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  547
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          常见绕过WAF的PHP:字符串变形
+大小写、编码、截取、替换、特殊字符拼接、null、回车、换行、特殊字符串干扰
+
+&lt;?php
+    $a = base64_decode(&quot;YXNzYXNz+00000____&quot;);
+    $a = substr_replace($a,
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/archives/3f60c38c.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   <div>
+    
+ </div>
+     <div>
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+
+      
+ 
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/67b2bdd.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MaiKeFee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaiKeFee|">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/archives/67b2bdd.html" itemprop="url">无关键字进行SQL注入</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-05T11:27:53+08:00">
+                2019-09-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T15:14:53+08:00">
+                2019-09-06
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
+                    <span itemprop="name">知识科普</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/知识科普/sql注入/" itemprop="url" rel="index">
+                    <span itemprop="name">sql注入</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/archives/67b2bdd.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/archives/67b2bdd.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/archives/67b2bdd.html" class="leancloud_visitors" data-flag-title="无关键字进行SQL注入">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  279
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在某公众号看到的,做个记录
+
+
+替换空格的字符:
+   09 0A 0B 0C 0D A0 20 替换空格
+
+数据库特性:
+  /!50000select/注释等方法绕过
+黑名单过滤:
+
+waf大致分为，软waf，硬件waf，云waf。他们的拦截方式可能都不一样，但是大体规则大致相同，也就是黑名单
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/archives/67b2bdd.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   <div>
+    
+ </div>
+     <div>
+    
+</div>
+    
+
+    
+
+   
+
+  <footer class="post-footer">
+
+
+      
+
+      
+ 
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/5d509f57.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -464,7 +973,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  709
+                  698
                 </span>
               
 
@@ -1418,7 +1927,7 @@ cat wordlist | thc-pptp-bruter -u zhaodg &lt
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -2203,493 +2712,6 @@ cat wordlist | thc-pptp-bruter -u zhaodg &lt
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/91cb19b5.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/91cb19b5.html" itemprop="url">Structs全版本漏洞利用总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T17:34:07+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:46:57+08:00">
-                2019-09-05
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
-                    <span itemprop="name">知识科普</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/91cb19b5.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/91cb19b5.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/91cb19b5.html" class="leancloud_visitors" data-flag-title="Structs全版本漏洞利用总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  171
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          前言Structs2框架目前已知的漏洞编号如下：S2-005
-
-S2-009
-
-S2-016 (含S2-013)
-
-S2-019
-
-S2-020
-
-S2-021
-
-S2-032
-
-S2-037（含S2-033)
-
-DevMode
-
-S2-045
-
-S2-046
-
-S2-048
-
-S2-052
-
-S2
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/91cb19b5.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   <div>
-    
- </div>
-     <div>
-    
-</div>
-    
-
-    
-
-   
-
-  <footer class="post-footer">
-
-
-      
-
-      
- 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://MaiKeFee.com/archives/58b20026.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MaiKeFee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/MaiKeFee_Logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MaiKeFee|">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/58b20026.html" itemprop="url">彻底理解Windows认证 - 议题解读</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T10:27:24+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T11:47:03+08:00">
-                2019-09-05
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/渗透测试/知识科普/" itemprop="url" rel="index">
-                    <span itemprop="name">知识科普</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/58b20026.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/58b20026.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/58b20026.html" class="leancloud_visitors" data-flag-title="彻底理解Windows认证 - 议题解读">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  20
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          彻底理解Windows认证 - 议题解读:原文:彻底理解window认证
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/58b20026.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   <div>
-    
- </div>
-     <div>
-    
-</div>
-    
-
-    
-
-   
-
-  <footer class="post-footer">
-
-
-      
-
-      
- 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2742,7 +2764,7 @@ S2
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2820,6 +2842,14 @@ S2
         
         
           <li>
+            <a href="/archives/634bc943.html" title="ProxyChains实现自动添加代理逃避检测" target="_blank">ProxyChains实现自动添加代理逃避检测</a>
+          </li>
+        
+          <li>
+            <a href="/archives/d45f203f.html" title="Linux/Win进行流量转发" target="_blank">Linux/Win进行流量转发</a>
+          </li>
+        
+          <li>
             <a href="/archives/58819fc3.html" title="Linux_x86_Pwn溢出漏洞" target="_blank">Linux_x86_Pwn溢出漏洞</a>
           </li>
         
@@ -2829,14 +2859,6 @@ S2
         
           <li>
             <a href="/archives/c16f1d53.html" title="Linux-C网络编程" target="_blank">Linux-C网络编程</a>
-          </li>
-        
-          <li>
-            <a href="/archives/7ff34064.html" title="Python-正则表达式" target="_blank">Python-正则表达式</a>
-          </li>
-        
-          <li>
-            <a href="/archives/c0f9c454.html" title="Python-网络编程" target="_blank">Python-网络编程</a>
           </li>
         
       </ul>
@@ -3578,7 +3600,7 @@ S2
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("反弹提权姿势集合&&部分免杀技巧");titles.push("Win杀软进程在线对比-提权辅助");titles.push("PPTP口令爆破");titles.push("网络设备的默认密码(交换机、路由器、安全设备)");titles.push("SQL_Sever手工注入及技术总结");titles.push("常见未授权访问漏洞总结");titles.push("Pythton渗透测试工具库总纲");titles.push("两步完成利用procdump64+mimikatz获取win用户密码");titles.push("Structs全版本漏洞利用总结");titles.push("彻底理解Windows认证 - 议题解读");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("PHP常见绕过WAF方法汇总");titles.push("无关键字进行SQL注入");titles.push("反弹提权姿势集合&&部分免杀技巧");titles.push("Win杀软进程在线对比-提权辅助");titles.push("PPTP口令爆破");titles.push("网络设备的默认密码(交换机、路由器、安全设备)");titles.push("SQL_Sever手工注入及技术总结");titles.push("常见未授权访问漏洞总结");titles.push("Pythton渗透测试工具库总纲");titles.push("两步完成利用procdump64+mimikatz获取win用户密码");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
