@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="前言: 不要为了读文章而读文章，一定要带着问题来读文章，勤思考。   很多年前的文章了,整理和分享做个记录写在博客.  UDF提权 关于UDF提权，也是现在比较常见的MySQL类提权方式之一。它的提权原理也非常简单！即是利用了root 高权限，创建带有调用cmd的函数的udf.dll动态链接库！这样一来我们就可以利用 system权限进行提权操作了！  在开始进行UDF提权前，我们有必要先了解下提">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T17:43:57.537Z">
+<meta property="og:updated_time" content="2019-09-21T03:33:51.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win_MySQL数据库提权之UDF和MOF提权原理及实现">
 <meta name="twitter:description" content="前言: 不要为了读文章而读文章，一定要带着问题来读文章，勤思考。   很多年前的文章了,整理和分享做个记录写在博客.  UDF提权 关于UDF提权，也是现在比较常见的MySQL类提权方式之一。它的提权原理也非常简单！即是利用了root 高权限，创建带有调用cmd的函数的udf.dll动态链接库！这样一来我们就可以利用 system权限进行提权操作了！  在开始进行UDF提权前，我们有必要先了解下提">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T01:43:57+08:00">
-                2019-09-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-21T11:33:51+08:00">
+                2019-09-21
               </time>
             
           </span>
@@ -523,7 +523,9 @@
 <li><p>在开始进行UDF提权前，我们有必要先了解下提权对象的系统版本及MySQL数据库的版本信息。因为对于不同的版本，操作手法也不近相同！</p>
 </li>
 </ul>
-<h2 id="自动提权udf-sqlmap"><a href="#自动提权udf-sqlmap" class="headerlink" title="自动提权udf(sqlmap):"></a>自动提权udf(sqlmap):</h2><pre><code>python sqlmap.py -d &quot;mysql://root:root@127.0.0.1:3306/mysql&quot;</code></pre><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><pre><code>[CRITICAL] sqlmap requires &apos;python-pymysql&apos; third-party library in order to directly connect to the DBMS &apos;MySQL&apos;. You can download it from &apos;https://github.com/petehunt/PyMySQL/&apos;. Alternative is to use a package &apos;python-sqlalchemy&apos; with support for dialect &apos;mysql&apos; installed</code></pre><ul>
+<h2 id="自动提权udf-sqlmap"><a href="#自动提权udf-sqlmap" class="headerlink" title="自动提权udf(sqlmap):"></a>自动提权udf(sqlmap):</h2><pre><code>python sqlmap.py -d &quot;mysql://root:root@127.0.0.1:3306/mysql&quot;
+
+python sqlmap.py -d &quot;mysql://root:root@127.0.0.1:3306/mysql&quot; --os-shell </code></pre><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><pre><code>[CRITICAL] sqlmap requires &apos;python-pymysql&apos; third-party library in order to directly connect to the DBMS &apos;MySQL&apos;. You can download it from &apos;https://github.com/petehunt/PyMySQL/&apos;. Alternative is to use a package &apos;python-sqlalchemy&apos; with support for dialect &apos;mysql&apos; installed</code></pre><ul>
 <li><p>是我没有安装Python连接Mysql用的第三方库python-pymysql</p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a>解决方法:</h3><pre><code>git clone https://github.com/petehunt/PyMySQL/
  cd PyMySQL/
@@ -659,7 +661,7 @@ CVE-2016-6664利用条件
   <p><span>本文标题:</span>Win_MySQL数据库提权之UDF和MOF提权原理及实现</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月13日</p>
-  <p><span>最后更新:</span>2019年09月19日</p>
+  <p><span>最后更新:</span>2019年09月21日</p>
   <p><span>原始链接:</span><a href="/archives/9ccf323f.html" title="Win_MySQL数据库提权之UDF和MOF提权原理及实现">http://MaiKeFee.com/archives/9ccf323f.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/9ccf323f.html" aria-label="复制成功！"></i></span>
   </p>
@@ -842,12 +844,6 @@ CVE-2016-6664利用条件
                     <a href="https://github.com/MaiKeFee" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:MaiKeFee@126.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
                 
                   <span class="links-of-author-item">

