@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="The article has been encrypted, please enter your password to view.">
+<meta name="description" content="背景 北京时间9月20日，杭州公安发布《杭州警方通报打击涉网违法犯罪暨‘净网2019’专项行动战果》一文，文章曝光了国内知名PHP调试环境程序集成包“PhpStudy软件”遭到黑客篡改并植入“后门”。截至案发，近百万PHP用户中超过67万用户已被黑客控制，并大肆盗取账号密码、聊天记录、设备码类等敏感数据多达10万多组，非法牟利600多万元。  在某群看到了Phpstudy 后门RCE的exp,刚好">
 <meta name="keywords" content="漏洞复现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Phpstudy(2016、2018版) 后门RCE的exp复现">
 <meta property="og:url" content="http://MaiKeFee.com/archives/62a9e9fc.html">
 <meta property="og:site_name" content="MaiKeFee|">
-<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
+<meta property="og:description" content="背景 北京时间9月20日，杭州公安发布《杭州警方通报打击涉网违法犯罪暨‘净网2019’专项行动战果》一文，文章曝光了国内知名PHP调试环境程序集成包“PhpStudy软件”遭到黑客篡改并植入“后门”。截至案发，近百万PHP用户中超过67万用户已被黑客控制，并大肆盗取账号密码、聊天记录、设备码类等敏感数据多达10万多组，非法牟利600多万元。  在某群看到了Phpstudy 后门RCE的exp,刚好">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T14:28:49.903Z">
+<meta property="og:image" content="http://maikefee.com/images/1f5a1.png">
+<meta property="og:image" content="http://maikefee.com/images/g45d1g.png">
+<meta property="og:image" content="http://maikefee.com/images/check_phpstudy.png">
+<meta property="og:updated_time" content="2019-09-23T14:38:07.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phpstudy(2016、2018版) 后门RCE的exp复现">
-<meta name="twitter:description" content="The article has been encrypted, please enter your password to view.">
+<meta name="twitter:description" content="背景 北京时间9月20日，杭州公安发布《杭州警方通报打击涉网违法犯罪暨‘净网2019’专项行动战果》一文，文章曝光了国内知名PHP调试环境程序集成包“PhpStudy软件”遭到黑客篡改并植入“后门”。截至案发，近百万PHP用户中超过67万用户已被黑客控制，并大肆盗取账号密码、聊天记录、设备码类等敏感数据多达10万多组，非法牟利600多万元。  在某群看到了Phpstudy 后门RCE的exp,刚好">
+<meta name="twitter:image" content="http://maikefee.com/images/1f5a1.png">
 
 
 
@@ -358,7 +362,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-23T22:28:49+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-23T22:38:07+08:00">
                 2019-09-23
               </time>
             
@@ -441,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  170
+                  221
                 </span>
               
 
@@ -478,20 +482,21 @@
       
 
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="Please enter the password to read the blog.">
-    <label for="pass">Please enter the password to read the blog.</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><blockquote>
+<p>北京时间9月20日，杭州公安发布《杭州警方通报打击涉网违法犯罪暨‘净网2019’专项行动战果》一文，文章曝光了国内知名PHP调试环境程序集成包“PhpStudy软件”遭到黑客篡改并植入“后门”。截至案发，近百万PHP用户中超过67万用户已被黑客控制，并大肆盗取账号密码、聊天记录、设备码类等敏感数据多达10万多组，非法牟利600多万元。</p>
+</blockquote>
+<p>在某群看到了Phpstudy 后门RCE的exp,刚好赶上热潮就复现一下做个笔记</p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>如图:</p>
+<p><img src="/images/1f5a1.png" alt></p>
+<h1 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h1><p>下面来复现漏洞,复现过程也比较简单</p>
+<p>拿起exp就是打</p>
+<p><img src="/images/g45d1g.png" alt></p>
+<p>get地址可以为任意存在php即可</p>
+<h1 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接:"></a>下载链接:</h1><p><a href="http://maikefee.com/data/phpstudy_rec_backdoor_check.py">传送门</a></p>
+<p>附上检测截图:</p>
+<p><img src="/images/check_phpstudy.png" alt>    </p>
+<p>参考:<br>    <a href="https://mp.weixin.qq.com/s/VuaJhp7vRkzEiE_8-6ecqA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/VuaJhp7vRkzEiE_8-6ecqA</a></p>
+
       
     </div>
     
@@ -633,8 +638,17 @@ U2FsdGVkX1+zvcv3MO9FlvqegrkLhig8N4rptBgVcjpKYTz1kZpxzVA4yQPft6bM91QkMa/ojll0whl/
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -751,6 +765,22 @@ U2FsdGVkX1+zvcv3MO9FlvqegrkLhig8N4rptBgVcjpKYTz1kZpxzVA4yQPft6bM91QkMa/ojll0whl/
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复现"><span class="nav-number">3.</span> <span class="nav-text">复现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载链接"><span class="nav-number">4.</span> <span class="nav-text">下载链接:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
