@@ -29,7 +29,7 @@ try:
         print "None!"
     pass
 except:
-    print("python phpstudy_rec_backdoor_check.py http://xxx.php  (xxx.php为任意存在的php文件)")
+    print("python phpstudy_rec_backdoor_check.py http://xxx.com/xxx.php  (xxx.php为任意存在的php文件)")
 
 
 
